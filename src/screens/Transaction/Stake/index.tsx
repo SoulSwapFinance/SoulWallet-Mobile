@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { StakingTab } from 'components/common/StakingTab';
 import { TokenSelectField } from 'components/Field/TokenSelect';
@@ -48,6 +48,8 @@ import useFetchChainState from 'hooks/screen/useFetchChainState';
 import i18n from 'utils/i18n/i18n';
 import { ModalRef } from 'types/modalRef';
 import { AccountSelector } from 'components/Modal/common/AccountSelector';
+import { WebRunnerContext } from 'providers/contexts';
+import { NoInternetAlertBox } from 'components/NoInternetAlertBox';
 
 export const Stake = ({
   route: {
@@ -67,6 +69,7 @@ export const Stake = ({
   const [isBalanceReady, setIsBalanceReady] = useState(true);
   const accountSelectorRef = useRef<ModalRef>();
   const tokenSelectorRef = useRef<ModalRef>();
+  const isNetConnected = useContext(WebRunnerContext).isNetConnected;
 
   const defaultStakingType: StakingType = useMemo(() => {
     if (isEthAdr) {
@@ -432,7 +435,7 @@ export const Stake = ({
                 subLogoKey={chain}
                 value={symbol}
                 showIcon
-                outerStyle={stakingChain !== ALL_KEY || !from || loading}
+                // outerStyle={stakingChain !== ALL_KEY || !from || loading}
               />
             )}
           />
@@ -484,6 +487,8 @@ export const Stake = ({
               {getMetaInfo()}
             </>
           )}
+
+          {!isNetConnected && <NoInternetAlertBox />}
         </ScrollView>
 
         <View style={{ paddingHorizontal: 16, paddingTop: 16, ...MarginBottomForSubmitButton }}>
