@@ -4,6 +4,7 @@ import { PredefinedDApps } from 'types/browser';
 import i18n from 'utils/i18n/i18n';
 
 export const DAppIconMap: Record<string, string> = {
+  'app.soulswap.finance': 'https://soulswap.finance/favicon.png',
   'kintsugi.interlay.io': 'https://kintsugi.interlay.io/kintsugi/apple-touch-icon.png',
   'kanaria.rmrk.app': 'https://rmrk-unrestricted.mypinata.cloud/ipfs/QmSkVkPiMsr1Ryu7122KHoAHqsCrgQCWthNniykLKqbA5H',
   'distribution.acala.network': 'https://avatars.githubusercontent.com/u/54881907?s=200&v=4',
@@ -16,6 +17,7 @@ export const DAppIconMap: Record<string, string> = {
 };
 
 export const DAppTitleMap: Record<string, string> = {
+  'app.soulswap.finance': 'Crosschain swaps, meta-aggregator, limit orders, and more.',
   'singular.app': 'Singular: Kusama-native NFTs #RMRK #NFT',
   'singular.rmrk.app': 'Singular: Kusama-native NFTs #RMRK #NFT',
   'kanaria.rmrk.app': 'KANARIA',
@@ -113,7 +115,6 @@ export const DAppTitleMap: Record<string, string> = {
   'blur.io': 'Blur: NFT Marketplace for Pro Traders',
   'app.1inch.io': '1inch - DeFi / DEX aggregator on Ethereum, Binance Smart Chain, Optimism, Polygon, Arbitrum',
   'chainlist.org': 'Chainlist',
-  'app.multichain.org': 'Multichain - Cross Chain Router Protocol',
   'www.portalbridge.com': 'Wormhole Bridge',
   'verse.bitcoin.com': 'Verse DEX',
 };
@@ -167,6 +168,15 @@ export const predefinedDApps: PredefinedDApps = {
     },
   ],
   dapps: [
+    {
+      name: 'SoulSwap',
+      icon: 'https://soulswap.finance/favicon.png',
+      id: 'app.soulswap.finance',
+      url: 'https://app.soulswap.finance/',
+      categories: ['defi'],
+      isSupportSubstrateAccount: false,
+      isSupportEthereumAccount: true,
+    },
     {
       name: 'ACE',
       icon: 'https://dotinsights.subwallet.app/assets/images/projects/ace.png',
@@ -309,15 +319,6 @@ export const predefinedDApps: PredefinedDApps = {
       url: 'https://app.moonfit.xyz/nft-sale',
       categories: ['defi'],
       isSupportSubstrateAccount: false,
-      isSupportEthereumAccount: false,
-    },
-    {
-      name: 'Multichain',
-      icon: 'https://dotinsights.subwallet.app/assets/images/projects/multichain.png',
-      id: 'app.multichain.org',
-      url: 'https://app.multichain.org/#/router',
-      categories: ['defi'],
-      isSupportSubstrateAccount: true,
       isSupportEthereumAccount: false,
     },
     {
