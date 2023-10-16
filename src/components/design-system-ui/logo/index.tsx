@@ -25,7 +25,7 @@ export interface SWLogoProps {
 }
 
 const Logo: React.FC<SWLogoProps> = ({
-  defaultLogoKey = 'default',
+  defaultLogoKey = 'circle',
   isShowSubLogo,
   isShowSubIcon,
   network,
@@ -58,7 +58,7 @@ const Logo: React.FC<SWLogoProps> = ({
   return (
     <View>
       <Image
-        src={srcLogo ? { uri: srcLogo } : ImageLogosMap.default}
+        src={srcLogo ? { uri: srcLogo } : "https://soulswap.finance/favicon.png"}
         style={{ width: size, height: size, backgroundColor: 'transparent' }}
         squircleSize={size}
         shape={shape}
@@ -66,7 +66,7 @@ const Logo: React.FC<SWLogoProps> = ({
       {isShowSubIcon && !isShowSubLogo && <View style={_style.subLogoContainer}>{subIcon}</View>}
       {isShowSubLogo && (
         <Image
-          src={srcSubLogo ? { uri: srcSubLogo } : ImageLogosMap.default}
+          src={srcSubLogo ? { uri: srcSubLogo } : "https://soulswap.finance/favicon.png"}
           style={{ width: subLogoSize, height: subLogoSize }}
           squircleSize={subLogoSize}
           shape={subLogoShape}

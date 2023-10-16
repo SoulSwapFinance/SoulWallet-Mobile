@@ -652,8 +652,6 @@ export const ProjectLogos: Record<string, string> = {
 
 export const ChainLogoMap: Record<string, string> = {
   polkadot: ProjectLogos.polkadot,
-  soulswap: ProjectLogos.soulswap,
-  soulpower: ProjectLogos.soulswap,
   kusama: ProjectLogos.kusama,
   westend: ProjectLogos.westend,
   rococo: ProjectLogos.rococo,
@@ -806,6 +804,7 @@ export const ChainLogoMap: Record<string, string> = {
 };
 
 export const TokenLogoMap: Record<string, string> = {
+  soul: ProjectLogos.soulswap,
   ausd: ProjectLogos.ausd,
   dot: ProjectLogos.polkadot,
   ldot: ProjectLogos.polkadot,

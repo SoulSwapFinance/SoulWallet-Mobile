@@ -36,7 +36,9 @@ export const TokenSelectField = ({
       <View style={styles.blockContent}>
         {!!value && (
           <>
-            <View style={styles.logoWrapper}>{getTokenLogo(logoKey, subLogoKey, label ? 20 : 24)}</View>
+            <View style={styles.logoWrapper}>
+              {getTokenLogo(logoKey, subLogoKey, label ? 20 : 24)}
+            </View>
             <Typography.Text ellipsis style={styles.text}>
               {value}
             </Typography.Text>

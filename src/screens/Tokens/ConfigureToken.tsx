@@ -165,7 +165,9 @@ export const ConfigureToken = ({
       disableRightButton={!tokenInfo || !(_isCustomAsset(tokenInfo?.slug || '') && _isSmartContractToken(tokenInfo))}>
       <View style={{ flex: 1, ...ContainerHorizontalPadding }}>
         <ScrollView style={{ width: '100%', flex: 1 }}>
-          <View style={styles.logoWrapper}>{getTokenLogo(tokenInfo?.symbol || '', undefined, 112)}</View>
+          <View style={styles.logoWrapper}>{
+          getTokenLogo(tokenInfo?.symbol || '', undefined, 112)
+          }</View>
           {!!tokenInfo?.symbol && <Typography.Text style={styles.symbol}>{tokenInfo.symbol}</Typography.Text>}
           {tagNode}
           <View style={{ height: theme.sizeLG }} />
