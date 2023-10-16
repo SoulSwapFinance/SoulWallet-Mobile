@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:mobile.subwallet.app</string>
+		<string>applinks:mobile.soulswap.finance</string>
 	</array>
 </dict>
 </plist>
