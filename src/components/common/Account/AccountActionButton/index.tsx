@@ -26,7 +26,8 @@ const AccountActionButton = ({ item }: Props) => {
   return (
     <Button
       size={'xl'}
-      type={item.key === 'create' ? 'primary' : 'secondary'}
+      type={'secondary'}
+      // type={item.key === 'create' ? 'primary' : 'secondary'}
       icon={
         <View style={{ paddingLeft: 8, paddingRight: 24 }}>
           <Icon phosphorIcon={item.icon} weight={'fill'} />
@@ -34,7 +35,8 @@ const AccountActionButton = ({ item }: Props) => {
       }
       onPress={item.onPress}
       style={{ marginBottom: 8 }}
-      contentAlign={'left'}>
+      contentAlign={'left'}
+      >
       <View style={{ flex: 1 }}>
         <Text numberOfLines={1} style={_style.titleStyle}>
           {item.title}

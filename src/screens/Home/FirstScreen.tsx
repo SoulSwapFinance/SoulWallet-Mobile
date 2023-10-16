@@ -47,6 +47,7 @@ const logoSubTextStyle: StyleProp<any> = {
   fontSize: 16,
   lineHeight: 24,
   ...FontMedium,
+  // subtitle
   color: 'rgba(255, 255, 255, 0.65)',
   paddingTop: 12,
 };
@@ -85,11 +86,11 @@ export const FirstScreen = () => {
   }, []);
 
   const onPressTermsCondition = () => {
-    Linking.openURL('https://docs.subwallet.app/main/privacy-and-security/terms-of-service');
+    Linking.openURL('https://docs.soulswap.finance/docs/faq/user-agreement');
   };
 
   const onPressPolicy = () => {
-    Linking.openURL('https://docs.subwallet.app/main/privacy-and-security/privacy-policy');
+    Linking.openURL('https://docs.soulswap.finance/docs/faq/privacy-policy');
   };
 
   const onCreate = useCallback(() => {
@@ -139,7 +140,7 @@ export const FirstScreen = () => {
               alignItems: 'center',
             }}>
             <Suspense>
-              <SVGImages.LogoGradient width={66} height={100} />
+              {/* <SVGImages.LogoGradient width={66} height={100} /> */}
             </Suspense>
             <Text style={logoTextStyle}>SoulWallet</Text>
             <Text style={logoSubTextStyle}>{i18n.title.slogan}</Text>

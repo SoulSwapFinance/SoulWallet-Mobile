@@ -73,7 +73,7 @@
       android:layout_marginEnd="0dp"
       android:layout_marginBottom="25dp"
       android:gravity="center_horizontal"
-      android:text="Terms &amp; Conditions and Privacy Policy"
+      android:text="User Agreement &amp; Privacy Policy"
       android:textAlignment="center"
       android:textColor="#D9FFFFFF" />
 </RelativeLayout>

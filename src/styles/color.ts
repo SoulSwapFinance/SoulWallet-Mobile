@@ -10,6 +10,7 @@ export const ColorMap = {
   backgroundDefault: '#0c0c0c',
   primary: '#42C59A',
   secondary: '#004BFF',
+  // purple: '#6901FD',
   danger: '#F5000E',
   disabled: '#999',
   warning: '#E7B917',
