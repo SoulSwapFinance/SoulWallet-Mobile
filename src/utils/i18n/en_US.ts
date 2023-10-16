@@ -244,7 +244,7 @@ export const en = {
     welcomeMessage: '',
     welcomeBackMessage: 'Enter your password to unlock wallet',
     createAccLabel: 'Create a new account',
-    createAccMessage: 'Create a new account with SubWallet',
+    createAccMessage: 'Create a new account with SoulWallet',
     importAccLabel: 'Import an account',
     importAccMessage: 'Import an existing account',
     attachAccLabel: 'Attach an account',
@@ -281,7 +281,7 @@ export const en = {
     importJsonMessage: 'Please enter the password you have used when creating your Polkadot.{js} account',
     accounts: 'Accounts',
     importPrivateKeyMessage: 'To import an existing wallet, please enter private key',
-    importQrCodeMessage1: 'Please make sure that you have granted SubWallet the access to your device’s camera',
+    importQrCodeMessage1: 'Please make sure that you have granted SoulWallet the access to your device’s camera',
     importQrCodeMessage2: 'Click the “Scan QR” button or read this instruction for more details',
     importAccounts: (number: string) => `Import ${number} accounts`,
   },
@@ -297,7 +297,7 @@ export const en = {
     connectPolkadotVaultMessage1: 'Open Polkadot Vault on your phone to connect wallet',
     connectPolkadotVaultMessage2:
       'Polkadot Vault will provide you with a QR code to scan. Read this instruction for more details.',
-    connectKeystoneMessage1: 'Open “Software Wallet” section on your Keystone and choose SubWallet',
+    connectKeystoneMessage1: 'Open “Software Wallet” section on your Keystone and choose SoulWallet',
     connectKeystoneMessage2:
       'Keystone will provide you with a QR code to scan. Read this instruction for more details.',
     scanQrCode: 'Scan QR code',
@@ -595,7 +595,7 @@ export const en = {
     cannotGetBalance: 'Can not get balance',
     enableTokenOnChain: (tokenNames: string, chainName: string) => `Please enable ${tokenNames} on ${chainName}`,
     disconnectModalMessage:
-      'Once you disconnect, you will no longer see this connection on SubWallet and on your DApp.',
+      'Once you disconnect, you will no longer see this connection on SoulWallet and on your DApp.',
     connectedNetworks: (chainLength: number) => `${chainLength} network(s)`,
     connectedNetworkConnected: (chainLength: number) => `${chainLength} networks connected`,
     connectedAccounts: (accountItemsLength: number) => `${accountItemsLength} account connected`,
@@ -904,7 +904,7 @@ export const en = {
     siteConnected: 'Your following account(s) are connected to this site',
     siteNotConnected: 'Not connected to this site',
     siteNotConnectedMessage:
-      'SubWallet is not connected to this site. Please find and press in the website the "Connect Wallet" button to connect',
+      'SoulWallet is not connected to this site. Please find and press in the website the "Connect Wallet" button to connect',
     siteBlocked: 'This site has been blocked',
     siteBlockedMessage: 'This site has been previously blocked. Do you wish to unblock and grant access to it?',
   },
@@ -1033,7 +1033,7 @@ export const en = {
     noProviderAvailable: 'No provider available',
     qrCodeNotSupport:
       'QR code not supported, please make sure you are scanning a transaction from a supported software.',
-    noNetwork: 'SubWallet does not currently recognize a chain with genesis hash, please add the network first',
+    noNetwork: 'SoulWallet does not currently recognize a chain with genesis hash, please add the network first',
     noSenderFound: 'There is no related account in the app',
     externalAccount: 'There is external account',
     framesToBig: 'Frames number is too big, the QR seems not to be a recognized extrinsic raw data',

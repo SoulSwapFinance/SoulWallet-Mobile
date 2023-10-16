@@ -93,7 +93,7 @@ if (process.argv.indexOf('--ios') > -1) {
   console.log('Build ios')
   await notify('Start build iOS')
   await runBuildIOS()
-  await uploadBuild(path.resolve(process.cwd(), 'ios/dist/SubWallet.xcarchive'), `subwallet-mobile-v${packageInfo.version}-b${packageInfo.build}-${timeLabel}.xcarchive`)
+  await uploadBuild(path.resolve(process.cwd(), 'ios/dist/SoulWallet.xcarchive'), `subwallet-mobile-v${packageInfo.version}-b${packageInfo.build}-${timeLabel}.xcarchive`)
   await notify('Finish build iOS')
 
   if (process.argv.indexOf('--release') > -1) {

@@ -89,8 +89,8 @@ predefinedDApps.dapps.forEach(s => {
 });
 
 export const DAppScript = `(function () {
-  if (window.SubWallet) {
-    window.SubWallet.isMetaMask = true;
+  if (window.SoulWallet) {
+    window.SoulWallet.isMetaMask = true;
   }
 
   if (window.ethereum) {
@@ -143,7 +143,7 @@ export const DAppScript = `(function () {
   window.injectedWeb3['polkadot-js'] = window.injectedWeb3['subwallet-js'];
 
   if (${JSON.stringify(autoTriggerEthereumHosts)}.includes(hostName)) {
-    window.SubWallet?.enable().catch(e => console.log(e));
+    window.SoulWallet?.enable().catch(e => console.log(e));
   }
 
   if (${JSON.stringify(autoTriggerSubstrateHosts)}.includes(hostName)) {

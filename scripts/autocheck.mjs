@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Copyright 2017-2022 SubWallet
+// Copyright 2017-2022 SoulWallet
 // SPDX-License-Identifier: Apache-2.0
 import {commitMessage, discordHook, execSync, refName} from "./common.mjs";
 

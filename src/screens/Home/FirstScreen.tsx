@@ -141,7 +141,7 @@ export const FirstScreen = () => {
             <Suspense>
               <SVGImages.LogoGradient width={66} height={100} />
             </Suspense>
-            <Text style={logoTextStyle}>SubWallet</Text>
+            <Text style={logoTextStyle}>SoulWallet</Text>
             <Text style={logoSubTextStyle}>{i18n.title.slogan}</Text>
           </View>
 

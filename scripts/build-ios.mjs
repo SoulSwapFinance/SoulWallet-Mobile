@@ -23,11 +23,11 @@ async function runCleanIOS() {
 }
 
 async function runBuildIOS() {
-  return execSync('xcodebuild -workspace ./SoulWalletMobile.xcworkspace -scheme SoulWalletMobile -sdk iphoneos -configuration Release -quiet -archivePath $PWD/dist/SubWallet.xcarchive clean archive', 'Build Archive');
+  return execSync('xcodebuild -workspace ./SoulWalletMobile.xcworkspace -scheme SoulWalletMobile -sdk iphoneos -configuration Release -quiet -archivePath $PWD/dist/SoulWallet.xcarchive clean archive', 'Build Archive');
 }
 
 async function runExportIOS() {
-  return execSync('xcodebuild -exportArchive -archivePath $PWD/dist/SubWallet.xcarchive -exportOptionsPlist exportAdhocOptions.plist -exportPath $PWD/dist', 'Export ipa');
+  return execSync('xcodebuild -exportArchive -archivePath $PWD/dist/SoulWallet.xcarchive -exportOptionsPlist exportAdhocOptions.plist -exportPath $PWD/dist', 'Export ipa');
 }
 
 async function runUploadIOS() {

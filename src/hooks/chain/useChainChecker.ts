@@ -1,4 +1,4 @@
-// Copyright 2019-2023 Koniverse/SubWallet-mobile authors & contributors
+// Copyright 2019-2023 SoulSwapFinance/SoulWallet-mobile authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import { useEffect, useRef, useState } from 'react';

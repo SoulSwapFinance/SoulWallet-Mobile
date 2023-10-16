@@ -543,7 +543,7 @@
 				DEVELOPMENT_TEAM = 9LR8Z8UQ9X;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SoulWalletMobile/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SoulSwapWallet;
+				INFOPLIST_KEY_CFBundleDisplayName = SoulWallet;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -575,7 +575,7 @@
 				CURRENT_PROJECT_VERSION = 209;
 				DEVELOPMENT_TEAM = 9LR8Z8UQ9X;
 				INFOPLIST_FILE = SoulWalletMobile/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SubWallet;
+				INFOPLIST_KEY_CFBundleDisplayName = SoulWallet;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

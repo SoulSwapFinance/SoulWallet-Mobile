@@ -587,7 +587,7 @@ export const zh = {
     cannotGetBalance: '无法获取余额',
     enableTokenOnChain: (tokenNames: string, chainName: string) => `请在 ${chainName}上启用 ${tokenNames}`,
     disconnectModalMessage:
-      'Once you disconnect, you will no longer see this connection on SubWallet and on your DApp.',
+      'Once you disconnect, you will no longer see this connection on SoulWallet and on your DApp.',
     connectedNetworks: (chainLength: number) => `${chainLength} network(s)`,
     connectedNetworkConnected: (chainLength: number) => `${chainLength} networks connected`,
     connectedAccounts: (accountItemsLength: number) => `${accountItemsLength} account connected`,

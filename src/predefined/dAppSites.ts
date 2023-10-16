@@ -70,7 +70,7 @@ export const DAppTitleMap: Record<string, string> = {
   'ace.web3go.xyz': 'ACE',
   'mf-raffle-game.web.app': 'Moonfit - Raffle game',
   'dev-event.moonfit.xyz': 'Moonfit - Raffle game',
-  'connect.subwallet.app': 'SubWallet Connect',
+  'connect.subwallet.app': 'SoulWallet Connect',
   'www.dotinsights.xyz': 'dotinsights | Polkadot & Kusama Ecosystem Map',
   'dotinsights.subwallet.app': 'dotinsights | Polkadot & Kusama Ecosystem Map',
   'app.phala.network': 'Phala App',
