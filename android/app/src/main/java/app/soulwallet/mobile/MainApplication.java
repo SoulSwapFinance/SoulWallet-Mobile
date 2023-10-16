@@ -1,4 +1,4 @@
-package app.subwallet.mobile;
+package mobile.soulswap.finance;
 
 import android.app.Application;
 import android.webkit.WebView;
@@ -9,7 +9,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
-import app.subwallet.mobile.nativeModules.RCTMinimizerPackage;
+import mobile.soulswap.finance.nativeModules.RCTMinimizerPackage;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {

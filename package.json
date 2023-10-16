@@ -20,7 +20,8 @@
     "ios": "react-native run-ios",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "watch:restart": "watchman shutdown-server && watchman watch-del-all"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",

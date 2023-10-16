@@ -1,4 +1,4 @@
-package app.subwallet.mobile;
+package mobile.soulswap.finance;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
