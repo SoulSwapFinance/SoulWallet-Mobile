@@ -18,6 +18,7 @@ import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
 import i18n from 'utils/i18n/i18n';
+import isaac from 'isaac';
 import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight';
 
 interface HeaderProps {
@@ -65,7 +66,7 @@ const SectionList: React.FC<SectionListProps> = ({ data, renderItem }): JSX.Elem
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={stylesheet.recommendListContentContainer}>
       {data.map(item => (
-        <View key={Math.random()} style={stylesheet.recommendListSeparator}>
+        <View key={isaac.random()} style={stylesheet.recommendListSeparator}>
           {item.data.map(item2 => renderItem(item2))}
         </View>
       ))}

@@ -21,3 +21,9 @@ There are 2 reasons why we do this:
   - Run `yarn android`
 - IOS
   - Run `yarn ios` to start development
+
+## iOS Development
+- Install pods for iOS
+  > `cd ios && pod install`
+- Run in iOS Simulator
+  > `yarn ios`

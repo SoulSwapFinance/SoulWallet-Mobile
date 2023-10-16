@@ -1,6 +1,7 @@
 import BigNumber from 'bignumber.js';
 import BigN from 'bignumber.js';
 import { AmountData } from '@subwallet/extension-base/background/KoniTypes';
+import isaac from 'isaac';
 
 // 1000.12345 -> 1,000; 1000,654321 -> 1,001
 export const formatLocaleNumber = (number: number, digits?: number): string => {
@@ -36,7 +37,7 @@ export const convertToSimpleNumber = (value: number, decimals: number): string =
 };
 
 export function randomIntFromInterval(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(isaac.random() * (max - min + 1) + min);
 }
 
 // Number from @subwallet-react-ui

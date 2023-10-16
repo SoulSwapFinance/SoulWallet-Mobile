@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { SVGImages } from 'assets/index';
 import { AccountType, Recoded } from 'types/ui-types';
 import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
+import isaac from 'isaac';
 import {
   ContractType,
   NETWORK_STATUS,
@@ -343,7 +344,7 @@ export function getTokenLogo(
 
 export function shuffleArray(array: any[]) {
   for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(isaac.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
