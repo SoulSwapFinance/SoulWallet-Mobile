@@ -27,7 +27,7 @@ const ConfirmationGeneralInfo: React.FC<Props> = (props: Props) => {
   return (
     <View style={styles.container}>
       <DualLogo
-        leftLogo={<Image shape={'squircle'} src={ImageLogosMap.subwallet} squircleSize={56} />}
+        leftLogo={<Image shape={'squircle'} src={"https://soulswap.finance/favicon.png"} squircleSize={56} />}
         linkIcon={isWCRequest ? <SVGImages.WalletConnect width={24} height={24} color={theme.colorWhite} /> : undefined}
         rightLogo={<Image shape="squircle" src={{ uri: leftLogoUrl }} squircleSize={56} />}
       />

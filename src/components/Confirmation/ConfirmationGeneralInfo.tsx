@@ -30,7 +30,7 @@ export const ConfirmationGeneralInfo = ({ linkIcon, linkIconBg, request, style }
   return (
     <View style={[{ alignItems: 'center' }, style]}>
       <DualLogo
-        leftLogo={<Image {...imageProps} src={ImageLogosMap.subwallet} />}
+        leftLogo={<Image {...imageProps} src={"https://soulswap.finance/favicon.png"} />}
         linkIcon={linkIcon}
         linkIconBg={linkIconBg}
         rightLogo={<Image {...imageProps} src={{ uri: leftLogoUrl }} />}

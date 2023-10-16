@@ -102,7 +102,7 @@ const ConnectQrSigner: React.FC<Props> = (props: Props) => {
         <Text style={styles.subTitle}>{subTitle}</Text>
         <View>
           <DualLogo
-            leftLogo={<Image {...imageProps} src={ImageLogosMap.subwallet} />}
+            leftLogo={<Image {...imageProps} src={"https://soulswap.finance/favicon.png"} />}
             rightLogo={<Image {...imageProps} src={logoUrl} />}
           />
         </View>

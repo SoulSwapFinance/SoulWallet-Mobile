@@ -20,7 +20,7 @@ export function handleDeeplinkOnFirstOpen(
       }
 
       prevDeeplinkUrl = url;
-      if (getProtocol(url) === 'subwallet') {
+      if (getProtocol(url) === 'soulwallet') {
         const urlParsed = new urlParse(url);
         if (urlParsed.hostname === 'wc') {
           if (urlParsed.query.startsWith('?requestId')) {

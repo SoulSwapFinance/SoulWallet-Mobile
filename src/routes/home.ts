@@ -15,7 +15,7 @@ export type TokenGroupsDetailProps = NativeStackScreenProps<CryptoStackParamList
 export type HomeStackParamList = {
   Tokens: NavigatorScreenParams<CryptoStackParamList>;
   NFTs: NavigatorScreenParams<NFTStackParamList>;
-  Crowdloans: undefined;
+  // Crowdloans: undefined;
   Staking: NavigatorScreenParams<StakingScreenStackParamList> | undefined;
   Browser: NavigatorScreenParams<BrowserHomeProps>;
 };

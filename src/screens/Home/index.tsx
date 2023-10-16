@@ -12,11 +12,11 @@ import { BOTTOM_BAR_HEIGHT, deviceWidth } from 'constants/index';
 import { ColorMap } from 'styles/color';
 import useCheckEmptyAccounts from 'hooks/useCheckEmptyAccounts';
 import { FirstScreen } from 'screens/Home/FirstScreen';
-import { CrowdloansScreen } from 'screens/Home/Crowdloans';
+// import { CrowdloansScreen } from 'screens/Home/Crowdloans';
 import { BrowserScreen } from 'screens/Home/Browser';
 import { HomeStackParamList } from 'routes/home';
 import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
-import withPageWrapper from 'components/pageWrapper';
+// import withPageWrapper from 'components/pageWrapper';
 import RequestCreateMasterPasswordModal from 'screens/MasterPassword/RequestCreateMasterPasswordModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
@@ -45,9 +45,9 @@ const tokenTabbarIcon = ({ color }: tabbarIconColor) => {
 const nftTabbarIcon = ({ color }: tabbarIconColor) => {
   return <Aperture size={24} color={color} weight={'fill'} />;
 };
-const crowdloanTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <Rocket size={24} color={color} weight={'fill'} />;
-};
+// const crowdloanTabbarIcon = ({ color }: tabbarIconColor) => {
+//   return <Rocket size={24} color={color} weight={'fill'} />;
+// };
 const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
   return <Database size={24} color={color} weight={'fill'} />;
 };
@@ -126,7 +126,7 @@ const MainScreen = () => {
           tabBarIcon: nftTabbarIcon,
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name={'Crowdloans'}
         component={withPageWrapper(CrowdloansScreen, ['crowdloan', 'price', 'chainStore', 'logoMaps'])}
         options={{
@@ -134,7 +134,7 @@ const MainScreen = () => {
           tabBarHideOnKeyboard: Platform.OS === 'android',
           tabBarIcon: crowdloanTabbarIcon,
         }}
-      />
+      /> */}
       <Tab.Screen
         name={'Staking'}
         component={StakingScreen}
@@ -207,7 +207,7 @@ export const Home = ({ navigation }: Props) => {
       }
       Linking.addEventListener('url', ({ url }) => {
         const urlParsed = new urlParse(url);
-        if (getProtocol(url) === 'subwallet') {
+        if (getProtocol(url) === 'soulwallet') {
           if (urlParsed.hostname === 'wc') {
             dispatch(updateIsDeepLinkConnect(true));
             if (urlParsed.query.startsWith('?requestId')) {

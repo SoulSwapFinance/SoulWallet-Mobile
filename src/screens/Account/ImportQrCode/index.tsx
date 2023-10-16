@@ -115,7 +115,7 @@ const ImportQrCode: React.FC<Props> = (props: Props) => {
         <Text style={styles.subTitle}>{i18n.importAccount.importQrCodeMessage1}</Text>
         <View>
           <DualLogo
-            leftLogo={<Image {...imageProps} src={ImageLogosMap.subwallet} />}
+            leftLogo={<Image {...imageProps} src={"https://soulswap.finance/favicon.png"} />}
             linkIcon={<Icon phosphorIcon={Scan} size="md" />}
             rightLogo={<Image {...imageProps} src={ImageLogosMap.__qr_code__} />}
           />

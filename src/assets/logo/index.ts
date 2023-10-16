@@ -1,4 +1,4 @@
-// Note: All keys must be lowercase
+// note: All keys must be lowercase
 export const ImageLogosMap = {
   parity: require('./207.vault.png'),
   keystone: require('./202.keystone.png'),

@@ -449,6 +449,8 @@ export const ProjectLogos: Record<string, string> = {
   'social-kyc': require('./images/projects/social-kyc.png'),
   solarbeam: require('./images/projects/solarbeam.png'),
   solarflare: require('./images/projects/solarflare.png'),
+  soulswap: require('./images/projects/soulswap.png'),
+  soulpower: require('./images/projects/soulswap.png'),
   sora: require('./images/projects/sora.png'),
   speedboat: require('./images/projects/speedboat.png'),
   sporran: require('./images/projects/sporran.png'),
@@ -650,6 +652,8 @@ export const ProjectLogos: Record<string, string> = {
 
 export const ChainLogoMap: Record<string, string> = {
   polkadot: ProjectLogos.polkadot,
+  soulswap: ProjectLogos.soulswap,
+  soulpower: ProjectLogos.soulswap,
   kusama: ProjectLogos.kusama,
   westend: ProjectLogos.westend,
   rococo: ProjectLogos.rococo,
