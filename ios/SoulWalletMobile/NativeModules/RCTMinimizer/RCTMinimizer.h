@@ -1,6 +1,6 @@
 //
 //  RCTMinimizer.h
-//  SubWalletMobile
+//  SoulWalletMobile
 //
 //  Created by Do Minh Quang on 27/07/2023.
 //

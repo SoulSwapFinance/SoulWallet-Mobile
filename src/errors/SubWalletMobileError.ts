@@ -7,7 +7,7 @@ export enum ErrorCode {
   WEBVIEW_RESPONSE_ERROR = 1302,
 }
 
-export class SubWalletMobileError extends Error {
+export class SoulWalletMobileError extends Error {
   swErrorCode: ErrorCode;
   constructor(code: ErrorCode, message: string) {
     super(message);

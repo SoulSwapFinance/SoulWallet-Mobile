@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Copyright 2017-2022 SubWallet
+// Copyright 2017-2022 SoulWallet
 // SPDX-License-Identifier: Apache-2.0
 import {
   commitMessage,
@@ -23,7 +23,7 @@ async function runCleanIOS() {
 }
 
 async function runBuildIOS() {
-  return execSync('xcodebuild -workspace ./SubWalletMobile.xcworkspace -scheme SubWalletMobile -sdk iphoneos -configuration Release -quiet -archivePath $PWD/dist/SubWallet.xcarchive clean archive', 'Build Archive');
+  return execSync('xcodebuild -workspace ./SoulWalletMobile.xcworkspace -scheme SoulWalletMobile -sdk iphoneos -configuration Release -quiet -archivePath $PWD/dist/SubWallet.xcarchive clean archive', 'Build Archive');
 }
 
 async function runExportIOS() {
@@ -32,7 +32,7 @@ async function runExportIOS() {
 
 async function runUploadIOS() {
   const packageInfo = getPackageInfo('../package.json');
-  const downloadLink = await uploadBuild('./dist/SubWalletMobile.ipa', `SubWalletMobile-build-${packageInfo.build}-${refName}-${buildDateString}.ipa`);
+  const downloadLink = await uploadBuild('./dist/SoulWalletMobile.ipa', `SoulWalletMobile-build-${packageInfo.build}-${refName}-${buildDateString}.ipa`);
   return discordHook.send(`:apple: IOS build (${refName}): ${downloadLink}`);
 }
 

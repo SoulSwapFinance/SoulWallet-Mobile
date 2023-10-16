@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Copyright 2017-2022 SubWallet
+// Copyright 2017-2022 SoulWallet
 // SPDX-License-Identifier: Apache-2.0
 import {
   commitMessage,
@@ -28,7 +28,7 @@ async function runBuildAndroid() {
 
 async function runUploadAndroid() {
   const packageInfo = getPackageInfo('../package.json');
-  const downloadLink = await uploadBuild('./app/build/outputs/apk/release/app-release.apk', `SubWalletMobile-build-${packageInfo.build}-${refName}-${buildDateString}.apk`);
+  const downloadLink = await uploadBuild('./app/build/outputs/apk/release/app-release.apk', `SoulWalletMobile-build-${packageInfo.build}-${refName}-${buildDateString}.apk`);
   return discordHook.send(`:robot: Android build (${refName}): ${downloadLink}`);
 }
 
