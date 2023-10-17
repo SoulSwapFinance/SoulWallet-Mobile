@@ -57,7 +57,7 @@ function getEthereumIdenticonStyle(size: number): StyleProp<any> {
   };
 }
 
-export const SubWalletAvatar = ({ address, size: originSize, hasBorder = true, SubIcon, ...viewProp }: AvatarProps) => {
+export const SoulWalletAvatar = ({ address, size: originSize, hasBorder = true, SubIcon, ...viewProp }: AvatarProps) => {
   const size = useMemo((): number => (hasBorder ? originSize - 8 : originSize), [hasBorder, originSize]);
   const isEthereum = isEthereumAddress(address);
 

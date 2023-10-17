@@ -1,6 +1,6 @@
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { SubScreenContainer } from 'components/SubScreenContainer';
+import { SoulScreenContainer } from 'components/SoulScreenContainer';
 import i18n from 'utils/i18n/i18n';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
@@ -133,7 +133,7 @@ export const ImportPrivateKey = () => {
   const canSubmit = !checkValidateForm(formState.isValidated) || validating || isBusy || isEmpty;
 
   return (
-    <SubScreenContainer
+    <SoulScreenContainer
       title={i18n.header.importByPrivateKey}
       navigation={navigation}
       disabled={isBusy}
@@ -174,6 +174,6 @@ export const ImportPrivateKey = () => {
           </Button>
         </View>
       </View>
-    </SubScreenContainer>
+    </SoulScreenContainer>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SubScreenContainer } from 'components/SubScreenContainer';
+import { SoulScreenContainer } from 'components/SoulScreenContainer';
 import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { View } from 'react-native';
@@ -16,10 +16,10 @@ export const GeneralSettings = () => {
   const toast = useToast();
   const navigation = useNavigation<RootNavigationProps>();
 
-  const showComingSoon = () => {
-    toast.hideAll();
-    toast.show(i18n.notificationMessage.comingSoon);
-  };
+  // const showComingSoon = () => {
+  //   toast.hideAll();
+  //   toast.show(i18n.notificationMessage.comingSoon);
+  // };
 
   const openLanguageModal = () => {
     navigation.navigate('Languages');
@@ -31,15 +31,15 @@ export const GeneralSettings = () => {
   };
 
   return (
-    <SubScreenContainer navigation={navigation} title={i18n.header.generalSettings} onPressLeftBtn={onGoback}>
+    <SoulScreenContainer navigation={navigation} title={i18n.header.generalSettings} onPressLeftBtn={onGoback}>
       <View style={containerStyle}>
-        <SelectItem
+        {/* <SelectItem
           icon={Image}
           backgroundColor={theme['geekblue-6']}
           label={i18n.settings.walletTheme}
           onPress={showComingSoon}
           rightIcon={<Icon phosphorIcon={CaretRight} size={'sm'} />}
-        />
+        /> */}
 
         <SelectItem
           icon={GlobeHemisphereWest}
@@ -49,14 +49,14 @@ export const GeneralSettings = () => {
           rightIcon={<Icon phosphorIcon={CaretRight} size={'sm'} />}
         />
 
-        <SelectItem
+        {/* <SelectItem
           icon={BellSimpleRinging}
           backgroundColor={theme['volcano-6']}
           label={i18n.settings.notifications}
           onPress={showComingSoon}
           rightIcon={<Icon phosphorIcon={CaretRight} size={'sm'} />}
-        />
+        /> */}
       </View>
-    </SubScreenContainer>
+    </SoulScreenContainer>
   );
 };

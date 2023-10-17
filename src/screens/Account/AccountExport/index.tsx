@@ -4,7 +4,7 @@ import useCopyClipboard from 'hooks/common/useCopyClipboard';
 import useGoHome from 'hooks/screen/useGoHome';
 import React, { useCallback, useMemo, useState } from 'react';
 import { ScrollView, Share, View } from 'react-native';
-import { SubScreenContainer } from 'components/SubScreenContainer';
+import { SoulScreenContainer } from 'components/SoulScreenContainer';
 import { useNavigation } from '@react-navigation/native';
 import { AccountExportProps, RootNavigationProps } from 'routes/index';
 import i18n from 'utils/i18n/i18n';
@@ -192,7 +192,7 @@ export const AccountExport = ({
   }
 
   return (
-    <SubScreenContainer navigation={navigation} disabled={isBusy} title={title} rightIcon={X} onPressRightIcon={goHome}>
+    <SoulScreenContainer navigation={navigation} disabled={isBusy} title={title} rightIcon={X} onPressRightIcon={goHome}>
       <View style={styles.layoutContainer}>
         <ScrollView style={styles.bodyArea}>
           <View style={currentViewStep === ViewStep.SELECT_TYPES ? styles.introWarning : styles.rsWarning}>
@@ -330,6 +330,6 @@ export const AccountExport = ({
           setErrorArr={setErrorArr}
         />
       </View>
-    </SubScreenContainer>
+    </SoulScreenContainer>
   );
 };

@@ -70,7 +70,7 @@ export const Confirmations = () => {
     () => ({
       addNetworkRequest: i18n.header.addNetworkRequest,
       addTokenRequest: i18n.header.addTokenRequest,
-      authorizeRequest: i18n.header.connectWithSubwallet,
+      authorizeRequest: i18n.header.connectWithSoulwallet,
       evmSendTransactionRequest: i18n.header.transactionRequest,
       evmSignatureRequest: i18n.header.signatureRequest,
       metadataRequest: i18n.header.updateMetadata,

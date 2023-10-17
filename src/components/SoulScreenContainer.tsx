@@ -6,7 +6,7 @@ interface Props extends Omit<ContainerWithSubHeaderProps, 'onPressBack'> {
   onPressLeftBtn?: () => void;
 }
 
-export const SubScreenContainer = ({ navigation, onPressLeftBtn, ...containerWithSubHeaderProp }: Props) => {
+export const SoulScreenContainer = ({ navigation, onPressLeftBtn, ...containerWithSubHeaderProp }: Props) => {
   const onPressBack = () => {
     navigation.goBack();
   };

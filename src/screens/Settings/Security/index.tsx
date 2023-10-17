@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { SubScreenContainer } from 'components/SubScreenContainer';
+import { SoulScreenContainer } from 'components/SoulScreenContainer';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { ToggleItem } from 'components/ToggleItem';
@@ -83,7 +83,7 @@ export const Security = () => {
   };
 
   return (
-    <SubScreenContainer
+    <SoulScreenContainer
       title={i18n.header.securitySettings}
       navigation={navigation}
       onPressLeftBtn={() => {
@@ -184,6 +184,6 @@ export const Security = () => {
           </View>
         </SwModal>
       </View>
-    </SubScreenContainer>
+    </SoulScreenContainer>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { SubScreenContainer } from 'components/SubScreenContainer';
+import { SoulScreenContainer } from 'components/SoulScreenContainer';
 import { useNavigation } from '@react-navigation/native';
 import { Linking, ScrollView, StyleProp, View } from 'react-native';
 import Text from 'components/Text';
@@ -81,39 +81,40 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
     () => [
       [
         {
-          icon: GlobeHemisphereWest,
-          title: i18n.settings.generalSettings,
-          rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
-          onPress: () => navigation.navigate('GeneralSettings'),
-          backgroundColor: '#D92079',
-        },
-        {
-          icon: ShieldCheck,
-          title: i18n.settings.securitySettings,
-          rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
-          onPress: () => navigation.navigate('Security'),
-          backgroundColor: '#2DA73F',
-        },
-        {
           icon: BookBookmark,
           title: i18n.settings.manageAddressBook,
           rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => navigation.navigate('ManageAddressBook'),
-          backgroundColor: '#0078D9',
+          backgroundColor: '#6901FD',
         },
         {
           icon: Clock,
           title: i18n.title.history,
           rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => navigation.navigate('History', {}),
-          backgroundColor: '#2595E6',
+          backgroundColor: '#6901FD',
+        },
+        {
+          icon: GlobeHemisphereWest,
+          title: i18n.settings.language,
+          rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
+          // onPress: () => navigation.navigate('GeneralSettings'),
+          onPress: () => navigation.navigate('Languages'),
+          backgroundColor: '#6901FD',
+        },
+        {
+          icon: ShieldCheck,
+          title: i18n.settings.securitySettings,
+          rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
+          onPress: () => navigation.navigate('Security'),
+          backgroundColor: '#6901FD',
         },
         {
           icon: Clock,
           title: i18n.header.walletConnect,
           rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => navigation.navigate('ConnectList', { isDelete: false }),
-          backgroundColor: '#004BFF',
+          backgroundColor: '#6901FD',
         },
       ],
       [
@@ -122,14 +123,14 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
           title: i18n.settings.manageNetworks,
           rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => navigation.navigate('NetworksSetting'),
-          backgroundColor: '#9224E1',
+          backgroundColor: '#6901FD',
         },
         {
           icon: Coin,
           title: i18n.settings.manageTokens,
           rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => navigation.navigate('CustomTokenSetting'),
-          backgroundColor: '#D9A33E',
+          backgroundColor: '#6901FD',
         },
       ],
       [
@@ -138,21 +139,21 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
           title: i18n.settings.twitter,
           rightIcon: <Icon phosphorIcon={ArrowSquareOut} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => Linking.openURL(TWITTER_URL),
-          backgroundColor: '#2595E6',
+          backgroundColor: '#6901FD',
         },
         {
           icon: DiscordLogo,
           title: i18n.settings.discord,
           rightIcon: <Icon phosphorIcon={ArrowSquareOut} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => Linking.openURL(DISCORD_URL),
-          backgroundColor: '#4E8AF2',
+          backgroundColor: '#6901FD',
         },
         {
           icon: TelegramLogo,
           title: i18n.settings.telegram,
           rightIcon: <Icon phosphorIcon={ArrowSquareOut} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => Linking.openURL(TELEGRAM_URL),
-          backgroundColor: '#005CA6',
+          backgroundColor: '#6901FD',
         },
       ],
       [
@@ -161,28 +162,28 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
           title: i18n.settings.website,
           rightIcon: <Icon phosphorIcon={ArrowSquareOut} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => Linking.openURL(WEBSITE_URL),
-          backgroundColor: '#2595E6',
+          backgroundColor: '#6901FD',
         },
         {
           icon: Book,
           title: i18n.settings.userGuide,
           rightIcon: <Icon phosphorIcon={ArrowSquareOut} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => Linking.openURL(WIKI_URL),
-          backgroundColor: '#2DA73F',
+          backgroundColor: '#6901FD',
         },
         {
           icon: BookOpen,
           title: i18n.settings.termOfService,
           rightIcon: <Icon phosphorIcon={ArrowSquareOut} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => Linking.openURL(TERMS_OF_SERVICE_URL),
-          backgroundColor: '#D96F00',
+          backgroundColor: '#6901FD',
         },
         {
           icon: BookBookmark,
           title: i18n.settings.privacyPolicy,
           rightIcon: <Icon phosphorIcon={ArrowSquareOut} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => Linking.openURL(PRIVACY_AND_POLICY_URL),
-          backgroundColor: '#004BFF',
+          backgroundColor: '#6901FD',
         },
       ],
     ],
@@ -203,10 +204,10 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
   };
 
   return (
-    <SubScreenContainer
+    <SoulScreenContainer
       title={i18n.header.settings}
       navigation={navigation}
-      icon={<SVGImages.Logo width={24} height={24} />}
+      icon={<SVGImages.Logo width={36} height={36} />}
       rightIcon={X}
       onPressLeftBtn={() => (drawerNavigation ? drawerNavigation.closeDrawer() : navigation.goBack())}
       onPressRightIcon={() => (drawerNavigation ? drawerNavigation.closeDrawer() : navigation.goBack())}>
@@ -266,7 +267,7 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
             ))}
           </View>
 
-          <Text style={settingTitleStyle}>{i18n.settings.aboutSubwallet.toUpperCase()}</Text>
+          {/* <Text style={settingTitleStyle}>{i18n.settings.aboutSoulWallet.toUpperCase()}</Text>
 
           <View style={{ gap: theme.paddingXS }}>
             {settingList[3].map(setting => (
@@ -279,7 +280,7 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
                 onPress={setting.onPress}
               />
             ))}
-          </View>
+          </View> */}
 
           <Button
             style={{ marginTop: 16 }}
@@ -298,10 +299,11 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
             {i18n.settings.lock}
           </Button>
         </ScrollView>
-        <Text
+        {/* <Text
           onPress={onPressVersionNumber}
-          style={versionAppStyle}>{`SoulWallet v${VersionNumber.appVersion} (${VersionNumber.buildVersion})`}</Text>
+          style={versionAppStyle}>{`SoulWallet v${VersionNumber.appVersion} (${VersionNumber.buildVersion})`}
+        </Text> */}
       </>
-    </SubScreenContainer>
+    </SoulScreenContainer>
   );
 };

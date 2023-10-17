@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import DeleteModal from 'components/common/Modal/DeleteModal';
 import { ActivityIndicator, Avatar, BackgroundIcon, Button, Icon, QRCode } from 'components/design-system-ui';
 import { EditAccountInputText } from 'components/EditAccountInputText';
-import { SubScreenContainer } from 'components/SubScreenContainer';
+import { SoulScreenContainer } from 'components/SoulScreenContainer';
 import useCopyClipboard from 'hooks/common/useCopyClipboard';
 import useConfirmModal from 'hooks/modal/useConfirmModal';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
@@ -161,7 +161,7 @@ export const AccountDetail = ({
   } = useConfirmModal(onDelete);
 
   return (
-    <SubScreenContainer
+    <SoulScreenContainer
       navigation={navigation}
       title={i18n.header.accountDetails}
       rightIcon={X}
@@ -283,6 +283,6 @@ export const AccountDetail = ({
           setVisible={setVisible}
         />
       </View>
-    </SubScreenContainer>
+    </SoulScreenContainer>
   );
 };
