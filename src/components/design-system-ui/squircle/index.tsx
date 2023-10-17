@@ -24,7 +24,7 @@ const Squircle: React.FC<Props> = ({
   children,
   customSize,
   size = 'md',
-  backgroundColor = '#004BFF',
+  backgroundColor = '#6901FD',
   customStyle,
   containerStyle,
 }) => {

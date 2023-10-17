@@ -9,7 +9,7 @@ export const ColorMap = {
   backgroundSecondary: '#1A1A1A',
   backgroundDefault: '#0c0c0c',
   primary: '#42C59A',
-  secondary: '#004BFF',
+  secondary: '#6901FD',
   // purple: '#6901FD',
   danger: '#F5000E',
   disabled: '#999',
