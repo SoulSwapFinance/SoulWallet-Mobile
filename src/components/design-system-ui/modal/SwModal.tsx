@@ -2,7 +2,7 @@ import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { Platform, StyleProp, TextStyle, View, ViewStyle } from 'react-native';
 import ModalBase from 'components/Modal/Base/ModalBase';
 import Typography from '../typography';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ModalBaseV2, { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
 import { Portal } from '@gorhom/portal';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -81,7 +81,7 @@ const SwModal = React.forwardRef<ModalRefProps, SWModalProps>(
     ref,
   ) => {
     const { isKeyboardVisible, keyboardHeight } = useKeyboardVisible();
-    const theme = useSubWalletTheme().swThemes;
+    const theme = useSoulWalletTheme().swThemes;
     const [contentHeight, setContentHeight] = useState<number>(400);
     const [childrenHeight, setChildrenHeight] = useState<number>(contentHeight);
     const insets = useSafeAreaInsets();

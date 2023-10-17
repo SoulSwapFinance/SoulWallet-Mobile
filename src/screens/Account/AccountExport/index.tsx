@@ -15,7 +15,7 @@ import PasswordModal from 'components/Modal/PasswordModal';
 import { exportAccount, exportAccountPrivateKey, keyringExportMnemonic } from 'messaging/index';
 import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
 import { KeyringPair$Json } from '@subwallet/keyring/types';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { AddressBook, CheckCircle, CopySimple, DownloadSimple, X } from 'phosphor-react-native';
 import createStyle from './styles';
 import { toShort } from 'utils/index';
@@ -31,7 +31,7 @@ export const AccountExport = ({
   },
 }: AccountExportProps) => {
   const navigation = useNavigation<RootNavigationProps>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const goHome = useGoHome();
 
   const styles = useMemo(() => createStyle(theme), [theme]);

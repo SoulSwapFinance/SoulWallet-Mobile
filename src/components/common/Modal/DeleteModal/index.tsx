@@ -1,5 +1,5 @@
 import { Button, Icon, PageIcon, SwModal } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { IconProps, Trash, XCircle } from 'phosphor-react-native';
 import React, { useCallback, useMemo, useRef } from 'react';
 import { Text, View } from 'react-native';
@@ -33,7 +33,7 @@ const DeleteModal: React.FC<Props> = (props: Props) => {
     onCancelModal,
   } = props;
   const deleteModalRef = useRef<SWModalRefProps>(null);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
   const closeModal = useCallback(() => {
     onCancelModal && onCancelModal();

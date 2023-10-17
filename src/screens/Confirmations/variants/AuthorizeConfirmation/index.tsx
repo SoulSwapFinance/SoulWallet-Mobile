@@ -9,7 +9,7 @@ import ConfirmationFooter from 'components/common/Confirmation/ConfirmationFoote
 import { Button, Icon } from 'components/design-system-ui';
 import { EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { PlusCircle, ShieldSlash, XCircle } from 'phosphor-react-native';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Text, View } from 'react-native';
@@ -64,7 +64,7 @@ const AuthorizeConfirmation: React.FC<Props> = (props: Props) => {
   const { request } = props;
   const { accountAuthType, allowedAccounts } = request.request;
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const { accounts } = useSelector((state: RootState) => state.accountState);
   const styles = useMemo(() => createStyle(theme), [theme]);
   const [loading, setLoading] = useState(false);

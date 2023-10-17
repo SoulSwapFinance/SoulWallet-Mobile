@@ -13,7 +13,7 @@ import {
 } from '@subwallet/extension-base/background/KoniTypes';
 import { isShowNominationByValidator } from '@subwallet/extension-base/koni/api/staking/bonding/utils';
 import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
@@ -102,7 +102,7 @@ export const StakingDetailModal = ({
     nominatorMetadata?.type === StakingType.NOMINATED.valueOf()
       ? i18n.header.nominationDetails
       : i18n.header.poolDetails;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [seeMore, setSeeMore] = useState<boolean>(false);
   const { accounts, currentAccount } = useSelector((state: RootState) => state.accountState);
   const toastRef = useRef<ToastContainer>(null);

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { InfoItemBase } from '../types';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import MetaInfoStyles from 'components/MetaInfo/style';
 import { TextStyle, View } from 'react-native';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
@@ -21,7 +21,7 @@ const DefaultItem: React.FC<DefaultInfoItem> = ({
   valueAlign = 'right',
   loading,
 }: DefaultInfoItem) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = MetaInfoStyles(theme);
   const { labelGeneralStyle, valueGeneralStyle } = useGeneralStyles(theme);
 

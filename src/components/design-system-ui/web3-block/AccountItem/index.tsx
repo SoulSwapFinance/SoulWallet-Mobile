@@ -2,7 +2,7 @@ import { Icon, Typography } from 'components/design-system-ui';
 import { toShort } from 'utils/index';
 import Avatar from '../../avatar';
 import Web3Block, { Web3BlockCustomStyle, Web3BlockProps } from '../Web3Block';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { StyleProp, TextStyle } from 'react-native';
 import createStyle from './styles';
@@ -35,7 +35,7 @@ const AccountItem: React.FC<AccountItemProps> = (props: AccountItemProps) => {
     ...restProps
   } = props;
   const { address: addressStyle, container: containerStyle, ...restStyle } = customStyle || {};
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
 
   return (

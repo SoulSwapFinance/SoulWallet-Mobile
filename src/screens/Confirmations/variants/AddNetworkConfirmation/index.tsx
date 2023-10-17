@@ -3,7 +3,7 @@ import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/common/
 import ConfirmationFooter from 'components/common/Confirmation/ConfirmationFooter';
 import { Button, Icon } from 'components/design-system-ui';
 import { FieldBase } from 'components/Field/Base';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { CheckCircle, Globe, ShareNetwork, XCircle } from 'phosphor-react-native';
 import React, { useCallback, useMemo, useState } from 'react';
 import { Text, View } from 'react-native';
@@ -29,7 +29,7 @@ const AddNetworkConfirmation: React.FC<Props> = (props: Props) => {
     payload: { chainEditInfo, chainSpec, mode },
   } = request;
 
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const styles = useMemo(() => createStyle(theme), [theme]);
 

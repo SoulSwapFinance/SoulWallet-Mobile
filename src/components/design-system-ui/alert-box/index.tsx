@@ -1,5 +1,5 @@
 import { Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Info } from 'phosphor-react-native';
 import React, { useMemo } from 'react';
 import { View } from 'react-native';
@@ -22,7 +22,7 @@ interface ColorText {
 const AlertBox: React.FC<Props> = (props: Props) => {
   const { description, type = 'info', title } = props;
 
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const styles = useMemo(() => createStyles(theme), [theme]);
 

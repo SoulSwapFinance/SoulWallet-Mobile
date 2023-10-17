@@ -4,7 +4,7 @@ import { StyleProp, View, ViewStyle, Image } from 'react-native';
 import { ColorMap } from 'styles/color';
 import Video from 'react-native-video';
 import { ActivityIndicator } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props {
   style?: StyleProp<ViewStyle>;
@@ -83,7 +83,7 @@ const ImagePreview = ({ style, mainUrl, backupUrl, borderPlace, borderRadius }: 
     handleIntState,
   );
   const { url, showImage, imageError, loading } = imageState;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const borderStyle = useMemo((): StyleProp<ViewStyle> => {
     if (borderRadius) {

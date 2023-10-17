@@ -16,7 +16,7 @@ import { useNavigation } from '@react-navigation/native';
 import i18n from 'utils/i18n/i18n';
 import { EmptyList } from 'components/EmptyList';
 import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { BackgroundIcon, Typography } from 'components/design-system-ui';
 import { DisabledStyle, FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import DappAccessItem, { getSiteTitle } from 'components/design-system-ui/web3-block/DappAccessItem';
@@ -42,7 +42,7 @@ const Content = ({ origin, accountAuthType, authInfo }: Props) => {
   const accounts = useSelector((state: RootState) => state.accountState.accounts);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [pendingMap, setPendingMap] = useState<Record<string, boolean>>({});
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const hostName = getHostName(authInfo.url);
   const accountItems = useMemo(() => {
     const accountListWithoutAll = accounts.filter(opt => opt.address !== 'ALL');

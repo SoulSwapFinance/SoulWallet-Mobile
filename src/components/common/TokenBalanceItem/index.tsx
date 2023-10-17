@@ -4,7 +4,7 @@ import { TokenBalanceItemType } from 'types/balance';
 import { BN_ZERO } from 'utils/chainBalances';
 import { Icon, Logo, Number, Typography } from 'components/design-system-ui';
 import { DotsThree } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TokenBalanceItemStyles from './style';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 
@@ -22,7 +22,7 @@ export const TokenBalanceItem = ({
   isShowBalance,
   ...wrapperProps
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = TokenBalanceItemStyles(theme);
 
   return (

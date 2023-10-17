@@ -14,7 +14,7 @@ import useUnlockModal from 'hooks/modal/useUnlockModal';
 import useModalScanner from 'hooks/qr/useModalScanner';
 import useGoHome from 'hooks/screen/useGoHome';
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { createAccountExternalV2 } from 'messaging/index';
 import { QrCode, X } from 'phosphor-react-native';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -47,7 +47,7 @@ const ConnectQrSigner: React.FC<Props> = (props: Props) => {
   const { description, logoUrl, subTitle, title } = props;
 
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const toast = useToast();
 
   const styles = useMemo(() => createStyle(theme), [theme]);

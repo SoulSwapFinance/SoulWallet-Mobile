@@ -6,7 +6,7 @@ import useUnlockModal from 'hooks/modal/useUnlockModal';
 import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
 import useGoHome from 'hooks/screen/useGoHome';
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Eye, X } from 'phosphor-react-native';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Keyboard, ScrollView, View } from 'react-native';
@@ -32,7 +32,7 @@ const validateAddress = (value: string) => {
 };
 
 const AttachReadOnly = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const navigation = useNavigation<RootNavigationProps>();
   const goHome = useGoHome();
   const defaultName = useGetDefaultAccountName();

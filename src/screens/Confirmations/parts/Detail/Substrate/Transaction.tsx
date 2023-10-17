@@ -66,7 +66,7 @@ const SubstrateTransactionDetail: React.FC<Props> = (props: Props) => {
     payload: { era, nonce, tip },
     request: { blockNumber, genesisHash, method, specVersion: hexSpec },
   } = props;
-  // const theme = useSubWalletTheme().swThemes;
+  // const theme = useSoulWalletTheme().swThemes;
 
   const chain = useMetadata(genesisHash);
 

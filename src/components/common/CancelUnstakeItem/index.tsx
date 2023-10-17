@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { TouchableOpacity, View } from 'react-native';
 import { Avatar, Icon, Typography, Number } from 'components/design-system-ui';
 import { UnstakingStatus } from '@subwallet/extension-base/background/KoniTypes';
@@ -20,7 +20,7 @@ interface Props {
 
 export const CancelUnstakeItem = ({ item, isSelected, onPress }: Props) => {
   const { validatorAddress, status, claimable, chain } = item;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = CancelUnstakeItemStyle(theme);
 
   const { decimals, symbol } = useGetNativeTokenBasicInfo(chain);

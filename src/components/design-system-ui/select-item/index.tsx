@@ -4,7 +4,7 @@ import Text from 'components/Text';
 import React, { useMemo } from 'react';
 import { BackgroundIcon, Icon } from 'components/design-system-ui';
 
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 import createStyle from './styles';
 
@@ -40,7 +40,7 @@ const SelectItem = (props: SelectItemProps) => {
     textColor,
     iconWeight = 'fill',
   } = props;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
 
   return (

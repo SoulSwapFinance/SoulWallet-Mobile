@@ -10,7 +10,7 @@ import { BrowserItem } from 'components/Browser/BrowserItem';
 import { SiteInfo } from 'stores/types';
 import { getHostName } from 'utils/browser';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { CategoryEmptyList } from 'screens/Home/Browser/Shared/CategoryEmptyList';
 import { browserListItemHeight, browserListSeparator } from 'constants/itemHeight';
 
@@ -27,7 +27,7 @@ const ITEM_SEPARATOR = browserListSeparator;
 const TOTAL_ITEM_HEIGHT = ITEM_HEIGHT + ITEM_SEPARATOR;
 const BrowserListByCategory: React.FC<NativeStackScreenProps<RootStackParamList>> = ({ route, navigation }) => {
   const { searchString, navigationType } = route.params as BrowserListByCategoryProps;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [predefinedData] = useState<PredefinedDApps>(predefinedDApps);
   const bookmarkedItems = useSelector((state: RootState) => state.browser.bookmarks);
 

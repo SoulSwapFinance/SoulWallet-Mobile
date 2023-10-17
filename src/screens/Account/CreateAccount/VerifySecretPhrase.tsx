@@ -10,7 +10,7 @@ import { shuffleArray } from 'utils/index';
 import i18n from 'utils/i18n/i18n';
 import { Button, Icon } from 'components/design-system-ui';
 import { ArrowCircleRight } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from 'routes/index';
 
@@ -66,7 +66,7 @@ export const VerifySecretPhrase = ({ onPressSubmit, seed, isBusy, navigation }: 
   const [selectedWords, setSelectedWords] = useState<SelectedWordType[]>([]);
   const [shuffleWords, setShuffleWords] = useState<string[] | null>(null);
   const seedWords: string[] = seed.split(' ');
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   useEffect((): void => {
     const words = seed.split(' ');

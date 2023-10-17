@@ -7,7 +7,7 @@ import AccountItemWithName from 'components/common/Account/Item/AccountItemWithN
 import { ActivityIndicator } from 'components/design-system-ui';
 import { deviceHeight, EVM_ACCOUNT_TYPE, TOAST_DURATION } from 'constants/index';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { deriveAccountV3 } from 'messaging/index';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { ListRenderItemInfo, Platform, View } from 'react-native';
@@ -40,7 +40,7 @@ const renderLoaderIcon = (x: React.ReactNode): React.ReactNode => {
 
 const DeriveAccountModal: React.FC<Props> = (props: Props) => {
   const { deriveAccModalRef, goHome, navigation } = props;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const { accounts } = useSelector((state: RootState) => state.accountState);
 

@@ -5,7 +5,7 @@ import { isAccountAll } from '@subwallet/extension-base/utils';
 import AvatarGroup from '../../AvatarGroup';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import AccountSelectFieldStyles from './style';
 import { CaretDown } from 'phosphor-react-native';
 import { DisabledStyle } from 'styles/sharedStyles';
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const AccountSelectField = ({ disabled, onPress }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = AccountSelectFieldStyles(theme);
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   const isAll = useMemo((): boolean => !!currentAccount && isAccountAll(currentAccount.address), [currentAccount]);

@@ -6,7 +6,7 @@ import { FontMedium, FontSize2 } from 'styles/sharedStyles';
 import { ColorMap } from 'styles/color';
 import { CaretDown, IconProps, ShareNetwork } from 'phosphor-react-native';
 import { Icon } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props extends FieldBaseProps {
   disabled?: boolean;
@@ -48,7 +48,7 @@ export const RpcSelectField = ({
   label,
   ...fieldBase
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   return (
     <FieldBase label={label} {...fieldBase} outerStyle={outerStyle}>

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import StakingTabStyle from './style';
 import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import { isEthereumAddress } from '@polkadot/util-crypto';
@@ -18,7 +18,7 @@ interface Props {
 
 export const StakingTab = ({ selectedType, onSelectType, from }: Props) => {
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = StakingTabStyle(theme);
 
   const _onSelectType = (value: StakingType) => {

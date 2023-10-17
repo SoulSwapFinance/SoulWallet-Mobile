@@ -29,7 +29,7 @@ import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/
 import { TokenTypeSelector } from 'components/Modal/common/TokenTypeSelector';
 import { AssetTypeOption } from 'types/asset';
 import { Plus, PlusCircle } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useToast } from 'react-native-toast-notifications';
 import { useTransaction } from 'hooks/screen/Transaction/useTransaction';
 import AlertBox from 'components/design-system-ui/alert-box';
@@ -94,7 +94,7 @@ const ImportNft = ({ route: { params: routeParams } }: ImportNftProps) => {
   const tokenTypeRef = useRef<ModalRef>();
   const chainSelectorRef = useRef<ModalRef>();
   useHandlerHardwareBackPress(loading);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const toast = useToast();
   const { isNetConnected, isReady } = useContext(WebRunnerContext);
   const onBack = useCallback(() => {

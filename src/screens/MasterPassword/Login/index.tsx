@@ -2,7 +2,7 @@ import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Button, Icon } from 'components/design-system-ui';
 import { PasswordField } from 'components/Field/Password';
 import useFormControl from 'hooks/screen/useFormControl';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { CheckCircle } from 'phosphor-react-native';
 import React, { useEffect, useMemo, useState } from 'react';
 import { View } from 'react-native';
@@ -14,7 +14,7 @@ type Props = {};
 
 const Login: React.FC<Props> = (props: Props) => {
   const {} = props;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [loading, setLoading] = useState<boolean>(false);
   const formConfig = {
     password: {

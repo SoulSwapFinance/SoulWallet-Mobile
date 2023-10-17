@@ -19,7 +19,7 @@ import { useToast } from 'react-native-toast-notifications';
 import { useNavigation } from '@react-navigation/native';
 import { _CHAIN_VALIDATION_ERROR } from '@subwallet/extension-base/services/chain-service/handler/types';
 import { ActivityIndicator, Button, Icon } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { isUrl } from 'utils/index';
 import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
@@ -57,7 +57,7 @@ export const AddProvider = ({
   },
 }: AddProviderProps) => {
   const navigation = useNavigation<RootNavigationProps>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const chainInfo = useFetchChainInfo(chainSlug);
   const toast = useToast();
   const [loading, setLoading] = useState(false);

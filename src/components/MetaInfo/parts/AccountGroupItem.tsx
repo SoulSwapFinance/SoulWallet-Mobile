@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 
 import { InfoItemBase } from '../types';
 import AvatarGroup from 'components/common/AvatarGroup';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
@@ -20,7 +20,7 @@ const AccountGroupItem: React.FC<AccountGroupInfoItem> = ({
   label,
   valueColorSchema,
 }: AccountGroupInfoItem) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = MetaInfoStyles(theme);
   const { labelGeneralStyle, valueGeneralStyle } = useGeneralStyles(theme);
   const valueStyle = useMemo(() => {

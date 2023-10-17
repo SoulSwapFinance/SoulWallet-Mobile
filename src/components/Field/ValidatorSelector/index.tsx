@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { StyleProp, Text, View } from 'react-native';
 import { Book, Lightning } from 'phosphor-react-native';
 import { ActivityIndicator, Button, Icon } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { toShort } from 'utils/index';
 import AvatarGroup from 'components/common/AvatarGroup';
 import { FontSemiBold } from 'styles/sharedStyles';
@@ -47,7 +47,7 @@ export const ValidatorSelectorField = ({
   disabled,
   ...fieldBase
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const addressList = useMemo(() => {
     if (value) {

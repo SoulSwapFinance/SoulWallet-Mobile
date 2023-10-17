@@ -7,7 +7,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { Text, View } from 'react-native';
 import { approveMetaRequest, rejectMetaRequest } from 'messaging/index';
 import i18n from 'utils/i18n/i18n';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 import createStyle from './styles';
 interface Props {
@@ -22,7 +22,7 @@ const MetadataConfirmation: React.FC<Props> = (props: Props) => {
   const { request } = props;
   const { specVersion, tokenDecimals, tokenSymbol, chain } = request.request;
 
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const styles = useMemo(() => createStyle(theme), [theme]);
 

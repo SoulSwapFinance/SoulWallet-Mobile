@@ -5,7 +5,7 @@ import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { ScrollView, View } from 'react-native';
 import { ArrowCircleRight, CheckCircle, Info } from 'phosphor-react-native';
 import { Button, Icon, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import useFormControl from 'hooks/screen/useFormControl';
 import { PasswordField } from 'components/Field/Password';
 import { validatePassword, validatePasswordMatched } from 'screens/Shared/AccountNamePasswordCreation';
@@ -27,7 +27,7 @@ type PageStep = 'OldPassword' | 'NewPassword';
 
 const ChangeMasterPassword = () => {
   const navigation = useNavigation<RootNavigationProps>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const goHome = useGoHome();
   const _style = ChangeMasterPasswordStyle(theme);
   const [isBusy, setIsBusy] = useState(false);

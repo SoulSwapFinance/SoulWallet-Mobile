@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { isAccountAll } from '@subwallet/extension-base/utils';
 import { StyleProp, Text, View, ViewStyle } from 'react-native';
 import { Avatar } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import AvatarGroupStyle from './style';
 import { FontBold } from 'styles/sharedStyles';
 import { isEthereumAddress } from '@polkadot/util-crypto';
@@ -21,7 +21,7 @@ const sizeAva = {
 
 const AvatarGroup = ({ addresses: _addresses, avatarSize: _avatarSize }: Props) => {
   const accounts = useSelector((state: RootState) => state.accountState.accounts);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = AvatarGroupStyle();
   const noAllAccount: string[] = useMemo((): string[] => {
     if (_addresses) {

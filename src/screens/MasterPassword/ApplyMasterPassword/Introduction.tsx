@@ -2,12 +2,12 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { PageIcon } from 'components/design-system-ui';
 import { ShieldStar } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ApplyMasterPasswordStyle from './style';
 import i18n from 'utils/i18n/i18n';
 
 export const Introduction = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = ApplyMasterPasswordStyle(theme);
 
   return (

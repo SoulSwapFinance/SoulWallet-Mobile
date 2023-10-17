@@ -30,7 +30,7 @@ import { TokenItemType, TokenSelector } from 'components/Modal/common/TokenSelec
 import useHandleSubmitTransaction from 'hooks/transaction/useHandleSubmitTransaction';
 import { isAccountAll } from 'utils/accountAll';
 import { ChainInfo, ChainItemType } from 'types/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useToast } from 'react-native-toast-notifications';
 import usePreCheckAction from 'hooks/account/usePreCheckAction';
 import { TransactionFormValues, useTransaction } from 'hooks/screen/Transaction/useTransactionV2';
@@ -308,7 +308,7 @@ export const SendFund = ({
     params: { slug: tokenGroupSlug, recipient: scanRecipient },
   },
 }: SendFundProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
   const { show, hideAll } = useToast();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();

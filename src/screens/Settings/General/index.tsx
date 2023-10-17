@@ -6,13 +6,13 @@ import { View } from 'react-native';
 import { sharedStyles } from 'styles/sharedStyles';
 import { CaretRight, GlobeHemisphereWest, Image, BellSimpleRinging } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Icon, SelectItem } from 'components/design-system-ui';
 import { useToast } from 'react-native-toast-notifications';
 
 const containerStyle = { ...sharedStyles.layoutContainer, paddingTop: 16, gap: 8 };
 export const GeneralSettings = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const toast = useToast();
   const navigation = useNavigation<RootNavigationProps>();
 

@@ -2,7 +2,7 @@ import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
 import React, { useCallback, useState } from 'react';
 import { Button, Icon, Image, Tag, Typography } from 'components/design-system-ui';
 import { Star } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { StoredSiteInfo } from 'stores/types';
@@ -27,7 +27,7 @@ function isSiteBookmark(url: string, bookmarks: StoredSiteInfo[]) {
 
 export const BrowserItem = ({ logo, title, url, style, onPress, subtitle, tags }: Props) => {
   const [image, setImage] = useState(logo || `https://${getHostName(url)}/favicon.ico`);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
 
   const assetLogoMap = useSelector((state: RootState) => state.logoMaps.assetLogoMap);

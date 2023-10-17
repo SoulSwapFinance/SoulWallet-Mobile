@@ -9,7 +9,7 @@ import useFetchNftCollection from 'hooks/screen/Home/Nft/useFetchNftCollection';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { NFTNavigationProps, renderEmptyNFT } from 'screens/Home/NFT/NFTStackScreen';
 import { setAdjustPan } from 'rn-android-keyboard-adjust';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useRefresh } from 'hooks/useRefresh';
 import { reloadCron } from 'messaging/index';
 
@@ -28,7 +28,7 @@ const ITEM_SEPARATOR = 16;
 const TOTAL_ITEM_HEIGHT = ITEM_HEIGHT + ITEM_SEPARATOR;
 
 const NftCollectionList = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const { nftCollections } = useFetchNftCollection();
   const navigation = useNavigation<NFTNavigationProps>();
   const [isRefresh, refresh] = useRefresh();

@@ -6,7 +6,7 @@ import FastImage from 'react-native-fast-image';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { House } from 'phosphor-react-native';
 import ErrorStyles from './style';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Images } from 'assets/index';
 
 interface ErrorFallbackProps {
@@ -14,7 +14,7 @@ interface ErrorFallbackProps {
 }
 
 const ErrorFallbackScreen: React.FC<ErrorFallbackProps> = ({ resetError }) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = ErrorStyles(theme);
   return (
     <SafeAreaView style={styles.container}>

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { StakingScreenNavigationProps } from 'routes/staking/stakingScreen';
 import { NominatorMetadata, StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import { useNavigation } from '@react-navigation/native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import useGetNominatorInfo from 'hooks/screen/Staking/useGetNominatorInfo';
@@ -50,7 +50,7 @@ export const CancelUnstake = ({
 }: CancelUnstakeProps) => {
   const stakingType = _stakingType as StakingType;
   const navigation = useNavigation<StakingScreenNavigationProps>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const { isAllAccount, accounts } = useSelector((state: RootState) => state.accountState);
 
   const { chainInfoMap } = useSelector((state: RootState) => state.chainStore);

@@ -3,7 +3,7 @@ import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { View } from 'react-native';
 import { Button, PageIcon, Typography } from 'components/design-system-ui';
 import { CheckCircle } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TransactionDoneStyle from './TransactionDone/style';
 import { RootNavigationProps, TransactionDoneProps } from 'routes/index';
 import { useNavigation } from '@react-navigation/native';
@@ -16,7 +16,7 @@ export const TransactionDone = ({
     params: { chain, id, path },
   },
 }: TransactionDoneProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const navigation = useNavigation<RootNavigationProps>();
   const _style = TransactionDoneStyle(theme);
   useHandlerHardwareBackPress(true);

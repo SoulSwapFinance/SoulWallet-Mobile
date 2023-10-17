@@ -4,7 +4,7 @@ import React from 'react';
 import { IconProps } from 'phosphor-react-native';
 import { centerStyle, FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import { PageIcon } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props {
   icon: React.ElementType<IconProps>;
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const EmptyList = ({ icon, title, message }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   return (
     <View style={[centerStyle, { justifyContent: 'center', alignItems: 'center' }]}>
       <View style={{ justifyContent: 'center', alignItems: 'center' }}>

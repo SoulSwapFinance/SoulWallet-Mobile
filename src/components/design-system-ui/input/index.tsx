@@ -1,7 +1,7 @@
 import React, { ForwardedRef, forwardRef, useMemo } from 'react';
 import { TextInput, View, ViewStyle } from 'react-native';
 import createStylesheet from './style';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { TextInputProps } from 'react-native/Libraries/Components/TextInput/TextInput';
 import Field from 'components/design-system-ui/field';
 import { TextStyle } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
@@ -37,7 +37,7 @@ const Input = (
   }: InputProps,
   ref: ForwardedRef<TextInput>,
 ) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stylesheet = useMemo(
     () => createStylesheet(theme, !!label, !!isError, readonly),
     [isError, label, readonly, theme],

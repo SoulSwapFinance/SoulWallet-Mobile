@@ -12,7 +12,7 @@ import { PoolSelectorDetailModal } from 'components/Modal/common/PoolSelectorDet
 import { ArrowCounterClockwise, MagnifyingGlass, SortAscending, SortDescending } from 'phosphor-react-native';
 import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
 import { ModalRef } from 'types/modalRef';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import BigN from 'bignumber.js';
 import { EmptyList } from 'components/EmptyList';
 import { FullSizeSelectModal } from 'components/common/SelectModal';
@@ -89,7 +89,7 @@ const filterFunction = (items: NominationPoolDataType[], filters: string[]) => {
 };
 
 export const PoolSelector = ({ chain, onSelectItem, from, poolLoading, selectedPool, disabled }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const items = useGetValidatorList(chain, StakingType.POOLED) as NominationPoolDataType[];
   const [detailModalVisible, setDetailModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState<NominationPoolDataType | undefined>(undefined);

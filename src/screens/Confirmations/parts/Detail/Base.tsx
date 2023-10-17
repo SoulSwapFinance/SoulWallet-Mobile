@@ -1,6 +1,6 @@
 import { Button, Icon, SwModal } from 'components/design-system-ui';
 import { SWModalProps } from 'components/design-system-ui/modal';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ArrowCircleUpRight, XCircle } from 'phosphor-react-native';
 import React, { useCallback, useMemo, useState } from 'react';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
@@ -14,7 +14,7 @@ interface Props {
 
 const BaseDetailModal: React.FC<Props> = (props: Props) => {
   const { children, title } = props;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const styles = useMemo(() => createStyle(theme), [theme]);
 

@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-nativ
 import { TokenBalanceItemType } from 'types/balance';
 import { Icon, Logo, Number, Typography } from 'components/design-system-ui';
 import { CaretRight } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TokenGroupBalanceItemStyles from './style';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 
@@ -20,7 +20,7 @@ export const TokenGroupBalanceItem = ({
   isShowBalance,
   ...wrapperProps
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = TokenGroupBalanceItemStyles(theme);
   const isTotalBalanceDecrease = priceChangeStatus === 'decrease';
 

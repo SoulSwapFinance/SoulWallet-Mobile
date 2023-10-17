@@ -1,7 +1,7 @@
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useMemo, useState } from 'react';
 import BigN from 'bignumber.js';
 import { Button } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './style/InputAmount';
 import Input, { InputProps } from 'components/design-system-ui/input';
 import i18n from 'utils/i18n/i18n';
@@ -47,7 +47,7 @@ export const getOutputValuesFromString: (input: string, power: number) => string
 };
 
 const Component = (props: InputAmountProps, ref: ForwardedRef<any>) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const {
     decimals,

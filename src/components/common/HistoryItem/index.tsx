@@ -5,7 +5,7 @@ import { CaretRight } from 'phosphor-react-native';
 import { Icon, Logo, Typography } from 'components/design-system-ui';
 import { Number } from 'components/design-system-ui';
 import { ExtrinsicStatus, TransactionDirection } from '@subwallet/extension-base/background/KoniTypes';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import HistoryItemStyles from './style';
 import { ThemeTypes } from 'styles/themes';
 import { HistoryStatusMap } from 'screens/Home/History/shared';
@@ -24,7 +24,7 @@ function getIconColor(status: ExtrinsicStatus, theme: ThemeTypes): string | unde
 }
 
 export const HistoryItem = ({ item, onPress, style }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const displayData = item.displayData;
   const _style = HistoryItemStyles(theme);
 

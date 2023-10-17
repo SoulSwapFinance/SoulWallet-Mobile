@@ -8,7 +8,7 @@ import { FontMedium } from 'styles/sharedStyles';
 import { CaretDown } from 'phosphor-react-native';
 import { _getChainName } from '@subwallet/extension-base/services/chain-service/utils';
 import { ThemeTypes } from 'styles/themes';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Typography } from 'components/design-system-ui';
 
 interface Props extends FieldBaseProps {
@@ -19,7 +19,7 @@ interface Props extends FieldBaseProps {
 }
 
 export const NetworkField = ({ networkKey, disabled, label, showIcon, placeholder = '', ...fieldBase }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme, disabled), [disabled, theme]);
   const chainInfoMap = useSelector((state: RootState) => state.chainStore.chainInfoMap);
 

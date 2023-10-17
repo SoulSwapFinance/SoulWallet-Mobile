@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import Text from 'components/Text';
 import { IconProps } from 'phosphor-react-native';
 import Icon from '../../../design-system-ui/icon';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import AccountActionButtonStyles from './style';
 
 type AccountActionButtonType = {
@@ -20,7 +20,7 @@ interface Props {
 }
 
 const AccountActionButton = ({ item }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = AccountActionButtonStyles(theme);
 
   return (

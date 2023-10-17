@@ -6,11 +6,11 @@ import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainPrefixBySlug from 'hooks/chain/useGetChainPrefixBySlug';
 import i18n from 'utils/i18n/i18n';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 type Props = BaseTransactionConfirmationProps;
 const SendNftTransactionConfirmation = ({ transaction }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const data = transaction.data as ExtrinsicDataTypeMap[ExtrinsicType.SEND_NFT];
   const { decimals, symbol } = useGetNativeTokenBasicInfo(transaction.chain);
   const networkPrefix = useGetChainPrefixBySlug(transaction.chain);

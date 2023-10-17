@@ -16,7 +16,7 @@ import { TokenItemType } from 'components/Modal/common/TokenSelector';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { ChainInfo } from 'types/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
 
 interface Props<T> {
@@ -105,7 +105,7 @@ function _SelectModal<T>(selectModalProps: Props<T>, ref: ForwardedRef<any>) {
     _onCloseModal && _onCloseModal();
   }, [_onCloseModal]);
 
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   useEffect(() => {
     if (isOpen) {

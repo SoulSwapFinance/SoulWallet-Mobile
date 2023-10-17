@@ -2,7 +2,7 @@ import { CrowdloanParaState } from '@subwallet/extension-base/background/KoniTyp
 import { Logo, Number, Tag } from 'components/design-system-ui';
 import { TagNativeProps } from 'components/design-system-ui/tag';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
@@ -39,7 +39,7 @@ export function getGroupKey(groupDisplayName: string) {
 }
 
 export const CrowdloanItem = ({ item }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styleSheet = createStyleSheet(theme);
 
   const tagColor = useMemo((): TagNativeProps['color'] => {

@@ -9,7 +9,7 @@ import { UseControllerProps } from 'react-hook-form/dist/types/controller';
 import { isAddress } from '@polkadot/util-crypto';
 import { FormItem } from 'components/common/FormItem';
 import Input from 'components/design-system-ui/input';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { UseControllerReturn } from 'react-hook-form/dist/types';
 import { editContactAddress } from 'messaging/index';
 import { InputAddress } from 'components/Input/InputAddressV2';
@@ -58,7 +58,7 @@ const ButtonIcon = (color: string) => {
 };
 
 export const AddContactModal = ({ modalVisible, setModalVisible }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const contacts = useSelector((state: RootState) => state.accountState.contacts);
   const [loading, setLoading] = useState(false);
   const { show, hideAll } = useToast();

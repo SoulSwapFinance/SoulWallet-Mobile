@@ -5,7 +5,7 @@ import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { ScrollView, View } from 'react-native';
 import { Avatar, Button, Icon } from 'components/design-system-ui';
 import { ArrowCircleRight, CheckCircle, Info, Trash } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ApplyMasterPasswordStyle from './style';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';
@@ -41,7 +41,7 @@ const intersectionArray = (array1: AccountJson[], array2: AccountJson[]): Accoun
 };
 
 const ApplyMasterPassword = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const goHome = useGoHome();
   const _style = ApplyMasterPasswordStyle(theme);
   const { accounts, isLocked } = useSelector((state: RootState) => state.accountState);

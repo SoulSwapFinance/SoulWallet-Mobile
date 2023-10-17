@@ -13,7 +13,7 @@ import { updateAuthUrls } from 'stores/updater';
 import i18n from 'utils/i18n/i18n';
 import { EmptyList } from 'components/EmptyList';
 import DappAccessItem from 'components/design-system-ui/web3-block/DappAccessItem';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 function searchFunction(items: AuthUrlInfo[], searchString: string) {
   return items.filter(item => item.url.toLowerCase().includes(searchString.toLowerCase()));
@@ -68,7 +68,7 @@ export const DAppAccessScreen = () => {
   const authUrlMap = useSelector((state: RootState) => state.settings.authUrls);
   const navigation = useNavigation<RootNavigationProps>();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const dAppItems = useMemo<AuthUrlInfo[]>(() => {
     return getDAppItems(authUrlMap);
   }, [authUrlMap]);

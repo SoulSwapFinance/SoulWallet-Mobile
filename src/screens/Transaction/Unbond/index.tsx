@@ -30,7 +30,7 @@ import { _ChainInfo } from '@subwallet/chain-list/types';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { accountFilterFunc } from 'screens/Transaction/helper/staking';
 import { Button, Icon, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';
 import { submitPoolUnbonding, submitUnbonding } from 'messaging/index';
 import { FontMedium, MarginBottomForSubmitButton } from 'styles/sharedStyles';
@@ -61,7 +61,7 @@ export const Unbond = ({
     params: { chain: stakingChain, type: _stakingType },
   },
 }: UnbondProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stakingType = _stakingType as StakingType;
   const unbondFormConfig = useMemo(
     () => ({

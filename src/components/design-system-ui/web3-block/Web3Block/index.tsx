@@ -1,4 +1,4 @@
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { ReactNode, useMemo } from 'react';
 import { StyleProp, TouchableOpacity, View, ViewProps, ViewStyle } from 'react-native';
 import createStyle from './styles';
@@ -36,7 +36,7 @@ const Web3Block: React.FC<Web3BlockProps> = (props: Web3BlockProps) => {
     rightItem,
     customStyle,
   } = props;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
 
   const Wrapper = useMemo((): React.FC<ViewProps> => {

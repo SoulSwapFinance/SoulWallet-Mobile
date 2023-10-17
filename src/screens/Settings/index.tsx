@@ -40,7 +40,7 @@ import {
 import VersionNumber from 'react-native-version-number';
 import useAppLock from 'hooks/useAppLock';
 import { BackgroundIcon, Button, Icon, SelectItem } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SVGImages } from 'assets/index';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 
@@ -72,7 +72,7 @@ type settingItemType = {
 
 export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponentProps) => {
   const navigation = useNavigation<RootNavigationProps>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const pinCodeEnabled = useSelector((state: RootState) => state.mobileSettings.pinCodeEnabled);
   const { lock } = useAppLock();
   const [hiddenCount, setHiddenCount] = useState(0);

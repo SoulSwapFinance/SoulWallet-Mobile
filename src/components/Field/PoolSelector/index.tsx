@@ -4,7 +4,7 @@ import { StyleProp, Text, View } from 'react-native';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { Book, Lightning } from 'phosphor-react-native';
 import { ActivityIndicator, Avatar, Button, Icon } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { NominationPoolInfo } from '@subwallet/extension-base/background/KoniTypes';
 import { toShort } from 'utils/index';
 import i18n from 'utils/i18n/i18n';
@@ -48,7 +48,7 @@ export const PoolSelectorField = ({
   onPressLightningBtn,
   ...fieldBase
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   return (
     <FieldBase label={label} {...fieldBase} outerStyle={outerStyle}>

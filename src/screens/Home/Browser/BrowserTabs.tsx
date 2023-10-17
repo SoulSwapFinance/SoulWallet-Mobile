@@ -11,7 +11,7 @@ import { ScreenContainer } from 'components/ScreenContainer';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
 import { EmptyList } from 'components/EmptyList';
 import { Button, Icon, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles/BrowserTabs';
 
 interface Props {
@@ -23,7 +23,7 @@ interface Props {
 }
 
 export const BrowserTabs = ({ activeTab, tabs, navigation, onClose, onPressTabItem }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
   const isEmptyTabs = !tabs.length;
 

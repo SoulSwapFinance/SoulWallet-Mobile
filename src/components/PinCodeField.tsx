@@ -6,7 +6,7 @@ import { ColorMap } from 'styles/color';
 import { FontBold } from 'styles/sharedStyles';
 import { CELL_COUNT } from 'constants/index';
 import { Squircle } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 const codeFiledRoot: StyleProp<any> = {
   marginTop: 20,
@@ -38,7 +38,7 @@ interface Props {
 }
 
 export const PinCodeField = ({ value, setError, setValue, isPinCodeValid, pinCodeRef }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,

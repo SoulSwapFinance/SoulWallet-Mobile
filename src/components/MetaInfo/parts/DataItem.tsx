@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { InfoItemBase } from '../types';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
@@ -13,7 +13,7 @@ export interface DataInfoItem extends InfoItemBase {
 }
 
 const DataItem: React.FC<DataInfoItem> = ({ children, valueColorSchema, label, loading }: DataInfoItem) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = MetaInfoStyles(theme);
   const { labelGeneralStyle, valueGeneralStyle } = useGeneralStyles(theme);
 

@@ -6,7 +6,7 @@ import { CommonTransactionInfo } from 'components/common/Confirmation/CommonTran
 import { ConfirmationContent } from 'components/common/Confirmation';
 import MetaInfo from 'components/MetaInfo';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React from 'react';
 import { Text } from 'react-native';
 
@@ -19,7 +19,7 @@ const ClaimRewardTransactionConfirmation: React.FC<Props> = (props: Props) => {
   const { transaction } = props;
   const data = transaction.data as RequestStakeClaimReward;
 
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const { decimals, symbol } = useGetNativeTokenBasicInfo(data.chain);
 

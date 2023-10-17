@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import { FontMedium } from 'styles/sharedStyles';
 import { IconProps, Info } from 'phosphor-react-native';
 import { ThemeTypes } from 'styles/themes';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Avatar, Button, Icon, Typography } from 'components/design-system-ui';
 
 interface Props extends FieldBaseProps {
@@ -36,7 +36,7 @@ export const AddressField = ({
   disableRightIcon,
   ...fieldBase
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
   const formattedAddress = networkPrefix !== undefined ? reformatAddress(address, networkPrefix) : address;
   const textLength = name ? 6 : 10;

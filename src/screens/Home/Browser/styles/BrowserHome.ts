@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 import { FontSemiBold } from 'styles/sharedStyles';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { browserHomeItemSectionWidth } from 'constants/itemHeight';
 
 const Styles = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   return StyleSheet.create({
     container: { flex: 1 },

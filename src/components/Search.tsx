@@ -12,7 +12,7 @@ import { FadersHorizontal, MagnifyingGlass, XCircle } from 'phosphor-react-nativ
 import { ColorMap } from 'styles/color';
 import { FontMedium, sharedStyles } from 'styles/sharedStyles';
 import { Button, Icon } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props extends TextInputProps {
   onSearch: (text: string) => void;
@@ -51,7 +51,7 @@ export const Search = (searchProps: Props) => {
     onPressFilterBtn,
     ...restProps
   } = searchProps;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   return (
     <TouchableWithoutFeedback onPress={() => searchRef?.current?.focus()}>

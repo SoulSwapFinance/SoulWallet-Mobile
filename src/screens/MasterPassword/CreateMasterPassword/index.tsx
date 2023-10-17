@@ -3,7 +3,7 @@ import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { ScrollView, View } from 'react-native';
 import { CheckCircle, Info } from 'phosphor-react-native';
 import { Button, Icon, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
 import { PasswordField } from 'components/Field/Password';
 import { validatePassword, validatePasswordMatched } from 'screens/Shared/AccountNamePasswordCreation';
@@ -26,7 +26,7 @@ const CreateMasterPassword = ({
   },
 }: CreatePasswordProps) => {
   const navigation = useNavigation<RootNavigationProps>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = CreateMasterPasswordStyle(theme);
   const [isBusy, setIsBusy] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);

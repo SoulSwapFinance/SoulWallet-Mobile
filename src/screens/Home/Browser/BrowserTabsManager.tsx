@@ -21,7 +21,7 @@ import { AccountJson } from '@subwallet/extension-base/background/types';
 import { funcSortByName } from 'utils/account';
 import { isAccountAll } from 'utils/accountAll';
 import { BackgroundIcon, Button } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 enum ConnectionStatement {
   NOT_CONNECTED = 'not-connected',
@@ -110,7 +110,7 @@ function ConfirmationTrigger() {
 }
 
 export const BrowserTabsManager = ({ route: { params } }: BrowserTabsManagerProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [propSiteInfo, setPropSiteInfo] = useState<SiteInfo>({
     name: params?.name || '',
     url: params?.url || '',

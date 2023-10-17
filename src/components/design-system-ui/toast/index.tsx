@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Icon } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ThemeTypes } from 'styles/themes';
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast';
 import { CheckCircle, Info, WarningCircle, XCircle } from 'phosphor-react-native';
@@ -20,7 +20,7 @@ const typeToIcon = {
 };
 
 export const CustomToast = ({ toast, direction = 'horizontal' }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = createStyle(theme);
   const iconStatusColor = {
     success: theme.colorSuccess,

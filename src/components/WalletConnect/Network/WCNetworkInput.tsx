@@ -3,7 +3,7 @@ import { Icon, Typography, Web3Block } from 'components/design-system-ui';
 import { WCNetworkAvatarGroup } from 'components/WalletConnect/Network/WCNetworkAvatarGroup';
 import { WalletConnectChainInfo } from 'types/walletConnect';
 import { DotsThree } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium } from 'styles/sharedStyles';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const WCNetworkInput = ({ networks, content }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   return (
     <Web3Block
       customStyle={{

@@ -5,7 +5,7 @@ import { RootNavigationProps } from 'routes/index';
 import i18n from 'utils/i18n/i18n';
 import { Button, PageIcon, Typography } from 'components/design-system-ui';
 import { FontMedium } from 'styles/sharedStyles';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SVGImages } from 'assets/index';
 import { Keyboard, View } from 'react-native';
 import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
@@ -27,7 +27,7 @@ const validateUri = (uri: string) => {
 export const ConnectWalletConnect = () => {
   const navigation = useNavigation<RootNavigationProps>();
   const [loading, setLoading] = useState(false);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const toast = useToast();
   const [isShowQrModalVisible, setQrModalVisible] = useState<boolean>(false);
 

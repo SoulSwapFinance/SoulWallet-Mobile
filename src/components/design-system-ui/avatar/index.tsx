@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import { Image, StyleProp, View } from 'react-native';
 // @ts-ignore
 import { toDataUrl } from './blockies.js';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import AvatarStyles from './style';
 import { Images } from 'assets/index';
 function getEthereumIdenticonStyle(size: number): StyleProp<any> {
@@ -25,7 +25,7 @@ export interface SWLogoProps {
 }
 
 const Avatar: React.FC<SWLogoProps> = ({ theme, size = 40, value }) => {
-  const themes = useSubWalletTheme().swThemes;
+  const themes = useSoulWalletTheme().swThemes;
   const _style = AvatarStyles(themes);
 
   const formattedAddress = useMemo((): string | null => {

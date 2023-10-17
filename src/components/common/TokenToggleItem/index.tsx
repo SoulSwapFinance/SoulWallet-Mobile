@@ -5,7 +5,7 @@ import { ColorMap } from 'styles/color';
 import { Divider } from 'components/Divider';
 import { _ChainAsset } from '@subwallet/chain-list/types';
 import { Button, Icon, Logo as SWLogo } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TokenToggleItemStyles from './style';
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const TokenToggleItem = ({ item, onPress, isEnabled, onValueChange, isDisableSwitching }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = TokenToggleItemStyles(theme);
 
   return (

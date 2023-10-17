@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { Avatar, Button, Icon, Number } from 'components/design-system-ui';
 import { FontMedium } from 'styles/sharedStyles';
 import { DotsThree } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import StakingPoolItemStyle from './style';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import i18n from 'utils/i18n/i18n';
@@ -29,7 +29,7 @@ export const StakingPoolItem = ({
   onPress,
   onPressRightButton,
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = StakingPoolItemStyle(theme);
   return (
     <TouchableOpacity style={_style.container} onPress={onPress}>

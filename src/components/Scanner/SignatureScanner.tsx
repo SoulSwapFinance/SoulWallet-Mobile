@@ -14,7 +14,7 @@ import { rectDimensions } from 'constants/scanner';
 import { BarCodeReadEvent } from 'react-native-camera';
 import { X } from 'phosphor-react-native';
 import { IconButton } from 'components/IconButton';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { STATUS_BAR_LIGHT_CONTENT } from 'styles/sharedStyles';
 import ModalBase from 'components/Modal/Base/ModalBase';
 
@@ -48,7 +48,7 @@ const BottomContentStyle: StyleProp<ViewStyle> = {
 };
 
 const QrAddressScanner = ({ visible, onSuccess, setVisible }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [error, setError] = useState<string>('');
 
   const onHideModal = () => setVisible(false);

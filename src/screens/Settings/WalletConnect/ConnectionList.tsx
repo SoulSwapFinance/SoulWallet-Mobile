@@ -11,7 +11,7 @@ import { SessionTypes } from '@walletconnect/types';
 import { stripUrl } from '@subwallet/extension-base/utils';
 import { Button } from 'components/design-system-ui';
 import { SVGImages } from 'assets/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ConnectionItem } from 'components/WalletConnect/ConnectionItem';
 import { ListRenderItemInfo } from 'react-native';
 import { AddressScanner } from 'components/Scanner/AddressScanner';
@@ -43,7 +43,7 @@ export const ConnectionList = ({
     params: { isDelete },
   },
 }: ConnectListProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const { sessions } = useSelector((state: RootState) => state.walletConnect);
   const items = useMemo(() => Object.values(sessions), [sessions]);
   const navigation = useNavigation<RootNavigationProps>();

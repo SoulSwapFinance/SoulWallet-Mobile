@@ -4,7 +4,7 @@ import { BackgroundIcon } from 'components/design-system-ui';
 import React, { useCallback, useMemo } from 'react';
 import { Text, View, ViewStyle } from 'react-native';
 import { SelectItem } from '../../design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import SelectExportTypeStyles from './style';
 import { FileJs, IconProps, Leaf, QrCode, Wallet } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';
@@ -37,7 +37,7 @@ interface SelectAccountTypeProps {
 
 export const SelectExportType = (props: SelectAccountTypeProps) => {
   const { title, selectedItems, setSelectedItems, styles, account, loading } = props;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = SelectExportTypeStyles(theme);
 
   const onClickItem = useCallback(

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { addBookmark, removeBookmark } from 'stores/updater';
 import i18n from 'utils/i18n/i18n';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SelectItem, SwModal } from 'components/design-system-ui';
 import { searchDomain } from 'utils/browser';
 import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
@@ -29,7 +29,7 @@ export interface BrowserOptionModalRef {
 }
 
 const Component = ({ visibleModal, setVisibleModal }: Props, ref: ForwardedRef<BrowserOptionModalRef>) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const bookmarks = useSelector((state: RootState) => state.browser.bookmarks);
   const modalRef = useRef<SWModalRefProps>(null);
 

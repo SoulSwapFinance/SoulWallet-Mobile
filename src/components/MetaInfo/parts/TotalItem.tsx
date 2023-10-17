@@ -1,7 +1,7 @@
 import React from 'react';
 import { InfoItemBase } from 'components/MetaInfo/types';
 import BigN from 'bignumber.js';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { renderColContent } from 'components/MetaInfo/shared';
@@ -23,7 +23,7 @@ const TotalItem: React.FC<TotalInfoItem> = ({
   suffix,
   value,
 }: TotalInfoItem) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = MetaInfoStyles(theme);
   const { labelGeneralStyle } = useGeneralStyles(theme);
 

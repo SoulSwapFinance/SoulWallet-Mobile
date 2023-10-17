@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import MetaInfo from 'components/MetaInfo';
 import { AmountData, ChainStakingMetadata, StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import { getUnstakingPeriod } from 'screens/Transaction/helper/staking';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium } from 'styles/sharedStyles';
 import BigN from 'bignumber.js';
 import i18n from 'utils/i18n/i18n';
@@ -32,7 +32,7 @@ export const NetworkDetailModal = ({
     inflation,
     unstakingPeriod,
   } = chainStakingMetadata;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const modalBaseV2Ref = useRef<SWModalRefProps>(null);
   const onCloseModal = () => modalBaseV2Ref?.current?.close();
   return (

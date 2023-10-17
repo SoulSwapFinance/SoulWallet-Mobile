@@ -6,7 +6,7 @@ import reformatAddress, { toShort } from 'utils/index';
 import { isAddress, isEthereumAddress } from '@polkadot/util-crypto';
 import { isValidSubstrateAddress } from '@subwallet/extension-base/utils';
 import { Avatar, Button, Icon, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ThemeTypes } from 'styles/themes';
 import { setAdjustResize } from 'rn-android-keyboard-adjust';
 
@@ -46,10 +46,10 @@ const Component = (inputAddressProps: InputProps, ref: ForwardedRef<any>) => {
     onSubmitField,
     placeholder,
   } = inputAddressProps;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [isInputBlur, setInputBlur] = useState<boolean>(true);
   const [address, setAddress] = useState<string>(value);
-  const themes = useSubWalletTheme().swThemes;
+  const themes = useSoulWalletTheme().swThemes;
   const isAddressValid = isValidCurrentAddress(address, isEthereumAddress(address)) && isValidValue;
   const hasLabel = !!label;
   const styles = useMemo(

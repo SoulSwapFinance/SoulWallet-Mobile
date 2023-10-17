@@ -12,7 +12,7 @@ import { RootState } from 'stores/index';
 import { useNavigation } from '@react-navigation/native';
 import { ConnectDetailProps, RootNavigationProps } from 'routes/index';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium } from 'styles/sharedStyles';
 import { AbstractAddressJson } from '@subwallet/extension-base/background/types';
 import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
@@ -32,7 +32,7 @@ export const ConnectionDetail = ({
   },
 }: ConnectDetailProps) => {
   const { sessions } = useSelector((state: RootState) => state.walletConnect);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const currentSession: SessionTypes.Struct = sessions[topic];
   const networkDetailModalRef = useRef<SWModalRefProps>(null);
 

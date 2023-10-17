@@ -7,7 +7,7 @@ import { RocketLaunch } from 'phosphor-react-native';
 import useGetCrowdloanList from 'hooks/screen/Home/Crowdloans/useGetCrowdloanList';
 import { FlatListScreen } from 'components/FlatListScreen';
 import { EmptyList } from 'components/EmptyList';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { setAdjustPan } from 'rn-android-keyboard-adjust';
 import { useIsFocused } from '@react-navigation/native';
 import { CrowdloanItemType } from 'types/index';
@@ -34,7 +34,7 @@ enum FilterValue {
 }
 
 export const CrowdloansScreen = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const items: CrowdloanItemType[] = useGetCrowdloanList();
   // const [isRefresh, refresh] = useRefresh();
   const isFocused = useIsFocused();

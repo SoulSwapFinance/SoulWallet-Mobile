@@ -9,7 +9,7 @@ import { FlatListScreenPaddingTop, FontSemiBold } from 'styles/sharedStyles';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { updateShowZeroBalanceState } from 'stores/utils';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { EmptyList } from 'components/EmptyList';
 import { MagnifyingGlass, Wallet } from 'phosphor-react-native';
 import { ToggleItem } from 'components/ToggleItem';
@@ -55,7 +55,7 @@ const processChainMap = (
 };
 
 export const CustomizationModal = ({ modalVisible, setVisible }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const isShowZeroBalance = useSelector((state: RootState) => state.settings.isShowZeroBalance);
   const chainInfoMap = useChainInfoWithState();
   const [pendingChainMap, setPendingChainMap] = useState<Record<string, boolean>>(cachePendingChainMap);

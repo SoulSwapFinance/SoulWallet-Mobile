@@ -6,7 +6,7 @@ import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
 import { Keyboard, ListRenderItemInfo, View } from 'react-native';
 import Typography from '../../../components/design-system-ui/typography';
 import { FontSemiBold } from 'styles/sharedStyles';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SectionItem } from 'components/LazySectionList';
 import { EmptyList } from 'components/EmptyList';
 import { MagnifyingGlass, PencilSimpleLine, Plus } from 'phosphor-react-native';
@@ -96,7 +96,7 @@ const sortFunction = (a: AccountItem, b: AccountItem) => {
 };
 
 export const ManageAddressBook = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const navigation = useNavigation<RootNavigationProps>();
   const { contacts, recent } = useSelector((state: RootState) => state.accountState);
   const [isShowAddContactModal, setShowAddContactModal] = useState<boolean>(false);

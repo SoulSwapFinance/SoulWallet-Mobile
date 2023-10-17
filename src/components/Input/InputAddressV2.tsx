@@ -1,7 +1,7 @@
 import Input, { InputProps } from 'components/design-system-ui/input';
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { Keyboard, TextInput, View } from 'react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { isAddress } from '@polkadot/util-crypto';
 import { Avatar, Button, Icon, Typography } from 'components/design-system-ui';
 import reformatAddress, { toShort } from 'utils/index';
@@ -46,7 +46,7 @@ const Component = (
   }: Props,
   ref: ForwardedRef<TextInput>,
 ) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [isInputBlur, setInputBlur] = useState<boolean>(true);
   const [isShowAddressBookModal, setShowAddressBookModal] = useState<boolean>(false);
   const [isShowQrModalVisible, setIsShowQrModalVisible] = useState<boolean>(false);

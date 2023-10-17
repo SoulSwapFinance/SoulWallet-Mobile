@@ -16,7 +16,7 @@ import IconItem from './Shared/IconItem';
 import { getHostName } from 'utils/browser';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import i18n from 'utils/i18n/i18n';
 import isaac from 'isaac';
 import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight';
@@ -40,7 +40,7 @@ const ICON_ITEM_HEIGHT = browserHomeItemIconOnly;
 const ITEM_HEIGHT = browserHomeItem;
 const ITEM_WIDTH = browserHomeItemWidth;
 const SectionHeader: React.FC<HeaderProps> = ({ title, actionTitle, onPress }): JSX.Element => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet();
   return (
     <View style={stylesheet.sectionContainer}>
@@ -79,7 +79,7 @@ const ItemSeparator = () => {
 };
 const BrowserHome = () => {
   const stylesheet = createStylesheet();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [dApps] = useState<PredefinedDApps>(predefinedDApps);
   const navigation = useNavigation<RootNavigationProps>();
   const historyItems = useSelector((state: RootState) => state.browser.history);

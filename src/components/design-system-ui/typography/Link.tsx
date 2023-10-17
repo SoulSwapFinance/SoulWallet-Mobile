@@ -1,4 +1,4 @@
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React from 'react';
 import { StyleProp, Text as RNText, TextStyle } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -15,7 +15,7 @@ export interface LinkProps {
 }
 
 const Link: React.FC<LinkProps> = ({ icon, onPress, size, style, underline = true, children, ...restProps }) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = TypographyStyles(theme);
   const allStyle = [underline && _style?.underline, size && _style[`${size}Text`], style];
   return (

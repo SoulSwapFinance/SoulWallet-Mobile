@@ -20,7 +20,7 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import RNQRGenerator from 'rn-qr-generator';
 import { updatePreventLock } from 'stores/MobileSettings';
 import { useDispatch } from 'react-redux';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props {
   visible: boolean;
@@ -49,7 +49,7 @@ const BottomSubContentStyle: StyleProp<ViewStyle> = {
 };
 
 const QrAddressScanner = ({ visible, onHideModal, onSuccess, type }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [error, setError] = useState<string>('');
   const dispatch = useDispatch();
   const handleRead = useCallback(

@@ -4,7 +4,7 @@ import { StyleProp, Text, View } from 'react-native';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { CaretDown } from 'phosphor-react-native';
 import { ActivityIndicator, Avatar, Icon } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { NominationInfo } from '@subwallet/extension-base/background/KoniTypes';
 import { toShort } from 'utils/index';
 import { isEthereumAddress } from '@polkadot/util-crypto';
@@ -45,7 +45,7 @@ export const NominationSelectorField = ({
   placeholder = i18n.stakingScreen.selectedCollator,
   ...fieldBase
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   return (
     <FieldBase label={label} fieldBgc={theme.colorBgSecondary} {...fieldBase} outerStyle={outerStyle}>

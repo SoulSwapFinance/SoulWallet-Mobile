@@ -6,7 +6,7 @@ import { BrowserListByTabviewProps } from 'routes/index';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Animated, View } from 'react-native';
 import { Typography } from 'components/design-system-ui';
 import { FontSemiBold } from 'styles/sharedStyles';
@@ -55,7 +55,7 @@ const tabbarIcon = (focused: boolean, item: RoutesType, theme: ThemeTypes) => {
   );
 };
 export const BrowserListByTabview = ({ route, navigation }: BrowserListByTabviewProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [dApps] = useState<PredefinedDApps>(predefinedDApps);
   const [searchString] = useState<string>('');
   const categoryTabRoutes = dApps.categories()?.map(item => ({ key: item.id, title: item.name }));

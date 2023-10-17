@@ -5,7 +5,7 @@ import { RootState } from 'stores/index';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
 import { View } from 'react-native';
 import Typography from '../../design-system-ui/typography';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { ActivityIndicator, Logo } from 'components/design-system-ui';
@@ -15,7 +15,7 @@ export interface ChainInfoItem extends InfoItemBase {
 }
 
 const ChainItem: React.FC<ChainInfoItem> = ({ chain, label, valueColorSchema, loading }: ChainInfoItem) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = MetaInfoStyles(theme);
   const { labelGeneralStyle, valueGeneralStyle } = useGeneralStyles(theme);
   const chainInfoMap = useSelector((root: RootState) => root.chainStore.chainInfoMap);

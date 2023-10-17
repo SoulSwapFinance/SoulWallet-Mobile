@@ -6,7 +6,7 @@ import { FieldBaseProps } from 'components/Field/Base';
 import { Warning } from 'components/Warning';
 import { Icon, Typography } from 'components/design-system-ui';
 import { IconProps } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ThemeTypes } from 'styles/themes';
 
 interface Props extends FieldBaseProps {
@@ -27,7 +27,7 @@ interface Props extends FieldBaseProps {
 }
 
 const InputText = forwardRef((passwordFieldProps: Props, ref: React.Ref<TextInput>) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const {
     defaultValue,
     onChangeText,

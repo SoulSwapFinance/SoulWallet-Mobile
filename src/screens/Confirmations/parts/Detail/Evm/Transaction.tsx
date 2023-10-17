@@ -12,7 +12,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { TouchableWithoutFeedback, View } from 'react-native';
 import i18n from 'utils/i18n/i18n';
 import { CaretRight } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props {
   request: EvmSendTransactionRequest;
@@ -30,7 +30,7 @@ const convertToBigN = (num: EvmSendTransactionRequest['value']): string | number
 const EvmTransactionDetail: React.FC<Props> = (props: Props) => {
   const { account, request } = props;
   const { chainId } = request;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const [isShowDetailHexData, setShowHexData] = useState<boolean>(false);
 
   const recipient = useGetAccountByAddress(request.to);

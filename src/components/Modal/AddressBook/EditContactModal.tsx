@@ -8,7 +8,7 @@ import { RootState } from 'stores/index';
 import { UseControllerProps } from 'react-hook-form/dist/types/controller';
 import { FormItem } from 'components/common/FormItem';
 import Input from 'components/design-system-ui/input';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { editContactAddress, removeContactAddress } from 'messaging/index';
 import { AddressJson } from '@subwallet/extension-base/background/types';
 import { ReadonlyAddressField } from 'components/Modal/AddressBook/ReadonlyAddressField';
@@ -39,7 +39,7 @@ interface FormValues {
 }
 
 export const EditContactModal = ({ modalVisible, addressJson, setModalVisible }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const { address, name: defaultName = '' } = addressJson;
   const contacts = useSelector((state: RootState) => state.accountState.contacts);
   const [loading, setLoading] = useState(false);

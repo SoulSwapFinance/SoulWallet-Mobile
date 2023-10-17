@@ -4,7 +4,7 @@ import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/common/
 import MetaInfo from 'components/MetaInfo';
 import useGetChainInfoByChainId from 'hooks/chain/useGetChainInfoByChainId';
 import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { Text } from 'react-native';
 import { BaseDetailModal, EvmSignArea, EvmTransactionDetail } from 'screens/Confirmations/parts';
@@ -34,7 +34,7 @@ const EvmTransactionConfirmation: React.FC<Props> = (props: Props) => {
   const chainInfo = useGetChainInfoByChainId(chainId);
   const recipientAddress = to;
   const recipient = useGetAccountByAddress(recipientAddress);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const styles = useMemo(() => createStyle(theme), [theme]);
 

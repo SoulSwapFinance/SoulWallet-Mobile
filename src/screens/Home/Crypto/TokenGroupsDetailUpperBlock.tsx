@@ -6,7 +6,7 @@ import { CaretLeft } from 'phosphor-react-native';
 import { SwNumberProps } from 'components/design-system-ui/number';
 import { BalancesVisibility } from 'components/BalancesVisibility';
 import { Button, Icon, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { getAccountType } from 'utils/index';
 import { PREDEFINED_TRANSAK_TOKEN } from '../../../predefined/transak';
@@ -35,7 +35,7 @@ export const TokenGroupsDetailUpperBlock = ({
   tokenGroupSlug,
 }: Props) => {
   const navigation = useNavigation<RootNavigationProps>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const accounts = useSelector((state: RootState) => state.accountState.accounts);
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   const isAllAccount = useSelector((state: RootState) => state.accountState.isAllAccount);

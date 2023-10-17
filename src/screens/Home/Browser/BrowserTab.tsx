@@ -38,7 +38,7 @@ import { EmptyList } from 'components/EmptyList';
 import { BridgeScript, DAppScript, ConnectToNovaScript } from 'screens/Home/Browser/BrowserScripts';
 import { NoInternetScreen } from 'components/NoInternetScreen';
 import { Button, Icon, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles/BrowserTab';
 import TabIcon from 'screens/Home/Browser/Shared/TabIcon';
 import { RootState } from 'stores/index';
@@ -119,7 +119,7 @@ const getJsInjectContent = (showLog?: boolean) => {
 
 //todo: Update better style
 const PhishingBlockerLayer = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
   return (
     <View style={stylesheet.phishingBlockerLayer}>
@@ -129,7 +129,7 @@ const PhishingBlockerLayer = () => {
 };
 
 const Component = ({ tabId, onOpenBrowserTabs, connectionTrigger }: Props, ref: ForwardedRef<BrowserTabRef>) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
   const navigation = useNavigation<RootNavigationProps>();
   const historyItems = useSelector((state: RootState) => state.browser.history);

@@ -30,7 +30,7 @@ import { ALL_KEY } from 'constants/index';
 import { ValidatorSelector } from 'components/Modal/common/ValidatorSelector';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { parseNominations } from 'utils/transaction/stake';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainStakingMetadata from 'hooks/screen/Staking/useGetChainStakingMetadata';
 import { PlusCircle } from 'phosphor-react-native';
@@ -54,7 +54,7 @@ export const Stake = ({
     params: { chain: stakingChain = ALL_KEY, type: _stakingType = ALL_KEY },
   },
 }: StakeProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const chainInfoMap = useSelector((state: RootState) => state.chainStore.chainInfoMap);
   const { nominationPoolInfoMap, validatorInfoMap } = useSelector((state: RootState) => state.bonding);
   const { accounts, currentAccount } = useSelector((state: RootState) => state.accountState);

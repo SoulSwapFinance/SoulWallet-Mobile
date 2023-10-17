@@ -2,7 +2,7 @@ import { ConfirmationRequestBase } from '@subwallet/extension-base/background/ty
 import { getDomainFromUrl } from '@subwallet/extension-base/utils';
 import { Image } from 'components/design-system-ui';
 import DualLogo from 'components/Logo/DualLogo';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { Text, View } from 'react-native';
 import createStyle from './styles';
@@ -20,7 +20,7 @@ const ConfirmationGeneralInfo: React.FC<Props> = (props: Props) => {
   const domain = getDomainFromUrl(request.url);
   const leftLogoUrl = `https://icons.duckduckgo.com/ip2/${domain}.ico`;
   const isWCRequest = useMemo(() => isWalletConnectRequest(request.id), [request.id]);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const styles = useMemo(() => createStyle(theme, gap), [theme, gap]);
 

@@ -2,7 +2,7 @@ import React, { ForwardedRef, forwardRef, useCallback, useEffect, useState } fro
 import { TextInput, View } from 'react-native';
 import BigN from 'bignumber.js';
 import { Button } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Warning } from 'components/Warning';
 import InputAmountStyles from './style';
 import { DisabledStyle } from 'styles/sharedStyles';
@@ -48,7 +48,7 @@ export const getOutputValuesFromString: (input: string, power: number) => string
 };
 
 const Component = (props: InputAmountProps, ref: ForwardedRef<any>) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = InputAmountStyles(theme);
   const {
     decimals,

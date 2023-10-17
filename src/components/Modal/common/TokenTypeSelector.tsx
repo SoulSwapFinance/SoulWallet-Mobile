@@ -4,7 +4,7 @@ import i18n from 'utils/i18n/i18n';
 import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
 import { SelectItem } from 'components/design-system-ui';
 import { Coin } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ModalRef } from 'types/modalRef';
 
 interface Props {
@@ -24,7 +24,7 @@ export const TokenTypeSelector = ({
   tokenTypeRef,
   renderSelected,
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   return (
     <BasicSelectModal
       items={items}

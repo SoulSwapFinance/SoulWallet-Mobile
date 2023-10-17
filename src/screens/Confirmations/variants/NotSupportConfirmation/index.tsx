@@ -9,7 +9,7 @@ import ConfirmationFooter from 'components/common/Confirmation/ConfirmationFoote
 import { Button } from 'components/design-system-ui';
 import { NEED_SIGN_CONFIRMATION } from 'constants/transaction';
 import useGetAccountTitleByAddress from 'hooks/account/useGetAccountTitleByAddress';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { cancelSignRequest, completeConfirmation } from 'messaging/index';
 import React, { useCallback, useMemo, useState } from 'react';
 import { Text } from 'react-native';
@@ -37,7 +37,7 @@ const NotSupportConfirmation: React.FC<Props> = (props: Props) => {
   const { account, isMessage, request, type } = props;
 
   const accountTitle = useGetAccountTitleByAddress(account?.address);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
 
   const [loading, setLoading] = useState(false);

@@ -4,7 +4,7 @@
 import { Button, Icon, SwFullSizeModal } from 'components/design-system-ui';
 import { SubHeader } from 'components/SubHeader';
 import useCheckCamera from 'hooks/common/useCheckCamera';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { QrCode } from 'phosphor-react-native';
 import React, { useMemo, useRef } from 'react';
 import { Platform, View } from 'react-native';
@@ -26,7 +26,7 @@ const DisplayPayloadModal: React.FC<Props> = (props: Props) => {
   const modalBaseV2Ref = useRef<SWModalRefProps>(null);
   const onClose = () => setVisible(false);
   const insets = useSafeAreaInsets();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
   const checkCamera = useCheckCamera();
 

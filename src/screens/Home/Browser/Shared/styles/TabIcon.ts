@@ -8,7 +8,7 @@ export interface BrowserStyle {
 }
 
 export default () => {
-  // const theme = useSubWalletTheme().swThemes;
+  // const theme = useSoulWalletTheme().swThemes;
   return StyleSheet.create<BrowserStyle>({
     rightHeaderButtonStyle: {
       width: 40,

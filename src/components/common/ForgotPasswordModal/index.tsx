@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { FontMedium } from 'styles/sharedStyles';
 import { ArrowCounterClockwise, TrashSimple, WarningCircle } from 'phosphor-react-native';
 import { Button, Icon, PageIcon, SwModal, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import i18n from 'utils/i18n/i18n';
 import { ThemeTypes } from 'styles/themes';
 import { noop } from 'utils/function';
@@ -29,7 +29,7 @@ export const ForgotPasswordModal = ({
   resetAccLoading,
   eraseAllLoading,
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = createStyle(theme);
   return (
     <SwModal

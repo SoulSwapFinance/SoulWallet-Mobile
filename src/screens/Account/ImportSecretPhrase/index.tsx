@@ -10,7 +10,7 @@ import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
 import useGoHome from 'hooks/screen/useGoHome';
 import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { createAccountSuriV2, validateSeedV2 } from 'messaging/index';
 import { FileArrowDown, X } from 'phosphor-react-native';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -34,7 +34,7 @@ const secretPhraseFormConfig: FormControlConfig = {
 };
 
 export const ImportSecretPhrase = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const navigation = useNavigation<RootNavigationProps>();
   const goHome = useGoHome();
   const accountName = useGetDefaultAccountName();

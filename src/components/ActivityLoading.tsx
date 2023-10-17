@@ -1,10 +1,10 @@
 import React from 'react';
 import { ActivityIndicator } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { View } from 'react-native';
 
 export const ActivityLoading = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   return (
     <View style={{ marginVertical: 20 }}>
       <ActivityIndicator size={20} indicatorColor={theme.colorWhite} />

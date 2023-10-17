@@ -15,7 +15,7 @@ import {
 } from 'phosphor-react-native';
 import { ActivityIndicator, Button, Icon } from 'components/design-system-ui';
 import { ValidateStatus } from '@subwallet/react-ui/es/form/FormItem';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { isUrl } from 'utils/index';
@@ -33,7 +33,7 @@ interface ValidationInfo {
 }
 
 export const ImportNetwork = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const navigation = useNavigation<RootNavigationProps>();
   const [loading, setLoading] = useState(false);
   const [isPureEvmChain, setIsPureEvmChain] = useState(false);

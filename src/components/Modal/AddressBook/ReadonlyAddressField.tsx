@@ -1,4 +1,4 @@
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { View } from 'react-native';
 import { Avatar, Button, Field, Icon, Typography } from 'components/design-system-ui';
 import { toShort } from 'utils/index';
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const ReadonlyAddressField = ({ address, label, showAvatar = true, toastRef }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const hasLabel = !!label;
   const stylesheet = createStylesheet(theme);
 

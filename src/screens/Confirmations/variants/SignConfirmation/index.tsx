@@ -3,7 +3,7 @@ import { SigningRequest } from '@subwallet/extension-base/background/types';
 import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/common/Confirmation';
 import useParseSubstrateRequestPayload from 'hooks/transaction/confirmation/useParseSubstrateRequestPayload';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { Text } from 'react-native';
 
@@ -20,7 +20,7 @@ interface Props {
 const SignConfirmation: React.FC<Props> = (props: Props) => {
   const { request } = props;
   const { id, account } = request;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const styles = useMemo(() => createStyle(theme), [theme]);
 

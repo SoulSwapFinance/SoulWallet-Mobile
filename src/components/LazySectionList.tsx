@@ -6,7 +6,7 @@ import { useLazyList } from 'hooks/common/useLazyList';
 import { SortFunctionInterface } from 'types/ui-types';
 import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
 import { ActivityIndicator } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 export type SectionItem<T> = { title: string; data: T[] };
 
@@ -50,7 +50,7 @@ export function LazySectionList<T>({
   sortSectionFunction,
   getItemLayout,
 }: Props<T>) {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const sectionListRef = useRef<SectionList>(null);
   const filteredItems = useMemo(() => {
     let searchItems = searchFunction ? searchFunction(items, searchString) : items;

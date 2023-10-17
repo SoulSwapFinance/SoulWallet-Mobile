@@ -23,7 +23,7 @@ import i18n from 'utils/i18n/i18n';
 import { WCNetworkSelected } from 'components/WalletConnect/Network/WCNetworkSelected';
 import { WCAccountSelect } from 'components/WalletConnect/Account/WCAccountSelect';
 import createStyle from './styles';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { WCNetworkSupported } from 'components/WalletConnect/Network/WCNetworkSupported';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
@@ -60,7 +60,7 @@ export const ConnectWalletConnectConfirmation = ({ request }: Props) => {
     }),
     [],
   );
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
   const dispatch = useDispatch();
 

@@ -25,7 +25,7 @@ import { _ChainAsset } from '@subwallet/chain-list/types';
 import { Button, Icon, Typography } from 'components/design-system-ui';
 import { TokenSelectField } from 'components/Field/TokenSelect';
 import { ThemeTypes } from 'styles/themes';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { getTokenLogo } from 'utils/index';
 import Tag from '../../components/design-system-ui/tag';
 import useConfirmModal from 'hooks/modal/useConfirmModal';
@@ -37,7 +37,7 @@ export const ConfigureToken = ({
     params: { tokenDetail },
   },
 }: ConfigureTokenProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
   const toast = useToast();
   const customTokenInfo = JSON.parse(tokenDetail) as _ChainAsset;

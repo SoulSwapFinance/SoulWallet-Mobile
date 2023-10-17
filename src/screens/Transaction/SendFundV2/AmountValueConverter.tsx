@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Number, Typography } from 'components/design-system-ui';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const AmountValueConverter = ({ value, tokenSlug, style }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const priceMap = useSelector((state: RootState) => state.price.priceMap);
   const assetRegistryMap = useSelector((state: RootState) => state.assetRegistry.assetRegistry);
 

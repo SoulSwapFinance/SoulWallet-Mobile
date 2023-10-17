@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 
 import { InfoItemBase, SchemeColor } from '../types';
 import BigN from 'bignumber.js';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { View } from 'react-native';
@@ -26,7 +26,7 @@ const NumberItem: React.FC<NumberInfoItem> = ({
   valueColorSchema,
   loading,
 }: NumberInfoItem) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = MetaInfoStyles(theme);
   const { labelGeneralStyle, valueGeneralStyle } = useGeneralStyles(theme);
 

@@ -8,7 +8,7 @@ import { FilterSelectItem } from 'components/common/SelectModal/parts/FilterSele
 import { ActionItemType } from 'components/Modal/AccountActionSelectModal';
 import { OptionType } from 'components/common/FilterModal';
 import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props<T> {
   title: string;
@@ -73,7 +73,7 @@ function _BasicSelectModal<T>(selectModalProps: Props<T>, ref: ForwardedRef<any>
     }
   }, [isUseModalV2]);
   const onOpenModal = () => setOpen(true);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   useImperativeHandle(
     ref,

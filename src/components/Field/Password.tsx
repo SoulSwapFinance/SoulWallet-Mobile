@@ -4,7 +4,7 @@ import { ColorMap } from 'styles/color';
 import { DisabledStyle, FontMedium } from 'styles/sharedStyles';
 import { FieldBaseProps } from 'components/Field/Base';
 import { Warning } from 'components/Warning';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Button, Icon, Typography } from 'components/design-system-ui';
 import { ThemeTypes } from 'styles/themes';
 import { Eye, EyeSlash } from 'phosphor-react-native';
@@ -41,7 +41,7 @@ export const PasswordField = forwardRef((passwordFieldProps: Props, ref: React.R
     label,
   } = passwordFieldProps;
   const [isShowPassword, setShowPassword] = useState<boolean>(false);
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const hasLabel = !!label;
   const styles = useMemo(
     () => createStyle(theme, hasLabel, !(errorMessages && errorMessages.length)),

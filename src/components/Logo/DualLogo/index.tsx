@@ -4,7 +4,7 @@
 import { SVGImages } from 'assets/index';
 import Icon from '../../design-system-ui/icon';
 import CreateStyle from './styles';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import LogoWithSquircleBorder from '../LogoWithSquircleBorder';
 import { ArrowsLeftRight } from 'phosphor-react-native';
 import React, { Suspense, useMemo } from 'react';
@@ -30,7 +30,7 @@ const DualLogo = ({
   rightLogo = defaultLogo,
   linkIconBg,
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => CreateStyle(theme, linkIconBg), [linkIconBg, theme]);
 
   return (

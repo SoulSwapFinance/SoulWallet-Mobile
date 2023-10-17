@@ -20,7 +20,7 @@ import {
 } from '@subwallet/extension-base/koni/api/staking/bonding/utils';
 import { RootNavigationProps } from 'routes/index';
 import { ActivityIndicator, BackgroundIcon, SwModal, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
@@ -50,7 +50,7 @@ type ActionListType = {
 const OFFSET_BOTTOM = deviceHeight - STATUS_BAR_HEIGHT - 140;
 
 const StakingActionModal = (props: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const { chainStakingMetadata, nominatorMetadata, visible, reward, setModalVisible, stakingDetailModalRef } = props;
   const toastRef = useRef<ToastContainer>(null);
   const navigation = useNavigation<RootNavigationProps>();

@@ -11,7 +11,7 @@ import { TokenBalanceItem } from 'components/common/TokenBalanceItem';
 import { TokenGroupsDetailUpperBlock } from 'screens/Home/Crypto/TokenGroupsDetailUpperBlock';
 import { useNavigation } from '@react-navigation/native';
 import { TokenDetailModal } from 'screens/Home/Crypto/TokenDetailModal';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import useReceiveQR from 'hooks/screen/Home/Crypto/useReceiveQR';
 import { ReceiveModal } from 'screens/Home/Crypto/ReceiveModal';
 import { useSelector } from 'react-redux';
@@ -33,7 +33,7 @@ export const TokenGroupsDetail = ({
     params: { slug: tokenGroupSlug },
   },
 }: TokenGroupsDetailProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const navigation = useNavigation<CryptoNavigationProps>();
   const [currentTokenInfo, setCurrentTokenInfo] = useState<CurrentSelectToken | undefined>(undefined);
   const [tokenDetailVisible, setTokenDetailVisible] = useState<boolean>(false);

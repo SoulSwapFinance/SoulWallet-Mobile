@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { TokenBalanceItemType } from 'types/balance';
 import BigN from 'bignumber.js';
 import { ThemeTypes } from 'styles/themes';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
 import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
@@ -27,7 +27,7 @@ export interface Props {
 }
 
 export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceMap, setVisible }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = createStyleSheet(theme);
   const modalBaseV2Ref = useRef<SWModalRefProps>(null);
   const items: ItemType[] = useMemo(() => {

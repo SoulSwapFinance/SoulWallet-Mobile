@@ -9,7 +9,7 @@ import { ColorMap } from 'styles/color';
 import { Globe } from 'phosphor-react-native';
 import { _getChainName } from '@subwallet/extension-base/services/chain-service/utils';
 import { Icon } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props extends FieldBaseProps {
   chain: string;
@@ -35,7 +35,7 @@ const blockContentStyle: StyleProp<any> = {
 };
 
 export const NetworkNameField = ({ chain, disabled, label, customStyle, ...fieldBase }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const chainInfoMap = useSelector((state: RootState) => state.chainStore.chainInfoMap);
 
   return (

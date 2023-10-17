@@ -8,7 +8,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import { getConvertedBalance } from 'utils/chainBalances';
 import { getNetworkLogo } from 'utils/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ThemeTypes } from 'styles/themes';
 import i18n from 'utils/i18n/i18n';
 
@@ -20,7 +20,7 @@ interface Props {
 
 const StakingBalanceItem = ({ stakingData, priceMap, onPress }: Props) => {
   const { staking, decimals } = stakingData;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styleSheet = createStyleSheet(theme);
 
   const networkDisplayName = useMemo((): string => {

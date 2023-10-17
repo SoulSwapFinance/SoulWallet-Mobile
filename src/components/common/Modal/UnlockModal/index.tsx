@@ -7,7 +7,7 @@ import { validatePassword } from 'screens/Shared/AccountNamePasswordCreation';
 import useFormControl from 'hooks/screen/useFormControl';
 import { CheckCircle } from 'phosphor-react-native';
 import { keyringUnlock } from 'messaging/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStyle from './style';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
@@ -17,7 +17,7 @@ import { setAdjustResize } from 'rn-android-keyboard-adjust';
 
 export const UnlockModal = () => {
   const navigation = useNavigation<RootNavigationProps>();
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const { isKeyboardVisible } = useKeyboardVisible();
   useEffect(() => setAdjustResize(), []);
 

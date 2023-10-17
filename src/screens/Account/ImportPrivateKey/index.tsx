@@ -15,7 +15,7 @@ import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPres
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
 import { Button, Icon, Typography } from 'components/design-system-ui';
 import { FileArrowDown, X } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStyle from './styles';
 
 function checkValidateForm(isValidated: Record<string, boolean>) {
@@ -33,7 +33,7 @@ function autoFormatPrivateKey(privateKey: string) {
 }
 
 export const ImportPrivateKey = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const navigation = useNavigation<RootNavigationProps>();
   const goHome = useGoHome();
   const accountName = useGetDefaultAccountName();

@@ -9,7 +9,7 @@ import { Icon, Number, Tag, Typography } from 'components/design-system-ui';
 import { FontBold, FontMedium } from 'styles/sharedStyles';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { toggleBalancesVisibility } from 'messaging/index';
 import { ButtonIcon } from 'screens/Home/Crypto/shared/Button';
 import { updateToggleBalance } from 'stores/base/Settings';
@@ -51,7 +51,7 @@ export const TokenGroupsUpperBlock = ({
   totalChangeValue,
   totalValue,
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const navigation = useNavigation<RootNavigationProps>();
   const isShowBalance = useSelector((state: RootState) => state.settings.isShowBalance);
   const _toggleBalances = () => {

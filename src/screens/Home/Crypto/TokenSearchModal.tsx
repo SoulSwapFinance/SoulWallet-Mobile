@@ -3,7 +3,7 @@ import { ListRenderItemInfo, View } from 'react-native';
 import { TokenBalanceItemType } from 'types/balance';
 import { itemWrapperStyle } from 'screens/Home/Crypto/layers/shared';
 import { TokenBalanceItem } from 'components/common/TokenBalanceItem';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FullSizeSelectModal } from 'components/common/SelectModal';
 import i18n from 'utils/i18n/i18n';
 import { ModalRef } from 'types/modalRef';
@@ -21,7 +21,7 @@ const searchFunction = (items: TokenBalanceItemType[], searchString: string) => 
 };
 
 export const TokenSearchModal = ({ onSelectItem, items, isShowBalance, tokenSearchRef }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   const _onPressItem = useCallback(
     (item: TokenBalanceItemType) => {

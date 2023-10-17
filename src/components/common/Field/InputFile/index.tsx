@@ -1,6 +1,6 @@
 import createStyles from './styles';
 import { Icon, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useCallback, useMemo } from 'react';
 import DocumentPicker, { DirectoryPickerResponse, DocumentPickerResponse } from 'react-native-document-picker';
 import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const InputFile = ({ onChangeResult, style, fileName, disabled }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyles(theme), [theme]);
 
   const onChangeFile = useCallback(async () => {

@@ -7,7 +7,7 @@ import { changeAuthorizationBlock, changeAuthorizationPerSite } from 'messaging/
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { Button, Icon, Typography } from 'components/design-system-ui';
 import { CheckCircle, GlobeHemisphereWest, ShieldCheck, ShieldSlash, XCircle } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ConfirmationGeneralInfo } from 'components/Confirmation/ConfirmationGeneralInfo';
 import { isAccountAll } from 'utils/accountAll';
 import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
@@ -39,7 +39,7 @@ const ButtonIconMap = {
 
 // todo: i18n;
 export const ConnectWebsiteModal = ({ setVisible, modalVisible, isNotConnected, isBlocked, authInfo, url }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
   const modalBaseV2Ref = useRef<SWModalRefProps>(null);
   const [allowedMap, setAllowedMap] = useState<Record<string, boolean>>(authInfo?.isAllowedMap || {});

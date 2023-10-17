@@ -6,7 +6,7 @@ import { ColorMap } from 'styles/color';
 import { FontMedium } from 'styles/sharedStyles';
 import { FieldBase, FieldBaseProps } from 'components/Field/Base';
 import { ThemeTypes } from 'styles/themes';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Typography } from 'components/design-system-ui';
 
 interface Props extends FieldBaseProps {
@@ -38,7 +38,7 @@ export const TextField = ({
   placeholder,
   ...fieldBase
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(
     () => createStyle(theme, textColor, disabled, !!placeholder),
     [disabled, placeholder, textColor, theme],

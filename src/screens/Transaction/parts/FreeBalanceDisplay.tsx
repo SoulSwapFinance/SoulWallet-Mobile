@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleProp, Text, View, ViewStyle } from 'react-native';
 import { ActivityIndicator, Number, Typography } from 'components/design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium } from 'styles/sharedStyles';
 import { AmountData } from '@subwallet/extension-base/background/KoniTypes';
 
@@ -26,7 +26,7 @@ export const FreeBalanceDisplay = ({
   nativeTokenSlug,
   nativeTokenBalance,
 }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
 
   return (
     <View style={[{ flexDirection: 'row', marginBottom: 12, alignItems: 'center', flexWrap: 'wrap' }, style]}>

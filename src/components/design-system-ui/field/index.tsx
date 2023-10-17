@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ViewStyle } from 'react-native';
 import createStylesheet from './style';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Typography } from 'components/design-system-ui';
 import { StyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
 import { TextStyle } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Field = ({ label, labelStyle, style, children }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
 
   return (

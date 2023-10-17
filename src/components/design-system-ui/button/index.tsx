@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { ButtonPropsType } from './PropsType';
 import Squircle from 'components/design-system-ui/squircle';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ButtonStyles from './style';
 import { ActivityIndicator } from 'components/design-system-ui';
 
@@ -46,7 +46,7 @@ const Button: React.FC<ButtonProps> = props => {
     contentAlign = 'center',
     ...restProps
   } = props;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = ButtonStyles(theme);
   const [pressIn, setPressIn] = useState<boolean>(false);
   const [touchIt, setTouchIt] = useState<boolean>(false);

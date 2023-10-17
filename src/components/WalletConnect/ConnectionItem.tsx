@@ -9,7 +9,7 @@ import { getWCAccountList } from 'utils/walletConnect';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { CaretRight } from 'phosphor-react-native';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
 
@@ -19,7 +19,7 @@ interface Props {
 }
 
 export const ConnectionItem = ({ session, onPress }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const { accounts } = useSelector((state: RootState) => state.accountState);
   const {
     namespaces,

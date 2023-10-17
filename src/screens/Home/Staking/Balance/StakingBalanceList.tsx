@@ -12,7 +12,7 @@ import { reloadCron } from 'messaging/index';
 import { useRefresh } from 'hooks/useRefresh';
 import useGetStakingList from 'hooks/screen/Home/Staking/useGetStakingList';
 import { StakingDetailModal } from 'screens/Home/Staking/StakingDetail/StakingDetailModal';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import { RootNavigationProps } from 'routes/index';
 import { EmptyList } from 'components/EmptyList';
@@ -68,7 +68,7 @@ const searchFunction = (items: StakingDataType[], searchString: string) => {
 };
 
 const StakingBalanceList = () => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const { data, priceMap } = useGetStakingList();
   const navigation = useNavigation<RootNavigationProps>();
   const [isRefresh, refresh] = useRefresh();

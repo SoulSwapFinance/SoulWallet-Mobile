@@ -1,6 +1,6 @@
 import { Typography } from 'components/design-system-ui';
 import Web3Block, { Web3BlockProps } from '../Web3Block';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { Image, StyleProp, View, ViewStyle } from 'react-native';
 import createStyle from './styles';
@@ -52,7 +52,7 @@ export function getSiteTitle(hostName: string, origin: string): string {
 
 const DappAccessItem: React.FC<DappAccessItemProps> = (props: DappAccessItemProps) => {
   const { leftItem, rightItem, middleItem, item, containerStyle, ...restProps } = props;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
   const hostName = getHostName(item.url);
 

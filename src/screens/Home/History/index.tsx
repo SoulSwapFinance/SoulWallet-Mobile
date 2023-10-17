@@ -34,7 +34,7 @@ import { FontMedium } from 'styles/sharedStyles';
 import { ListRenderItemInfo, View } from 'react-native';
 import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
 import Typography from '../../../components/design-system-ui/typography';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { EmptyList } from 'components/EmptyList';
 import { HistoryProps, RootNavigationProps } from 'routes/index';
 import { SortFunctionInterface } from 'types/ui-types';
@@ -221,7 +221,7 @@ function History({
     params: { chain, transactionId },
   },
 }: HistoryProps): React.ReactElement<Props> {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const accounts = useSelector((root: RootState) => root.accountState.accounts);
   const currentAccount = useSelector((root: RootState) => root.accountState.currentAccount);
   const rawHistoryList = useSelector((root: RootState) => root.transactionHistory.historyList);

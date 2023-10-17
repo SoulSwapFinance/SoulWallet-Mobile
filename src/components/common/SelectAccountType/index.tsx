@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import { KeypairType } from '@polkadot/util-crypto/types';
 import { Logo, SelectItem } from '../../design-system-ui';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import SelectAccountTypeStyles from './style';
 import i18n from 'utils/i18n/i18n';
 
@@ -23,7 +23,7 @@ interface SelectAccountTypeProps {
 
 export const SelectAccountType = (props: SelectAccountTypeProps) => {
   const { title, selectedItems, setSelectedItems, disabled } = props;
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = SelectAccountTypeStyles(theme);
 
   const onClickItem = useCallback(

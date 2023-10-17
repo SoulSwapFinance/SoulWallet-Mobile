@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
 import { FontMedium } from 'styles/sharedStyles';
 import { ThemeTypes } from 'styles/themes';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Typography } from 'components/design-system-ui';
 
 export interface FieldBaseProps extends ViewProps {
@@ -12,7 +12,7 @@ export interface FieldBaseProps extends ViewProps {
 }
 
 export const FieldBase = ({ children, label, outerStyle, ...props }: FieldBaseProps) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const styles = useMemo(() => createStyle(theme), [theme]);
 
   return (

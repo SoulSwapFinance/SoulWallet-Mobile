@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Icon, PageIcon, Typography } from 'components/design-system-ui';
 import { CheckCircle } from 'phosphor-react-native';
 import AccountInfoField from 'components/common/Field/AccountInfo';
-import { useSubWalletTheme } from 'hooks/useSubWalletTheme';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ApplyMasterPasswordStyle from './style';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import i18n from 'utils/i18n/i18n';
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const ApplyDone = ({ accounts }: Props) => {
-  const theme = useSubWalletTheme().swThemes;
+  const theme = useSoulWalletTheme().swThemes;
   const _style = ApplyMasterPasswordStyle(theme);
 
   return (
