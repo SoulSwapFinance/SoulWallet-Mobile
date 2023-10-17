@@ -13,6 +13,7 @@ interface Props {
   statusBarStyle?: StyleProp<ViewStyle>;
 }
 
+// UI NOTE: CONTROLS BG ON CONTAINERS (SCREENS).
 function getContainerStyle(backgroundColor: string): StyleProp<any> {
   return {
     backgroundColor: backgroundColor,
@@ -22,7 +23,7 @@ function getContainerStyle(backgroundColor: string): StyleProp<any> {
 }
 
 export const GradientBackgroundColorSet: [string, string][] = [
-  ['rgba(76, 234, 172, 0.15)', 'rgba(217, 217, 217, 0)'],
+  ['rgba(33, 33, 33, 0.15)', 'rgba(217, 217, 217, 0)'],
   ['rgba(234, 76, 76, 0.15)', 'rgba(217, 217, 217, 0)'],
   ['rgba(0, 75, 255, 0.15)', 'rgba(217, 217, 217, 0)'],
 ];

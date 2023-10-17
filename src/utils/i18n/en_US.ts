@@ -53,7 +53,7 @@ export const en = {
     status: 'Status: ',
     url: 'URL: ',
     version: 'Version: ',
-    allAccounts: 'All accounts',
+    allAccounts: 'Accounts',
     message: 'Message',
     input: 'Input',
     max: 'Max',
