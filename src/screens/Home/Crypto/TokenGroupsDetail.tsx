@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { ListRenderItemInfo, View } from 'react-native';
 import { CryptoNavigationProps, TokenGroupsDetailProps } from 'routes/home';
-import { SwNumberProps } from 'components/Design/number';
+import { SwNumberProps } from 'components/Design/Number';
 import { TokenBalanceItemType } from 'types/balance';
 import { GradientBackgroundColorSet, ScreenContainer } from 'components/ScreenContainer';
 import { Header } from 'components/Header';
 import { TokensLayout } from 'screens/Home/Crypto/shared/TokensLayout';
 import { itemWrapperStyle } from 'screens/Home/Crypto/layers/shared';
-import { TokenBalanceItem } from 'components/common/TokenBalanceItem';
+import { TokenBalanceItem } from 'components/Common/TokenBalanceItem';
 import { TokenGroupsDetailUpperBlock } from 'screens/Home/Crypto/TokenGroupsDetailUpperBlock';
 import { useNavigation } from '@react-navigation/native';
 import { TokenDetailModal } from 'screens/Home/Crypto/TokenDetailModal';

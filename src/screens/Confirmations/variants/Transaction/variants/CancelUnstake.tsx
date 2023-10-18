@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { RequestStakeCancelWithdrawal } from '@subwallet/extension-base/background/KoniTypes';
-import { CommonTransactionInfo } from 'components/common/Confirmation/CommonTransactionInfo';
-import { ConfirmationContent } from 'components/common/Confirmation';
+import { CommonTransactionInfo } from 'components/Common/Confirmation/CommonTransactionInfo';
+import { ConfirmationContent } from 'components/Common/Confirmation';
 import MetaInfo from 'components/MetaInfo';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
 import React from 'react';

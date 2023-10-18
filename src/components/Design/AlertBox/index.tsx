@@ -4,7 +4,7 @@ import { Info } from 'phosphor-react-native';
 import React, { useMemo } from 'react';
 import { View } from 'react-native';
 import { convertHexColorToRGBA } from 'utils/color';
-import BackgroundIcon from '../background-icon';
+import BackgroundIcon from '../BackgroundIcon';
 import createStyles from './styles';
 
 interface Props {

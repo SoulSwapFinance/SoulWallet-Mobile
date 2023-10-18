@@ -20,7 +20,7 @@ import { Introduction } from 'screens/MasterPassword/ApplyMasterPassword/Introdu
 import { ApplyDone } from 'screens/MasterPassword/ApplyMasterPassword/ApplyDone';
 import useGoHome from 'hooks/screen/useGoHome';
 import i18n from 'utils/i18n/i18n';
-import DeleteModal from 'components/common/Modal/DeleteModal';
+import DeleteModal from 'components/Common/Modal/DeleteModal';
 import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import { SelectedActionType } from 'stores/types';

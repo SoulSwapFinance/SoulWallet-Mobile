@@ -11,7 +11,7 @@ import {
   TextStyle,
 } from 'react-native';
 import { ButtonPropsType } from './PropsType';
-import Squircle from 'components/Design/squircle';
+import Squircle from 'components/Design/Squircle';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ButtonStyles from './style';
 import { ActivityIndicator } from 'components/Design';

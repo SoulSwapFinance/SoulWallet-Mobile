@@ -2,9 +2,9 @@ import React, { useCallback } from 'react';
 import { ListRenderItemInfo, View } from 'react-native';
 import { TokenBalanceItemType } from 'types/balance';
 import { itemWrapperStyle } from 'screens/Home/Crypto/layers/shared';
-import { TokenBalanceItem } from 'components/common/TokenBalanceItem';
+import { TokenBalanceItem } from 'components/Common/TokenBalanceItem';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { FullSizeSelectModal } from 'components/common/SelectModal';
+import { FullSizeSelectModal } from 'components/Common/SelectModal';
 import i18n from 'utils/i18n/i18n';
 import { ModalRef } from 'types/modalRef';
 

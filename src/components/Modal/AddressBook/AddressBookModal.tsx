@@ -8,7 +8,7 @@ import { AbstractAddressJson, AccountJson } from '@subwallet/extension-base/back
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
 import { ListRenderItemInfo, View } from 'react-native';
-import Typography from '../../Design/typography';
+import Typography from '../../Design/Typography';
 import { FlatListScreenPaddingTop } from 'styles/sharedStyles';
 import { isAddress } from '@polkadot/util-crypto';
 import reformatAddress, { toShort } from 'utils/index';
@@ -17,10 +17,10 @@ import { RootState } from 'stores/index';
 import { isAccountAll } from 'utils/accountAll';
 import useFormatAddress from 'hooks/account/useFormatAddress';
 import { isSameAddress } from '@subwallet/extension-base/utils';
-import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
+import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import createStylesheet from './style/AddressBookModal';
 import { SwFullSizeModal } from 'components/Design';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 interface Props {
   modalVisible: boolean;

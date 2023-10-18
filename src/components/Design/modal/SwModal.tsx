@@ -1,9 +1,9 @@
 import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { Platform, StyleProp, TextStyle, View, ViewStyle } from 'react-native';
 import ModalBase from 'components/Modal/Base/ModalBase';
-import Typography from '../typography';
+import Typography from '../Typography';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import ModalBaseV2, { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import ModalBaseV2, { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 import { Portal } from '@gorhom/portal';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useKeyboardVisible } from 'hooks/useKeyboardVisible';

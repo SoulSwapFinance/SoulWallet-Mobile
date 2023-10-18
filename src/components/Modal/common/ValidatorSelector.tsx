@@ -5,7 +5,7 @@ import { STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
 import { Button, Icon, SelectItem } from 'components/Design';
 import { Keyboard, ListRenderItemInfo } from 'react-native';
-import { StakingValidatorItem } from 'components/common/StakingValidatorItem';
+import { StakingValidatorItem } from 'components/Common/StakingValidatorItem';
 import { getValidatorKey } from 'utils/transaction/stake';
 import useGetNominatorInfo from 'hooks/screen/Staking/useGetNominatorInfo';
 import { useSelectValidators } from 'hooks/screen/Transaction/useSelectValidators';
@@ -30,10 +30,10 @@ import { RootState } from 'stores/index';
 import { _getChainSubstrateAddressPrefix } from '@subwallet/extension-base/services/chain-service/utils';
 import { getValidatorLabel } from '@subwallet/extension-base/koni/api/staking/bonding/utils';
 import { ModalRef } from 'types/modalRef';
-import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
+import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import BigN from 'bignumber.js';
 import { EmptyList } from 'components/EmptyList';
-import { FullSizeSelectModal } from 'components/common/SelectModal';
+import { FullSizeSelectModal } from 'components/Common/SelectModal';
 
 enum SortKey {
   COMMISSION = 'commission',

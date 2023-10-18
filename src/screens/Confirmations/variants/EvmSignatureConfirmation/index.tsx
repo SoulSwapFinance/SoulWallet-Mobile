@@ -1,6 +1,6 @@
 import { ConfirmationsQueueItem, EvmSignatureRequest } from '@subwallet/extension-base/background/KoniTypes';
-import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
-import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/common/Confirmation';
+import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
+import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { Text } from 'react-native';

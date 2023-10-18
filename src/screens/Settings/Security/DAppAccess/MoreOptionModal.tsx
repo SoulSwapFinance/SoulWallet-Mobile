@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import i18n from 'utils/i18n/i18n';
 import { SelectItem, SwModal } from 'components/Design';
 import { IconProps } from 'phosphor-react-native';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 export type MoreOptionItemType = {
   key: string;

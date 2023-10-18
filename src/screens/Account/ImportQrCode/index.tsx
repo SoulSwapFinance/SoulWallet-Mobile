@@ -6,7 +6,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { ImageLogosMap } from 'assets/logo';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Button, Icon, Image } from 'components/Design';
-import { SWImageProps } from 'components/Design/image';
+import { SWImageProps } from 'components/Design/Image';
 import DualLogo from 'components/Logo/DualLogo';
 import QrAddressScanner from 'components/Scanner/QrAddressScanner';
 import { SCAN_TYPE } from 'constants/qr';

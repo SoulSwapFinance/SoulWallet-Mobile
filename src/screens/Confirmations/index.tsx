@@ -6,7 +6,7 @@ import {
   MetadataRequest,
   SigningRequest,
 } from '@subwallet/extension-base/background/types';
-import { ConfirmationHeader } from 'components/common/ConfirmationHeader';
+import { ConfirmationHeader } from 'components/Common/ConfirmationHeader';
 import { NEED_SIGN_CONFIRMATION } from 'constants/transaction';
 import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';

@@ -27,9 +27,9 @@ import { TokenSelectField } from 'components/Field/TokenSelect';
 import { ThemeTypes } from 'styles/themes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { getTokenLogo } from 'utils/index';
-import Tag from '../../components/Design/tag';
+import Tag from '../../components/Design/Tag';
 import useConfirmModal from 'hooks/modal/useConfirmModal';
-import DeleteModal from 'components/common/Modal/DeleteModal';
+import DeleteModal from 'components/Common/Modal/DeleteModal';
 import useGetChainAssetInfo from 'hooks/common/userGetChainAssetInfo';
 
 export const ConfigureToken = ({

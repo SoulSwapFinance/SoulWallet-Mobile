@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react';
-import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
+import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import { WalletConnectChainInfo } from 'types/walletConnect';
 import { WCNetworkInput } from 'components/WalletConnect/Network/WCNetworkInput';
 import { ModalRef } from 'types/modalRef';

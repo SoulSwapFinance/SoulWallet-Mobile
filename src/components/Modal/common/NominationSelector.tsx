@@ -2,9 +2,9 @@ import React, { useCallback, useMemo, useRef } from 'react';
 import i18n from 'utils/i18n/i18n';
 import { NominationInfo } from '@subwallet/extension-base/background/KoniTypes';
 import { ListRenderItemInfo } from 'react-native';
-import { StakingNominationItem } from 'components/common/StakingNominationItem';
+import { StakingNominationItem } from 'components/Common/StakingNominationItem';
 import { NominationSelectorField } from 'components/Field/NominationSelector';
-import { FullSizeSelectModal } from 'components/common/SelectModal';
+import { FullSizeSelectModal } from 'components/Common/SelectModal';
 import { ModalRef } from 'types/modalRef';
 
 interface Props {

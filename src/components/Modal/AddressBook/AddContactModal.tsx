@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { UseControllerProps } from 'react-hook-form/dist/types/controller';
 import { isAddress } from '@polkadot/util-crypto';
-import { FormItem } from 'components/common/FormItem';
-import Input from 'components/Design/input';
+import { FormItem } from 'components/Common/FormItem';
+import Input from 'components/Design/Input';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { UseControllerReturn } from 'react-hook-form/dist/types';
 import { editContactAddress } from 'messaging/index';
@@ -17,7 +17,7 @@ import { PlusCircle } from 'phosphor-react-native';
 import { useToast } from 'react-native-toast-notifications';
 import createStylesheet from './style/AddContactModal';
 import { TextInputProps } from 'react-native/Libraries/Components/TextInput/TextInput';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 type Props = {
   modalVisible: boolean;

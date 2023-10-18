@@ -7,7 +7,7 @@ import i18n from 'utils/i18n/i18n';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { _ChainAsset } from '@subwallet/chain-list/types';
-import { TokenToggleItem } from 'components/common/TokenToggleItem';
+import { TokenToggleItem } from 'components/Common/TokenToggleItem';
 import { updateAssetSetting } from '../../messaging';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

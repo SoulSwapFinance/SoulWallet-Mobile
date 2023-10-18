@@ -1,7 +1,7 @@
 import React from 'react';
 import { FadersHorizontal } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';
-import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
+import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import { ModalRef } from 'types/modalRef';
 import { noop } from 'utils/function';
 

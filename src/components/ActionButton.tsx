@@ -5,7 +5,7 @@ import { FontMedium } from 'styles/sharedStyles';
 import { Button } from 'components/Design';
 import { ThemeTypes } from 'styles/themes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { ButtonPropsType } from 'components/Design/button/PropsType';
+import { ButtonPropsType } from 'components/Design/Button/PropsType';
 
 interface Props extends TouchableOpacityProps {
   label?: string;

@@ -16,7 +16,7 @@ import ChangeMasterPasswordStyle from './style';
 import { backToHome } from 'utils/navigation';
 import useGoHome from 'hooks/screen/useGoHome';
 import i18n from 'utils/i18n/i18n';
-import AlertBox from 'components/Design/alert-box';
+import AlertBox from 'components/Design/AlertBox';
 import { FontSemiBold } from 'styles/sharedStyles';
 
 function checkValidateForm(isValidated: Record<string, boolean>) {

@@ -16,7 +16,7 @@ import {
 import useFetchChainInfo from 'hooks/screen/useFetchChainInfo';
 import { Button, Icon, QRCode, SwModal, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 interface Props {
   modalVisible: boolean;

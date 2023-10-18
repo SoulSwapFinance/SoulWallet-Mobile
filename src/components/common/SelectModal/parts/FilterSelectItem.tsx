@@ -1,4 +1,4 @@
-import { OptionType } from 'components/common/SelectModal/type';
+import { OptionType } from 'components/Common/SelectModal/type';
 import React from 'react';
 import InputCheckBox from 'components/Input/InputCheckBox';
 

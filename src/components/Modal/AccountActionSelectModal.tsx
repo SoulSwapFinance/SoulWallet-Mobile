@@ -5,7 +5,7 @@ import { deviceHeight, TOAST_DURATION } from 'constants/index';
 import { ColorMap } from 'styles/color';
 import { STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
 import ToastContainer from 'react-native-toast-notifications';
-import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
+import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import { ModalRef } from 'types/modalRef';
 import { Platform } from 'react-native';
 

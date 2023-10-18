@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListRenderItemInfo } from 'react-native';
 import i18n from 'utils/i18n/i18n';
-import { FullSizeSelectModal } from 'components/common/SelectModal';
+import { FullSizeSelectModal } from 'components/Common/SelectModal';
 
 export type TokenItemType = {
   name: string;

@@ -9,7 +9,7 @@ import i18n from 'utils/i18n/i18n';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SelectItem, SwModal } from 'components/Design';
 import { searchDomain } from 'utils/browser';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 interface Props {
   visibleModal: boolean;

@@ -7,8 +7,8 @@ import i18n from 'utils/i18n/i18n';
 import { Warning } from 'components/Warning';
 import { WebRunnerContext } from 'providers/contexts';
 import { Button, SwModal } from 'components/Design';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
-import { ModalRefProps } from 'components/Design/modal/SwModal';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
+import { ModalRefProps } from 'components/Design/Modal/SwModal';
 
 interface Props {
   visible: boolean;

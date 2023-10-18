@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import HistoryDetailLayout from './parts/Layout';
-import { SWIconProps } from 'components/Design/icon';
+import { SWIconProps } from 'components/Design/Icon';
 import { InfoItemBase } from 'components/MetaInfo/types';
 import { TransactionHistoryDisplayItem } from 'types/history';
 import { RootState } from 'stores/index';
@@ -12,7 +12,7 @@ import i18n from 'utils/i18n/i18n';
 import { Linking, View } from 'react-native';
 import { getExplorerLink } from '@subwallet/extension-base/services/transaction-service/utils';
 import { ExtrinsicType, TransactionAdditionalInfo } from '@subwallet/extension-base/background/KoniTypes';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 type Props = {
   onChangeModalVisible: () => void;

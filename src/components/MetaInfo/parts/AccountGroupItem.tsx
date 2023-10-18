@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react';
 
 import { InfoItemBase } from '../types';
-import AvatarGroup from 'components/common/AvatarGroup';
+import AvatarGroup from 'components/Common/AvatarGroup';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
 import { View } from 'react-native';
-import Typography from '../../Design/typography';
+import Typography from '../../Design/Typography';
 
 export interface AccountGroupInfoItem extends InfoItemBase {
   addresses: string[];

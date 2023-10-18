@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import DeleteModal from 'components/common/Modal/DeleteModal';
+import DeleteModal from 'components/Common/Modal/DeleteModal';
 import { ActivityIndicator, Avatar, BackgroundIcon, Button, Icon, QRCode } from 'components/Design';
 import { EditAccountInputText } from 'components/EditAccountInputText';
 import { SoulScreenContainer } from 'components/SoulScreenContainer';

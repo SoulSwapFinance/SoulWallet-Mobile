@@ -1,10 +1,10 @@
-import AvatarGroup from 'components/common/AvatarGroup';
+import AvatarGroup from 'components/Common/AvatarGroup';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { DotsThree, FileArrowDown, X } from 'phosphor-react-native';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { FlatList, ListRenderItemInfo, Platform, ScrollView, View } from 'react-native';
-import { InputFile } from 'components/common/Field/InputFile';
+import { InputFile } from 'components/Common/Field/InputFile';
 import { KeyringPair$Json } from '@polkadot/keyring/types';
 import { KeyringPairs$Json } from '@polkadot/ui-keyring/types';
 import { DirectoryPickerResponse, DocumentPickerResponse } from 'react-native-document-picker';
@@ -26,8 +26,8 @@ import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPres
 import { Button, Icon, SelectItem, SwModal, Typography } from 'components/Design';
 import createStyles from './styles';
 import { getButtonIcon } from 'utils/button';
-import { SelectAccountItem } from 'components/common/SelectAccountItem';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SelectAccountItem } from 'components/Common/SelectAccountItem';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 const getAccountsInfo = (jsonFile: KeyringPairs$Json) => {
   let currentAccountsInfo: ResponseJsonGetAccountInfo[] = [];

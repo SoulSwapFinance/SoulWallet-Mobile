@@ -1,6 +1,6 @@
 import { Icon, Typography } from 'components/Design';
 import { toShort } from 'utils/index';
-import Avatar from '../../avatar';
+import Avatar from '../../Avatar';
 import Web3Block, { Web3BlockCustomStyle, Web3BlockProps } from '../Web3Block';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';

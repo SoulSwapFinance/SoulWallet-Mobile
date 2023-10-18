@@ -3,7 +3,7 @@ import { StyleProp, View, TouchableOpacity, Platform } from 'react-native';
 import ActionButton from 'components/ActionButton';
 import i18n from 'utils/i18n/i18n';
 import { Eye, EyeSlash } from 'phosphor-react-native';
-import { SwNumberProps } from 'components/Design/number';
+import { SwNumberProps } from 'components/Design/Number';
 import { BalancesVisibility } from 'components/BalancesVisibility';
 import { Icon, Number, Tag, Typography } from 'components/Design';
 import { FontBold, FontMedium } from 'styles/sharedStyles';

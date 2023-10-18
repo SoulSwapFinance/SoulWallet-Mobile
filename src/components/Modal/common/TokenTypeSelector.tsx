@@ -1,7 +1,7 @@
 import React from 'react';
 import { AssetTypeOption } from 'types/asset';
 import i18n from 'utils/i18n/i18n';
-import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
+import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import { SelectItem } from 'components/Design';
 import { Coin } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

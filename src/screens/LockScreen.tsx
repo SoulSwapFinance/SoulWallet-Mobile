@@ -16,7 +16,7 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Button, WarningText } from 'components/Design';
 import { resetWallet } from 'messaging/index';
 import { useToast } from 'react-native-toast-notifications';
-import { ForgotPasswordModal } from 'components/common/ForgotPasswordModal';
+import { ForgotPasswordModal } from 'components/Common/ForgotPasswordModal';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 

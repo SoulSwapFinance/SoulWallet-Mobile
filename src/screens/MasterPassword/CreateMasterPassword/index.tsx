@@ -13,7 +13,7 @@ import { CreatePasswordProps, RootNavigationProps } from 'routes/index';
 import CreateMasterPasswordStyle from './style';
 import { KeypairType } from '@polkadot/util-crypto/types';
 import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
-import AlertBox from 'components/Design/alert-box';
+import AlertBox from 'components/Design/AlertBox';
 import i18n from 'utils/i18n/i18n';
 
 function checkValidateForm(isValidated: Record<string, boolean>) {

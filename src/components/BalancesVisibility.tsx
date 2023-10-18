@@ -3,7 +3,7 @@ import { StyleProp, View } from 'react-native';
 import Text from '../components/Text';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { Number } from 'components/Design';
-import { SwNumberProps } from 'components/Design/number';
+import { SwNumberProps } from 'components/Design/Number';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

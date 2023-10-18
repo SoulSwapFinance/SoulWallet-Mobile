@@ -43,7 +43,7 @@ import ApplyMasterPassword from 'screens/MasterPassword/ApplyMasterPassword';
 import { NetworkSettingDetail } from 'screens/NetworkSettingDetail';
 import { Confirmations } from 'screens/Confirmations';
 import { TransactionDone } from 'screens/Transaction';
-import ErrorFallback from 'components/common/ErrorFallbackScreen';
+import ErrorFallback from 'components/Common/ErrorFallbackScreen';
 import ChangeMasterPassword from 'screens/MasterPassword/ChangeMasterPassword';
 import { ImportNetwork } from 'screens/ImportNetwork';
 import History from 'screens/Home/History';
@@ -70,7 +70,7 @@ import { ConnectionDetail } from 'screens/Settings/WalletConnect/ConnectionDetai
 import useAppLock from 'hooks/useAppLock';
 import { LockScreen } from 'screens/LockScreen';
 import { STATUS_BAR_LIGHT_CONTENT } from 'styles/sharedStyles';
-import { UnlockModal } from 'components/common/Modal/UnlockModal';
+import { UnlockModal } from 'components/Common/Modal/UnlockModal';
 import { AppModalContext } from 'providers/AppModalContext';
 
 interface Props {

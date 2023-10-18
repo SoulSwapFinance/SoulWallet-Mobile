@@ -1,4 +1,4 @@
-import Input, { InputProps } from 'components/Design/input';
+import Input, { InputProps } from 'components/Design/Input';
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { TextInput } from 'react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

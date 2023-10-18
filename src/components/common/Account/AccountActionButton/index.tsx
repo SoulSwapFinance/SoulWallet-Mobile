@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from '../../../Design/button';
+import Button from '../../../Design/Button';
 import { View } from 'react-native';
 import Text from 'components/Text';
 import { IconProps } from 'phosphor-react-native';
-import Icon from '../../../Design/icon';
+import Icon from '../../../Design/Icon';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import AccountActionButtonStyles from './style';
 

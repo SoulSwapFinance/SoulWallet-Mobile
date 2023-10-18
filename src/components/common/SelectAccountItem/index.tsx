@@ -9,7 +9,7 @@ import useGetAccountSignModeByAddress from 'hooks/screen/useGetAccountSignModeBy
 import { AccountSignMode } from 'types/signer';
 import i18n from 'utils/i18n/i18n';
 import { toShort } from 'utils/index';
-import AvatarGroup from 'components/common/AvatarGroup';
+import AvatarGroup from 'components/Common/AvatarGroup';
 
 interface Props {
   address: string;

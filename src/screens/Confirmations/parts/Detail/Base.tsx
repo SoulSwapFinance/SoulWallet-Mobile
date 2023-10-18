@@ -1,5 +1,5 @@
 import { Button, Icon, SwModal } from 'components/Design';
-import { SWModalProps } from 'components/Design/modal';
+import { SWModalProps } from 'components/Design/Modal';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ArrowCircleUpRight, XCircle } from 'phosphor-react-native';
 import React, { useCallback, useMemo, useState } from 'react';

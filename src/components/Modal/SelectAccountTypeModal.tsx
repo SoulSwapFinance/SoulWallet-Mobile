@@ -1,11 +1,11 @@
 import { KeypairType } from '@polkadot/util-crypto/types';
-import { AccountTypeItem } from 'components/common/SelectAccountType';
+import { AccountTypeItem } from 'components/Common/SelectAccountType';
 import { Logo, SelectItem } from 'components/Design';
 import { EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import { CheckCircle } from 'phosphor-react-native';
 import React, { useCallback, useState } from 'react';
 import i18n from 'utils/i18n/i18n';
-import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
+import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import { ModalRef } from 'types/modalRef';
 
 interface Props {

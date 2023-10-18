@@ -5,7 +5,7 @@ import { Book, Lightning } from 'phosphor-react-native';
 import { ActivityIndicator, Button, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { toShort } from 'utils/index';
-import AvatarGroup from 'components/common/AvatarGroup';
+import AvatarGroup from 'components/Common/AvatarGroup';
 import { FontSemiBold } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
 

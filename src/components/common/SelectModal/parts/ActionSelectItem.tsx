@@ -1,4 +1,4 @@
-import { ActionItemType } from 'components/common/SelectModal/type';
+import { ActionItemType } from 'components/Common/SelectModal/type';
 import { SelectItem } from 'components/Design';
 import React from 'react';
 

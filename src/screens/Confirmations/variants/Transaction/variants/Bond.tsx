@@ -1,6 +1,6 @@
-import { ConfirmationContent } from 'components/common/Confirmation';
+import { ConfirmationContent } from 'components/Common/Confirmation';
 import React from 'react';
-import { CommonTransactionInfo } from 'components/common/Confirmation/CommonTransactionInfo';
+import { CommonTransactionInfo } from 'components/Common/Confirmation/CommonTransactionInfo';
 import { BaseTransactionConfirmationProps } from 'screens/Confirmations/variants/Transaction/variants/Base';
 import { RequestBondingSubmit, StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';

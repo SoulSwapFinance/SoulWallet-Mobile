@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import AccountItemBase from 'components/common/Account/Item/AccountItemBase';
-import AvatarGroup from 'components/common/AvatarGroup';
+import AccountItemBase from 'components/Common/Account/Item/AccountItemBase';
+import AvatarGroup from 'components/Common/AvatarGroup';
 import { Icon, Typography } from 'components/Design';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { isSameAddress } from '@subwallet/extension-base/utils';

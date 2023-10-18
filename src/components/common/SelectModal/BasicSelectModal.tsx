@@ -1,13 +1,13 @@
 import React, { ForwardedRef, forwardRef, useCallback, useImperativeHandle, useRef, useState } from 'react';
 import { Button, Icon, SwModal } from 'components/Design';
 import { IconProps } from 'phosphor-react-native';
-import { SelectModalField } from 'components/common/SelectModal/parts/SelectModalField';
+import { SelectModalField } from 'components/Common/SelectModal/parts/SelectModalField';
 import { ScrollView, View } from 'react-native';
-import { ActionSelectItem } from 'components/common/SelectModal/parts/ActionSelectItem';
-import { FilterSelectItem } from 'components/common/SelectModal/parts/FilterSelectItem';
+import { ActionSelectItem } from 'components/Common/SelectModal/parts/ActionSelectItem';
+import { FilterSelectItem } from 'components/Common/SelectModal/parts/FilterSelectItem';
 import { ActionItemType } from 'components/Modal/AccountActionSelectModal';
-import { OptionType } from 'components/common/FilterModal';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { OptionType } from 'components/Common/FilterModal';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props<T> {

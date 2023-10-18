@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ConfirmModal from 'components/common/Modal/ConfirmModal';
+import ConfirmModal from 'components/Common/Modal/ConfirmModal';
 
 interface AppModalContextProviderProps {
   children?: React.ReactElement;

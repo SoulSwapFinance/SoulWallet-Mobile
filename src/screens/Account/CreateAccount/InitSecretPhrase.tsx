@@ -1,5 +1,5 @@
-import WordPhrase from 'components/common/WordPhrase';
-import AlertBox from 'components/Design/alert-box';
+import WordPhrase from 'components/Common/WordPhrase';
+import AlertBox from 'components/Design/AlertBox';
 import React from 'react';
 import { ScrollView, StyleProp, View } from 'react-native';
 import Text from 'components/Text';

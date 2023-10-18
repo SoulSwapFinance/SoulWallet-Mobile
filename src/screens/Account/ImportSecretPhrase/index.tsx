@@ -1,6 +1,6 @@
 import { KeypairType } from '@polkadot/util-crypto/types';
 import { useNavigation } from '@react-navigation/native';
-import { SelectAccountType } from 'components/common/SelectAccountType';
+import { SelectAccountType } from 'components/Common/SelectAccountType';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Button, Icon, Typography } from 'components/Design';
 import { Textarea } from 'components/Textarea';

@@ -58,7 +58,7 @@ import { NetworkField } from 'components/Field/Network';
 import { Button, Icon, Typography } from 'components/Design';
 import { AccountSelector } from 'components/Modal/common/AccountSelector';
 import { ChainSelector } from 'components/Modal/common/ChainSelector';
-import { FormItem } from 'components/common/FormItem';
+import { FormItem } from 'components/Common/FormItem';
 import { ValidateResult } from 'react-hook-form/dist/types/validator';
 import { Amount, isInvalidAmountValue } from 'screens/Transaction/SendFundV2/Amount';
 import { ArrowCircleRight, PaperPlaneRight, PaperPlaneTilt } from 'phosphor-react-native';

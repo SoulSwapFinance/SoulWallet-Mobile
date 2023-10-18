@@ -15,16 +15,16 @@ import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium } from 'styles/sharedStyles';
 import { AbstractAddressJson } from '@subwallet/extension-base/background/types';
-import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
+import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import i18n from 'utils/i18n/i18n';
 import { Globe, Info, Plugs } from 'phosphor-react-native';
-import DeleteModal from 'components/common/Modal/DeleteModal';
+import DeleteModal from 'components/Common/Modal/DeleteModal';
 import { disconnectWalletConnectConnection } from 'messaging/index';
 import { EmptyList } from 'components/EmptyList';
 import { SessionTypes } from '@walletconnect/types';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
 import { WCNetworkItem } from 'components/WalletConnect/Network/WCNetworkItem';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 export const ConnectionDetail = ({
   route: {

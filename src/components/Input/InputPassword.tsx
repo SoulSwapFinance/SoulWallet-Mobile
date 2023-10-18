@@ -1,6 +1,6 @@
 import React, { ForwardedRef, forwardRef, useMemo, useState } from 'react';
 import { TextInput } from 'react-native';
-import { InputProps } from 'components/Design/input';
+import { InputProps } from 'components/Design/Input';
 import { Button, Icon, Input } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Eye, EyeSlash } from 'phosphor-react-native';

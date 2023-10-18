@@ -5,7 +5,7 @@ import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { renderColContent } from 'components/MetaInfo/shared';
 import { View } from 'react-native';
-import Typography from '../../Design/typography';
+import Typography from '../../Design/Typography';
 
 export interface DisplayTypeInfoItem extends Omit<InfoItemBase, 'valueColorSchema'> {
   typeName: string;

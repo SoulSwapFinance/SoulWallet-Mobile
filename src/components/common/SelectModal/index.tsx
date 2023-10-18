@@ -3,12 +3,12 @@ import { Button, Icon, SwFullSizeModal } from 'components/Design';
 import { FlatListScreen, RightIconOpt } from 'components/FlatListScreen';
 import { Keyboard, ListRenderItemInfo, Platform, View } from 'react-native';
 import { MarginBottomForSubmitButton } from 'styles/sharedStyles';
-import { OptionType } from 'components/common/FilterModal';
-import { AccountSelectItem } from 'components/common/SelectModal/parts/AccountSelectItem';
-import { _TokenSelectItem } from 'components/common/SelectModal/parts/TokenSelectItem';
-import { ChainSelectItem } from 'components/common/SelectModal/parts/ChainSelectItem';
+import { OptionType } from 'components/Common/FilterModal';
+import { AccountSelectItem } from 'components/Common/SelectModal/parts/AccountSelectItem';
+import { _TokenSelectItem } from 'components/Common/SelectModal/parts/TokenSelectItem';
+import { ChainSelectItem } from 'components/Common/SelectModal/parts/ChainSelectItem';
 import { IconProps, MagnifyingGlass } from 'phosphor-react-native';
-import { SelectModalField } from 'components/common/SelectModal/parts/SelectModalField';
+import { SelectModalField } from 'components/Common/SelectModal/parts/SelectModalField';
 import { EmptyList } from 'components/EmptyList';
 import i18n from 'utils/i18n/i18n';
 import { AccountJson } from '@subwallet/extension-base/background/types';
@@ -17,7 +17,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { ChainInfo } from 'types/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 interface Props<T> {
   items: T[];

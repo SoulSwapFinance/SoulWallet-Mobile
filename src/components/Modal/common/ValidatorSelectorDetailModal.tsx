@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import MetaInfo from 'components/MetaInfo';
 import { ValidatorDataType } from 'hooks/screen/Staking/useGetValidatorList';
 import i18n from 'utils/i18n/i18n';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 interface Props {
   detailModalVisible: boolean;

@@ -13,7 +13,7 @@ import i18n from 'utils/i18n/i18n';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Icon, SelectItem, SwModal } from 'components/Design';
 import { useToast } from 'react-native-toast-notifications';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 export const Security = () => {
   const theme = useSoulWalletTheme().swThemes;

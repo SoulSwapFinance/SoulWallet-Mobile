@@ -1,5 +1,5 @@
 import { TransactionHistoryItem } from '@subwallet/extension-base/background/KoniTypes';
-import { SWIconProps } from 'components/Design/icon';
+import { SWIconProps } from 'components/Design/Icon';
 
 export interface TransactionHistoryDisplayData {
   className: string;

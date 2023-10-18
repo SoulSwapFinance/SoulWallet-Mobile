@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import Icon from '../icon';
+import Icon from '../Icon';
 import { IconProps } from 'phosphor-react-native';
 
 interface Props {

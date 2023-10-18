@@ -6,7 +6,7 @@ import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
 import { View } from 'react-native';
 import { ActivityIndicator, Icon } from 'components/Design';
-import Typography from '../../Design/typography';
+import Typography from '../../Design/Typography';
 import { IconProps } from 'phosphor-react-native';
 
 export interface StatusInfoItem extends InfoItemBase {

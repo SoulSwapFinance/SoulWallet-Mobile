@@ -2,7 +2,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import LogoStyles from './style';
-import Image from '../image';
+import Image from '../Image';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';

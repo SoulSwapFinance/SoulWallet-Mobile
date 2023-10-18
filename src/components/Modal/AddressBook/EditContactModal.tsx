@@ -6,15 +6,15 @@ import { useForm, useWatch } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { UseControllerProps } from 'react-hook-form/dist/types/controller';
-import { FormItem } from 'components/common/FormItem';
-import Input from 'components/Design/input';
+import { FormItem } from 'components/Common/FormItem';
+import Input from 'components/Design/Input';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { editContactAddress, removeContactAddress } from 'messaging/index';
 import { AddressJson } from '@subwallet/extension-base/background/types';
 import { ReadonlyAddressField } from 'components/Modal/AddressBook/ReadonlyAddressField';
 import { Trash } from 'phosphor-react-native';
 import useConfirmModal from 'hooks/modal/useConfirmModal';
-import DeleteModal from 'components/common/Modal/DeleteModal';
+import DeleteModal from 'components/Common/Modal/DeleteModal';
 import ToastContainer, { useToast } from 'react-native-toast-notifications';
 import createStylesheet from './style/EditContactModal';
 import Toast from 'react-native-toast-notifications';
@@ -22,7 +22,7 @@ import { deviceHeight, TOAST_DURATION } from 'constants/index';
 import { ColorMap } from 'styles/color';
 import { STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
 import { TextInputProps } from 'react-native/Libraries/Components/TextInput/TextInput';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 type Props = {
   addressJson: AddressJson;

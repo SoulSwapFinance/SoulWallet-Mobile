@@ -11,7 +11,7 @@ import { Platform, View } from 'react-native';
 import i18n from 'utils/i18n/i18n';
 
 import createStyle from './styles';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface Props {

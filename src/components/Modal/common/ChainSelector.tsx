@@ -1,7 +1,7 @@
 import React from 'react';
 import i18n from 'utils/i18n/i18n';
 import { ChainInfo } from 'types/index';
-import { FullSizeSelectModal } from 'components/common/SelectModal';
+import { FullSizeSelectModal } from 'components/Common/SelectModal';
 import { ModalRef } from 'types/modalRef';
 
 interface Props {

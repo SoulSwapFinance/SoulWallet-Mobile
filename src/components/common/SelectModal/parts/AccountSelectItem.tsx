@@ -1,4 +1,4 @@
-import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
+import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import React from 'react';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 

@@ -1,6 +1,6 @@
 import { TextStyle } from 'react-native';
 import React from 'react';
-import Typography from '../Design/typography';
+import Typography from '../Design/Typography';
 import { SchemeColor } from 'components/MetaInfo/types';
 import { ThemeTypes } from 'styles/themes';
 

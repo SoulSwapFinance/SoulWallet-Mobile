@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react';
-import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
+import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import { WCNetworkInput } from 'components/WalletConnect/Network/WCNetworkInput';
 import { Typography } from 'components/Design';
 import { FontSemiBold } from 'styles/sharedStyles';

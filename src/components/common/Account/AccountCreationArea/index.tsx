@@ -1,4 +1,4 @@
-import DeriveAccountModal from 'components/common/Modal/DeriveAccountModal';
+import DeriveAccountModal from 'components/Common/Modal/DeriveAccountModal';
 import React, { useCallback, useMemo, useRef } from 'react';
 import {
   DeviceTabletCamera,

@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Icon, PageIcon, Typography } from 'components/Design';
 import { CheckCircle } from 'phosphor-react-native';
-import AccountInfoField from 'components/common/Field/AccountInfo';
+import AccountInfoField from 'components/Common/Field/AccountInfo';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ApplyMasterPasswordStyle from './style';
 import { AccountJson } from '@subwallet/extension-base/background/types';

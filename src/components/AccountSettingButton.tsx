@@ -7,7 +7,7 @@ import { RootState } from 'stores/index';
 import { CaretDown } from 'phosphor-react-native';
 import { Avatar, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import AvatarGroup from 'components/common/AvatarGroup';
+import AvatarGroup from 'components/Common/AvatarGroup';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import createStylesheet from './styles/AccountSettingButton';
 

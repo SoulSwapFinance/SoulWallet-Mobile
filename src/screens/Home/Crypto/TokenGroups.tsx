@@ -5,7 +5,7 @@ import { CryptoNavigationProps } from 'routes/home';
 import { TokensLayout } from 'screens/Home/Crypto/shared/TokensLayout';
 import { ListRenderItemInfo, StyleProp, View } from 'react-native';
 import { itemWrapperStyle } from 'screens/Home/Crypto/layers/shared';
-import { TokenGroupBalanceItem } from 'components/common/TokenGroupBalanceItem';
+import { TokenGroupBalanceItem } from 'components/Common/TokenGroupBalanceItem';
 import { LeftIconButton } from 'components/LeftIconButton';
 import { ClockCounterClockwise, FadersHorizontal, MagnifyingGlass, SlidersHorizontal } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';

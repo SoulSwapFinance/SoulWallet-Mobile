@@ -10,12 +10,12 @@ import { CheckCircle, GlobeHemisphereWest, ShieldCheck, ShieldSlash, XCircle } f
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ConfirmationGeneralInfo } from 'components/Confirmation/ConfirmationGeneralInfo';
 import { isAccountAll } from 'utils/accountAll';
-import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
-import SwModal from 'components/Design/modal/SwModal';
-import { ButtonPropsType } from 'components/Design/button/PropsType';
+import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
+import SwModal from 'components/Design/Modal/SwModal';
+import { ButtonPropsType } from 'components/Design/Button/PropsType';
 import createStylesheet from './style/ConnectWebsiteModal';
 import i18n from 'utils/i18n/i18n';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 interface Props {
   modalVisible: boolean;

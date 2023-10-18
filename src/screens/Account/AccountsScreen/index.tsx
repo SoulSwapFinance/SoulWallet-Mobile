@@ -1,5 +1,5 @@
 import { AccountJson } from '@subwallet/extension-base/background/types';
-import { SelectAccountItem } from 'components/common/SelectAccountItem';
+import { SelectAccountItem } from 'components/Common/SelectAccountItem';
 import React, { useCallback, useMemo, useRef } from 'react';
 import { Keyboard, ListRenderItemInfo, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -14,7 +14,7 @@ import { isAccountAll } from '@subwallet/extension-base/utils';
 import { findAccountByAddress } from 'utils/index';
 import { CurrentAccountInfo } from '@subwallet/extension-base/background/KoniTypes';
 import { Button, Icon } from 'components/Design';
-import { AccountCreationArea } from 'components/common/Account/AccountCreationArea';
+import { AccountCreationArea } from 'components/Common/Account/AccountCreationArea';
 import { FlatListScreen } from 'components/FlatListScreen';
 import { EmptyList } from 'components/EmptyList';
 import { ModalRef } from 'types/modalRef';

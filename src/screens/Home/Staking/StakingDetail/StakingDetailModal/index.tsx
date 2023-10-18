@@ -41,8 +41,8 @@ import ToastContainer from 'react-native-toast-notifications';
 import Toast from 'react-native-toast-notifications';
 import { ColorMap } from 'styles/color';
 import i18n from 'utils/i18n/i18n';
-import { CustomToast } from 'components/Design/toast';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { CustomToast } from 'components/Design/Toast';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 import StakingActionModal from 'screens/Home/Staking/StakingDetail/StakingActionModal';
 
 interface Props {

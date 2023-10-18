@@ -8,7 +8,7 @@ import { defaultSortFunc } from 'utils/function';
 import i18n from 'utils/i18n/i18n';
 import { LazyFlatList } from 'components/LazyFlatList';
 import { NoInternetScreen } from 'components/NoInternetScreen';
-import FilterModal, { OptionType } from 'components/common/FilterModal';
+import FilterModal, { OptionType } from 'components/Common/FilterModal';
 import { useFilterModal } from 'hooks/useFilterModal';
 import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
 import { LazySectionList, SectionItem } from 'components/LazySectionList';

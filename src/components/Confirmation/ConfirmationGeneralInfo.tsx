@@ -4,7 +4,7 @@ import { getDomainFromUrl } from '@subwallet/extension-base/utils';
 import { StyleProp, View, ViewStyle } from 'react-native';
 import DualLogo from 'components/Logo/DualLogo';
 import { Image, Typography } from 'components/Design';
-import { SWImageProps } from 'components/Design/image';
+import { SWImageProps } from 'components/Design/Image';
 import { ImageLogosMap } from 'assets/logo';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 

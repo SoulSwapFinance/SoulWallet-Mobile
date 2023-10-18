@@ -2,9 +2,9 @@ import React from 'react';
 import { Platform, StyleProp, View } from 'react-native';
 import { ColorMap } from 'styles/color';
 import { ModalProps } from 'react-native-modal/dist/modal';
-import ModalBase from 'components/Design/modal/ModalBase';
+import ModalBase from 'components/Design/Modal/ModalBase';
 import { Portal } from '@gorhom/portal';
-import ModalBaseV2, { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import ModalBaseV2, { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 import { deviceHeight } from 'constants/index';
 
 interface Props {

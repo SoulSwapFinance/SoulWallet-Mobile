@@ -15,11 +15,11 @@ import { updateAuthUrls } from 'stores/updater';
 import { useNavigation } from '@react-navigation/native';
 import i18n from 'utils/i18n/i18n';
 import { EmptyList } from 'components/EmptyList';
-import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
+import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { BackgroundIcon, Typography } from 'components/Design';
 import { DisabledStyle, FontMedium, FontSemiBold } from 'styles/sharedStyles';
-import DappAccessItem, { getSiteTitle } from 'components/Design/web3-block/DappAccessItem';
+import DappAccessItem, { getSiteTitle } from 'components/Design/Web3Block/DappAccessItem';
 import { getHostName } from 'utils/browser';
 import { ThemeTypes } from 'styles/themes';
 

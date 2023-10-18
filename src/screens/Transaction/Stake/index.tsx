@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { StakingTab } from 'components/common/StakingTab';
+import { StakingTab } from 'components/Common/StakingTab';
 import { TokenSelectField } from 'components/Field/TokenSelect';
 import { TokenItemType, TokenSelector } from 'components/Modal/common/TokenSelector';
 import { useTransaction } from 'hooks/screen/Transaction/useTransaction';

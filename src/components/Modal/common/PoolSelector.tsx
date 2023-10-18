@@ -4,18 +4,18 @@ import i18n from 'utils/i18n/i18n';
 import { NominationPoolInfo, StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import useGetValidatorList, { NominationPoolDataType } from 'hooks/screen/Staking/useGetValidatorList';
 import { Keyboard, ListRenderItemInfo } from 'react-native';
-import { StakingPoolItem } from 'components/common/StakingPoolItem';
+import { StakingPoolItem } from 'components/Common/StakingPoolItem';
 import useGetNominatorInfo from 'hooks/screen/Staking/useGetNominatorInfo';
 import { PREDEFINED_STAKING_POOL } from '@subwallet/extension-base/constants';
 import { PoolSelectorField } from 'components/Field/PoolSelector';
 import { PoolSelectorDetailModal } from 'components/Modal/common/PoolSelectorDetailModal';
 import { ArrowCounterClockwise, MagnifyingGlass, SortAscending, SortDescending } from 'phosphor-react-native';
-import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
+import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import { ModalRef } from 'types/modalRef';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import BigN from 'bignumber.js';
 import { EmptyList } from 'components/EmptyList';
-import { FullSizeSelectModal } from 'components/common/SelectModal';
+import { FullSizeSelectModal } from 'components/Common/SelectModal';
 
 interface Props {
   onSelectItem?: (value: string) => void;

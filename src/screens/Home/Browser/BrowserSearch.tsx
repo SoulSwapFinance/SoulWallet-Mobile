@@ -11,7 +11,7 @@ import { BrowserItem } from 'components/Browser/BrowserItem';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles/BrowserSearch';
 import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
-import Typography from '../../../components/Design/typography';
+import Typography from '../../../components/Design/Typography';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Search } from 'components/Search';
 import { ScrollViewStyle } from 'styles/sharedStyles';

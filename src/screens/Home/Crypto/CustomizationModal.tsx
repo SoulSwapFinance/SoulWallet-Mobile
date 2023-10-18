@@ -14,7 +14,7 @@ import { EmptyList } from 'components/EmptyList';
 import { MagnifyingGlass, Wallet } from 'phosphor-react-native';
 import { ToggleItem } from 'components/ToggleItem';
 import { SwFullSizeModal, Typography } from 'components/Design';
-import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 interface Props {
   modalVisible: boolean;

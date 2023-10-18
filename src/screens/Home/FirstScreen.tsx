@@ -7,8 +7,8 @@ import { FontMedium, FontSemiBold, sharedStyles, STATUS_BAR_LIGHT_CONTENT } from
 import i18n from 'utils/i18n/i18n';
 import Text from 'components/Text';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import AccountActionButton from 'components/common/Account/AccountActionButton';
-import { AccountCreationArea } from 'components/common/Account/AccountCreationArea';
+import AccountActionButton from 'components/Common/Account/AccountActionButton';
+import { AccountCreationArea } from 'components/Common/Account/AccountCreationArea';
 import { SelectedActionType } from 'stores/types';
 import { Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';

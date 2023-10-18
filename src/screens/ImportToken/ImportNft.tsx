@@ -32,7 +32,7 @@ import { Plus, PlusCircle } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useToast } from 'react-native-toast-notifications';
 import { useTransaction } from 'hooks/screen/Transaction/useTransaction';
-import AlertBox from 'components/Design/alert-box';
+import AlertBox from 'components/Design/AlertBox';
 import { ModalRef } from 'types/modalRef';
 import { TokenTypeSelectField } from 'components/Field/TokenTypeSelect';
 import { ChainSelector } from 'components/Modal/common/ChainSelector';
