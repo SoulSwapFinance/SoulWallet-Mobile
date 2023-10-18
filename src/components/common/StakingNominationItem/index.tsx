@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { Avatar, Icon, Number } from 'components/design-system-ui';
+import { Avatar, Icon, Number } from 'components/Design';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { FontMedium } from 'styles/sharedStyles';
 import { toShort } from 'utils/index';

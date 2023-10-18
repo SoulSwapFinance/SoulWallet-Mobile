@@ -2,7 +2,7 @@ import { KeypairType } from '@polkadot/util-crypto/types';
 import { useNavigation } from '@react-navigation/native';
 import { SelectAccountType } from 'components/common/SelectAccountType';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { Textarea } from 'components/Textarea';
 import { EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import useUnlockModal from 'hooks/modal/useUnlockModal';

@@ -8,7 +8,7 @@ import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Animated, View } from 'react-native';
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { ThemeTypes } from 'styles/themes';
 import i18n from 'utils/i18n/i18n';

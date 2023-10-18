@@ -1,4 +1,4 @@
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Info } from 'phosphor-react-native';
 import React, { useMemo } from 'react';

@@ -5,7 +5,7 @@ import { ScrollViewStyle } from 'styles/sharedStyles';
 import { useLazyList } from 'hooks/common/useLazyList';
 import { SortFunctionInterface } from 'types/ui-types';
 import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
-import { ActivityIndicator } from 'components/design-system-ui';
+import { ActivityIndicator } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 export type SectionItem<T> = { title: string; data: T[] };

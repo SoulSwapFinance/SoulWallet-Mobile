@@ -1,7 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import { BasicSelectModal } from 'components/common/SelectModal/BasicSelectModal';
 import { WCNetworkInput } from 'components/WalletConnect/Network/WCNetworkInput';
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { WalletConnectChainInfo } from 'types/walletConnect';
 import { ModalRef } from 'types/modalRef';

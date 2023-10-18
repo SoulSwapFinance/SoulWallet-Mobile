@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 import { TokenBalanceItemType } from 'types/balance';
-import { Icon, Logo, Number, Typography } from 'components/design-system-ui';
+import { Icon, Logo, Number, Typography } from 'components/Design';
 import { CaretRight } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TokenGroupBalanceItemStyles from './style';

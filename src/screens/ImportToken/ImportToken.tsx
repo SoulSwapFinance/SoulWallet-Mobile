@@ -27,13 +27,13 @@ import {
   _isChainTestNet,
   _parseMetadataForSmartContractAsset,
 } from '@subwallet/extension-base/services/chain-service/utils';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { ConfirmationResult } from '@subwallet/extension-base/background/KoniTypes';
 import { useToast } from 'react-native-toast-notifications';
 import { TokenTypeSelector } from 'components/Modal/common/TokenTypeSelector';
 import { AssetTypeOption } from 'types/asset';
 import { useTransaction } from 'hooks/screen/Transaction/useTransaction';
-import AlertBox from 'components/design-system-ui/alert-box';
+import AlertBox from 'components/Design/alert-box';
 import { Plus } from 'phosphor-react-native';
 import { TokenTypeSelectField } from 'components/Field/TokenTypeSelect';
 import { ModalRef } from 'types/modalRef';

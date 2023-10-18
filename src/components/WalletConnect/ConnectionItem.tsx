@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Icon, Image, Typography, Web3Block } from 'components/design-system-ui';
+import { Icon, Image, Typography, Web3Block } from 'components/Design';
 import { SessionTypes } from '@walletconnect/types';
 import { stripUrl } from '@subwallet/extension-base/utils';
 import { TouchableOpacity, View } from 'react-native';

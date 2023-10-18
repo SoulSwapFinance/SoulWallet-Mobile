@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import { Avatar, Button, Icon, Typography } from 'components/design-system-ui';
+import { Avatar, Button, Icon, Typography } from 'components/Design';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';

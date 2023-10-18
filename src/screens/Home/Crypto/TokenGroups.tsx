@@ -12,7 +12,7 @@ import i18n from 'utils/i18n/i18n';
 import { TokenGroupsUpperBlock } from 'screens/Home/Crypto/TokenGroupsUpperBlock';
 import { Header } from 'components/Header';
 import { GradientBackgroundColorSet, ScreenContainer } from 'components/ScreenContainer';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ReceiveModal } from 'screens/Home/Crypto/ReceiveModal';

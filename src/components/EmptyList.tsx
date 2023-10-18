@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import React from 'react';
 import { IconProps } from 'phosphor-react-native';
 import { centerStyle, FontMedium, FontSemiBold } from 'styles/sharedStyles';
-import { PageIcon } from 'components/design-system-ui';
+import { PageIcon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props {

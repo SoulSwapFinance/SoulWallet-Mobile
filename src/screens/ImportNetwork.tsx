@@ -13,7 +13,7 @@ import {
   WifiHigh,
   WifiSlash,
 } from 'phosphor-react-native';
-import { ActivityIndicator, Button, Icon } from 'components/design-system-ui';
+import { ActivityIndicator, Button, Icon } from 'components/Design';
 import { ValidateStatus } from '@subwallet/react-ui/es/form/FormItem';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useNavigation } from '@react-navigation/native';

@@ -1,5 +1,5 @@
 import WordPhrase from 'components/common/WordPhrase';
-import AlertBox from 'components/design-system-ui/alert-box';
+import AlertBox from 'components/Design/alert-box';
 import useCopyClipboard from 'hooks/common/useCopyClipboard';
 import useGoHome from 'hooks/screen/useGoHome';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -10,7 +10,7 @@ import { AccountExportProps, RootNavigationProps } from 'routes/index';
 import i18n from 'utils/i18n/i18n';
 import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import { ExportType, SelectExportType } from 'components/common/SelectExportType';
-import { Button, Icon, QRCode, SelectItem, Typography } from 'components/design-system-ui';
+import { Button, Icon, QRCode, SelectItem, Typography } from 'components/Design';
 import PasswordModal from 'components/Modal/PasswordModal';
 import { exportAccount, exportAccountPrivateKey, keyringExportMnemonic } from 'messaging/index';
 import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';

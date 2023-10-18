@@ -3,7 +3,7 @@ import { StyleProp, Text, View } from 'react-native';
 import reformatAddress, { getNetworkLogo, toShort } from 'utils/index';
 import { ColorMap } from 'styles/color';
 import { FontMedium, sharedStyles } from 'styles/sharedStyles';
-import { Avatar } from 'components/design-system-ui';
+import { Avatar } from 'components/Design';
 
 interface Props {
   address: string;

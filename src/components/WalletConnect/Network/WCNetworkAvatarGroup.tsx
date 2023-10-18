@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { WalletConnectChainInfo } from 'types/walletConnect';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
-import { Logo, Typography } from 'components/design-system-ui';
+import { Logo, Typography } from 'components/Design';
 import { ThemeTypes } from 'styles/themes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontBold } from 'styles/sharedStyles';

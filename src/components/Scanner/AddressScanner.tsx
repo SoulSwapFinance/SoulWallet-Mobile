@@ -15,7 +15,7 @@ import { IconButton } from 'components/IconButton';
 import { Warning } from 'components/Warning';
 import { launchImageLibrary } from 'react-native-image-picker';
 import RNQRGenerator from 'rn-qr-generator';
-import { Icon } from 'components/design-system-ui';
+import { Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 export interface AddressScannerProps {

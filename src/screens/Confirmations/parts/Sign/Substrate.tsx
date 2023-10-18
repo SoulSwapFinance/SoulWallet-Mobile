@@ -13,7 +13,7 @@ import { SigData } from 'types/signer';
 import { getSignMode } from 'utils/account';
 import { isSubstrateMessage } from 'utils/confirmation/confirmation';
 import { CheckCircle, IconProps, QrCode, Swatches, XCircle } from 'phosphor-react-native';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import i18n from 'utils/i18n/i18n';
 import { getButtonIcon } from 'utils/button';
 import { useNavigation } from '@react-navigation/native';

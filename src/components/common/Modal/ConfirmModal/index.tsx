@@ -1,4 +1,4 @@
-import { Button, Icon, Logo, PageIcon, SwModal } from 'components/design-system-ui';
+import { Button, Icon, Logo, PageIcon, SwModal } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { CheckCircle, PlugsConnected } from 'phosphor-react-native';
 import React, { useMemo } from 'react';

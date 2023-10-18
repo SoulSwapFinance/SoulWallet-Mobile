@@ -12,7 +12,7 @@ import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles';
 import { FontSemiBold } from 'styles/sharedStyles';
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 import { ThemeTypes } from 'styles/themes';
 import i18n from 'utils/i18n/i18n';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';

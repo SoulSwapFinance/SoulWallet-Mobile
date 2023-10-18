@@ -33,7 +33,7 @@ import { FlatListScreen } from 'components/FlatListScreen';
 import { FontMedium } from 'styles/sharedStyles';
 import { ListRenderItemInfo, View } from 'react-native';
 import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
-import Typography from '../../../components/design-system-ui/typography';
+import Typography from '../../../components/Design/typography';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { EmptyList } from 'components/EmptyList';
 import { HistoryProps, RootNavigationProps } from 'routes/index';

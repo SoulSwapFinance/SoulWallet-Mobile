@@ -14,7 +14,7 @@ import { ContainerHorizontalPadding, FontMedium, sharedStyles } from 'styles/sha
 import i18n from 'utils/i18n/i18n';
 import PasswordModal from 'components/Modal/PasswordModal';
 import { HIDE_MODAL_DURATION } from 'constants/index';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 
 const WrapperStyle: StyleProp<ViewStyle> = {
   ...ContainerHorizontalPadding,

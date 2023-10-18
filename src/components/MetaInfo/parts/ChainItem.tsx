@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
 import { View } from 'react-native';
-import Typography from '../../design-system-ui/typography';
+import Typography from '../../Design/typography';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
-import { ActivityIndicator, Logo } from 'components/design-system-ui';
+import { ActivityIndicator, Logo } from 'components/Design';
 
 export interface ChainInfoItem extends InfoItemBase {
   chain: string;

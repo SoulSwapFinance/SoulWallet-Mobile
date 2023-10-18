@@ -3,7 +3,7 @@ import { WalletConnectChainInfo } from 'types/walletConnect';
 import { StyleProp, View } from 'react-native';
 import { getNetworkLogo } from 'utils/index';
 import Text from 'components/Text';
-import { Icon } from 'components/design-system-ui';
+import { Icon } from 'components/Design';
 import { WarningCircle } from 'phosphor-react-native';
 import { ColorMap } from 'styles/color';
 import { FontSemiBold } from 'styles/sharedStyles';

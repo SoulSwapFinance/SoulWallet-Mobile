@@ -5,7 +5,7 @@ import { CaretRight } from 'phosphor-react-native';
 import createStylesheet from './styles/BrowserHome';
 import FastImage from 'react-native-fast-image';
 import { Images } from 'assets/index';
-import { Icon, Typography } from 'components/design-system-ui';
+import { Icon, Typography } from 'components/Design';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

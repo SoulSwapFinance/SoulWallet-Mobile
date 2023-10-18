@@ -20,7 +20,7 @@ import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
 import RequestCreateMasterPasswordModal from 'screens/MasterPassword/RequestCreateMasterPasswordModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { ActivityIndicator } from 'components/design-system-ui';
+import { ActivityIndicator } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import useAppLock from 'hooks/useAppLock';
 import { createDrawerNavigator, DrawerContentComponentProps } from '@react-navigation/drawer';

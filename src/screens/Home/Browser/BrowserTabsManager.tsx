@@ -20,7 +20,7 @@ import { isEthereumAddress } from '@polkadot/util-crypto';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { funcSortByName } from 'utils/account';
 import { isAccountAll } from 'utils/accountAll';
-import { BackgroundIcon, Button } from 'components/design-system-ui';
+import { BackgroundIcon, Button } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 enum ConnectionStatement {

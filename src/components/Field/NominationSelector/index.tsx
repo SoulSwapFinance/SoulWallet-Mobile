@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleProp, Text, View } from 'react-native';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { CaretDown } from 'phosphor-react-native';
-import { ActivityIndicator, Avatar, Icon } from 'components/design-system-ui';
+import { ActivityIndicator, Avatar, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { NominationInfo } from '@subwallet/extension-base/background/KoniTypes';
 import { toShort } from 'utils/index';

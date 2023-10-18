@@ -3,7 +3,7 @@ import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import i18n from 'utils/i18n/i18n';
-import { Button, PageIcon, Typography } from 'components/design-system-ui';
+import { Button, PageIcon, Typography } from 'components/Design';
 import { FontMedium } from 'styles/sharedStyles';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SVGImages } from 'assets/index';

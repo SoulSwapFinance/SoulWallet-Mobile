@@ -1,8 +1,8 @@
-import Input, { InputProps } from 'components/design-system-ui/input';
+import Input, { InputProps } from 'components/Design/input';
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { TextInput } from 'react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { Scan } from 'phosphor-react-native';
 import { NativeSyntheticEvent } from 'react-native/Libraries/Types/CoreEventTypes';
 import { TextInputFocusEventData } from 'react-native/Libraries/Components/TextInput/TextInput';

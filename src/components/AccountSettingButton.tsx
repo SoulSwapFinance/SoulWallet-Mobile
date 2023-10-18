@@ -5,7 +5,7 @@ import { RootStackParamList } from 'routes/index';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { CaretDown } from 'phosphor-react-native';
-import { Avatar, Icon } from 'components/design-system-ui';
+import { Avatar, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import AvatarGroup from 'components/common/AvatarGroup';
 import { isEthereumAddress } from '@polkadot/util-crypto';

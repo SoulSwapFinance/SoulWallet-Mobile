@@ -11,7 +11,7 @@ import {
 import { FadersHorizontal, MagnifyingGlass, XCircle } from 'phosphor-react-native';
 import { ColorMap } from 'styles/color';
 import { FontMedium, sharedStyles } from 'styles/sharedStyles';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props extends TextInputProps {

@@ -23,11 +23,11 @@ import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/useFo
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import useGoHome from 'hooks/screen/useGoHome';
 import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
-import { Button, Icon, SelectItem, SwModal, Typography } from 'components/design-system-ui';
+import { Button, Icon, SelectItem, SwModal, Typography } from 'components/Design';
 import createStyles from './styles';
 import { getButtonIcon } from 'utils/button';
 import { SelectAccountItem } from 'components/common/SelectAccountItem';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 const getAccountsInfo = (jsonFile: KeyringPairs$Json) => {
   let currentAccountsInfo: ResponseJsonGetAccountInfo[] = [];

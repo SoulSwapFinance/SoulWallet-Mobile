@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { FontMedium } from 'styles/sharedStyles';
 import { ArrowCounterClockwise, TrashSimple, WarningCircle } from 'phosphor-react-native';
-import { Button, Icon, PageIcon, SwModal, Typography } from 'components/design-system-ui';
+import { Button, Icon, PageIcon, SwModal, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import i18n from 'utils/i18n/i18n';
 import { ThemeTypes } from 'styles/themes';

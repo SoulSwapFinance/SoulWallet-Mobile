@@ -23,7 +23,7 @@ import { FreeBalance } from 'screens/Transaction/parts/FreeBalance';
 import MetaInfo from 'components/MetaInfo';
 import { isAccountAll } from 'utils/accountAll';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { ArrowCircleRight, XCircle } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';

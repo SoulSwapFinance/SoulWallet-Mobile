@@ -37,7 +37,7 @@ import { captureScreen } from 'react-native-view-shot';
 import { EmptyList } from 'components/EmptyList';
 import { BridgeScript, DAppScript, ConnectToNovaScript } from 'screens/Home/Browser/BrowserScripts';
 import { NoInternetScreen } from 'components/NoInternetScreen';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles/BrowserTab';
 import TabIcon from 'screens/Home/Browser/Shared/TabIcon';

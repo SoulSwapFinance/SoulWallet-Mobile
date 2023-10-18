@@ -1,7 +1,7 @@
 import { ConfirmationDefinitions, ConfirmationResult } from '@subwallet/extension-base/background/KoniTypes';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/common/Confirmation';
 import ConfirmationFooter from 'components/common/Confirmation/ConfirmationFooter';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { FieldBase } from 'components/Field/Base';
 import { TextField } from 'components/Field/Text';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
@@ -11,7 +11,7 @@ import { Text, View } from 'react-native';
 import { completeConfirmation } from 'messaging/index';
 import { RootState } from 'stores/index';
 import i18n from 'utils/i18n/i18n';
-import Logo from '../../../../components/design-system-ui/logo';
+import Logo from '../../../../components/Design/logo';
 
 import createStyle from './styles';
 import { useSelector } from 'react-redux';

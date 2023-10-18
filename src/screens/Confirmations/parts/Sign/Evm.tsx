@@ -2,7 +2,7 @@ import ConfirmationFooter from 'components/common/Confirmation/ConfirmationFoote
 import SignatureScanner from 'components/Scanner/SignatureScanner';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import React, { useCallback, useMemo, useState } from 'react';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import { CheckCircle, IconProps, QrCode, Swatches, XCircle } from 'phosphor-react-native';
 import { DisplayPayloadModal, EvmQr } from 'screens/Confirmations/parts/Qr/DisplayPayload';
 import { EvmSignatureSupportType } from 'types/confirmation';

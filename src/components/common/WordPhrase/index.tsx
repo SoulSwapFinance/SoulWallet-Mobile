@@ -1,4 +1,4 @@
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { SeedWord } from 'components/SeedWord';
 import Text from 'components/Text';
 import useCopyClipboard from 'hooks/common/useCopyClipboard';

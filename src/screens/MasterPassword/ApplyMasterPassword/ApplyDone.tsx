@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Icon, PageIcon, Typography } from 'components/design-system-ui';
+import { Icon, PageIcon, Typography } from 'components/Design';
 import { CheckCircle } from 'phosphor-react-native';
 import AccountInfoField from 'components/common/Field/AccountInfo';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

@@ -1,9 +1,9 @@
-import Input, { InputProps } from 'components/design-system-ui/input';
+import Input, { InputProps } from 'components/Design/input';
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { Keyboard, TextInput, View } from 'react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { isAddress } from '@polkadot/util-crypto';
-import { Avatar, Button, Icon, Typography } from 'components/design-system-ui';
+import { Avatar, Button, Icon, Typography } from 'components/Design';
 import reformatAddress, { toShort } from 'utils/index';
 import { Book, Scan } from 'phosphor-react-native';
 import { AddressBookModal } from 'components/Modal/AddressBook/AddressBookModal';

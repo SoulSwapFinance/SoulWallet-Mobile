@@ -1,9 +1,9 @@
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { AccountJson } from '@subwallet/extension-base/background/types';
-import { BackgroundIcon } from 'components/design-system-ui';
+import { BackgroundIcon } from 'components/Design';
 import React, { useCallback, useMemo } from 'react';
 import { Text, View, ViewStyle } from 'react-native';
-import { SelectItem } from '../../design-system-ui';
+import { SelectItem } from '../../Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import SelectExportTypeStyles from './style';
 import { FileJs, IconProps, Leaf, QrCode, Wallet } from 'phosphor-react-native';

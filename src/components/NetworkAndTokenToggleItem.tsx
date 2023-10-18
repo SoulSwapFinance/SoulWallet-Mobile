@@ -3,7 +3,7 @@ import { StyleProp, Switch, View, ViewStyle } from 'react-native';
 import Text from 'components/Text';
 import { ColorMap } from 'styles/color';
 import { FontSemiBold } from 'styles/sharedStyles';
-import { BackgroundIcon, Button, Icon, Logo } from 'components/design-system-ui';
+import { BackgroundIcon, Button, Icon, Logo } from 'components/Design';
 import { CircleNotch, IconProps, PencilSimpleLine, WifiHigh, WifiSlash } from 'phosphor-react-native';
 import { _ChainConnectionStatus } from '@subwallet/extension-base/services/chain-service/types';
 

@@ -13,7 +13,7 @@ import { saveCurrentAccountAddress } from 'messaging/index';
 import { isAccountAll } from '@subwallet/extension-base/utils';
 import { findAccountByAddress } from 'utils/index';
 import { CurrentAccountInfo } from '@subwallet/extension-base/background/KoniTypes';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { AccountCreationArea } from 'components/common/Account/AccountCreationArea';
 import { FlatListScreen } from 'components/FlatListScreen';
 import { EmptyList } from 'components/EmptyList';

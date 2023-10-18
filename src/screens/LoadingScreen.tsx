@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import React from 'react';
-import { ActivityIndicator } from 'components/design-system-ui';
+import { ActivityIndicator } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 export function LoadingScreen() {

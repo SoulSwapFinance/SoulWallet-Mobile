@@ -4,7 +4,7 @@ import { PencilSimpleLine } from 'phosphor-react-native';
 import { ColorMap } from 'styles/color';
 import { Divider } from 'components/Divider';
 import { _ChainAsset } from '@subwallet/chain-list/types';
-import { Button, Icon, Logo as SWLogo } from 'components/design-system-ui';
+import { Button, Icon, Logo as SWLogo } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TokenToggleItemStyles from './style';
 

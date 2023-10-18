@@ -30,7 +30,7 @@ import MetaInfo from 'components/MetaInfo';
 import { toShort } from 'utils/index';
 import { getUnstakingPeriod, getWaitingTime } from 'screens/Transaction/helper/staking';
 import { ScrollView, TouchableHighlight, View } from 'react-native';
-import { Avatar, Button, Icon, Number, SwModal, Typography } from 'components/design-system-ui';
+import { Avatar, Button, Icon, Number, SwModal, Typography } from 'components/Design';
 import { ArrowCircleUpRight, DotsThree } from 'phosphor-react-native';
 import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
 import { FontMedium, STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
@@ -41,8 +41,8 @@ import ToastContainer from 'react-native-toast-notifications';
 import Toast from 'react-native-toast-notifications';
 import { ColorMap } from 'styles/color';
 import i18n from 'utils/i18n/i18n';
-import { CustomToast } from 'components/design-system-ui/toast';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { CustomToast } from 'components/Design/toast';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 import StakingActionModal from 'screens/Home/Staking/StakingDetail/StakingActionModal';
 
 interface Props {

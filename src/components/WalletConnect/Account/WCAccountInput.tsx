@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import AccountItemBase from 'components/common/Account/Item/AccountItemBase';
 import AvatarGroup from 'components/common/AvatarGroup';
-import { Icon, Typography } from 'components/design-system-ui';
+import { Icon, Typography } from 'components/Design';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { isSameAddress } from '@subwallet/extension-base/utils';
 import { DotsThree } from 'phosphor-react-native';

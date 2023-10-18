@@ -1,7 +1,7 @@
 import React, { ComponentType, useContext, useEffect, useState } from 'react';
 import { DataContext } from 'providers/DataContext';
 import { StoreName } from 'stores/index';
-import { ActivityIndicator } from './design-system-ui';
+import { ActivityIndicator } from './Design';
 import { View } from 'react-native';
 
 const Loading = () => (

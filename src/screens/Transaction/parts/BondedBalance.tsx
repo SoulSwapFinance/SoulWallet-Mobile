@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Number } from 'components/design-system-ui';
+import { Number } from 'components/Design';
 import BigN from 'bignumber.js';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium } from 'styles/sharedStyles';

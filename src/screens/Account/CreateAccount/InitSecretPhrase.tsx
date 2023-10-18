@@ -1,5 +1,5 @@
 import WordPhrase from 'components/common/WordPhrase';
-import AlertBox from 'components/design-system-ui/alert-box';
+import AlertBox from 'components/Design/alert-box';
 import React from 'react';
 import { ScrollView, StyleProp, View } from 'react-native';
 import Text from 'components/Text';
@@ -12,7 +12,7 @@ import {
 } from 'styles/sharedStyles';
 import { ColorMap } from 'styles/color';
 import i18n from 'utils/i18n/i18n';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { CheckCircle } from 'phosphor-react-native';
 interface Props {
   onPressSubmit: () => void;

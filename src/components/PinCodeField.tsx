@@ -5,7 +5,7 @@ import Text from '../components/Text';
 import { ColorMap } from 'styles/color';
 import { FontBold } from 'styles/sharedStyles';
 import { CELL_COUNT } from 'constants/index';
-import { Squircle } from 'components/design-system-ui';
+import { Squircle } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 const codeFiledRoot: StyleProp<any> = {

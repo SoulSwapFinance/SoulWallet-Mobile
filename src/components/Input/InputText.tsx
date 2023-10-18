@@ -4,7 +4,7 @@ import { ColorMap } from 'styles/color';
 import { DisabledStyle, FontMedium } from 'styles/sharedStyles';
 import { FieldBaseProps } from 'components/Field/Base';
 import { Warning } from 'components/Warning';
-import { Icon, Typography } from 'components/design-system-ui';
+import { Icon, Typography } from 'components/Design';
 import { IconProps } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ThemeTypes } from 'styles/themes';

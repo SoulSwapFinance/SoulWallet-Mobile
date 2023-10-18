@@ -4,7 +4,7 @@ import { Keyboard, StyleProp, View } from 'react-native';
 import { RESULTS } from 'react-native-permissions';
 import { SpaceStyle } from 'styles/space';
 import { requestCameraPermission } from 'utils/permission/camera';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import AccountSelectField from 'components/common/Account/AccountSelectField';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from 'routes/index';

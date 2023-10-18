@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { ScrollView, View } from 'react-native';
 import { CheckCircle, Info } from 'phosphor-react-native';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
 import { PasswordField } from 'components/Field/Password';
@@ -13,7 +13,7 @@ import { CreatePasswordProps, RootNavigationProps } from 'routes/index';
 import CreateMasterPasswordStyle from './style';
 import { KeypairType } from '@polkadot/util-crypto/types';
 import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
-import AlertBox from 'components/design-system-ui/alert-box';
+import AlertBox from 'components/Design/alert-box';
 import i18n from 'utils/i18n/i18n';
 
 function checkValidateForm(isValidated: Record<string, boolean>) {

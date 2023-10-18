@@ -1,4 +1,4 @@
-import { Button, Icon, PageIcon, SwModal } from 'components/design-system-ui';
+import { Button, Icon, PageIcon, SwModal } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { IconProps, Trash, XCircle } from 'phosphor-react-native';
 import React, { useCallback, useMemo, useRef } from 'react';
@@ -6,7 +6,7 @@ import { Text, View } from 'react-native';
 import { VoidFunction } from 'types/index';
 import i18n from 'utils/i18n/i18n';
 import createStyle from './styles';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 interface Props {
   message: string;

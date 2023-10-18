@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ViewStyle } from 'react-native';
 import createStylesheet from './style';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 import { StyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
 import { TextStyle } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 

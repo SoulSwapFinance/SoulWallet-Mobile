@@ -4,7 +4,7 @@ import { WalletConnectChainInfo } from 'types/walletConnect';
 import { WCNetworkInput } from 'components/WalletConnect/Network/WCNetworkInput';
 import { ModalRef } from 'types/modalRef';
 import { WCNetworkItem } from 'components/WalletConnect/Network/WCNetworkItem';
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontSemiBold } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';

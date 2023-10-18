@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { Avatar, Button, Icon, Number } from 'components/design-system-ui';
+import { Avatar, Button, Icon, Number } from 'components/Design';
 import { FontMedium } from 'styles/sharedStyles';
 import { DotsThree } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

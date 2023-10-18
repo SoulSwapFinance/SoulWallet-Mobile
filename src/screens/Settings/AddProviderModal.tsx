@@ -8,7 +8,7 @@ import ToastContainer from 'react-native-toast-notifications';
 import Toast from 'react-native-toast-notifications';
 import { deviceHeight, TOAST_DURATION } from 'constants/index';
 import i18n from 'utils/i18n/i18n';
-import { Button, SwModal } from 'components/design-system-ui';
+import { Button, SwModal } from 'components/Design';
 
 interface Props {
   loading: boolean;

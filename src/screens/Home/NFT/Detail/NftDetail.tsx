@@ -22,7 +22,7 @@ import i18n from 'utils/i18n/i18n';
 import reformatAddress from 'utils/index';
 import { NFTDetailProps } from 'screens/Home/NFT/NFTStackScreen';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import useFetchChainInfo from 'hooks/common/useFetchChainInfo';
 import { _getChainSubstrateAddressPrefix } from '@subwallet/extension-base/services/chain-service/utils';
 

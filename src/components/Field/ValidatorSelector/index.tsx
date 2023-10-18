@@ -2,7 +2,7 @@ import { FieldBase, FieldBaseProps } from 'components/Field/Base';
 import React, { useMemo } from 'react';
 import { StyleProp, Text, View } from 'react-native';
 import { Book, Lightning } from 'phosphor-react-native';
-import { ActivityIndicator, Button, Icon } from 'components/design-system-ui';
+import { ActivityIndicator, Button, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { toShort } from 'utils/index';
 import AvatarGroup from 'components/common/AvatarGroup';

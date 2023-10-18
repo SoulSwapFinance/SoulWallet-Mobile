@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
-import { Avatar, Icon, Typography } from 'components/design-system-ui';
+import { Avatar, Icon, Typography } from 'components/Design';
 import { isAccountAll } from '@subwallet/extension-base/utils';
 import AvatarGroup from '../../AvatarGroup';
 import { useSelector } from 'react-redux';

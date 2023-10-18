@@ -24,7 +24,7 @@ import {
   _parseMetadataForSmartContractAsset,
 } from '@subwallet/extension-base/services/chain-service/utils';
 import { _AssetType, _ChainInfo } from '@subwallet/chain-list/types';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import { TokenTypeSelector } from 'components/Modal/common/TokenTypeSelector';
 import { AssetTypeOption } from 'types/asset';
@@ -32,7 +32,7 @@ import { Plus, PlusCircle } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useToast } from 'react-native-toast-notifications';
 import { useTransaction } from 'hooks/screen/Transaction/useTransaction';
-import AlertBox from 'components/design-system-ui/alert-box';
+import AlertBox from 'components/Design/alert-box';
 import { ModalRef } from 'types/modalRef';
 import { TokenTypeSelectField } from 'components/Field/TokenTypeSelect';
 import { ChainSelector } from 'components/Modal/common/ChainSelector';

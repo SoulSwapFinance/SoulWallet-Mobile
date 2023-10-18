@@ -18,7 +18,7 @@ import { upsertChain, validateCustomChain } from 'messaging/index';
 import { useToast } from 'react-native-toast-notifications';
 import { useNavigation } from '@react-navigation/native';
 import { _CHAIN_VALIDATION_ERROR } from '@subwallet/extension-base/services/chain-service/handler/types';
-import { ActivityIndicator, Button, Icon } from 'components/design-system-ui';
+import { ActivityIndicator, Button, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { isUrl } from 'utils/index';
 import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles';

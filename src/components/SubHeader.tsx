@@ -5,7 +5,7 @@ import { SpaceStyle } from 'styles/space';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { CaretLeft, IconProps } from 'phosphor-react-native';
 import { ColorMap } from 'styles/color';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 
 export interface SubHeaderProps {
   showRightBtn?: boolean;

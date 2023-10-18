@@ -6,7 +6,7 @@ import Text from '../../components/Text';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { ColorMap } from 'styles/color';
 import { CaretDown } from 'phosphor-react-native';
-import { Avatar } from 'components/design-system-ui';
+import { Avatar } from 'components/Design';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import i18n from 'utils/i18n/i18n';
 

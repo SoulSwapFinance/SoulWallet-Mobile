@@ -4,7 +4,7 @@
 import { EvmSendTransactionRequest, EvmTransactionArg } from '@subwallet/extension-base/background/KoniTypes';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import BigN from 'bignumber.js';
-import { Icon, Typography } from 'components/design-system-ui';
+import { Icon, Typography } from 'components/Design';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainInfoByChainId from 'hooks/chain/useGetChainInfoByChainId';
 import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';

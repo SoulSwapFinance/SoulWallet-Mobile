@@ -3,7 +3,7 @@ import { useToast } from 'react-native-toast-notifications';
 import { stripUrl } from '@subwallet/extension-base/utils';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import MetaInfo from 'components/MetaInfo';
-import { Button, Icon, Image, SwModal, Typography } from 'components/design-system-ui';
+import { Button, Icon, Image, SwModal, Typography } from 'components/Design';
 import { WCNetworkAvatarGroup } from 'components/WalletConnect/Network/WCNetworkAvatarGroup';
 import { WalletConnectChainInfo } from 'types/walletConnect';
 import { chainsToWalletConnectChainInfos, getWCAccountList } from 'utils/walletConnect';
@@ -24,7 +24,7 @@ import { EmptyList } from 'components/EmptyList';
 import { SessionTypes } from '@walletconnect/types';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
 import { WCNetworkItem } from 'components/WalletConnect/Network/WCNetworkItem';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 export const ConnectionDetail = ({
   route: {

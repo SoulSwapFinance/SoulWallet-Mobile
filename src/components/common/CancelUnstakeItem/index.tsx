@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { TouchableOpacity, View } from 'react-native';
-import { Avatar, Icon, Typography, Number } from 'components/design-system-ui';
+import { Avatar, Icon, Typography, Number } from 'components/Design';
 import { UnstakingStatus } from '@subwallet/extension-base/background/KoniTypes';
 import { CheckCircle, Spinner } from 'phosphor-react-native';
 import { UnstakeItem } from 'components/Modal/common/CancelUnstakeSelector';

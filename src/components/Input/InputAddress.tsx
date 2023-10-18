@@ -5,7 +5,7 @@ import { Scan } from 'phosphor-react-native';
 import reformatAddress, { toShort } from 'utils/index';
 import { isAddress, isEthereumAddress } from '@polkadot/util-crypto';
 import { isValidSubstrateAddress } from '@subwallet/extension-base/utils';
-import { Avatar, Button, Icon, Typography } from 'components/design-system-ui';
+import { Avatar, Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ThemeTypes } from 'styles/themes';
 import { setAdjustResize } from 'rn-android-keyboard-adjust';

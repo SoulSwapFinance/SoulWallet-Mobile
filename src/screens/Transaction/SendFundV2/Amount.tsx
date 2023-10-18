@@ -2,7 +2,7 @@ import React, { ForwardedRef, forwardRef, useCallback, useEffect, useState } fro
 import BigN from 'bignumber.js';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles/Amount';
-import Input, { InputProps } from 'components/design-system-ui/input';
+import Input, { InputProps } from 'components/Design/input';
 import i18n from 'utils/i18n/i18n';
 import { setAdjustResize } from 'rn-android-keyboard-adjust';
 

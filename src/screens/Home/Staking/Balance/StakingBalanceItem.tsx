@@ -1,6 +1,6 @@
 import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import BigN from 'bignumber.js';
-import { Icon, Number, Tag } from 'components/design-system-ui';
+import { Icon, Number, Tag } from 'components/Design';
 import { StakingDataType } from 'hooks/types';
 import { CaretRight, User, Users } from 'phosphor-react-native';
 import React, { useMemo } from 'react';

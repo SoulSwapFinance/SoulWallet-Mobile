@@ -1,9 +1,9 @@
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useMemo, useState } from 'react';
 import BigN from 'bignumber.js';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './style/InputAmount';
-import Input, { InputProps } from 'components/design-system-ui/input';
+import Input, { InputProps } from 'components/Design/input';
 import i18n from 'utils/i18n/i18n';
 import { setAdjustResize } from 'rn-android-keyboard-adjust';
 

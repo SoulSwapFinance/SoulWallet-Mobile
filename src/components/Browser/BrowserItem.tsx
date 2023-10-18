@@ -1,6 +1,6 @@
 import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
 import React, { useCallback, useState } from 'react';
-import { Button, Icon, Image, Tag, Typography } from 'components/design-system-ui';
+import { Button, Icon, Image, Tag, Typography } from 'components/Design';
 import { Star } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useSelector } from 'react-redux';

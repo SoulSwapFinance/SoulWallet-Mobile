@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { View } from 'react-native';
-import { Button, PageIcon, Typography } from 'components/design-system-ui';
+import { Button, PageIcon, Typography } from 'components/Design';
 import { CheckCircle } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TransactionDoneStyle from './TransactionDone/style';

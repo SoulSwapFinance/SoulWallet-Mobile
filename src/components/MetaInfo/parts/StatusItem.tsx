@@ -5,8 +5,8 @@ import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
 import { View } from 'react-native';
-import { ActivityIndicator, Icon } from 'components/design-system-ui';
-import Typography from '../../design-system-ui/typography';
+import { ActivityIndicator, Icon } from 'components/Design';
+import Typography from '../../Design/typography';
 import { IconProps } from 'phosphor-react-native';
 
 export interface StatusInfoItem extends InfoItemBase {

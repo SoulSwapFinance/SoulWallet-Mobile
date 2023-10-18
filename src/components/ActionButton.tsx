@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleProp, TouchableOpacityProps, View, ViewStyle } from 'react-native';
 import Text from '../components/Text';
 import { FontMedium } from 'styles/sharedStyles';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import { ThemeTypes } from 'styles/themes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { ButtonPropsType } from 'components/design-system-ui/button/PropsType';
+import { ButtonPropsType } from 'components/Design/button/PropsType';
 
 interface Props extends TouchableOpacityProps {
   label?: string;

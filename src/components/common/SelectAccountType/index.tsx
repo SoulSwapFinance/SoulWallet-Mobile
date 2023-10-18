@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { Text, View } from 'react-native';
 import { EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import { KeypairType } from '@polkadot/util-crypto/types';
-import { Logo, SelectItem } from '../../design-system-ui';
+import { Logo, SelectItem } from '../../Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import SelectAccountTypeStyles from './style';
 import i18n from 'utils/i18n/i18n';

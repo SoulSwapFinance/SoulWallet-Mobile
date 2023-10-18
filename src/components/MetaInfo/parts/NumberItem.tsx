@@ -7,7 +7,7 @@ import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { View } from 'react-native';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
-import { ActivityIndicator, Number } from 'components/design-system-ui';
+import { ActivityIndicator, Number } from 'components/Design';
 
 export interface NumberInfoItem extends Omit<InfoItemBase, 'valueColorSchema'> {
   value: string | number | BigN;

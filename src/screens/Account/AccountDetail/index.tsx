@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import DeleteModal from 'components/common/Modal/DeleteModal';
-import { ActivityIndicator, Avatar, BackgroundIcon, Button, Icon, QRCode } from 'components/design-system-ui';
+import { ActivityIndicator, Avatar, BackgroundIcon, Button, Icon, QRCode } from 'components/Design';
 import { EditAccountInputText } from 'components/EditAccountInputText';
 import { SoulScreenContainer } from 'components/SoulScreenContainer';
 import useCopyClipboard from 'hooks/common/useCopyClipboard';

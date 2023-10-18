@@ -5,7 +5,7 @@ import { ScrollViewStyle } from 'styles/sharedStyles';
 import { useLazyList } from 'hooks/common/useLazyList';
 import { defaultSortFunc } from 'utils/function';
 import { SortFunctionInterface } from 'types/ui-types';
-import { ActivityIndicator } from 'components/design-system-ui';
+import { ActivityIndicator } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props<T> {

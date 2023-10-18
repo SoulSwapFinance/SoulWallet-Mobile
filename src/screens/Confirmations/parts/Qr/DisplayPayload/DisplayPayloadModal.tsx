@@ -1,7 +1,7 @@
 // Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { Button, Icon, SwFullSizeModal } from 'components/design-system-ui';
+import { Button, Icon, SwFullSizeModal } from 'components/Design';
 import { SubHeader } from 'components/SubHeader';
 import useCheckCamera from 'hooks/common/useCheckCamera';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
@@ -11,7 +11,7 @@ import { Platform, View } from 'react-native';
 import i18n from 'utils/i18n/i18n';
 
 import createStyle from './styles';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface Props {

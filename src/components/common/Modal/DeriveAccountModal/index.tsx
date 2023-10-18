@@ -4,7 +4,7 @@
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { canDerive } from '@subwallet/extension-base/utils';
 import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
-import { ActivityIndicator } from 'components/design-system-ui';
+import { ActivityIndicator } from 'components/Design';
 import { deviceHeight, EVM_ACCOUNT_TYPE, TOAST_DURATION } from 'constants/index';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

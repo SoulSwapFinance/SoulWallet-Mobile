@@ -13,8 +13,8 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { EmptyList } from 'components/EmptyList';
 import { MagnifyingGlass, Wallet } from 'phosphor-react-native';
 import { ToggleItem } from 'components/ToggleItem';
-import { SwFullSizeModal, Typography } from 'components/design-system-ui';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SwFullSizeModal, Typography } from 'components/Design';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 interface Props {
   modalVisible: boolean;

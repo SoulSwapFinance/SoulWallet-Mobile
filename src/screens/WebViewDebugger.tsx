@@ -10,7 +10,7 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Input } from 'react-native-elements';
 import { mmkvStore } from 'utils/storage';
 import { AddressScanner } from 'components/Scanner/AddressScanner';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 
 export const WebViewDebugger = () => {
   const navigation = useNavigation<RootNavigationProps>();

@@ -39,7 +39,7 @@ import {
 } from 'constants/index';
 import VersionNumber from 'react-native-version-number';
 import useAppLock from 'hooks/useAppLock';
-import { BackgroundIcon, Button, Icon, SelectItem } from 'components/design-system-ui';
+import { BackgroundIcon, Button, Icon, SelectItem } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SVGImages } from 'assets/index';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';

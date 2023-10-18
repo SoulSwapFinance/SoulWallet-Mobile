@@ -11,9 +11,9 @@ import { RootState } from 'stores/index';
 import { updateAutoLockTime, updateFaceIdEnable } from 'stores/MobileSettings';
 import i18n from 'utils/i18n/i18n';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Icon, SelectItem, SwModal } from 'components/design-system-ui';
+import { Icon, SelectItem, SwModal } from 'components/Design';
 import { useToast } from 'react-native-toast-notifications';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 export const Security = () => {
   const theme = useSoulWalletTheme().swThemes;

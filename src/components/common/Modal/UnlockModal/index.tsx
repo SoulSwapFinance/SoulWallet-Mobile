@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { DeviceEventEmitter, KeyboardAvoidingView, Platform, TouchableOpacity, View } from 'react-native';
 import { PasswordField } from 'components/Field/Password';
 import i18n from 'utils/i18n/i18n';

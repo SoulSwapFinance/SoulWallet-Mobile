@@ -10,7 +10,7 @@ import { ColorMap } from 'styles/color';
 import { FontSemiBold, MarginBottomForSubmitButton, sharedStyles } from 'styles/sharedStyles';
 import { BaseSignProps } from 'types/signer';
 import i18n from 'utils/i18n/i18n';
-import { SwModal } from 'components/design-system-ui';
+import { SwModal } from 'components/Design';
 
 interface Props extends BaseSignProps {
   handlerStart: (password: string) => void;

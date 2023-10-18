@@ -19,14 +19,14 @@ import {
   StakingAction,
 } from '@subwallet/extension-base/koni/api/staking/bonding/utils';
 import { RootNavigationProps } from 'routes/index';
-import { ActivityIndicator, BackgroundIcon, SwModal, Typography } from 'components/design-system-ui';
+import { ActivityIndicator, BackgroundIcon, SwModal, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import i18n from 'utils/i18n/i18n';
-import { CustomToast } from 'components/design-system-ui/toast';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { CustomToast } from 'components/Design/toast';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 interface Props {
   visible: boolean;

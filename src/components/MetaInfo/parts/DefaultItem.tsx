@@ -5,7 +5,7 @@ import MetaInfoStyles from 'components/MetaInfo/style';
 import { TextStyle, View } from 'react-native';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
-import { ActivityIndicator } from 'components/design-system-ui';
+import { ActivityIndicator } from 'components/Design';
 
 export interface DefaultInfoItem extends InfoItemBase {
   children?: React.ReactNode | ((valueStyle: TextStyle) => React.ReactNode);

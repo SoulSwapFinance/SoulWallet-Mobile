@@ -1,11 +1,11 @@
 import React, { useCallback, useRef } from 'react';
 import { NominationPoolDataType } from 'hooks/screen/Staking/useGetValidatorList';
-import { SwModal } from 'components/design-system-ui';
+import { SwModal } from 'components/Design';
 import { View } from 'react-native';
 import MetaInfo from 'components/MetaInfo';
 import { StakingStatusUi } from 'constants/stakingStatusUi';
 import i18n from 'utils/i18n/i18n';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 interface Props {
   detailModalVisible: boolean;

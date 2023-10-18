@@ -1,6 +1,6 @@
 import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
 import React from 'react';
-import { Icon, Squircle, Typography } from 'components/design-system-ui';
+import { Icon, Squircle, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles/BrowserSearchItem';
 import { GlobeHemisphereWest } from 'phosphor-react-native';

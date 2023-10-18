@@ -5,17 +5,17 @@ import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';
 import { changeAuthorizationBlock, changeAuthorizationPerSite } from 'messaging/index';
 import { isEthereumAddress } from '@polkadot/util-crypto';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { CheckCircle, GlobeHemisphereWest, ShieldCheck, ShieldSlash, XCircle } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ConfirmationGeneralInfo } from 'components/Confirmation/ConfirmationGeneralInfo';
 import { isAccountAll } from 'utils/accountAll';
 import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
-import SwModal from 'components/design-system-ui/modal/SwModal';
-import { ButtonPropsType } from 'components/design-system-ui/button/PropsType';
+import SwModal from 'components/Design/modal/SwModal';
+import { ButtonPropsType } from 'components/Design/button/PropsType';
 import createStylesheet from './style/ConnectWebsiteModal';
 import i18n from 'utils/i18n/i18n';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 interface Props {
   modalVisible: boolean;

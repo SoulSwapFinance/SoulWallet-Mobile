@@ -1,5 +1,5 @@
 import createStyles from './styles';
-import { Icon, Typography } from 'components/design-system-ui';
+import { Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useCallback, useMemo } from 'react';
 import DocumentPicker, { DirectoryPickerResponse, DocumentPickerResponse } from 'react-native-document-picker';

@@ -5,7 +5,7 @@ import Text from '../../components/Text';
 import { FontMedium, FontSize2 } from 'styles/sharedStyles';
 import { ColorMap } from 'styles/color';
 import { CaretDown, IconProps, ShareNetwork } from 'phosphor-react-native';
-import { Icon } from 'components/design-system-ui';
+import { Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props extends FieldBaseProps {

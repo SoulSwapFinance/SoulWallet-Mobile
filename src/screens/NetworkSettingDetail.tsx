@@ -25,7 +25,7 @@ import {
   _isSubstrateChain,
 } from '@subwallet/extension-base/services/chain-service/utils';
 import InputText from 'components/Input/InputText';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { _NetworkUpsertParams } from '@subwallet/extension-base/services/chain-service/types';
 import { removeChain, upsertChain } from 'messaging/index';
 import { useToast } from 'react-native-toast-notifications';

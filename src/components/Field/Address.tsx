@@ -6,7 +6,7 @@ import { FontMedium } from 'styles/sharedStyles';
 import { IconProps, Info } from 'phosphor-react-native';
 import { ThemeTypes } from 'styles/themes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Avatar, Button, Icon, Typography } from 'components/design-system-ui';
+import { Avatar, Button, Icon, Typography } from 'components/Design';
 
 interface Props extends FieldBaseProps {
   address: string;

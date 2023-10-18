@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { ScrollView, View } from 'react-native';
-import { Avatar, Button, Icon } from 'components/design-system-ui';
+import { Avatar, Button, Icon } from 'components/Design';
 import { ArrowCircleRight, CheckCircle, Info, Trash } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ApplyMasterPasswordStyle from './style';

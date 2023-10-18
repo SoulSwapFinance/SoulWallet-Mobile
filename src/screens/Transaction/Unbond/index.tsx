@@ -29,7 +29,7 @@ import { BN_ZERO } from 'utils/chainBalances';
 import { _ChainInfo } from '@subwallet/chain-list/types';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { accountFilterFunc } from 'screens/Transaction/helper/staking';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';
 import { submitPoolUnbonding, submitUnbonding } from 'messaging/index';

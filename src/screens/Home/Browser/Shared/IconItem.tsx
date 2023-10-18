@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import { Image, Typography } from 'components/design-system-ui';
+import { Image, Typography } from 'components/Design';
 import { DAppInfo } from 'types/browser';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

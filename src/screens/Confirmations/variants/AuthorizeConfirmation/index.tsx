@@ -6,7 +6,7 @@ import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
 import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/common/Confirmation';
 import ConfirmationFooter from 'components/common/Confirmation/ConfirmationFooter';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

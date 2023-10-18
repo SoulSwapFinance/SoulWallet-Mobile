@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { SVGImages } from 'assets/index';
-import Icon from '../../design-system-ui/icon';
+import Icon from '../../Design/icon';
 import CreateStyle from './styles';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import LogoWithSquircleBorder from '../LogoWithSquircleBorder';

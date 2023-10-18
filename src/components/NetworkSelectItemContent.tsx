@@ -5,7 +5,7 @@ import { getNetworkLogo } from 'utils/index';
 import { ColorMap } from 'styles/color';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { CheckCircle } from 'phosphor-react-native';
-import { Icon } from 'components/design-system-ui';
+import { Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props {

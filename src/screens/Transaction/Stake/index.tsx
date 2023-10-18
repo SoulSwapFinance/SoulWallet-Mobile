@@ -20,7 +20,7 @@ import { InputAmount } from 'components/Input/InputAmount';
 import { useGetBalance } from 'hooks/balance';
 import BigN from 'bignumber.js';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
-import { Button, Divider, Icon } from 'components/design-system-ui';
+import { Button, Divider, Icon } from 'components/Design';
 import { submitBonding, submitPoolBonding } from 'messaging/index';
 import useHandleSubmitTransaction from 'hooks/transaction/useHandleSubmitTransaction';
 import { PoolSelector } from 'components/Modal/common/PoolSelector';

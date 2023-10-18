@@ -5,7 +5,7 @@ import { ColorMap } from 'styles/color';
 import { FontMedium, sharedStyles } from 'styles/sharedStyles';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import AccountInfoFieldStyle from './style';
-import { Avatar } from 'components/design-system-ui';
+import { Avatar } from 'components/Design';
 
 interface Props {
   address: string;

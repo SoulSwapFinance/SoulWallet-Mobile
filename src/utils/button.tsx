@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconProps } from 'phosphor-react-native';
-import { Icon } from 'components/design-system-ui';
-import { SWIconProps } from 'components/design-system-ui/icon';
+import { Icon } from 'components/Design';
+import { SWIconProps } from 'components/Design/icon';
 
 export function getButtonIcon(
   icon: React.ElementType<IconProps>,

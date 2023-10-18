@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator } from 'components/design-system-ui';
+import { ActivityIndicator } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { View } from 'react-native';
 

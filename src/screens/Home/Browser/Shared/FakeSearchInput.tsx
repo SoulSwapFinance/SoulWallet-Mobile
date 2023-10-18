@@ -1,7 +1,7 @@
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles/FakeSearchInput';
 import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { Icon, Typography } from 'components/design-system-ui';
+import { Icon, Typography } from 'components/Design';
 import { MagnifyingGlass } from 'phosphor-react-native';
 import React from 'react';
 import i18n from 'utils/i18n/i18n';

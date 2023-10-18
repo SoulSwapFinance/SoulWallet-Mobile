@@ -7,7 +7,7 @@ import i18n from 'utils/i18n/i18n';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateLanguage } from 'stores/MobileSettings';
 import { RootState } from 'stores/index';
-import { Button, SelectItem } from 'components/design-system-ui';
+import { Button, SelectItem } from 'components/Design';
 import { FlatListScreen } from 'components/FlatListScreen';
 import { EmptyList } from 'components/EmptyList';
 import { MagnifyingGlass } from 'phosphor-react-native';

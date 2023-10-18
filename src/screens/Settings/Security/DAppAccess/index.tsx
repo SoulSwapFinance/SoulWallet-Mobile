@@ -12,7 +12,7 @@ import { changeAuthorizationAll, forgetAllSite } from 'messaging/index';
 import { updateAuthUrls } from 'stores/updater';
 import i18n from 'utils/i18n/i18n';
 import { EmptyList } from 'components/EmptyList';
-import DappAccessItem from 'components/design-system-ui/web3-block/DappAccessItem';
+import DappAccessItem from 'components/Design/web3-block/DappAccessItem';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 function searchFunction(items: AuthUrlInfo[], searchString: string) {

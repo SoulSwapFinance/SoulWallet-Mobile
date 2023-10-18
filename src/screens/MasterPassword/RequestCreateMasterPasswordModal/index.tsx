@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Icon, SwModal, Typography } from 'components/design-system-ui';
+import { Button, Icon, SwModal, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ModalStyle from './style';
 import { View } from 'react-native';

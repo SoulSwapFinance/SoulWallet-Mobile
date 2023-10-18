@@ -9,7 +9,7 @@ import i18n from 'utils/i18n/i18n';
 import { GlobeHemisphereWest } from 'phosphor-react-native';
 import { SessionTypes } from '@walletconnect/types';
 import { stripUrl } from '@subwallet/extension-base/utils';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import { SVGImages } from 'assets/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ConnectionItem } from 'components/WalletConnect/ConnectionItem';

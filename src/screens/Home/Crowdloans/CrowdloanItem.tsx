@@ -1,6 +1,6 @@
 import { CrowdloanParaState } from '@subwallet/extension-base/background/KoniTypes';
-import { Logo, Number, Tag } from 'components/design-system-ui';
-import { TagNativeProps } from 'components/design-system-ui/tag';
+import { Logo, Number, Tag } from 'components/Design';
+import { TagNativeProps } from 'components/Design/tag';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';

@@ -6,7 +6,7 @@ import { FontSemiBold, sharedStyles } from 'styles/sharedStyles';
 import { ColorMap } from 'styles/color';
 import { Divider } from 'components/Divider';
 import { SVGImages } from 'assets/index';
-import { Logo } from 'components/design-system-ui';
+import { Logo } from 'components/Design';
 import { _ChainInfo, _ChainStatus } from '@subwallet/chain-list/types';
 
 interface Props {

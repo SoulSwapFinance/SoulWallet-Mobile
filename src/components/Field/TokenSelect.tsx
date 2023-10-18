@@ -5,7 +5,7 @@ import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import { FontMedium } from 'styles/sharedStyles';
 import { CaretDown } from 'phosphor-react-native';
 import { ThemeTypes } from 'styles/themes';
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import i18n from 'utils/i18n/i18n';
 

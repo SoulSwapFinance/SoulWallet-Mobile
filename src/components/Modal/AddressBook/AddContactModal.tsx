@@ -1,4 +1,4 @@
-import { Button, Icon, SwModal } from 'components/design-system-ui';
+import { Button, Icon, SwModal } from 'components/Design';
 import { View } from 'react-native';
 import i18n from 'utils/i18n/i18n';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -8,7 +8,7 @@ import { RootState } from 'stores/index';
 import { UseControllerProps } from 'react-hook-form/dist/types/controller';
 import { isAddress } from '@polkadot/util-crypto';
 import { FormItem } from 'components/common/FormItem';
-import Input from 'components/design-system-ui/input';
+import Input from 'components/Design/input';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { UseControllerReturn } from 'react-hook-form/dist/types';
 import { editContactAddress } from 'messaging/index';
@@ -17,7 +17,7 @@ import { PlusCircle } from 'phosphor-react-native';
 import { useToast } from 'react-native-toast-notifications';
 import createStylesheet from './style/AddContactModal';
 import { TextInputProps } from 'react-native/Libraries/Components/TextInput/TextInput';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 type Props = {
   modalVisible: boolean;

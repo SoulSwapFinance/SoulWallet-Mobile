@@ -1,7 +1,7 @@
 import { ConfirmationDefinitions, ConfirmationResult } from '@subwallet/extension-base/background/KoniTypes';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/common/Confirmation';
 import ConfirmationFooter from 'components/common/Confirmation/ConfirmationFooter';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { FieldBase } from 'components/Field/Base';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { CheckCircle, Globe, ShareNetwork, XCircle } from 'phosphor-react-native';

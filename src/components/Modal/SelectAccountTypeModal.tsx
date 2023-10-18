@@ -1,6 +1,6 @@
 import { KeypairType } from '@polkadot/util-crypto/types';
 import { AccountTypeItem } from 'components/common/SelectAccountType';
-import { Logo, SelectItem } from 'components/design-system-ui';
+import { Logo, SelectItem } from 'components/Design';
 import { EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import { CheckCircle } from 'phosphor-react-native';
 import React, { useCallback, useState } from 'react';

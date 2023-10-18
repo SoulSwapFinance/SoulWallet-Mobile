@@ -10,7 +10,7 @@ import i18n from 'utils/i18n/i18n';
 import { ScreenContainer } from 'components/ScreenContainer';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
 import { EmptyList } from 'components/EmptyList';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles/BrowserTabs';
 

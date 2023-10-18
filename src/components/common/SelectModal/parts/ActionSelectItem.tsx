@@ -1,5 +1,5 @@
 import { ActionItemType } from 'components/common/SelectModal/type';
-import { SelectItem } from 'components/design-system-ui';
+import { SelectItem } from 'components/Design';
 import React from 'react';
 
 interface Props<T> {

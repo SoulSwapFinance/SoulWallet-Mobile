@@ -8,9 +8,9 @@ import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
 import { AccountItem, ChainItem } from 'components/MetaInfo/parts/index';
 import i18n from 'utils/i18n/i18n';
 import { View } from 'react-native';
-import Typography from '../../design-system-ui/typography';
+import Typography from '../../Design/typography';
 import { toShort } from 'utils/index';
-import { Avatar, Logo } from 'components/design-system-ui';
+import { Avatar, Logo } from 'components/Design';
 
 export interface TransferInfoItem extends Omit<InfoItemBase, 'label'> {
   senderAddress: string;

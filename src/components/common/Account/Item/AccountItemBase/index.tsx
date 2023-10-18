@@ -1,11 +1,11 @@
-import { AccountItem, Icon } from 'components/design-system-ui';
+import { AccountItem, Icon } from 'components/Design';
 import createStyle from './styles';
 import useAccountAvatarInfo from 'hooks/account/useAccountAvatarInfo';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { CheckCircle } from 'phosphor-react-native';
 
-import { AccountItemProps } from 'components/design-system-ui';
+import { AccountItemProps } from 'components/Design';
 import { KeypairType } from '@polkadot/util-crypto/types';
 
 export interface AccountItemBaseProps extends AccountItemProps {

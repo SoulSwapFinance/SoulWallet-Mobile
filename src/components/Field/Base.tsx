@@ -3,7 +3,7 @@ import { StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native'
 import { FontMedium } from 'styles/sharedStyles';
 import { ThemeTypes } from 'styles/themes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 
 export interface FieldBaseProps extends ViewProps {
   label?: string;

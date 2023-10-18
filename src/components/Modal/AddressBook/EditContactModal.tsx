@@ -1,4 +1,4 @@
-import { Button, Icon, SwModal } from 'components/design-system-ui';
+import { Button, Icon, SwModal } from 'components/Design';
 import { Platform, View } from 'react-native';
 import i18n from 'utils/i18n/i18n';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { UseControllerProps } from 'react-hook-form/dist/types/controller';
 import { FormItem } from 'components/common/FormItem';
-import Input from 'components/design-system-ui/input';
+import Input from 'components/Design/input';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { editContactAddress, removeContactAddress } from 'messaging/index';
 import { AddressJson } from '@subwallet/extension-base/background/types';
@@ -22,7 +22,7 @@ import { deviceHeight, TOAST_DURATION } from 'constants/index';
 import { ColorMap } from 'styles/color';
 import { STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
 import { TextInputProps } from 'react-native/Libraries/Components/TextInput/TextInput';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 type Props = {
   addressJson: AddressJson;

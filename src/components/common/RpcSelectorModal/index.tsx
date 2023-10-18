@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { Button, Icon, SelectItem } from 'components/design-system-ui';
+import { Button, Icon, SelectItem } from 'components/Design';
 import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import { ListRenderItemInfo, View } from 'react-native';
 import i18n from 'utils/i18n/i18n';

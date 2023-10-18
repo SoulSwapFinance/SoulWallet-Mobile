@@ -1,6 +1,6 @@
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { View } from 'react-native';
-import { Avatar, Button, Field, Icon, Typography } from 'components/design-system-ui';
+import { Avatar, Button, Field, Icon, Typography } from 'components/Design';
 import { toShort } from 'utils/index';
 import React, { useCallback } from 'react';
 import Clipboard from '@react-native-clipboard/clipboard';

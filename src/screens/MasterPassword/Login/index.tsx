@@ -1,5 +1,5 @@
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { PasswordField } from 'components/Field/Password';
 import useFormControl from 'hooks/screen/useFormControl';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

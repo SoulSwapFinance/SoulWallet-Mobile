@@ -2,7 +2,7 @@ import { TouchableOpacity, View } from 'react-native';
 import { CheckCircle, IconProps, IconWeight } from 'phosphor-react-native';
 import Text from 'components/Text';
 import React, { useMemo } from 'react';
-import { BackgroundIcon, Icon } from 'components/design-system-ui';
+import { BackgroundIcon, Icon } from 'components/Design';
 
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 

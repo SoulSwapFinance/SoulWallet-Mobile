@@ -7,7 +7,7 @@ import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { getSchemaColor, renderColContent } from 'components/MetaInfo/shared';
 import { View } from 'react-native';
-import Typography from '../../design-system-ui/typography';
+import Typography from '../../Design/typography';
 
 export interface AccountGroupInfoItem extends InfoItemBase {
   addresses: string[];

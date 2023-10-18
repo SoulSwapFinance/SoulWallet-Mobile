@@ -11,10 +11,10 @@ import {
   TextStyle,
 } from 'react-native';
 import { ButtonPropsType } from './PropsType';
-import Squircle from 'components/design-system-ui/squircle';
+import Squircle from 'components/Design/squircle';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ButtonStyles from './style';
-import { ActivityIndicator } from 'components/design-system-ui';
+import { ActivityIndicator } from 'components/Design';
 
 export interface ButtonProps extends ButtonPropsType, TouchableHighlightProps {
   onPress?: (event?: GestureResponderEvent) => void;

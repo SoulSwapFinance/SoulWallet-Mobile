@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Button, Icon, SelectItem } from 'components/design-system-ui';
+import { Button, Icon, SelectItem } from 'components/Design';
 import i18n from 'utils/i18n/i18n';
 import { NominationPoolInfo, StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import useGetValidatorList, { NominationPoolDataType } from 'hooks/screen/Staking/useGetValidatorList';

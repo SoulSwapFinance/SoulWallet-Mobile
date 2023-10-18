@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
-import { Button, Icon, PageIcon, Typography } from 'components/design-system-ui';
+import { Button, Icon, PageIcon, Typography } from 'components/Design';
 import { ShoppingCartSimple } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { AccountSelector } from 'components/Modal/common/AccountSelectorNew';

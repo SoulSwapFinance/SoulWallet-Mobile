@@ -55,7 +55,7 @@ import i18n from 'utils/i18n/i18n';
 import { TokenSelectField } from 'components/Field/TokenSelect';
 import { InputAddress } from 'components/Input/InputAddressV2';
 import { NetworkField } from 'components/Field/Network';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { AccountSelector } from 'components/Modal/common/AccountSelector';
 import { ChainSelector } from 'components/Modal/common/ChainSelector';
 import { FormItem } from 'components/common/FormItem';

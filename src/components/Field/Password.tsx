@@ -5,7 +5,7 @@ import { DisabledStyle, FontMedium } from 'styles/sharedStyles';
 import { FieldBaseProps } from 'components/Field/Base';
 import { Warning } from 'components/Warning';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { ThemeTypes } from 'styles/themes';
 import { Eye, EyeSlash } from 'phosphor-react-native';
 

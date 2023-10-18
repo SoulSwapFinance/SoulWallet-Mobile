@@ -12,7 +12,7 @@ import {
 import { ColorMap } from 'styles/color';
 import { Coins } from 'phosphor-react-native';
 import { EmptyList } from 'components/EmptyList';
-import { ActivityIndicator, AnimatedFlatlist } from 'components/design-system-ui';
+import { ActivityIndicator, AnimatedFlatlist } from 'components/Design';
 import Animated, {
   Extrapolate,
   interpolate,

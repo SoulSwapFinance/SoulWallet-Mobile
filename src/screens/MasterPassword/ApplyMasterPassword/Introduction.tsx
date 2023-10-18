@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { PageIcon } from 'components/design-system-ui';
+import { PageIcon } from 'components/Design';
 import { ShieldStar } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ApplyMasterPasswordStyle from './style';

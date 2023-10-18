@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Typography, Web3Block } from 'components/design-system-ui';
+import { Icon, Typography, Web3Block } from 'components/Design';
 import { WCNetworkAvatarGroup } from 'components/WalletConnect/Network/WCNetworkAvatarGroup';
 import { WalletConnectChainInfo } from 'types/walletConnect';
 import { DotsThree } from 'phosphor-react-native';

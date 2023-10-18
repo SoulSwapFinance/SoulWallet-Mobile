@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { Images, SVGImages } from 'assets/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Button, WarningText } from 'components/design-system-ui';
+import { Button, WarningText } from 'components/Design';
 import { resetWallet } from 'messaging/index';
 import { useToast } from 'react-native-toast-notifications';
 import { ForgotPasswordModal } from 'components/common/ForgotPasswordModal';

@@ -27,7 +27,7 @@ import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-s
 import BigN from 'bignumber.js';
 import { BN_ZERO } from 'utils/chainBalances';
 import MetaInfo from 'components/MetaInfo';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { ArrowCircleRight, XCircle } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import InputCheckBox from 'components/Input/InputCheckBox';

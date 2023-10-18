@@ -1,7 +1,7 @@
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useState } from 'react';
 import { TextInput, View } from 'react-native';
 import BigN from 'bignumber.js';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Warning } from 'components/Warning';
 import InputAmountStyles from './style';

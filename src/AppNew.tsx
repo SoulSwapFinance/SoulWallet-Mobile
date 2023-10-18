@@ -27,7 +27,7 @@ import { updateShowZeroBalanceState } from 'stores/utils';
 import { setBuildNumber } from './stores/AppVersion';
 import { getBuildNumber } from 'react-native-device-info';
 import { AppModalContextProvider } from './providers/AppModalContext';
-import { CustomToast } from 'components/design-system-ui/toast';
+import { CustomToast } from 'components/Design/toast';
 import { PortalProvider } from '@gorhom/portal';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';

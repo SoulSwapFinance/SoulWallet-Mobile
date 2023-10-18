@@ -4,7 +4,7 @@ import { StyleProp, StyleSheet, View } from 'react-native';
 import { FontMedium } from 'styles/sharedStyles';
 import { CaretDown, Coin } from 'phosphor-react-native';
 import { ThemeTypes } from 'styles/themes';
-import { BackgroundIcon, Typography } from 'components/design-system-ui';
+import { BackgroundIcon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import i18n from 'utils/i18n/i18n';
 

@@ -6,7 +6,7 @@ import { AccountJson, ConfirmationRequestBase } from '@subwallet/extension-base/
 import AccountItemWithName from 'components/common/Account/Item/AccountItemWithName';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/common/Confirmation';
 import ConfirmationFooter from 'components/common/Confirmation/ConfirmationFooter';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import { NEED_SIGN_CONFIRMATION } from 'constants/transaction';
 import useGetAccountTitleByAddress from 'hooks/account/useGetAccountTitleByAddress';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

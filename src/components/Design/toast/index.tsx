@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Icon } from 'components/design-system-ui';
+import { Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { ThemeTypes } from 'styles/themes';
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleProp, Text, View, ViewStyle } from 'react-native';
-import { ActivityIndicator, Number, Typography } from 'components/design-system-ui';
+import { ActivityIndicator, Number, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium } from 'styles/sharedStyles';
 import { AmountData } from '@subwallet/extension-base/background/KoniTypes';

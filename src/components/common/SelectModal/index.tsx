@@ -1,5 +1,5 @@
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { Button, Icon, SwFullSizeModal } from 'components/design-system-ui';
+import { Button, Icon, SwFullSizeModal } from 'components/Design';
 import { FlatListScreen, RightIconOpt } from 'components/FlatListScreen';
 import { Keyboard, ListRenderItemInfo, Platform, View } from 'react-native';
 import { MarginBottomForSubmitButton } from 'styles/sharedStyles';
@@ -17,7 +17,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { ChainInfo } from 'types/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 interface Props<T> {
   items: T[];

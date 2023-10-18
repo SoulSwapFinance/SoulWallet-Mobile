@@ -4,7 +4,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { ScrollView, View } from 'react-native';
 import { ArrowCircleRight, CheckCircle, Info } from 'phosphor-react-native';
-import { Button, Icon, Typography } from 'components/design-system-ui';
+import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import useFormControl from 'hooks/screen/useFormControl';
 import { PasswordField } from 'components/Field/Password';
@@ -16,7 +16,7 @@ import ChangeMasterPasswordStyle from './style';
 import { backToHome } from 'utils/navigation';
 import useGoHome from 'hooks/screen/useGoHome';
 import i18n from 'utils/i18n/i18n';
-import AlertBox from 'components/design-system-ui/alert-box';
+import AlertBox from 'components/Design/alert-box';
 import { FontSemiBold } from 'styles/sharedStyles';
 
 function checkValidateForm(isValidated: Record<string, boolean>) {

@@ -1,4 +1,4 @@
-import { TagPropsType } from 'components/design-system-ui/tag/PropsType';
+import { TagPropsType } from 'components/Design/tag/PropsType';
 
 export type DAPPCategory = {
   name: string;

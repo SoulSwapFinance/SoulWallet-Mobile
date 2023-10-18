@@ -18,7 +18,7 @@ import { ScannerStyles } from 'styles/scanner';
 import { FontMedium, FontSize0, sharedStyles, STATUS_BAR_LIGHT_CONTENT } from 'styles/sharedStyles';
 import { convertHexColorToRGBA } from 'utils/color';
 import i18n from 'utils/i18n/i18n';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 const WrapperStyle: StyleProp<ViewStyle> = {

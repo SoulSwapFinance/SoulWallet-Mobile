@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 import { TokenBalanceItemType } from 'types/balance';
 import { BN_ZERO } from 'utils/chainBalances';
-import { Icon, Logo, Number, Typography } from 'components/design-system-ui';
+import { Icon, Logo, Number, Typography } from 'components/Design';
 import { DotsThree } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TokenBalanceItemStyles from './style';

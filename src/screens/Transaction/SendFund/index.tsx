@@ -27,7 +27,7 @@ import { ChainInfo } from 'types/index';
 import { addLazy, isSameAddress } from '@subwallet/extension-base/utils';
 import BigN from 'bignumber.js';
 import { getMaxTransfer, makeCrossChainTransfer, makeTransfer, saveRecentAccountId } from 'messaging/index';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { PaperPlaneTilt } from 'phosphor-react-native';
 import { FreeBalance } from 'screens/Transaction/parts/FreeBalance';
 import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';

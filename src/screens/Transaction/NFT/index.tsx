@@ -23,7 +23,7 @@ import { ColorMap } from 'styles/color';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { WebRunnerContext } from 'providers/contexts';
 import { Warning } from 'components/Warning';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 import reformatAddress from 'utils/index';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { FormState } from 'hooks/screen/useFormControl';

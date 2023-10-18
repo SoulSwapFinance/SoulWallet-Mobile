@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react';
-import { Number, SwModal, Typography } from 'components/design-system-ui';
+import { Number, SwModal, Typography } from 'components/Design';
 import { StyleSheet, View } from 'react-native';
 import { TokenBalanceItemType } from 'types/balance';
 import BigN from 'bignumber.js';
@@ -7,7 +7,7 @@ import { ThemeTypes } from 'styles/themes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
-import { SWModalRefProps } from 'components/design-system-ui/modal/ModalBaseV2';
+import { SWModalRefProps } from 'components/Design/modal/ModalBaseV2';
 
 type ItemType = {
   symbol: string;

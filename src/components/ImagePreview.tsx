@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'reac
 import { StyleProp, View, ViewStyle, Image } from 'react-native';
 import { ColorMap } from 'styles/color';
 import Video from 'react-native-video';
-import { ActivityIndicator } from 'components/design-system-ui';
+import { ActivityIndicator } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props {

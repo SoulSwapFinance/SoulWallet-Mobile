@@ -1,4 +1,4 @@
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 import Web3Block, { Web3BlockProps } from '../Web3Block';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';

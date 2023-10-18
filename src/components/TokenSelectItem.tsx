@@ -5,7 +5,7 @@ import Text from 'components/Text';
 import { ColorMap } from 'styles/color';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import { CheckCircle } from 'phosphor-react-native';
-import { Icon } from 'components/design-system-ui';
+import { Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props extends TouchableOpacityProps {

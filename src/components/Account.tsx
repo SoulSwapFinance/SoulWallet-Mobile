@@ -9,7 +9,7 @@ import { ColorMap } from 'styles/color';
 import { IconButton } from 'components/IconButton';
 import i18n from 'utils/i18n/i18n';
 import { isAccountAll } from '@subwallet/extension-base/utils';
-import { Avatar } from 'components/design-system-ui';
+import { Avatar } from 'components/Design';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 
 export interface AccountProps extends AccountJson {

@@ -7,7 +7,7 @@ import { sharedStyles } from 'styles/sharedStyles';
 import { CaretRight, GlobeHemisphereWest, Image, BellSimpleRinging } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Icon, SelectItem } from 'components/design-system-ui';
+import { Icon, SelectItem } from 'components/Design';
 import { useToast } from 'react-native-toast-notifications';
 
 const containerStyle = { ...sharedStyles.layoutContainer, paddingTop: 16, gap: 8 };

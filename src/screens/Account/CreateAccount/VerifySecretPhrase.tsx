@@ -8,7 +8,7 @@ import { ContainerHorizontalPadding, FontMedium, MarginBottomForSubmitButton, sh
 import { getWordKey, SeedPhraseArea, SelectedWordType } from 'components/SeedPhraseArea';
 import { shuffleArray } from 'utils/index';
 import i18n from 'utils/i18n/i18n';
-import { Button, Icon } from 'components/design-system-ui';
+import { Button, Icon } from 'components/Design';
 import { ArrowCircleRight } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';

@@ -7,7 +7,7 @@ import { FontMedium } from 'styles/sharedStyles';
 import { FieldBase, FieldBaseProps } from 'components/Field/Base';
 import { ThemeTypes } from 'styles/themes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Typography } from 'components/design-system-ui';
+import { Typography } from 'components/Design';
 
 interface Props extends FieldBaseProps {
   text: string;

@@ -10,8 +10,8 @@ import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
 import { RootState } from 'stores/index';
 import { findNetworkJsonByGenesisHash } from 'utils/getNetworkJsonByGenesisHash';
 import reformatAddress, { toShort } from 'utils/index';
-import Typography from '../../design-system-ui/typography';
-import { Avatar } from 'components/design-system-ui';
+import Typography from '../../Design/typography';
+import { Avatar } from 'components/Design';
 import { isAddress } from '@polkadot/util-crypto';
 
 export interface AccountInfoItem extends InfoItemBase {

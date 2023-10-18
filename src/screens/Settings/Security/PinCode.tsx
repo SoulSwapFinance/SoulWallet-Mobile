@@ -4,7 +4,7 @@ import { PinCodeField } from 'components/PinCodeField';
 import { useBlurOnFulfill } from 'react-native-confirmation-code-field';
 import { CELL_COUNT } from 'constants/index';
 import i18n from 'utils/i18n/i18n';
-import { Button } from 'components/design-system-ui';
+import { Button } from 'components/Design';
 
 const bottomAreaStyle: StyleProp<any> = {
   flexDirection: 'row',

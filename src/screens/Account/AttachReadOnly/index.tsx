@@ -17,7 +17,7 @@ import { readOnlyScan } from 'utils/scanner/attach';
 import { createAccountExternalV2 } from 'messaging/index';
 import i18n from 'utils/i18n/i18n';
 import { Warning } from 'components/Warning';
-import { Button, PageIcon, Typography } from 'components/design-system-ui';
+import { Button, PageIcon, Typography } from 'components/Design';
 import createStyle from './styles';
 import { getButtonIcon } from 'utils/button';
 import { isAddress } from '@polkadot/util-crypto';

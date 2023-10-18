@@ -1,4 +1,4 @@
-import { Icon, Typography } from 'components/design-system-ui';
+import { Icon, Typography } from 'components/Design';
 import { toShort } from 'utils/index';
 import Avatar from '../../avatar';
 import Web3Block, { Web3BlockCustomStyle, Web3BlockProps } from '../Web3Block';

@@ -6,7 +6,7 @@ import MetaInfoStyles from 'components/MetaInfo/style';
 import useGeneralStyles from 'components/MetaInfo/hooks/useGeneralStyles';
 import { renderColContent } from 'components/MetaInfo/shared';
 import { View } from 'react-native';
-import { Number } from 'components/design-system-ui';
+import { Number } from 'components/Design';
 import i18n from 'utils/i18n/i18n';
 
 export interface TotalInfoItem extends Omit<InfoItemBase, 'valueColorSchema'> {
