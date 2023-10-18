@@ -5,7 +5,7 @@ import { Image, StyleProp, View } from 'react-native';
 // @ts-ignore
 import { toDataUrl } from './blockies.js';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import AvatarStyles from './style/index.js';
+import AvatarStyles from './style/index';
 import { Images } from 'assets/index';
 function getEthereumIdenticonStyle(size: number): StyleProp<any> {
   return {
