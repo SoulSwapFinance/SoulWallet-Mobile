@@ -1,4 +1,4 @@
-import { _ChainInfo } from '@soul-wallet/chain-list/build/types';
+import { _ChainInfo } from 'constants/ChainInfo/Types';
 import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { ALL_KEY } from 'constants/index';

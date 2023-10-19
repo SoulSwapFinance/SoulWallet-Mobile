@@ -1,4 +1,4 @@
-import { _ChainInfo } from '@soul-wallet/chain-list/build/types';
+import { _ChainInfo } from 'constants/ChainInfo/Types';
 import { _ChainState } from '@subwallet/extension-base/services/chain-service/types';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';

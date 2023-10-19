@@ -1,4 +1,4 @@
-import { _ChainInfo } from '@soul-wallet/chain-list/build/types';
+import { _ChainInfo } from 'constants/ChainInfo/Types';
 import { _getSubstrateGenesisHash } from '@subwallet/extension-base/services/chain-service/utils';
 
 export const findChainInfoByGenesisHash = (

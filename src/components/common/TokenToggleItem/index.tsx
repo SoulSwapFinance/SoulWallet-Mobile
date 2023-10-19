@@ -3,7 +3,7 @@ import { Switch, Text, View } from 'react-native';
 import { PencilSimpleLine } from 'phosphor-react-native';
 import { ColorMap } from 'styles/color';
 import { Divider } from 'components/Divider';
-import { _ChainAsset } from '@soul-wallet/chain-list/build/types';
+import { _ChainAsset } from 'constants/ChainInfo/Types';
 import { Button, Icon, Logo as SWLogo } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TokenToggleItemStyles from './style';

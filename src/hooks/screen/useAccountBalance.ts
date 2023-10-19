@@ -1,7 +1,7 @@
 // Copyright 2019-2022 @polkadot/extension-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { _ChainAsset, _MultiChainAsset } from '@soul-wallet/chain-list/build/types';
+import { _ChainAsset, _MultiChainAsset } from 'constants/ChainInfo/Types';
 import { APIItemState } from '@subwallet/extension-base/background/KoniTypes';
 import {
   _getAssetDecimals,

@@ -1,4 +1,4 @@
-import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@soul-wallet/chain-list/build/types';
+import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from 'constants/ChainInfo/Types';
 import {
   _getAssetDecimals,
   _getOriginChainOfAsset,

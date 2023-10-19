@@ -1,4 +1,4 @@
-import { _ChainAsset, _ChainInfo } from '@soul-wallet/chain-list/build/types';
+import { _ChainAsset, _ChainInfo } from 'constants/ChainInfo/Types';
 import { AccountType } from 'types/ui-types';
 import {
   _getMultiChainAsset,

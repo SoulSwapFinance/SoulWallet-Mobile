@@ -31,7 +31,7 @@ import {
 import { AuthUrlInfo } from '@subwallet/extension-base/background/handlers/State';
 import { SettingsStruct } from '@polkadot/ui-settings/types';
 import { SWTransactionResult } from '@subwallet/extension-base/services/transaction-service/types';
-import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@soul-wallet/chain-list/build/types';
+import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from 'constants/ChainInfo/Types';
 import { _ChainState } from '@subwallet/extension-base/services/chain-service/types';
 import { SessionTypes } from '@walletconnect/types';
 import { WalletConnectSessionRequest } from '@subwallet/extension-base/services/wallet-connect-service/types';

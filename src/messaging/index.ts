@@ -153,7 +153,7 @@ import {
   _ValidateCustomAssetRequest,
   _ValidateCustomAssetResponse,
 } from '@subwallet/extension-base/services/chain-service/types';
-import { _ChainAsset, _ChainInfo } from '@soul-wallet/chain-list/build/types';
+import { _ChainAsset, _ChainInfo } from 'constants/ChainInfo/Types';
 import { AuthUrls } from '@subwallet/extension-base/services/request-service/types';
 import { _getKnownHashes } from 'utils/defaultChains';
 
@@ -552,10 +552,12 @@ export async function saveBrowserConfirmationType(
   type: BrowserConfirmationType,
   callback: (data: RequestSettingsType) => void,
 ): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(settings.saveBrowserConfirmationType)', type, callback);
 }
 
 export async function saveTheme(theme: ThemeNames, callback: (data: UiSettings) => void): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(settings.saveTheme)', theme, callback);
 }
 
@@ -946,6 +948,7 @@ export async function deriveAccountV2(
 }
 
 export async function windowOpen(path: AllowedPath): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(window.open)', path);
 }
 

@@ -130,7 +130,8 @@ export const TokenGroups = () => {
     return (
       <View style={renderActionsStyle}>
         <Typography.Title level={4} style={{ color: theme.colorTextLight1, ...FontSemiBold }}>
-          {i18n.settings.tokens}
+          {/* {i18n.settings.tokens} */}
+          {`Balances`}
         </Typography.Title>
         <View style={{ flexDirection: 'row', marginRight: -5 }}>
           <Button

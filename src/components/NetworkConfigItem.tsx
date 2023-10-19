@@ -7,7 +7,7 @@ import { ColorMap } from 'styles/color';
 import { Divider } from 'components/Divider';
 import { SVGImages } from 'assets/index';
 import { Logo } from 'components/Design';
-import { _ChainInfo, _ChainStatus } from '@soul-wallet/chain-list/build/types';
+import { _ChainInfo, _ChainStatus } from 'constants/ChainInfo/Types';
 
 interface Props {
   item: _ChainInfo;

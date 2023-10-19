@@ -1,4 +1,4 @@
-import { _AssetType } from '@soul-wallet/chain-list/build/types';
+import { _AssetType } from 'constants/ChainInfo/Types';
 
 export interface AssetTypeOption {
   label: string;

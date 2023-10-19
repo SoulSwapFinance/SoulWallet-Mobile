@@ -1,4 +1,4 @@
-import { _ChainAsset } from '@soul-wallet/chain-list/build/types';
+import { _ChainAsset } from 'constants/ChainInfo/Types';
 import { AssetSetting } from '@subwallet/extension-base/background/KoniTypes';
 import { _ChainState } from '@subwallet/extension-base/services/chain-service/types';
 import { _isAssetFungibleToken } from '@subwallet/extension-base/services/chain-service/utils';

@@ -7,9 +7,9 @@ import Text from '../../components/Text';
 import { FontMedium, FontSize2 } from 'styles/sharedStyles';
 import { ColorMap } from 'styles/color';
 import { Globe } from 'phosphor-react-native';
-import { _getChainName } from '@subwallet/extension-base/services/chain-service/utils';
 import { Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
+import { _getChainName } from 'hooks/chain/useGetChainName';
 
 interface Props extends FieldBaseProps {
   chain: string;
