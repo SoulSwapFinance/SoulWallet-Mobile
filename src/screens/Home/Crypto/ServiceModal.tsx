@@ -15,6 +15,7 @@ import { ImageLogosMap } from 'assets/logo';
 import { FullSizeSelectModal } from 'components/Common/SelectModal';
 import { ModalRef } from 'types/modalRef';
 import { ServiceSelectField } from 'components/Field/ServiceSelect';
+import TransactLogo from 'assets/logo/transak.png'
 
 interface Props {
   address?: string;
@@ -100,9 +101,11 @@ export const ServiceModal = ({
 
   const SERVICE_OPTIONS = useMemo(
     () => [
-      { label: 'Transak', value: 'transak', url: url, icon: ImageLogosMap.transak },
-      { label: 'MoonPay (Coming soon)', value: 'moonpay', url: '', icon: ImageLogosMap.moonpay },
-      { label: 'Onramper (Coming soon)', value: 'onramper', url: '', icon: ImageLogosMap.onramper },
+      { label: 'Transak', value: 'transak', url: url, icon: TransactLogo
+      // ImageLogosMap.transak 
+    },
+      // { label: 'MoonPay (Coming soon)', value: 'moonpay', url: '', icon: ImageLogosMap.moonpay },
+      // { label: 'Onramper (Coming soon)', value: 'onramper', url: '', icon: ImageLogosMap.onramper },
     ],
     [url],
   );

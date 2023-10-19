@@ -32,7 +32,7 @@ const ErrorFallbackScreen: React.FC<ErrorFallbackProps> = ({ resetError }) => {
           </Typography.Text>
         </View>
         <Button onPress={() => resetError()} icon={<Icon phosphorIcon={House} size="md" weight="fill" />}>
-          Back to home
+          Back Home
         </Button>
       </LinearGradient>
     </SafeAreaView>
