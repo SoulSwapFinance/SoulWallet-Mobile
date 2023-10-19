@@ -118,36 +118,42 @@ const Button: React.FC<ButtonProps> = props => {
     return icon || null;
   }, [icon, loading, textStyle.color]);
   const buttonNode = (
-    image ? 
-          <Image 
-            src={image} 
-            style={{width: imageSize, height: imageSize}} 
-          />
-    :
-    <TouchableHighlight
-      accessibilityRole="button"
-      accessibilityState={{ disabled: !!disabled }}
-      activeOpacity={0.4}
-      {...restProps}
-      style={wrapperStyle}
-      disabled={disabled}
-      underlayColor={underlayColor}
-      onPress={_onPress}
-      onPressIn={_onPressIn}
-      onPressOut={_onPressOut}
-      onShowUnderlay={_onShowUnderlay}
-      onHideUnderlay={_onHideUnderlay}>
-      <View style={[_style.container, { maxWidth: '100%', paddingHorizontal: theme.padding - 4 }]}>
-        { iconNode }
-        {typeof children === 'string' ? (
-          <Text numberOfLines={1} style={[textStyle]}>
-            {children}
-          </Text>
-        ) : (
-          children
-        )}
-      </View>
-    </TouchableHighlight>
+    image ?
+      <TouchableHighlight
+        onPress={_onPress}
+        onPressIn={_onPressIn}
+        onPressOut={_onPressOut}
+      >
+        <Image
+          src={image}
+          style={{ width: imageSize, height: imageSize }}
+        />
+      </TouchableHighlight>
+      :
+      <TouchableHighlight
+        accessibilityRole="button"
+        accessibilityState={{ disabled: !!disabled }}
+        activeOpacity={0.4}
+        {...restProps}
+        style={wrapperStyle}
+        disabled={disabled}
+        underlayColor={underlayColor}
+        onPress={_onPress}
+        onPressIn={_onPressIn}
+        onPressOut={_onPressOut}
+        onShowUnderlay={_onShowUnderlay}
+        onHideUnderlay={_onHideUnderlay}>
+        <View style={[_style.container, { maxWidth: '100%', paddingHorizontal: theme.padding - 4 }]}>
+          {iconNode}
+          {typeof children === 'string' ? (
+            <Text numberOfLines={1} style={[textStyle]}>
+              {children}
+            </Text>
+          ) : (
+            children
+          )}
+        </View>
+      </TouchableHighlight>
   );
 
   if (shape === 'squircle' && isIconOnly) {

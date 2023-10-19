@@ -3959,10 +3959,10 @@
   dependencies:
     "@open-web3/orml-type-definitions" "1.1.4"
 
-"@soul-wallet/chain-list@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@soul-wallet/chain-list/-/chain-list-1.0.0.tgz#d757751436b8067ef3efec1e8d9cc60f73272b62"
-  integrity sha512-MlPA7BjRkkrJpqdrf/Z94AUs5UWs2KxrhYMy+wfDHz7fBXuN6mHkOYI4QX6gWKVC90IyRzW982am4cNTSFlh1A==
+"@soul-wallet/chain-list@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@soul-wallet/chain-list/-/chain-list-1.0.1.tgz#c34fc8c02e87e216c9d3e8af325fb571b1a7f5b3"
+  integrity sha512-plvTOjq18oCV5IVATDDUEWTdKcrXmWUcP9t5a24qbKNY4Yih0Qua+Zzz8Iv8iQJWaI0g0JhH8WV8v+saWF4GuQ==
   dependencies:
     "@polkadot/dev" "0.67.167"
     "@polkadot/util" "^12.5.1"
@@ -4154,7 +4154,7 @@
   resolved "https://registry.npmjs.org/@substrate/ss58-registry/-/ss58-registry-1.43.0.tgz"
   integrity sha512-USEkXA46P9sqClL7PZv0QFsit4S8Im97wchKG0/H/9q3AT/S76r40UHfCr4Un7eBJPE23f7fU9BZ0ITpP9MCsA==
 
-"@subwallet/chain-list@0.2.10", "@subwallet/chain-list@^0.2.10":
+"@subwallet/chain-list@0.2.10":
   version "0.2.10"
   resolved "https://registry.npmjs.org/@subwallet/chain-list/-/chain-list-0.2.10.tgz"
   integrity sha512-SdLi/nxiMquSGTto3GCprD4uvwL4ex0asItNdIokYpd8T2prEVk017xqZHzHQZEcTkBTr0v8kS0m+GPKwIXvKg==
