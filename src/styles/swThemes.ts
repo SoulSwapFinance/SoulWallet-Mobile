@@ -169,6 +169,8 @@ export default {
   colorSuccessTextActive: '#3aa683',
   colorSuccessTextHover: '#75e6be',
   colorText: 'rgba(255, 255, 255, 0.85)',
+  colorTextLightPurple: '#9854FF',
+  colorTextDarkPurple: '#6A00FF',
   colorTextBase: '#fff',
   colorTextDark1: '#000',
   colorTextDark2: 'rgba(0, 0, 0, 0.85)',
