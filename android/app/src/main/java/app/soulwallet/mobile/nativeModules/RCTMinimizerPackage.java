@@ -1,4 +1,4 @@
-package mobile.soulswap.finance.nativeModules;
+package app.soulswap.finance.nativeModules;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

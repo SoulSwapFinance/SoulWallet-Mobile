@@ -1,4 +1,4 @@
-package mobile.soulswap.finance; // Change this to your package name.
+package app.soulswap.finance; // Change this to your package name.
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -556,7 +556,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mobile.soulswap.finance;
+				PRODUCT_BUNDLE_IDENTIFIER = app.soulswap.finance;
 				PRODUCT_NAME = SoulWalletMobile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -588,7 +588,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mobile.soulswap.finance;
+				PRODUCT_BUNDLE_IDENTIFIER = app.soulswap.finance;
 				PRODUCT_NAME = SoulWalletMobile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

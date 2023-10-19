@@ -10,7 +10,7 @@
     <false/>
     <key>provisioningProfiles</key>
     <dict>
-        <key>mobile.soulswap.finance</key>
+        <key>app.soulswap.finance</key>
         <string>Ad Hoc Distribution</string>
     </dict>
 </dict>
