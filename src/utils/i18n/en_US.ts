@@ -546,7 +546,7 @@ export const en = {
     crowdloanEmptyMessage: 'Your crowdloan will appear here!',
     stakingEmptyTitle: 'No staking',
     stakingEmptyMessage: 'Your staking accounts will appear here!',
-    historyEmptyTitle: 'No transaction found',
+    historyEmptyTitle: 'No transactions found',
     historyEmptyMessage: 'Your transaction history will appear here!',
     selectorEmptyTitle: 'No results found',
     selectorEmptyMessage: 'Please change your search criteria try again',

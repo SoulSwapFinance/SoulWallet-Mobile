@@ -92,13 +92,13 @@ export const TokenGroupsDetailUpperBlock = ({
         <ActionButton
           icon={ButtonIcon.SendFund}
           image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/sent.png'}
-          imageSize={28}
+          imageSize={30}
           onPress={onOpenSendFund}
           buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
         />
         <ActionButton
           image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/received.png'}
-          imageSize={28}
+          imageSize={30}
           icon={ButtonIcon.Receive}
           onPress={onOpenReceive}
           buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
@@ -106,7 +106,7 @@ export const TokenGroupsDetailUpperBlock = ({
         {/* {isSupportBuyTokens && ( */}
           <ActionButton
           image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
-          imageSize={28}
+          imageSize={30}
             icon={ButtonIcon.Buy}
             onPress={() =>
               navigation.navigate('Drawer', {

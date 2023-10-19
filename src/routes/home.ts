@@ -16,7 +16,8 @@ export type HomeStackParamList = {
   Tokens: NavigatorScreenParams<CryptoStackParamList>;
   NFTs: NavigatorScreenParams<NFTStackParamList>;
   // Crowdloans: undefined;
-  Staking: NavigatorScreenParams<StakingScreenStackParamList> | undefined;
+  // Staking: NavigatorScreenParams<StakingScreenStackParamList> | undefined;
+  // SoulSwap: NavigatorScreenParams<BrowserHomeProps>;
   Browser: NavigatorScreenParams<BrowserHomeProps>;
 };
 

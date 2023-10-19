@@ -135,7 +135,7 @@ const MainScreen = () => {
           tabBarIcon: crowdloanTabbarIcon,
         }}
       /> */}
-      <Tab.Screen
+      {/* <Tab.Screen
         name={'Staking'}
         component={StakingScreen}
         options={{
@@ -143,7 +143,15 @@ const MainScreen = () => {
           tabBarHideOnKeyboard: Platform.OS === 'android',
           tabBarIcon: stakingTabbarIcon,
         }}
-      />
+      /> */}
+      {/* <Tab.Screen
+        name={'SoulSwap'}
+        component={BrowserScreen}
+        options={{
+          tabBarLabel: 'SoulSwap',
+          tabBarIcon: browserTabbarIcon,
+        }}
+      /> */}
       <Tab.Screen
         name={'Browser'}
         component={BrowserScreen}

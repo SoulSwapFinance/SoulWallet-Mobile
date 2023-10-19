@@ -136,7 +136,7 @@ export const TokenGroupsUpperBlock = ({
         <ActionButton
           // label={i18n.cryptoScreen.send}
           image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/sent.png'}
-          imageSize={28}
+          imageSize={30}
           icon={ButtonIcon.SendFund}
           onPress={onOpenSendFund}
           buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
@@ -144,7 +144,7 @@ export const TokenGroupsUpperBlock = ({
         <ActionButton
           // label={i18n.cryptoScreen.receive}
           image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/received.png'}
-          imageSize={28}
+          imageSize={30}
           // icon={ButtonIcon.Receive}
           onPress={onOpenReceive}
           buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
@@ -153,7 +153,7 @@ export const TokenGroupsUpperBlock = ({
           <ActionButton
             // label={i18n.cryptoScreen.buy}
             image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
-            imageSize={28}  
+            imageSize={30}  
             icon={ButtonIcon.Buy}
             onPress={() => navigation.navigate('Drawer', { screen: 'BuyToken', params: {} })}
             buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
