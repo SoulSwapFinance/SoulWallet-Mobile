@@ -9,7 +9,7 @@ import { Avatar, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import AvatarGroup from 'components/Common/AvatarGroup';
 import { isEthereumAddress } from '@polkadot/util-crypto';
-import createStylesheet from './styles/AccountSettingButton';
+import createStylesheet from './Styles/AccountSettingButton';
 
 interface Props {
   navigation: NativeStackNavigationProp<RootStackParamList>;

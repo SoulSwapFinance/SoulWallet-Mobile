@@ -15,14 +15,14 @@ interface Props {
   backdropColor?: string;
 }
 
-const subWalletModalContainer: StyleProp<any> = {
+const soulWalletModalContainer: StyleProp<any> = {
   flex: 1,
   backgroundColor: ColorMap.dark1,
   alignItems: 'center',
   paddingTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT + 8 : 8,
 };
 
-export const SubWalletFullSizeModal = ({
+export const SoulWalletFullSizeModal = ({
   children,
   modalVisible,
   modalStyle,
@@ -41,7 +41,7 @@ export const SubWalletFullSizeModal = ({
       hideModalContentWhileAnimating
       statusBarTranslucent
       propagateSwipe>
-      <View style={[subWalletModalContainer, modalStyle]}>{children}</View>
+      <View style={[soulWalletModalContainer, modalStyle]}>{children}</View>
     </ModalBase>
   );
 };

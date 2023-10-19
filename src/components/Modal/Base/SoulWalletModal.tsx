@@ -11,7 +11,7 @@ interface Props {
   isFullHeight?: boolean;
 }
 
-const getSubWalletModalContainerStyle = (isFullHeight: boolean): StyleProp<any> => {
+const getSoulWalletModalContainerStyle = (isFullHeight: boolean): StyleProp<any> => {
   return {
     marginTop: 'auto',
     backgroundColor: ColorMap.backgroundDefault,
@@ -24,7 +24,7 @@ const getSubWalletModalContainerStyle = (isFullHeight: boolean): StyleProp<any> 
   };
 };
 
-const subWalletModalSeparator: StyleProp<any> = {
+const soulWalletModalSeparator: StyleProp<any> = {
   width: 70,
   height: 5,
   borderRadius: 100,
@@ -33,7 +33,7 @@ const subWalletModalSeparator: StyleProp<any> = {
   textAlign: 'center',
 };
 
-export const SubWalletModal = ({
+export const SoulWalletModal = ({
   children,
   modalVisible,
   onChangeModalVisible,
@@ -57,9 +57,9 @@ export const SubWalletModal = ({
       // useNativeDriver
       hideModalContentWhileAnimating
       propagateSwipe>
-      <View style={[getSubWalletModalContainerStyle(!!isFullHeight), modalStyle]}>
+      <View style={[getSoulWalletModalContainerStyle(!!isFullHeight), modalStyle]}>
         <View style={{ width: '100%', paddingBottom: 16, alignItems: 'center', flex: isFullHeight ? 1 : undefined }}>
-          <View style={subWalletModalSeparator} />
+          <View style={soulWalletModalSeparator} />
 
           {children}
         </View>

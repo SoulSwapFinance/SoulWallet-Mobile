@@ -29,7 +29,7 @@ export interface SWModalProps {
   isUseSafeAreaView?: boolean;
 }
 
-const getSubWalletModalContainerStyle = (isFullHeight: boolean): StyleProp<any> => {
+const getSoulWalletModalContainerStyle = (isFullHeight: boolean): StyleProp<any> => {
   return {
     marginTop: 'auto',
     backgroundColor: '#0C0C0C',
@@ -42,7 +42,7 @@ const getSubWalletModalContainerStyle = (isFullHeight: boolean): StyleProp<any> 
   };
 };
 
-const subWalletModalSeparator: StyleProp<any> = {
+const soulWalletModalSeparator: StyleProp<any> = {
   width: 70,
   height: 5,
   borderRadius: 100,
@@ -165,7 +165,7 @@ const SwModal = React.forwardRef<ModalRefProps, SWModalProps>(
             hideModalContentWhileAnimating
             isUseForceHidden={isUseForceHidden}
             propagateSwipe>
-            <View style={[getSubWalletModalContainerStyle(!!isFullHeight), modalStyle]}>
+            <View style={[getSoulWalletModalContainerStyle(!!isFullHeight), modalStyle]}>
               <View
                 style={[
                   {
@@ -177,7 +177,7 @@ const SwModal = React.forwardRef<ModalRefProps, SWModalProps>(
                   },
                   contentContainerStyle,
                 ]}>
-                <View style={subWalletModalSeparator} />
+                <View style={soulWalletModalSeparator} />
                 {renderTitle()}
 
                 {children}

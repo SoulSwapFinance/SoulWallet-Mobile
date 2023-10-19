@@ -23,7 +23,7 @@ interface Props {
   level?: number;
 }
 
-const subWalletModalContainer: StyleProp<any> = {
+const soulWalletModalContainer: StyleProp<any> = {
   flex: 1,
   backgroundColor: ColorMap.dark1,
   alignItems: 'center',
@@ -55,7 +55,7 @@ const SwFullSizeModal = ({
             height={deviceHeight}
             isUseForceHidden={Platform.OS === 'android'}
             isFullHeight>
-            <View style={[subWalletModalContainer, modalStyle]}>{children}</View>
+            <View style={[soulWalletModalContainer, modalStyle]}>{children}</View>
           </ModalBaseV2>
         </Portal>
       ) : (
@@ -71,7 +71,7 @@ const SwFullSizeModal = ({
           onBackButtonPress={onBackButtonPress}
           isUseForceHidden={isUseForceHidden}
           propagateSwipe>
-          <View style={[subWalletModalContainer, modalStyle]}>{children}</View>
+          <View style={[soulWalletModalContainer, modalStyle]}>{children}</View>
         </ModalBase>
       )}
     </>

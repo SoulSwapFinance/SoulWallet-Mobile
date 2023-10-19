@@ -1,5 +1,5 @@
 import { AccountInfoField } from 'components/Field/AccountInfo';
-import { SubWalletModal } from 'components/Modal/Base/SubWalletModal';
+import { SoulWalletModal } from 'components/Modal/Base/SoulWalletModal';
 import { SubmitButton } from 'components/SubmitButton';
 import { deviceHeight, statusBarHeight } from 'constants/index';
 import useGetAccountAndNetworkScanned from 'hooks/screen/Signing/useGetAccountAndNetworkScanned';
@@ -68,7 +68,7 @@ const ResultDetail = ({ onClose, isVisible }: Props) => {
   }, [isEthereumStructure, type]);
 
   return (
-    <SubWalletModal modalVisible={isVisible}>
+    <SoulWalletModal modalVisible={isVisible}>
       <View style={ContainerStyle}>
         <Text style={TitleTextStyle}>
           {type === 'message' ? i18n.title.authorizeMessage : i18n.title.authorizeTransaction}
@@ -79,7 +79,7 @@ const ResultDetail = ({ onClose, isVisible }: Props) => {
         </ScrollView>
         <SubmitButton title={i18n.common.close} onPress={onClose} style={CloseButtonStyle} />
       </View>
-    </SubWalletModal>
+    </SoulWalletModal>
   );
 };
 

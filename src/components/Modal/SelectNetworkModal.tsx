@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { SubWalletFullSizeModal } from 'components/Modal/Base/SubWalletFullSizeModal';
+import { SoulWalletFullSizeModal } from 'components/Modal/Base/SoulWalletFullSizeModal';
 import i18n from 'utils/i18n/i18n';
 import { Warning } from 'components/Warning';
 import { ListRenderItemInfo } from 'react-native';
@@ -60,7 +60,7 @@ const SelectNetworkModal = ({
   );
 
   return (
-    <SubWalletFullSizeModal modalVisible={modalVisible} onChangeModalVisible={onChangeModalVisible}>
+    <SoulWalletFullSizeModal modalVisible={modalVisible} onChangeModalVisible={onChangeModalVisible}>
       <FlatListScreen
         autoFocus={true}
         items={networkOptions}
@@ -71,7 +71,7 @@ const SelectNetworkModal = ({
         onPressBack={onPressBack}
         renderListEmptyComponent={renderEmptyList ? renderEmptyList : defaultRenderListEmptyComponent}
       />
-    </SubWalletFullSizeModal>
+    </SoulWalletFullSizeModal>
   );
 };
 

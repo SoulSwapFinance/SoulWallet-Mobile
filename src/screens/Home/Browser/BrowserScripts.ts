@@ -104,7 +104,7 @@ export const DAppScript = `(function () {
       'walletConnected',
       JSON.stringify({
         isMetaMask: false,
-        isSubWallet: true,
+        isSoulWallet: true,
       }),
     );
 
@@ -129,13 +129,13 @@ export const DAppScript = `(function () {
       'walletConnected',
       JSON.stringify({
         isMetaMask: false,
-        isSubWallet: true,
+        isSoulWallet: true,
       }),
     );
   } else if (hostName === 'app.beamswap.io') {
     const originSimpleUser = JSON.parse(localStorage.getItem('redux_localstorage_simple_user'));
-    if (originSimpleUser.connector !== 'SUBWALLET') {
-      originSimpleUser.connector = 'SUBWALLET';
+    if (originSimpleUser.connector !== 'SOULWALLET') {
+      originSimpleUser.connector = 'SOULWALLET';
       localStorage.setItem('redux_localstorage_simple_user', JSON.stringify(originSimpleUser));
     }
   }

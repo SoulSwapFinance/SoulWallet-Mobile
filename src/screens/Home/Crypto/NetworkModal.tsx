@@ -1,5 +1,5 @@
 import React from 'react';
-import { SubWalletFullSizeModal } from 'components/Modal/Base/SubWalletFullSizeModal';
+import { SoulWalletFullSizeModal } from 'components/Modal/Base/SoulWalletFullSizeModal';
 import { FlatListScreen } from 'components/FlatListScreen';
 import { FlatListScreenPaddingTop } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
@@ -54,7 +54,7 @@ export const NetworkModal = ({
   };
 
   return (
-    <SubWalletFullSizeModal modalVisible={modalVisible} onChangeModalVisible={onChangeModalVisible}>
+    <SoulWalletFullSizeModal modalVisible={modalVisible} onChangeModalVisible={onChangeModalVisible}>
       <FlatListScreen
         autoFocus={true}
         items={networkOptions}
@@ -65,6 +65,6 @@ export const NetworkModal = ({
         onPressBack={onPressBack}
         renderListEmptyComponent={renderListEmptyComponent}
       />
-    </SubWalletFullSizeModal>
+    </SoulWalletFullSizeModal>
   );
 };

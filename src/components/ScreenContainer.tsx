@@ -23,9 +23,9 @@ function getContainerStyle(backgroundColor: string): StyleProp<any> {
 }
 
 export const GradientBackgroundColorSet: [string, string][] = [
-  ['rgba(33, 33, 33, 0.15)', 'rgba(217, 217, 217, 0)'],
-  ['rgba(234, 76, 76, 0.15)', 'rgba(217, 217, 217, 0)'],
-  ['rgba(0, 75, 255, 0.15)', 'rgba(217, 217, 217, 0)'],
+  ['rgba(33, 33, 33, 0.15)', 'rgba(217, 217, 217, 0)'], // single account
+  ['rgba(33, 33, 33, 0.15)', 'rgba(217, 217, 217, 0)'], // all accounts
+  ['rgba(33, 33, 33, 0.15)', 'rgba(217, 217, 217, 0)'], // token
 ];
 
 export const ScreenContainer = ({

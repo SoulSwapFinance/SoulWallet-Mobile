@@ -1,4 +1,4 @@
-import { SubWalletFullSizeModal } from 'components/Modal/Base/SubWalletFullSizeModal';
+import { SoulWalletFullSizeModal } from 'components/Modal/Base/SoulWalletFullSizeModal';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import React from 'react';
 import { StyleProp, Text, View } from 'react-native';
@@ -92,7 +92,7 @@ export const CrowdloanFilter = ({ modalVisible, onChangeModalVisible, filterOpts
   };
 
   return (
-    <SubWalletFullSizeModal
+    <SoulWalletFullSizeModal
       modalVisible={modalVisible}
       onChangeModalVisible={onChangeModalVisible}
       modalStyle={{ paddingTop: 0 }}>
@@ -131,6 +131,6 @@ export const CrowdloanFilter = ({ modalVisible, onChangeModalVisible, filterOpts
           />
         </View>
       </ContainerWithSubHeader>
-    </SubWalletFullSizeModal>
+    </SoulWalletFullSizeModal>
   );
 };

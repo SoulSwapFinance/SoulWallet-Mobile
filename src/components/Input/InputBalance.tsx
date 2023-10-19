@@ -7,7 +7,7 @@ import BigN from 'bignumber.js';
 import { SiDef } from '@polkadot/util/types';
 import { formatBalance } from '@polkadot/util';
 import { CaretDown } from 'phosphor-react-native';
-import { SubWalletModal } from 'components/Modal/Base/SubWalletModal';
+import { SoulWalletModal } from 'components/Modal/Base/SoulWalletModal';
 import { ModalSelectItem } from 'components/ModalSelectItem';
 import i18n from 'utils/i18n/i18n';
 
@@ -215,12 +215,12 @@ const Component = (props: InputBalanceProps, ref: ForwardedRef<any>) => {
         <CaretDown size={20} weight={'bold'} color={ColorMap.disabled} />
       </TouchableOpacity>
 
-      <SubWalletModal modalVisible={isShowTokenList} onChangeModalVisible={() => setShowTokenList(false)}>
+      <SoulWalletModal modalVisible={isShowTokenList} onChangeModalVisible={() => setShowTokenList(false)}>
         <View style={unitModalContentWrapper}>
           <Text style={unitModalTitle}>{i18n.title.selectUnit}</Text>
           <FlatList style={{ width: '100%', maxHeight: 500 }} data={siOptions} renderItem={renderItem} />
         </View>
-      </SubWalletModal>
+      </SoulWalletModal>
     </View>
   );
 };

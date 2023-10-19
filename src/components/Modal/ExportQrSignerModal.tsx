@@ -1,5 +1,5 @@
 import { AccountInfoField } from 'components/Field/AccountInfo';
-import { SubWalletModal } from 'components/Modal/Base/SubWalletModal';
+import { SoulWalletModal } from 'components/Modal/Base/SoulWalletModal';
 import { SubmitButton } from 'components/SubmitButton';
 import Text from 'components/Text';
 import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
@@ -88,7 +88,7 @@ const ExportQrSignerModal = ({ modalVisible, onHideModal, address, networkKey }:
   // }, [network.genesisHash, network.evmChainId, isEthereum, account?.name, formattedAddress]);
 
   return (
-    <SubWalletModal modalVisible={modalVisible} onChangeModalVisible={onHideModal}>
+    <SoulWalletModal modalVisible={modalVisible} onChangeModalVisible={onHideModal}>
       <View style={WrapperStyle}>
         <Text style={TitleTextStyle}>{i18n.title.exportQrSigner}</Text>
         <Text style={GuideTextStyle}>{i18n.common.useNormalWalletScan}</Text>
@@ -104,7 +104,7 @@ const ExportQrSignerModal = ({ modalVisible, onHideModal, address, networkKey }:
           />
         </View>
       </View>
-    </SubWalletModal>
+    </SoulWalletModal>
   );
 };
 // will delete

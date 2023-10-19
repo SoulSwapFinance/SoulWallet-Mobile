@@ -50,7 +50,7 @@ const getConfirmationPopupWrapperStyle = (isShowSeparator: boolean): StyleProp<a
   };
 };
 
-const subWalletModalSeparator: StyleProp<any> = {
+const soulWalletModalSeparator: StyleProp<any> = {
   width: 70,
   height: 5,
   borderRadius: 100,
@@ -229,7 +229,7 @@ export const Confirmations = () => {
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }}>
       <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end' }}>
         <View style={getConfirmationPopupWrapperStyle(!confirmation || !confirmation.item.isInternal)}>
-          {(!confirmation || !confirmation.item.isInternal) && <View style={subWalletModalSeparator} />}
+          {(!confirmation || !confirmation.item.isInternal) && <View style={soulWalletModalSeparator} />}
           <ConfirmationHeader
             index={index}
             numberOfConfirmations={numberOfConfirmations}

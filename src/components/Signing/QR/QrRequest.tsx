@@ -4,7 +4,7 @@
 import { SignerResult } from '@polkadot/types/types';
 import { hexToU8a, isHex } from '@polkadot/util';
 import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
-import { SubWalletModal } from 'components/Modal/Base/SubWalletModal';
+import { SoulWalletModal } from 'components/Modal/Base/SoulWalletModal';
 import DisplayPayload from 'components/Payload/DisplayPayload';
 import SignatureScanner from 'components/Scanner/SignatureScanner';
 import { SubmitButton } from 'components/SubmitButton';
@@ -201,7 +201,7 @@ const QrRequest = ({
           />
         )}
       </View>
-      <SubWalletModal modalVisible={isVisible}>
+      <SoulWalletModal modalVisible={isVisible}>
         <View style={ContainerStyle}>
           <Text style={TitleTextStyle}>{i18n.title.authorizeTransaction}</Text>
           <Text style={SubTitleTextStyle}>{i18n.common.useHardWalletToScan}</Text>
@@ -233,7 +233,7 @@ const QrRequest = ({
             />
           </View>
         </View>
-      </SubWalletModal>
+      </SoulWalletModal>
       <SignatureScanner visible={isScanning} onSuccess={handlerScanSignature} onHideModal={closeScanner} />
     </>
   );

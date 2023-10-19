@@ -33,14 +33,6 @@ export const GeneralSettings = () => {
   return (
     <SoulScreenContainer navigation={navigation} title={i18n.header.generalSettings} onPressLeftBtn={onGoback}>
       <View style={containerStyle}>
-        {/* <SelectItem
-          icon={Image}
-          backgroundColor={theme['geekblue-6']}
-          label={i18n.settings.walletTheme}
-          onPress={showComingSoon}
-          rightIcon={<Icon phosphorIcon={CaretRight} size={'sm'} />}
-        /> */}
-
         <SelectItem
           icon={GlobeHemisphereWest}
           backgroundColor={theme['green-6']}
