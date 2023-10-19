@@ -143,7 +143,7 @@ const SigningScanPayload = () => {
                       progress={completedFramesCount / totalFrameCount}
                       width={rectDimensions}
                       borderRadius={40}
-                      color={ColorMap.secondary}
+                      color={ColorMap.lightPurple}
                       unfilledColor={ColorMap.light}
                       borderColor={ColorMap.transparent}
                       borderWidth={0}

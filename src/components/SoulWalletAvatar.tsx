@@ -18,7 +18,7 @@ interface AvatarProps extends ViewProps {
 
 const WrapperStyle: StyleProp<any> = {
   borderStyle: 'solid',
-  borderColor: ColorMap.secondary,
+  borderColor: ColorMap.lightPurple,
   borderRadius: 40,
 };
 

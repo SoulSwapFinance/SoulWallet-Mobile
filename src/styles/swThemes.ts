@@ -104,17 +104,17 @@ export default {
   colorInfoText: '#0078d9',
   colorInfoTextActive: '#005ca6',
   colorInfoTextHover: '#2595e6',
-  colorLink: '#6901FD', // purple
+  colorLink: '#6A00FF', // purple
   colorLinkActive: '#0031a6',
   colorLinkHover: '#2565e6',
-  colorPrimary: '#6901FD', // purple
+  colorPrimary: '#6A00FF', // purple
   'colorPrimary-1': '#00061b',
   'colorPrimary-10': '#a0c7fa',
   'colorPrimary-2': '#000f36',
   'colorPrimary-3': '#00174d',
   'colorPrimary-4': '#002273',
   'colorPrimary-5': '#0031a6',
-  'colorPrimary-6': '#6901FD', // purple
+  'colorPrimary-6': '#6A00FF', // purple
   'colorPrimary-7': '#2565e6',
   'colorPrimary-8': '#4e8af2',
   'colorPrimary-9': '#76aaf7',

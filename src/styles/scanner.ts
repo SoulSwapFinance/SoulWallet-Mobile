@@ -115,7 +115,7 @@ const LogoContainerStyle: StyleProp<ViewStyle> = {
   alignItems: 'center',
   borderRadius: 20,
   borderWidth: 2,
-  borderColor: ColorMap.secondary,
+  borderColor: ColorMap.lightPurple,
   marginBottom: 16,
 };
 

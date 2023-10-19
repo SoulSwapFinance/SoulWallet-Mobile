@@ -24,6 +24,7 @@ import { canDerive } from '@subwallet/extension-base/utils';
 import { AccountActionSelectModal, ActionItemType } from 'components/Modal/AccountActionSelectModal';
 import { ModalRef } from 'types/modalRef';
 import useGoHome from 'hooks/screen/useGoHome';
+import { ColorMap } from 'styles/color';
 
 interface Props {
   createAccountRef: React.MutableRefObject<ModalRef | undefined>;
@@ -46,25 +47,25 @@ export const AccountCreationArea = ({
   const importAccountActions = [
     {
       key: 'secretPhrase',
-      backgroundColor: '#51BC5E',
+      backgroundColor: ColorMap.lightPurple,
       icon: Leaf,
       label: i18n.importAccount.importFromSeedPhrase,
     },
     {
       key: 'restoreJson',
-      backgroundColor: '#E68F25',
+      backgroundColor: ColorMap.lightPurple,
       icon: FileJs,
       label: i18n.importAccount.importFromJson,
     },
     {
       key: 'privateKey',
-      backgroundColor: '#4D4D4D',
+      backgroundColor: ColorMap.lightPurple,
       icon: Wallet,
       label: i18n.importAccount.importByMetaMaskPrivateKey,
     },
     {
       key: 'qrCode',
-      backgroundColor: '#2565E6',
+      backgroundColor: ColorMap.lightPurple,
       icon: QrCode,
       label: i18n.importAccount.importByQRCode,
     },
@@ -73,25 +74,25 @@ export const AccountCreationArea = ({
   const attachAccountActions = [
     {
       key: 'ledger',
-      backgroundColor: '#E68F25',
+      backgroundColor: ColorMap.lightPurple,
       icon: Swatches,
       label: i18n.attachAccount.connectALedgerDevice,
     },
     {
       key: 'polkadotVault',
-      backgroundColor: '#E6478E',
+      backgroundColor: ColorMap.lightPurple,
       icon: QrCode,
       label: i18n.attachAccount.connectAPolkadotVaultAcc,
     },
     {
       key: 'keystone',
-      backgroundColor: '#2565E6',
+      backgroundColor: ColorMap.lightPurple,
       icon: DeviceTabletCamera,
       label: i18n.attachAccount.connectAKeystoneDevice,
     },
     {
       key: 'watchOnly',
-      backgroundColor: '#2DA73F',
+      backgroundColor: ColorMap.lightPurple,
       icon: Eye,
       label: i18n.attachAccount.attachAWatchOnlyAccount,
     },

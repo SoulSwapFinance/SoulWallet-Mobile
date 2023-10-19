@@ -33,7 +33,7 @@ function getButtonTextStyle(color: string): StyleProp<any> {
 }
 
 export const Button = (buttonProps: ButtonProps) => {
-  const { title, style, textStyle, color = ColorMap.secondary, icon: Icon } = buttonProps;
+  const { title, style, textStyle, color = ColorMap.lightPurple, icon: Icon } = buttonProps;
 
   return (
     <TouchableOpacity {...buttonProps} style={[style, getButtonWrapperStyle()]}>

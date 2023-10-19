@@ -31,7 +31,7 @@ export const THEME_PRESET: Record<string, SWTheme> = {
     dark: true,
     colors: {
       primary: '#42C59A',
-      secondary: '#6901FD', // purple
+      secondary: '#6A00FF', // purple
       background: '#161616',
       card: 'rgb(18, 18, 18)',
       text: 'rgb(229, 229, 231)',
@@ -55,7 +55,7 @@ export const THEME_PRESET: Record<string, SWTheme> = {
     dark: false,
     colors: {
       primary: '#42C59A',
-      secondary: '#6901FD',
+      secondary: '#6A00FF',
       background: '#FFF',
       card: 'rgb(255, 255, 255)',
       text: 'rgb(28, 28, 30)',

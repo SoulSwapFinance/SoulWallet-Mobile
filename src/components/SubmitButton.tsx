@@ -19,7 +19,7 @@ interface ButtonProps extends TouchableOpacityProps {
   disabledColor?: string;
 }
 
-function getWrapperStyle(backgroundColor: string = ColorMap.secondary, style: StyleProp<any> = {}): StyleProp<any> {
+function getWrapperStyle(backgroundColor: string = ColorMap.lightPurple, style: StyleProp<any> = {}): StyleProp<any> {
   return {
     position: 'relative',
     height: 52,

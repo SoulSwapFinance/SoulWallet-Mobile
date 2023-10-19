@@ -7,7 +7,7 @@ const SignalSplashIcon = React.lazy(() => import('./signal-splash.svg'));
 const CheckBoxFilledIcon = React.lazy(() => import('./checkbox-filled.svg'));
 const NftIcon = React.lazy(() => import('./logo-nft.svg'));
 const Logo = React.lazy(() => import('./logo.svg'));
-const LogoGradient = React.lazy(() => import('./logo.svg'));
+const LogoGradient = React.lazy(() => import('./logo-gradient.svg'));
 const MenuBarLogo = React.lazy(() => import('./menu-bar.svg'));
 const IcHalfSquare = React.lazy(() => import('./ic-half-square.svg'));
 const WalletConnect = React.lazy(() => import('./wallet-connect.svg'));
@@ -31,7 +31,7 @@ export const Images = {
   stackingEmptyList: require('./stacking-empty-list.png'),
   successStatusImg: require('./success-status.png'),
   failStatusImg: require('./fail-status.png'),
-  backgroundImg: require('./soulwallet-background-img.png'),
+  backgroundImg: require('./bg-image.png'),
   historyEmpty: require('./transaction-history-coming-soon.png'),
   squircleBorder: require('./squircleBorder.png'),
   avatarPlaceholder: require('./avatar-placeholder.png'),

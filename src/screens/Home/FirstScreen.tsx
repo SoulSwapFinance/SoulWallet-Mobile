@@ -39,14 +39,15 @@ const logoTextStyle: StyleProp<any> = {
   fontSize: 38,
   lineHeight: 46,
   ...FontSemiBold,
-  color: ColorMap.light,
+  color: ColorMap.lightPurple, // ColorMap.light,
   paddingTop: 9,
 };
 
 const logoSubTextStyle: StyleProp<any> = {
   fontSize: 16,
+  fontStyle: 'italic',
   lineHeight: 24,
-  ...FontMedium,
+  // ...FontMediumItalic,
   // subtitle
   color: 'rgba(255, 255, 255, 0.65)',
   paddingTop: 12,
@@ -58,7 +59,7 @@ const firstScreenNotificationStyle: StyleProp<any> = {
   textAlign: 'center',
   paddingHorizontal: 4,
   paddingTop: 0,
-  backgroundColor: '#100C08',
+  // backgroundColor: '#100C08',
   ...FontMedium,
 };
 
@@ -137,17 +138,17 @@ export const FirstScreen = () => {
               flex: 1,
               justifyContent: 'center',
               marginBottom: 4,
-              paddingTop: 200,
+              paddingTop: 0,
               alignItems: 'center',
             }}>
-            {/* <Suspense>
+            <Suspense>
               <SVGImages.LogoGradient width={66} height={100} />
-            </Suspense> */}
+            </Suspense>
             <Text style={logoTextStyle}>SoulWallet</Text>
             <Text style={logoSubTextStyle}>{i18n.title.slogan}</Text>
           </View>
 
-          <View style={{ width: '100%' }}>
+          <View style={{ width: '100%', marginBottom: 200, }}>
             {actionList.map(item => (
               <AccountActionButton key={item.key} item={item} />
             ))}
