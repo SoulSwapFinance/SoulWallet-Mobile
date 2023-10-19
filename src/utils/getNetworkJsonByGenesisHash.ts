@@ -1,4 +1,4 @@
-import { _ChainInfo } from '@subwallet/chain-list/types';
+import { _ChainInfo } from '@soul-wallet/chain-list/build/types';
 import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
 import {
   _getEvmChainId,

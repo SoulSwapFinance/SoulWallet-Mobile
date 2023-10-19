@@ -1,4 +1,4 @@
-import { _ChainInfo } from '@subwallet/chain-list/types';
+import { _ChainInfo } from '@soul-wallet/chain-list/build/types';
 import { AmountData } from '@subwallet/extension-base/background/KoniTypes';
 import { _getChainNativeTokenSlug } from '@subwallet/extension-base/services/chain-service/utils';
 import { useCallback, useEffect, useMemo, useState } from 'react';

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { _ChainInfo } from '@subwallet/chain-list/types';
+import { _ChainInfo } from '@soul-wallet/chain-list/build/types';
 import { _ChainState } from '@subwallet/extension-base/services/chain-service/types';
 import { ChainStore, ReduxStatus } from 'stores/types';
 

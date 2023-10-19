@@ -6,7 +6,7 @@ import {
   _getSubstrateRelayParent,
 } from '@subwallet/extension-base/services/chain-service/utils';
 
-import { _ChainInfo } from '@subwallet/chain-list/types';
+import { _ChainInfo } from '@soul-wallet/chain-list/build/types';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { BN_ZERO } from 'utils/chainBalances';

@@ -153,7 +153,7 @@ import {
   _ValidateCustomAssetRequest,
   _ValidateCustomAssetResponse,
 } from '@subwallet/extension-base/services/chain-service/types';
-import { _ChainAsset, _ChainInfo } from '@subwallet/chain-list/types';
+import { _ChainAsset, _ChainInfo } from '@soul-wallet/chain-list/build/types';
 import { AuthUrls } from '@subwallet/extension-base/services/request-service/types';
 import { _getKnownHashes } from 'utils/defaultChains';
 

@@ -17,7 +17,7 @@ import {
   UnstakingStatus,
 } from '@subwallet/extension-base/background/KoniTypes';
 import { accountFilterFunc } from 'screens/Transaction/helper/staking';
-import { _ChainInfo } from '@subwallet/chain-list/types';
+import { _ChainInfo } from '@soul-wallet/chain-list/build/types';
 import useGetNominatorInfo from 'hooks/screen/Staking/useGetNominatorInfo';
 import { FreeBalance } from 'screens/Transaction/parts/FreeBalance';
 import MetaInfo from 'components/MetaInfo';
