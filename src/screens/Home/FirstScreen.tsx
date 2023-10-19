@@ -56,8 +56,9 @@ const firstScreenNotificationStyle: StyleProp<any> = {
   ...sharedStyles.smallText,
   color: 'rgba(255, 255, 255, 0.45)',
   textAlign: 'center',
-  paddingHorizontal: 16,
+  paddingHorizontal: 4,
   paddingTop: 0,
+  backgroundColor: '#100C08',
   ...FontMedium,
 };
 
@@ -135,13 +136,13 @@ export const FirstScreen = () => {
             style={{
               flex: 1,
               justifyContent: 'center',
-              marginBottom: 16,
-              paddingTop: 40,
+              marginBottom: 4,
+              paddingTop: 200,
               alignItems: 'center',
             }}>
-            <Suspense>
-              {/* <SVGImages.LogoGradient width={66} height={100} /> */}
-            </Suspense>
+            {/* <Suspense>
+              <SVGImages.LogoGradient width={66} height={100} />
+            </Suspense> */}
             <Text style={logoTextStyle}>SoulWallet</Text>
             <Text style={logoSubTextStyle}>{i18n.title.slogan}</Text>
           </View>
@@ -153,8 +154,10 @@ export const FirstScreen = () => {
           </View>
         </View>
 
-        {/*//TODO: add hyperlink for T&C and Privacy Policy*/}
-        <Text style={firstScreenNotificationStyle}>{i18n.common.firstScreenMessagePart1}</Text>
+        <Text 
+          style={firstScreenNotificationStyle}>
+            {i18n.common.firstScreenMessagePart1}
+        </Text>
         <Text style={firstScreenNotificationStyle}>
           <Text onPress={onPressTermsCondition} style={{ color: theme.colorTextLight1 }}>
             {i18n.common.termAndConditions}
