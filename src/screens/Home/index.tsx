@@ -14,6 +14,7 @@ import useCheckEmptyAccounts from 'hooks/useCheckEmptyAccounts';
 import { FirstScreen } from 'screens/Home/FirstScreen';
 // import { CrowdloansScreen } from 'screens/Home/Crowdloans';
 import { BrowserScreen } from 'screens/Home/Browser';
+import BrowserSoulSwap from 'screens/Home/Browser/BrowserSoulSwap';
 import { HomeStackParamList } from 'routes/home';
 import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
 // import withPageWrapper from 'components/PageWrapper';
@@ -144,14 +145,14 @@ const MainScreen = () => {
           tabBarIcon: stakingTabbarIcon,
         }}
       /> */}
-      {/* <Tab.Screen
+      <Tab.Screen
         name={'SoulSwap'}
-        component={BrowserScreen}
+        component={BrowserSoulSwap}
         options={{
           tabBarLabel: 'SoulSwap',
           tabBarIcon: browserTabbarIcon,
         }}
-      /> */}
+      />
       <Tab.Screen
         name={'Browser'}
         component={BrowserScreen}
