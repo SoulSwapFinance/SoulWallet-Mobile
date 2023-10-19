@@ -29,6 +29,7 @@ export interface ButtonStyles {
   circleShapeRaw: ViewStyle;
   ghostRaw: ViewStyle;
   primaryRaw: ViewStyle;
+  transparentRaw: ViewStyle;
   secondaryRaw: ViewStyle;
   warningRaw: ViewStyle;
   dangerRaw: ViewStyle;
@@ -140,7 +141,7 @@ export default (theme: ThemeTypes) =>
     xlRaw: {
       height: buttonSizeMap.xl,
     },
-    //wrapper style follow shape
+    // wrapper style follow shape
     defaultShapeRaw: {
       borderRadius: theme.borderRadiusLG,
     },
@@ -157,9 +158,12 @@ export default (theme: ThemeTypes) =>
     ghostRaw: {
       backgroundColor: 'transparent',
     },
-    //wrapper style follow type
+    // wrapper style follow type
     primaryRaw: {
       backgroundColor: theme.colorPrimary,
+    },
+    transparentRaw: {
+      backgroundColor: theme.colorTransparent,
     },
     secondaryRaw: {
       backgroundColor: theme['gray-1'],
@@ -170,7 +174,7 @@ export default (theme: ThemeTypes) =>
     dangerRaw: {
       backgroundColor: theme['red-6'],
     },
-    //disabled wrapper style follow type
+    // disabled wrapper style follow type
     primaryDisabledRaw: {
       backgroundColor: theme.colorPrimaryActive,
     },
