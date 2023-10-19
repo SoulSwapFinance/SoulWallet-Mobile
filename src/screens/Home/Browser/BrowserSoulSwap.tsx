@@ -23,7 +23,6 @@ import i18n from 'utils/i18n/i18n';
 import isaac from 'isaac';
 import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight';
 import { ScreenContainer } from 'components/ScreenContainer';
-import BrowserHome from './BrowserHome';
 import BrowserHeader from './Shared/BrowserHeader';
 import BrowserListByCategory from './BrowserListByCategory';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -31,6 +30,7 @@ import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { ThemeTypes } from 'styles/themes';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import SoulSwapListByCategory from './SoulSwapListByCategory';
 interface HeaderProps {
   title: string;
   actionTitle: string;
@@ -110,29 +110,29 @@ const _BrowserSoulSwap = () => {
     navigation.navigate('BrowserTabsManager', { url: item.url, name: item.name });
   };
 
-  const renderRecentItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
-    const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
+  // const renderRecentItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
+  //   const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
 
-    return (
-      <IconItem
-        data={data}
-        url={item.url}
-        onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: data?.name })}
-      />
-    );
-  };
-  const renderBookmarkItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
-    const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
-    return (
-      <IconItem
-        data={data}
-        url={item.url}
-        defaultData={item}
-        onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: item.name })}
-        isWithText
-      />
-    );
-  };
+  //   return (
+  //     <IconItem
+  //       data={data}
+  //       url={item.url}
+  //       onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: data?.name })}
+  //     />
+  //   );
+  // };
+  // const renderBookmarkItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
+  //   const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
+  //   return (
+  //     <IconItem
+  //       data={data}
+  //       url={item.url}
+  //       defaultData={item}
+  //       onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: item.name })}
+  //       isWithText
+  //     />
+  //   );
+  // };
   const renderSectionItem = (item: DAppInfo) => {
     return (
       <BrowserItem
@@ -157,7 +157,7 @@ const _BrowserSoulSwap = () => {
     <View style={stylesheet.container}>
       <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
         <FastImage style={stylesheet.banner} resizeMode="cover" source={Images.browserBanner} />
-        {historyItems && historyItems.length > 0 && (
+        {/* {historyItems && historyItems.length > 0 && (
           <>
             <SectionHeader
               title={i18n.browser.recent}
@@ -176,8 +176,8 @@ const _BrowserSoulSwap = () => {
               horizontal
             />
           </>
-        )}
-        {bookmarkItems && bookmarkItems.length > 0 && (
+        )} */}
+        {/* {bookmarkItems && bookmarkItems.length > 0 && (
           <>
             <SectionHeader
               title={i18n.browser.favorite}
@@ -196,7 +196,7 @@ const _BrowserSoulSwap = () => {
               horizontal
             />
           </>
-        )}
+        )} */}
         <SectionHeader
           title={i18n.browser.recommended}
           actionTitle={i18n.browser.seeAll}
@@ -309,7 +309,7 @@ const BrowserSoulSwap = ({ navigation }: NativeStackScreenProps<{}>) => {
                 <Tab.Screen
                   key={'TabBrowserHome0'}
                   name="TabBrowserHome0"
-                  component={BrowserHome}
+                  component={_BrowserSoulSwap}
                   options={tabScreenOptions(item)}
                 />
               );
@@ -319,7 +319,7 @@ const BrowserSoulSwap = ({ navigation }: NativeStackScreenProps<{}>) => {
                 key={item.key}
                 name={item.key}
                 initialParams={{ searchString }}
-                component={BrowserListByCategory}
+                component={SoulSwapListByCategory}
                 options={tabScreenOptions(item)}
               />
             );
