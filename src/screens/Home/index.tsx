@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { BottomTabBarButtonProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import StakingScreen from './Staking/StakingScreen';
+// import StakingScreen from './Staking/StakingScreen';
 
 import { Linking, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -36,25 +36,42 @@ import { updateIsDeepLinkConnect } from 'stores/base/Settings';
 import queryString from 'querystring';
 import { connectWalletConnect } from 'utils/walletConnect';
 import { useToast } from 'react-native-toast-notifications';
+import SvgLogo from 'assets/svg/Logo';
+import SvgMagicHat from 'assets/svg/MagicHat';
+import SvgMagicBall from 'assets/svg/MagicBall';
+import SvgPhoto from 'assets/svg/Photo';
 
 interface tabbarIconColor {
   color: string;
 }
 const tokenTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <Wallet size={24} color={color} weight={'fill'} />;
+  return <SvgMagicHat width={32} height={32} color={color} />;
 };
 const nftTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <Aperture size={24} color={color} weight={'fill'} />;
+  return <SvgPhoto width={32} height={32} color={color} />;
 };
 // const crowdloanTabbarIcon = ({ color }: tabbarIconColor) => {
 //   return <Rocket size={24} color={color} weight={'fill'} />;
 // };
-const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <Database size={24} color={color} weight={'fill'} />;
-};
+// const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
+//   return <Database size={24} color={color} weight={'fill'} />;
+// };
 const browserTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <Globe size={24} color={color} weight={'fill'} />;
+  return <SvgMagicBall width={32} height={32} color={color} />;
 };
+
+const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
+  return <SvgLogo width={36} height={36} color={color} />
+};
+// const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
+//   return (
+//     <Image 
+//       src={'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/soul.png'}
+//       style={{ width: 28, height: 28 }}
+//       // color={color} weight={'fill'} 
+//     />
+//   );
+// };
 const getSettingsContent = (props: DrawerContentComponentProps) => {
   return <Settings {...props} />;
 };
@@ -114,7 +131,7 @@ const MainScreen = () => {
         name={'Tokens'}
         component={CryptoScreen}
         options={{
-          tabBarLabel: i18n.tabName.tokens,
+          tabBarLabel: 'Accounts', // i18n.tabName.tokens,
           tabBarIcon: tokenTabbarIcon,
         }}
       />
@@ -150,7 +167,7 @@ const MainScreen = () => {
         component={BrowserSoulSwap}
         options={{
           tabBarLabel: 'SoulSwap',
-          tabBarIcon: browserTabbarIcon,
+          tabBarIcon: browserSoulSwapIcon,
         }}
       />
       <Tab.Screen
