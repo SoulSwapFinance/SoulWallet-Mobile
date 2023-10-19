@@ -16,6 +16,7 @@ import { ThemeTypes } from 'styles/themes';
 import { ButtonIcon } from 'screens/Home/Crypto/shared/Button';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
+import { ColorMap } from 'styles/color';
 
 interface Props {
   balanceValue: SwNumberProps['value'];
@@ -72,14 +73,15 @@ export const TokenGroupsDetailUpperBlock = ({
     <View style={_style.containerStyle} pointerEvents="box-none">
       <View style={_style.topArea}>
         <Button
-          type="ghost"
+          type="secondary"
           size="xs"
           icon={<Icon size="md" phosphorIcon={CaretLeft} iconColor={theme.colorTextLight1} />}
           onPress={onClickBack}
         />
         <View style={_style.tokenDisplay}>
           <Typography.Title level={4} style={{ color: theme.colorTextLight1, ...FontSemiBold }}>
-            {`${i18n.title.token}: ${groupSymbol}`}
+            {/* {`${i18n.title.token}: ${groupSymbol}`} */}
+            {groupSymbol}
           </Typography.Title>
         </View>
       </View>
@@ -88,17 +90,23 @@ export const TokenGroupsDetailUpperBlock = ({
 
       <View style={[_style.actionButtonWrapper]} pointerEvents="box-none">
         <ActionButton
-          icon={ButtonIcon.Receive}
-          onPress={onOpenReceive}
-          buttonWrapperStyle={{ paddingHorizontal: theme.paddingSM }}
+          icon={ButtonIcon.SendFund}
+          image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/sent.png'}
+          imageSize={28}
+          onPress={onOpenSendFund}
+          buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
         />
         <ActionButton
-          icon={ButtonIcon.SendFund}
-          onPress={onOpenSendFund}
-          buttonWrapperStyle={{ paddingHorizontal: theme.paddingSM }}
+          image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/received.png'}
+          imageSize={28}
+          icon={ButtonIcon.Receive}
+          onPress={onOpenReceive}
+          buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
         />
-        {isSupportBuyTokens && (
+        {/* {isSupportBuyTokens && ( */}
           <ActionButton
+          image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
+          imageSize={28}
             icon={ButtonIcon.Buy}
             onPress={() =>
               navigation.navigate('Drawer', {
@@ -106,9 +114,9 @@ export const TokenGroupsDetailUpperBlock = ({
                 params: { slug: tokenGroupSlug, symbol: groupSymbol },
               })
             }
-            buttonWrapperStyle={{ paddingHorizontal: theme.paddingSM }}
+            buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
           />
-        )}
+        {/* )} */}
       </View>
     </View>
   );

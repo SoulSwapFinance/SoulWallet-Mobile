@@ -15,6 +15,7 @@ import Squircle from 'components/Design/Squircle';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ButtonStyles from './style';
 import { ActivityIndicator } from 'components/Design';
+import Image from 'components/Design/Image';
 
 export interface ButtonProps extends ButtonPropsType, TouchableHighlightProps {
   onPress?: (event?: GestureResponderEvent) => void;
@@ -42,6 +43,8 @@ const Button: React.FC<ButtonProps> = props => {
     onShowUnderlay,
     onHideUnderlay,
     icon,
+    image,
+    imageSize,
     externalTextStyle,
     contentAlign = 'center',
     ...restProps
@@ -115,6 +118,12 @@ const Button: React.FC<ButtonProps> = props => {
     return icon || null;
   }, [icon, loading, textStyle.color]);
   const buttonNode = (
+    image ? 
+          <Image 
+            src={image} 
+            style={{width: imageSize, height: imageSize}} 
+          />
+    :
     <TouchableHighlight
       accessibilityRole="button"
       accessibilityState={{ disabled: !!disabled }}
@@ -129,7 +138,7 @@ const Button: React.FC<ButtonProps> = props => {
       onShowUnderlay={_onShowUnderlay}
       onHideUnderlay={_onHideUnderlay}>
       <View style={[_style.container, { maxWidth: '100%', paddingHorizontal: theme.padding - 4 }]}>
-        {iconNode}
+        { iconNode }
         {typeof children === 'string' ? (
           <Text numberOfLines={1} style={[textStyle]}>
             {children}

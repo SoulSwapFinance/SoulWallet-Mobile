@@ -15,6 +15,7 @@ import { ButtonIcon } from 'screens/Home/Crypto/shared/Button';
 import { updateToggleBalance } from 'stores/base/Settings';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
+import { ColorMap } from 'styles/color';
 
 interface Props {
   totalValue: SwNumberProps['value'];
@@ -63,17 +64,16 @@ export const TokenGroupsUpperBlock = ({
     <View style={containerStyle} pointerEvents="box-none">
       <TouchableOpacity style={{ alignItems: 'center' }} onPress={_toggleBalances}>
         <BalancesVisibility value={totalValue} startWithSymbol subFloatNumber />
-
         <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 3, height: 40 }}>
-          <View style={{ marginRight: 8 }}>
+          {/* <View style={{ marginRight: 8 }}>
             <Icon
               size="md"
               phosphorIcon={isShowBalance ? Eye : EyeSlash}
               iconColor={theme.colorTextLight3}
               weight={'bold'}
             />
-          </View>
-          {isShowBalance && (
+          </View> */}
+          {/* {isShowBalance && ( */}
             <Number
               size={theme.fontSize}
               textStyle={{
@@ -85,9 +85,9 @@ export const TokenGroupsUpperBlock = ({
               value={totalChangeValue}
               prefix={isPriceDecrease ? '- $' : '+ $'}
             />
-          )}
+          {/* )} */}
 
-          {!isShowBalance && (
+          {/* {!isShowBalance && (
             <Typography.Text
               style={{
                 fontSize: theme.fontSize,
@@ -97,7 +97,7 @@ export const TokenGroupsUpperBlock = ({
               }}>
               {'******'}
             </Typography.Text>
-          )}
+          )} */}
 
           <Tag
             style={{ marginLeft: 8, height: 22 }}
@@ -105,7 +105,7 @@ export const TokenGroupsUpperBlock = ({
             shape={'round'}
             closable={false}>
             <>
-              {isShowBalance && (
+              {/* {isShowBalance && ( */}
                 <Number
                   textStyle={{ ...FontBold, lineHeight: 18 }}
                   size={10}
@@ -114,9 +114,9 @@ export const TokenGroupsUpperBlock = ({
                   prefix={isPriceDecrease ? '- ' : '+ '}
                   suffix={'%'}
                 />
-              )}
+              {/* )} */}
 
-              {!isShowBalance && (
+              {/* {!isShowBalance && (
                 <Typography.Text
                   style={{
                     ...FontMedium,
@@ -126,7 +126,7 @@ export const TokenGroupsUpperBlock = ({
                   }}>
                   {'******'}
                 </Typography.Text>
-              )}
+              )} */}
             </>
           </Tag>
         </View>
@@ -134,23 +134,29 @@ export const TokenGroupsUpperBlock = ({
 
       <View style={[actionButtonWrapper]} pointerEvents="box-none">
         <ActionButton
-          label={i18n.cryptoScreen.receive}
-          icon={ButtonIcon.Receive}
-          onPress={onOpenReceive}
-          buttonWrapperStyle={{ paddingHorizontal: theme.paddingSM }}
-        />
-        <ActionButton
-          label={i18n.cryptoScreen.send}
+          // label={i18n.cryptoScreen.send}
+          image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/sent.png'}
+          imageSize={28}
           icon={ButtonIcon.SendFund}
           onPress={onOpenSendFund}
-          buttonWrapperStyle={{ paddingHorizontal: theme.paddingSM }}
+          buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
+        />
+        <ActionButton
+          // label={i18n.cryptoScreen.receive}
+          image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/received.png'}
+          imageSize={28}
+          // icon={ButtonIcon.Receive}
+          onPress={onOpenReceive}
+          buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
         />
         {/* {Platform.OS !== 'ios' && ( */}
           <ActionButton
-            label={i18n.cryptoScreen.buy}
+            // label={i18n.cryptoScreen.buy}
+            image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
+            imageSize={28}  
             icon={ButtonIcon.Buy}
             onPress={() => navigation.navigate('Drawer', { screen: 'BuyToken', params: {} })}
-            buttonWrapperStyle={{ paddingHorizontal: theme.paddingSM }}
+            buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
           />
         {/* )} */}
       </View>

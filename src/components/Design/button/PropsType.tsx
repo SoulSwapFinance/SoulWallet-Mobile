@@ -8,5 +8,7 @@ export interface ButtonPropsType {
   shape?: 'default' | 'square' | 'round' | 'circle' | 'squircle';
   block?: boolean;
   icon?: React.ReactNode | ((color: string) => React.ReactNode);
+  image?: string;
+  imageSize?: number;
   contentAlign?: 'center' | 'left';
 }

@@ -10,6 +10,7 @@ import { ButtonPropsType } from 'components/Design/Button/PropsType';
 interface Props extends TouchableOpacityProps {
   label?: string;
   image?: string;
+  imageSize?: number;
   icon?: ButtonPropsType['icon'];
   buttonWrapperStyle?: StyleProp<ViewStyle>;
 }
@@ -26,15 +27,16 @@ function getButtonTextStyle(disabled: boolean, theme: ThemeTypes) {
 
 const ActionButton = (actionButtonProps: Props) => {
   const theme = useSoulWalletTheme().swThemes;
-  const { label, image, icon, disabled, onPress, buttonWrapperStyle } = actionButtonProps;
+  const { label, image, imageSize, icon, disabled, onPress, buttonWrapperStyle } = actionButtonProps;
   return (
     <View style={{ alignItems: 'center' }}>
       <View style={buttonWrapperStyle}>
       {image ? 
-        <Image
-          shape={'circle'}
-          src={image}
-          style={{height: 48, width: 48}}
+        <Button
+          // shape={'circle'}
+          image={image}
+          imageSize={imageSize}
+          style={{height: imageSize, width: imageSize}}
           // @ts-ignore
           onPress={() => onPress && onPress()}
         /> :

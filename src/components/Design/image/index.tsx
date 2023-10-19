@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageRequireSource, StyleProp, View, ViewStyle } from 'react-native';
+import { GestureResponderEvent, ImageRequireSource, StyleProp, View, ViewStyle } from 'react-native';
 import FastImage, { FastImageProps, Source } from 'react-native-fast-image';
 import { ActivityIndicator, Squircle } from '..';
 import ImageStyles from './style';
@@ -64,11 +64,14 @@ const Image: React.FC<SWImageProps> = ({
 
   if (shape === 'squircle') {
     return (
-      <View style={[{ position: 'relative' }, customStyle]}>
+      <View 
+        style={[{ position: 'relative' }, customStyle]}
+      >
         <Squircle
           customSize={squircleSize}
           customStyle={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-          backgroundColor={'transparent'}>
+          backgroundColor={'transparent'}
+        >
           {imageNode}
           {isLoading && (
             <View style={_style.loadingImage}>
