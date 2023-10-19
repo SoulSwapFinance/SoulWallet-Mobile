@@ -47,7 +47,7 @@ import ErrorFallback from 'components/Common/ErrorFallbackScreen';
 import ChangeMasterPassword from 'screens/MasterPassword/ChangeMasterPassword';
 import { ImportNetwork } from 'screens/ImportNetwork';
 import History from 'screens/Home/History';
-import withPageWrapper from 'components/pageWrapper';
+import withPageWrapper from 'components/PageWrapper';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { AddProvider } from 'screens/AddProvider';

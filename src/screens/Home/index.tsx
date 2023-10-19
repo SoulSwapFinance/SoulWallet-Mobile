@@ -16,7 +16,7 @@ import { FirstScreen } from 'screens/Home/FirstScreen';
 import { BrowserScreen } from 'screens/Home/Browser';
 import { HomeStackParamList } from 'routes/home';
 import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
-// import withPageWrapper from 'components/pageWrapper';
+// import withPageWrapper from 'components/PageWrapper';
 import RequestCreateMasterPasswordModal from 'screens/MasterPassword/RequestCreateMasterPasswordModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

@@ -3187,7 +3187,7 @@
     "@scure/base" "1.1.1"
     tslib "^2.5.3"
 
-"@polkadot/util@10.4.2", "@polkadot/util@12.3.2", "@polkadot/util@6.11.1", "@polkadot/util@7.9.2", "@polkadot/util@8.7.1", "@polkadot/util@^10.1.13", "@polkadot/util@^10.2.1", "@polkadot/util@^10.4.2", "@polkadot/util@^11.1.1", "@polkadot/util@^12.0.1", "@polkadot/util@^12.2.1", "@polkadot/util@^12.3.1", "@polkadot/util@^12.3.2", "@polkadot/util@^6.11.1", "@polkadot/util@^8.1.2", "@polkadot/util@^8.7.1":
+"@polkadot/util@10.4.2", "@polkadot/util@12.3.2", "@polkadot/util@6.11.1", "@polkadot/util@7.9.2", "@polkadot/util@8.7.1", "@polkadot/util@^10.1.13", "@polkadot/util@^10.2.1", "@polkadot/util@^10.4.2", "@polkadot/util@^11.1.1", "@polkadot/util@^12.0.1", "@polkadot/util@^12.2.1", "@polkadot/util@^12.3.1", "@polkadot/util@^12.3.2", "@polkadot/util@^12.5.1", "@polkadot/util@^6.11.1", "@polkadot/util@^8.1.2", "@polkadot/util@^8.7.1":
   version "12.3.2"
   resolved "https://registry.npmjs.org/@polkadot/util/-/util-12.3.2.tgz"
   integrity sha512-y/JShcGyOamCUiSIg++XZuLHt1ktSKBaSH2K5Nw5NXlgP0+7am+GZzqPB8fQ4qhYLruEOv+YRiz0GC1Zr9S+wg==
@@ -3234,7 +3234,7 @@
     "@polkadot/wasm-util" "7.2.2"
     tslib "^2.6.1"
 
-"@polkadot/wasm-crypto@^7.2.1":
+"@polkadot/wasm-crypto@^7.2.1", "@polkadot/wasm-crypto@^7.2.2":
   version "7.2.2"
   resolved "https://registry.npmjs.org/@polkadot/wasm-crypto/-/wasm-crypto-7.2.2.tgz"
   integrity sha512-1ZY1rxUTawYm0m1zylvBMFovNIHYgG2v/XoASNp/EMG5c8FQIxCbhJRaTBA983GVq4lN/IAKREKEp9ZbLLqssA==
@@ -3958,6 +3958,15 @@
   integrity sha512-U9Y5XZV3q4RQLPVOSakRTssFMatFsv5NLwJKBJhQVwhu1mrsviYPHIdgWfNq52jibxINNEel66xqs9GLyySBbw==
   dependencies:
     "@open-web3/orml-type-definitions" "1.1.4"
+
+"@soul-wallet/chain-list@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@soul-wallet/chain-list/-/chain-list-1.0.0.tgz#d757751436b8067ef3efec1e8d9cc60f73272b62"
+  integrity sha512-MlPA7BjRkkrJpqdrf/Z94AUs5UWs2KxrhYMy+wfDHz7fBXuN6mHkOYI4QX6gWKVC90IyRzW982am4cNTSFlh1A==
+  dependencies:
+    "@polkadot/dev" "0.67.167"
+    "@polkadot/util" "^12.5.1"
+    eventemitter3 "^5.0.1"
 
 "@stablelib/aead@^1.0.1":
   version "1.0.1"

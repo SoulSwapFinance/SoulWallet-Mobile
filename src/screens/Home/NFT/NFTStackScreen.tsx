@@ -6,7 +6,7 @@ import NftDetail from 'screens/Home/NFT/Detail/NftDetail';
 import { RootStackParamList } from 'routes/index';
 import { EmptyList } from 'components/EmptyList';
 import { Image } from 'phosphor-react-native';
-import withPageWrapper from 'components/pageWrapper';
+import withPageWrapper from 'components/PageWrapper';
 import i18n from 'utils/i18n/i18n';
 
 export type NFTStackParamList = {
