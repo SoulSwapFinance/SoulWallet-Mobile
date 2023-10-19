@@ -4,7 +4,7 @@ import { BottomTabBarButtonProps, createBottomTabNavigator } from '@react-naviga
 
 import { Linking, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Aperture, Database, Globe, Rocket, Wallet } from 'phosphor-react-native';
+// import { Aperture, Database, Globe, Rocket, Wallet } from 'phosphor-react-native';
 import { CryptoScreen } from 'screens/Home/Crypto';
 import { FontMedium } from 'styles/sharedStyles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
