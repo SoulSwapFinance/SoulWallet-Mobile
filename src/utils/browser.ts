@@ -1,4 +1,4 @@
-export const deeplinks = ['subwallet://', 'https://mobile.subwallet.app'];
+export const deeplinks = ['soulwallet://', 'https://soulswap.finance'];
 
 export function isValidURL(str: string): boolean {
   const pattern = new RegExp(
