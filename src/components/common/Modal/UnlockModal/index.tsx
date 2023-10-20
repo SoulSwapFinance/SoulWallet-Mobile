@@ -4,7 +4,7 @@ import { DeviceEventEmitter, KeyboardAvoidingView, Platform, TouchableOpacity, V
 import { PasswordField } from 'components/Field/Password';
 import i18n from 'utils/i18n/i18n';
 import { validatePassword } from 'screens/Shared/AccountNamePasswordCreation';
-import useFormControl from 'hooks/screen/useFormControl';
+import useFormControl from 'hooks/screen/hooks/useFormControl';
 import { CheckCircle } from 'phosphor-react-native';
 import { keyringUnlock } from 'messaging/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

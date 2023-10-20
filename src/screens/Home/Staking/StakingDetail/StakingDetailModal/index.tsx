@@ -17,12 +17,12 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
-import useFetchChainInfo from 'hooks/screen/useFetchChainInfo';
+import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
 import {
   _getChainNativeTokenBasicInfo,
   _getChainSubstrateAddressPrefix,
 } from '@subwallet/extension-base/services/chain-service/utils';
-import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { ALL_KEY, deviceHeight, TOAST_DURATION } from 'constants/index';
 import { useNavigation } from '@react-navigation/native';
 import { StakingStatusUi } from 'constants/stakingStatusUi';

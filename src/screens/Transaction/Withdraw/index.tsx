@@ -6,7 +6,7 @@ import { ScrollView, View } from 'react-native';
 import { AccountSelectField } from 'components/Field/AccountSelect';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { isSameAddress } from '@subwallet/extension-base/utils';
 import {

@@ -1,5 +1,5 @@
 import { PasswordField } from 'components/Field/Password';
-import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/useFormControl';
+import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/hooks/useFormControl';
 import React, { useCallback, useContext, useEffect, useRef } from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 import { validatePassword } from 'screens/Shared/AccountNamePasswordCreation';

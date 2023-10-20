@@ -3,7 +3,7 @@ import BigN from 'bignumber.js';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainInfoByChainId from 'hooks/chain/useGetChainInfoByChainId';
-import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { Text } from 'react-native';

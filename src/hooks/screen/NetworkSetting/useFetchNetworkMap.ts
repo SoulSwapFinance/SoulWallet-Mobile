@@ -1,7 +1,7 @@
 // Copyright 2019-2022 @polkadot/extension-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
+import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { useEffect, useState } from 'react';

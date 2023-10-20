@@ -1,5 +1,5 @@
-import { ExtrinsicType, TransactionAdditionalInfo } from '@subwallet/extension-base/background/KoniTypes';
-import { _getChainName } from '@subwallet/extension-base/services/chain-service/utils';
+import { ExtrinsicType, TransactionAdditionalInfo } from '@subwallet/extension-base/background/KoniTypes'
+import { _getChainName } from 'hooks/chain/useGetChainName'
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { TransactionHistoryDisplayItem } from 'types/history';

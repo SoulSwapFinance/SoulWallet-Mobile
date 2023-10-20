@@ -20,7 +20,7 @@ import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
 import { ScrollView, View } from 'react-native';
 import { MinusCircle } from 'phosphor-react-native';
 import { AccountSelectField } from 'components/Field/AccountSelect';
-import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { FreeBalance } from 'screens/Transaction/parts/FreeBalance';
 import { NominationSelector } from 'components/Modal/common/NominationSelector';
 import { InputAmount } from 'components/Input/InputAmount';

@@ -1,5 +1,5 @@
 import { _ChainInfo } from 'constants/ChainInfo/Types';
-import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
+import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
 import {
   _getEvmChainId,
   _getSubstrateGenesisHash,

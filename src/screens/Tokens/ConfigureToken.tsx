@@ -17,7 +17,7 @@ import { CopySimple, Pencil, Sun, Trash } from 'phosphor-react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import i18n from 'utils/i18n/i18n';
 import { useToast } from 'react-native-toast-notifications';
-import useFormControl, { FormState } from 'hooks/screen/useFormControl';
+import useFormControl, { FormState } from 'hooks/screen/hooks/useFormControl';
 import { deleteCustomAssets, upsertCustomToken } from '../../messaging';
 import { Warning } from 'components/Warning';
 import { WebRunnerContext } from 'providers/contexts';

@@ -1,5 +1,5 @@
 import { useIsFocused, useNavigation } from '@react-navigation/native';
-import useIsValidNetwork from 'hooks/screen/useIsValidNetwork';
+import useIsValidNetwork from 'hooks/screen/hooks/useIsValidNetwork';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootNavigationProps } from 'routes/index';

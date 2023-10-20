@@ -3,7 +3,7 @@ import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
 import { TRANSACTION_TITLE_MAP } from 'constants/transaction';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
-import useFormControl, { FormControlConfig, FormControlOption } from 'hooks/screen/useFormControl';
+import useFormControl, { FormControlConfig, FormControlOption } from 'hooks/screen/hooks/useFormControl';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { _getOriginChainOfAsset } from '@subwallet/extension-base/services/chain-service/utils';

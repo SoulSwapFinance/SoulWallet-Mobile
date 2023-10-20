@@ -1,4 +1,4 @@
-import useGetCurrentAccountSignMode from 'hooks/screen/useGetCurrentAccountSignMode';
+import useGetCurrentAccountSignMode from 'hooks/screen/hooks/useGetCurrentAccountSignMode';
 import { accountCanSign } from 'utils/account';
 import { useMemo } from 'react';
 

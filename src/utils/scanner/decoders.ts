@@ -1,7 +1,7 @@
 // Copyright 2019-2022 @polkadot/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
+import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import {
   EthereumParsedData,

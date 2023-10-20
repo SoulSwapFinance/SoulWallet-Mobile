@@ -12,7 +12,7 @@ import { RootState } from 'stores/index';
 import { BN_ZERO } from 'utils/chainBalances';
 import BigN from 'bignumber.js';
 import { useMemo } from 'react';
-import { getBalanceValue, getConvertedBalanceValue } from 'hooks/screen/useAccountBalance';
+import { getBalanceValue, getConvertedBalanceValue } from 'hooks/screen/hooks/useAccountBalance';
 import { CrowdloanItemType, CrowdloanContributeValueType, CrowdloanValueInfo } from 'types/index';
 
 const GroupDisplayNameMap: Record<string, string> = {

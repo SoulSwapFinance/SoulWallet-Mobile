@@ -1,7 +1,7 @@
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Button, Icon } from 'components/Design';
 import { PasswordField } from 'components/Field/Password';
-import useFormControl from 'hooks/screen/useFormControl';
+import useFormControl from 'hooks/screen/hooks/useFormControl';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { CheckCircle } from 'phosphor-react-native';
 import React, { useEffect, useMemo, useState } from 'react';

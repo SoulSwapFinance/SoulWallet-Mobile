@@ -1,15 +1,15 @@
-import { FieldBase, FieldBaseProps } from 'components/Field/Base';
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { StyleProp, View, ViewStyle } from 'react-native';
-import Text from '../../components/Text';
-import { FontMedium, FontSize2 } from 'styles/sharedStyles';
-import { ColorMap } from 'styles/color';
-import { Globe } from 'phosphor-react-native';
-import { Icon } from 'components/Design';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { _getChainName } from 'hooks/chain/useGetChainName';
+import React from 'react'
+import { FieldBase, FieldBaseProps } from 'components/Field/Base'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { StyleProp, View, ViewStyle } from 'react-native'
+import Text from '../../components/Text'
+import { FontMedium, FontSize2 } from 'styles/sharedStyles'
+import { ColorMap } from 'styles/color'
+import { Globe } from 'phosphor-react-native'
+import { Icon } from 'components/Design'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { _getChainName } from 'hooks/chain/useGetChainName'
 
 interface Props extends FieldBaseProps {
   chain: string;

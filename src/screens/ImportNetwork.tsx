@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import useFormControl from 'hooks/screen/useFormControl';
+import useFormControl from 'hooks/screen/hooks/useFormControl';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Keyboard, View } from 'react-native';
 import InputText from 'components/Input/InputText';

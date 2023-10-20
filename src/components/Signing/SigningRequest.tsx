@@ -18,7 +18,7 @@ import { ExternalRequestContext } from 'providers/ExternalRequestContext';
 import { QrContextState, QrSignerContext, QrStep } from 'providers/QrSignerContext';
 import { SigningContext } from 'providers/SigningContext';
 
-import useGetAccountSignModeByAddress from 'hooks/screen/useGetAccountSignModeByAddress';
+import useGetAccountSignModeByAddress from 'hooks/screen/hooks/useGetAccountSignModeByAddress';
 import React, { useCallback, useContext, useEffect } from 'react';
 import { noop } from 'utils/function';
 import i18n from 'utils/i18n/i18n';

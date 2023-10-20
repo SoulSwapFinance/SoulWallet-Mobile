@@ -1,7 +1,7 @@
 // Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { AccountSignMode } from 'types/signer';
 import { getAccountSignMode } from 'utils/account';
 import { useMemo } from 'react';

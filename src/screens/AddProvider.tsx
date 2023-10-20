@@ -2,10 +2,10 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Globe, Info, WifiHigh, WifiSlash } from 'phosphor-react-native';
 import { Keyboard, TouchableWithoutFeedback, View } from 'react-native';
-import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
+import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl';
 import InputText from 'components/Input/InputText';
 import { AddProviderProps, RootNavigationProps } from 'routes/index';
-import useFetchChainInfo from 'hooks/screen/useFetchChainInfo';
+import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
 import {
   _generateCustomProviderKey,
   _isChainEvmCompatible,

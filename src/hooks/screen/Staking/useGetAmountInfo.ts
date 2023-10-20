@@ -1,14 +1,14 @@
 import BigN from 'bignumber.js';
-import useGetNetworkJson from 'hooks/screen/useGetNetworkJson';
+import useGetNetworkJson from 'hooks/screen/hooks/useGetNetworkJson';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getBalanceFormat } from 'screens/Sending/utils';
 import { RootState } from 'stores/index';
 import { BalanceFormatType } from 'types/ui-types';
 import { BN_TEN } from 'utils/chainBalances';
-import useShowedNetworks from 'hooks/screen/useShowedNetworks';
-import useTokenGroup from 'hooks/screen/useTokenGroup';
-import useTokenBalanceKeyPriceMap from 'hooks/screen/useTokenBalanceKeyPriceMap';
+import useShowedNetworks from 'hooks/screen/hooks/useShowedNetworks';
+import useTokenGroup from 'hooks/screen/hooks/useTokenGroup';
+import useTokenBalanceKeyPriceMap from 'hooks/screen/hooks/useTokenBalanceKeyPriceMap';
 
 export interface AmountInfo {
   balanceFormat: BalanceFormatType;

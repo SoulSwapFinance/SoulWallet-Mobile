@@ -13,7 +13,7 @@ import useHandleSubmitTransaction from 'hooks/transaction/useHandleSubmitTransac
 import { submitStakeClaimReward } from 'messaging/index';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
 import { AccountSelectField } from 'components/Field/AccountSelect';
-import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { _ChainInfo } from 'constants/ChainInfo/Types';
 import {

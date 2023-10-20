@@ -26,7 +26,7 @@ import { Warning } from 'components/Warning';
 import { Button } from 'components/Design';
 import reformatAddress from 'utils/index';
 import { isEthereumAddress } from '@polkadot/util-crypto';
-import { FormState } from 'hooks/screen/useFormControl';
+import { FormState } from 'hooks/screen/hooks/useFormControl';
 import { nftParamsHandler } from '../helper';
 import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';
 import { evmNftSubmitTransaction, substrateNftSubmitTransaction } from 'messaging/index';

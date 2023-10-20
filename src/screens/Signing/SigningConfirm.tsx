@@ -4,7 +4,7 @@ import { AddressField } from 'components/Field/Address';
 import { TextField } from 'components/Field/Text';
 import { SCANNER_QR_STEP } from 'constants/qr';
 import useGetAccountAndNetworkScanned from 'hooks/screen/Signing/useGetAccountAndNetworkScanned';
-import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
+import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
 import { ScannerContext } from 'providers/ScannerContext';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ScrollView, StyleProp, Text, TextStyle, View, ViewStyle } from 'react-native';

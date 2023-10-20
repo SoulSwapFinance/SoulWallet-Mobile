@@ -3,7 +3,7 @@ import { _getChainNativeTokenBasicInfo } from '@subwallet/extension-base/service
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import useFetchChainInfo from 'hooks/screen/useFetchChainInfo';
+import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
 
 export type NominationPoolDataType = NominationPoolInfo & {
   symbol: string;

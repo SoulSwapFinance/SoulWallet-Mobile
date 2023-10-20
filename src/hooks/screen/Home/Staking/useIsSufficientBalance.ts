@@ -1,5 +1,5 @@
 import { APIItemState } from '@subwallet/extension-base/background/KoniTypes';
-import useGetNetworkJson from 'hooks/screen/useGetNetworkJson';
+import useGetNetworkJson from 'hooks/screen/hooks/useGetNetworkJson';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

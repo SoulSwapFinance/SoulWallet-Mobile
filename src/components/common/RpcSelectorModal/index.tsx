@@ -7,7 +7,7 @@ import { PlusCircle, ShareNetwork } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
-import useFetchChainInfo from 'hooks/screen/useFetchChainInfo';
+import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
 import { FullSizeSelectModal } from 'components/Common/SelectModal';
 import { ModalRef } from 'types/modalRef';
 

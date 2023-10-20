@@ -1,4 +1,4 @@
-import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
+import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
 import { useMemo } from 'react';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';

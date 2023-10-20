@@ -5,7 +5,7 @@ import { Number, Typography } from 'components/Design';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { _getAssetDecimals, _getAssetPriceId } from '@subwallet/extension-base/services/chain-service/utils';
-import { getBalanceValue, getConvertedBalanceValue } from 'hooks/screen/useAccountBalance';
+import { getBalanceValue, getConvertedBalanceValue } from 'hooks/screen/hooks/useAccountBalance';
 import { BN_ZERO } from 'utils/chainBalances';
 
 interface Props {

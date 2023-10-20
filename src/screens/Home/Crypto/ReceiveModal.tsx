@@ -13,7 +13,7 @@ import {
   _getBlockExplorerFromChain,
   _getChainSubstrateAddressPrefix,
 } from '@subwallet/extension-base/services/chain-service/utils';
-import useFetchChainInfo from 'hooks/screen/useFetchChainInfo';
+import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
 import { Button, Icon, QRCode, SwModal, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';

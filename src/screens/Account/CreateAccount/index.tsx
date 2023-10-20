@@ -7,8 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 import { CreateAccountProps, RootNavigationProps } from 'routes/index';
 import i18n from 'utils/i18n/i18n';
 import { backToHome } from 'utils/navigation';
-import useGoHome from 'hooks/screen/useGoHome';
-import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
+import useGoHome from 'hooks/screen/hooks/useGoHome';
+import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
 import { EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
 

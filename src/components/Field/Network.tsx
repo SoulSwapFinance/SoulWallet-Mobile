@@ -1,15 +1,15 @@
-import { FieldBase, FieldBaseProps } from 'components/Field/Base';
-import React, { useMemo } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { getNetworkLogo } from 'utils/index';
-import { StyleSheet, View } from 'react-native';
-import { FontMedium } from 'styles/sharedStyles';
-import { CaretDown } from 'phosphor-react-native';
-import { _getChainName } from '@subwallet/extension-base/services/chain-service/utils';
-import { ThemeTypes } from 'styles/themes';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Typography } from 'components/Design';
+import { FieldBase, FieldBaseProps } from 'components/Field/Base'
+import React, { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { getNetworkLogo } from 'utils/index'
+import { StyleSheet, View } from 'react-native'
+import { FontMedium } from 'styles/sharedStyles'
+import { CaretDown } from 'phosphor-react-native'
+import { _getChainName } from 'hooks/chain/useGetChainName'
+import { ThemeTypes } from 'styles/themes'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { Typography } from 'components/Design'
 
 interface Props extends FieldBaseProps {
   networkKey: string;

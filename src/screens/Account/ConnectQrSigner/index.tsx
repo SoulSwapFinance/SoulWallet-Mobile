@@ -12,7 +12,7 @@ import QrAddressScanner from 'components/Scanner/QrAddressScanner';
 import { SCAN_TYPE } from 'constants/qr';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import useModalScanner from 'hooks/qr/useModalScanner';
-import useGoHome from 'hooks/screen/useGoHome';
+import useGoHome from 'hooks/screen/hooks/useGoHome';
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { createAccountExternalV2 } from 'messaging/index';

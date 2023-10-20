@@ -23,7 +23,7 @@ import { KeypairType } from '@polkadot/util-crypto/types';
 import { canDerive } from '@subwallet/extension-base/utils';
 import { AccountActionSelectModal, ActionItemType } from 'components/Modal/AccountActionSelectModal';
 import { ModalRef } from 'types/modalRef';
-import useGoHome from 'hooks/screen/useGoHome';
+import useGoHome from 'hooks/screen/hooks/useGoHome';
 import { ColorMap } from 'styles/color';
 
 interface Props {

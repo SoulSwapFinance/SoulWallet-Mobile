@@ -1,11 +1,10 @@
-import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
-
-import { isEthereumAddress } from '@polkadot/util-crypto';
-import { isAccountAll } from '@subwallet/extension-base/utils';
-import useGetActiveNetwork from 'hooks/screen/useGetActiveChains';
-import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
+import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains'
+import { isEthereumAddress } from '@polkadot/util-crypto'
+import { isAccountAll } from '@subwallet/extension-base/utils'
+import useGetActiveNetwork from 'hooks/screen/hooks/useGetActiveChains'
+import { RootState } from 'stores/index'
 
 const filterAllAccount = (network: NetworkJson): boolean => {
   return !!network.supportBonding;

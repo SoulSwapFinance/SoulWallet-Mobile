@@ -9,7 +9,7 @@ import useBuyToken from 'hooks/screen/Home/Crypto/useBuyToken';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { AccountSelectField } from 'components/Field/AccountSelect';
-import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import i18n from 'utils/i18n/i18n';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';

@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { SubmitButton } from 'components/SubmitButton';
-import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
+import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
 import { CaretRight } from 'phosphor-react-native';
 import { ScannerContext } from 'providers/ScannerContext';
 import React, { useCallback, useContext, useState } from 'react';

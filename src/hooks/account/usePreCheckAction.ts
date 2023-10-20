@@ -7,7 +7,7 @@ import { useCallback } from 'react';
 
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { VoidFunction } from 'types/index';
-import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { getSignMode } from 'utils/account';
 import { AccountSignMode } from 'types/signer';
 import { ALL_STAKING_ACTIONS } from 'constants/transaction';

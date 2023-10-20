@@ -1,7 +1,7 @@
 import { NftItem as _NftItem } from '@subwallet/extension-base/background/KoniTypes';
 import { FlatListScreen } from 'components/FlatListScreen';
-import useGoHome from 'hooks/screen/useGoHome';
-import useHandleGoHome from 'hooks/screen/useHandleGoHome';
+import useGoHome from 'hooks/screen/hooks/useGoHome';
+import useHandleGoHome from 'hooks/screen/hooks/useHandleGoHome';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { ListRenderItemInfo, RefreshControl, StyleProp, Text, View } from 'react-native';
 import { RootNavigationProps } from 'routes/index';

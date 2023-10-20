@@ -4,7 +4,7 @@ import { ScrollView, View } from 'react-native';
 import { CheckCircle, Info } from 'phosphor-react-native';
 import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
+import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl';
 import { PasswordField } from 'components/Field/Password';
 import { validatePassword, validatePasswordMatched } from 'screens/Shared/AccountNamePasswordCreation';
 import { keyringChangeMasterPassword } from 'messaging/index';
@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import { CreatePasswordProps, RootNavigationProps } from 'routes/index';
 import CreateMasterPasswordStyle from './style';
 import { KeypairType } from '@polkadot/util-crypto/types';
-import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
+import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
 import AlertBox from 'components/Design/AlertBox';
 import i18n from 'utils/i18n/i18n';
 

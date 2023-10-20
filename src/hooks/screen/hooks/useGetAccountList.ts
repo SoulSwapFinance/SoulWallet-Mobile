@@ -13,6 +13,7 @@ export default function useGetAccountList(networkKey?: string) {
     if (!networkKey) {
       return accountListWithoutAll;
     } else {
+      // @ts-ignore
       if (networkMap[networkKey].isEthereum) {
         return accountListWithoutAll.filter(acc => isEthereumAddress(acc.address));
       } else {

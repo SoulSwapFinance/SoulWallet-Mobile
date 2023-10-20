@@ -18,8 +18,10 @@ export default function useFreeBalance(
 
     if (address && networkKey) {
       (async () => {
+        // @ts-ignore
         id = await subscribeFreeBalance({ networkKey, address, token: token || undefined }, free => {
           if (isSync) {
+            // @ts-ignore
             setBalance(free);
           }
         });

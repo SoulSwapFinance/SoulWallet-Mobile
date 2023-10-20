@@ -3,14 +3,13 @@
 
 import { SignerResult } from '@polkadot/types/types';
 import { hexToU8a, isHex } from '@polkadot/util';
-import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
 import { SoulWalletModal } from 'components/Modal/Base/SoulWalletModal';
 import DisplayPayload from 'components/Payload/DisplayPayload';
 import SignatureScanner from 'components/Scanner/SignatureScanner';
 import { SubmitButton } from 'components/SubmitButton';
 import { Warning } from 'components/Warning';
 import { HIDE_MODAL_DURATION } from 'constants/index';
-import { useRejectExternalRequest } from 'hooks/screen/useRejectExternalRequest';
+import { useRejectExternalRequest } from 'hooks/screen/hooks/useRejectExternalRequest';
 import { WebRunnerContext } from 'providers/contexts';
 import { ExternalRequestContext } from 'providers/ExternalRequestContext';
 import { QrSignerContext } from 'providers/QrSignerContext';
@@ -25,6 +24,7 @@ import i18n from 'utils/i18n/i18n';
 import { requestCameraPermission } from 'utils/permission/camera';
 import { resolveExternalRequest } from 'messaging/index';
 import { IGNORE_QR_SIGNER } from '@subwallet/extension-base/constants';
+import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
 
 interface Props extends BaseSignProps {
   network: NetworkJson;

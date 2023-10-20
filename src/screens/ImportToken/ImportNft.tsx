@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import InputText from 'components/Input/InputText';
 import useGetContractSupportedChains from 'hooks/screen/ImportNft/useGetContractSupportedChains';
-import { FormState } from 'hooks/screen/useFormControl';
+import { FormState } from 'hooks/screen/hooks/useFormControl';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { Keyboard, ScrollView, StyleProp, View, ViewStyle } from 'react-native';
 import { upsertCustomToken, validateCustomToken } from 'messaging/index';
@@ -15,7 +15,7 @@ import { Warning } from 'components/Warning';
 import { NetworkField } from 'components/Field/Network';
 import { requestCameraPermission } from 'utils/permission/camera';
 import { RESULTS } from 'react-native-permissions';
-import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
+import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
 import { isValidSubstrateAddress } from '@subwallet/extension-base/utils';
 import { WebRunnerContext } from 'providers/contexts';
 import {

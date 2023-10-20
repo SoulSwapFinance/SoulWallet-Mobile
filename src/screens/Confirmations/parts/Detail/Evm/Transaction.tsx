@@ -7,7 +7,7 @@ import BigN from 'bignumber.js';
 import { Icon, Typography } from 'components/Design';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainInfoByChainId from 'hooks/chain/useGetChainInfoByChainId';
-import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import React, { useCallback, useMemo, useState } from 'react';
 import { TouchableWithoutFeedback, View } from 'react-native';
 import i18n from 'utils/i18n/i18n';

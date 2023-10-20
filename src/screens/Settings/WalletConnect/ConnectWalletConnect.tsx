@@ -8,7 +8,7 @@ import { FontMedium } from 'styles/sharedStyles';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { SVGImages } from 'assets/index';
 import { Keyboard, View } from 'react-native';
-import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
+import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl';
 import { InputConnectUrl } from 'components/Input/InputConnectUrl';
 import { validWalletConnectUri } from 'utils/scanner/walletConnect';
 import { Warning } from 'components/Warning';

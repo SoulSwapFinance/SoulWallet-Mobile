@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Keyboard, StyleProp, Text, View } from 'react-native';
 import InputText from 'components/Input/InputText';
-import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/useFormControl';
+import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/hooks/useFormControl';
 import { ColorMap } from 'styles/color';
 import { FontSemiBold, sharedStyles, STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
 import ToastContainer from 'react-native-toast-notifications';

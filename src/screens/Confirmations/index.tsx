@@ -8,7 +8,7 @@ import {
 } from '@subwallet/extension-base/background/types';
 import { ConfirmationHeader } from 'components/Common/ConfirmationHeader';
 import { NEED_SIGN_CONFIRMATION } from 'constants/transaction';
-import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
+import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { RootStackParamList } from 'routes/index';
 import { ConfirmationType } from 'stores/base/RequestState';
