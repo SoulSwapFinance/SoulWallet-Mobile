@@ -43,7 +43,6 @@ export const TokenBalanceItem = ({
 
         <View style={_style.chainBalancePart2Wrapper}>
           <View style={_style.chainBalancePart2}>
-            {isShowBalance && (
               <>
                 <Number
                   style={{ paddingBottom: 4 }}
@@ -64,30 +63,6 @@ export const TokenBalanceItem = ({
                   textStyle={{ ...FontMedium, lineHeight: theme.lineHeightSM * theme.fontSizeSM }}
                 />
               </>
-            )}
-
-            {!isShowBalance && (
-              <>
-                <Typography.Text
-                  style={{
-                    fontSize: theme.fontSizeLG,
-                    ...FontSemiBold,
-                    lineHeight: theme.lineHeightLG * theme.fontSizeLG,
-                    color: theme.colorTextLight1,
-                  }}>
-                  ******
-                </Typography.Text>
-                <Typography.Text
-                  style={{
-                    ...FontMedium,
-                    fontSize: theme.fontSizeSM,
-                    color: theme.colorTextLight4,
-                    lineHeight: theme.lineHeightSM * theme.fontSizeSM,
-                  }}>
-                  ******
-                </Typography.Text>
-              </>
-            )}
           </View>
           <View style={_style.iconWrapper}>
             <Icon

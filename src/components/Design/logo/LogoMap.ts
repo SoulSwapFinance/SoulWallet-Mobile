@@ -480,7 +480,7 @@ export const ProjectLogos: Record<string, string> = {
   subspace: require('./images/projects/subspace.png'),
   subsquare: require('./images/projects/subsquare.png'),
   subsquid: require('./images/projects/subsquid.png'),
-  soulwallet: require('./images/projects/soulwallet.png'),
+  soulwallet: require('./images/projects/soulswap.png'),
   supercolony: require('./images/projects/supercolony.png'),
   sushi: require('./images/projects/sushi.png'),
   'sushi-top-marketing': require('./images/projects/sushi-top-marketing.png'),

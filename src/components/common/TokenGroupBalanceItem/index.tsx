@@ -11,6 +11,7 @@ interface Props extends TokenBalanceItemType, TouchableOpacityProps {
   isShowBalance?: boolean;
 }
 
+// UI NOTE: Shows account balance.
 export const TokenGroupBalanceItem = ({
   symbol,
   isTestnet,
@@ -48,16 +49,17 @@ export const TokenGroupBalanceItem = ({
           />
         </View>
 
+      {/* UI-NOTE: Shows balances (top: currency, bottom: usd) */}
         <View style={_style.chainBalancePart2Wrapper}>
           <View style={_style.chainBalancePart2}>
-            {isShowBalance && (
               <>
                 <Number
                   value={total.value}
                   decimal={0}
-                  decimalOpacity={0.45}
+                  decimalOpacity={0.666}
                   size={theme.fontSizeLG}
                   textStyle={{ ...FontSemiBold, lineHeight: theme.lineHeightLG * theme.fontSizeLG }}
+                  suffix={symbol}
                 />
                 <Number
                   value={total.convertedValue}
@@ -70,30 +72,6 @@ export const TokenGroupBalanceItem = ({
                   textStyle={{ ...FontMedium, lineHeight: theme.lineHeightSM * theme.fontSizeSM }}
                 />
               </>
-            )}
-
-            {!isShowBalance && (
-              <>
-                <Typography.Text
-                  style={{
-                    fontSize: theme.fontSizeLG,
-                    ...FontSemiBold,
-                    lineHeight: theme.lineHeightLG * theme.fontSizeLG,
-                    color: theme.colorTextLight1,
-                  }}>
-                  ******
-                </Typography.Text>
-                <Typography.Text
-                  style={{
-                    ...FontMedium,
-                    fontSize: theme.fontSizeSM,
-                    lineHeight: theme.lineHeightSM * theme.fontSizeSM,
-                    color: theme.colorTextLight4,
-                  }}>
-                  ******
-                </Typography.Text>
-              </>
-            )}
           </View>
           <View style={_style.iconWrapper}>
             <Icon type="phosphor" phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />
