@@ -120,7 +120,7 @@ export const TokenGroupsUpperBlock = ({
             // imageSize={30}  
             icon={ButtonIcon.Swap}
             // UI NOTE: OPEN URL IN BROWSER
-            onPress={() => navigation.navigate('BrowserTabsManager', { url: 'https://meta.soulswap.finance', name: 'SoulSwap' })}
+            onPress={() => navigation.navigate('BrowserTabsManager', { url: 'https://exchange.soulswap.finance', name: 'SoulSwap' })}
             buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
           />
       </View>
