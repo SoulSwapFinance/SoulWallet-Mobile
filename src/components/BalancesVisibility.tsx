@@ -20,7 +20,7 @@ const wrapperStyle: StyleProp<any> = {
 };
 
 export const BalancesVisibility = ({ value, symbol, startWithSymbol = true, subFloatNumber = false }: Props) => {
-  const isShowBalance = useSelector((state: RootState) => state.settings.isShowBalance);
+  const isShowBalance = true // useSelector((state: RootState) => state.settings.isShowBalance);
   const theme = useSoulWalletTheme().swThemes;
 
   return (

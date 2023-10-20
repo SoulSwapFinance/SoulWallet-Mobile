@@ -11,8 +11,6 @@ import { ButtonIcon } from 'screens/Home/Crypto/shared/Button'
 import { useNavigation } from '@react-navigation/native'
 import { RootNavigationProps } from 'routes/index'
 import { ColorMap } from 'styles/color'
-import useGoHome from 'hooks/screen/hooks/useGoHome';
-
 // import { toggleBalancesVisibility } from 'messaging/index'
 // import { updateToggleBalance } from 'stores/base/Settings'
 
