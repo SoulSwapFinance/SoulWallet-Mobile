@@ -89,34 +89,31 @@ export const TokenGroupsDetailUpperBlock = ({
       <BalancesVisibility value={balanceValue} startWithSymbol subFloatNumber />
 
       <View style={[_style.actionButtonWrapper]} pointerEvents="box-none">
-        <ActionButton
+      <ActionButton
+          // label={i18n.cryptoScreen.send}
+          // image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/sent.png'}
+          // imageSize={30}
           icon={ButtonIcon.SendFund}
-          image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/sent.png'}
-          imageSize={30}
           onPress={onOpenSendFund}
-          buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
+          buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
         />
         <ActionButton
-          image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/received.png'}
-          imageSize={30}
+          // label={i18n.cryptoScreen.receive}
+          // image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/received.png'}
+          // imageSize={30}
           icon={ButtonIcon.Receive}
           onPress={onOpenReceive}
-          buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
+          buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
         />
-        {/* {isSupportBuyTokens && ( */}
+        {/* {Platform.OS !== 'ios' && ( */}
           <ActionButton
-          image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
-          imageSize={30}
+            // label={i18n.cryptoScreen.buy}
+            // image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
+            // imageSize={30}  
             icon={ButtonIcon.Buy}
-            onPress={() =>
-              navigation.navigate('Drawer', {
-                screen: 'BuyToken',
-                params: { slug: tokenGroupSlug, symbol: groupSymbol },
-              })
-            }
-            buttonWrapperStyle={{ borderWidth: 3, borderRadius: 32, paddingHorizontal: 8, paddingVertical: 8, borderColor: ColorMap.darkPurple, marginLeft: 12, marginRight: 12 }}
+            onPress={() => navigation.navigate('Drawer', { screen: 'BuyToken', params: {} })}
+            buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
           />
-        {/* )} */}
       </View>
     </View>
   );
