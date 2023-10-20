@@ -1,29 +1,29 @@
-import React from 'react';
-import { StyleProp, View, TouchableOpacity, Platform } from 'react-native';
-import ActionButton from 'components/ActionButton';
-import i18n from 'utils/i18n/i18n';
-import { Eye, EyeSlash } from 'phosphor-react-native';
-import { SwNumberProps } from 'components/Design/Number';
-import { BalancesVisibility } from 'components/BalancesVisibility';
-import { Icon, Number, Tag, Typography } from 'components/Design';
-import { FontBold, FontMedium } from 'styles/sharedStyles';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { toggleBalancesVisibility } from 'messaging/index';
-import { ButtonIcon } from 'screens/Home/Crypto/shared/Button';
-import { updateToggleBalance } from 'stores/base/Settings';
-import { useNavigation } from '@react-navigation/native';
-import { RootNavigationProps } from 'routes/index';
-import { ColorMap } from 'styles/color';
+import React from 'react'
+import { StyleProp, View } from 'react-native'
+import ActionButton from 'components/ActionButton'
+import i18n from 'utils/i18n/i18n'
+import { SwNumberProps } from 'components/Design/Number'
+import { BalancesVisibility } from 'components/BalancesVisibility'
+import { Number, Typography } from 'components/Design'
+import { FontMedium } from 'styles/sharedStyles'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { ButtonIcon } from 'screens/Home/Crypto/shared/Button'
+import { useNavigation } from '@react-navigation/native'
+import { RootNavigationProps } from 'routes/index'
+import { ColorMap } from 'styles/color'
+import useGoHome from 'hooks/screen/hooks/useGoHome';
+
+// import { toggleBalancesVisibility } from 'messaging/index'
+// import { updateToggleBalance } from 'stores/base/Settings'
 
 interface Props {
-  totalValue: SwNumberProps['value'];
-  totalChangeValue: SwNumberProps['value'];
-  totalChangePercent: SwNumberProps['value'];
-  isPriceDecrease: boolean;
-  onOpenSendFund?: () => void;
-  onOpenReceive?: () => void;
+  totalValue: SwNumberProps['value']
+  totalChangeValue: SwNumberProps['value']
+  totalChangePercent: SwNumberProps['value']
+  isPriceDecrease: boolean
+  onOpenSendFund?: () => void
+  onOpenReceive?: () => void
+  openSelectAccount?: () => void
 }
 
 const actionButtonWrapper: StyleProp<any> = {
@@ -39,41 +39,30 @@ const containerStyle: StyleProp<any> = {
   paddingHorizontal: 16,
   paddingTop: 32,
   alignItems: 'center',
-  marginTop: -2,
+  marginTop: 12,
   paddingBottom: 2,
-  marginBottom: -2,
+  marginBottom: 4,
+  borderLeftWidth: 8,
+  borderRightWidth: 8,
+  borderRadius: 12,
+  borderColor: '#9854FF',
 };
 
 export const TokenGroupsUpperBlock = ({
   isPriceDecrease,
   onOpenReceive,
   onOpenSendFund,
-  totalChangePercent,
+  openSelectAccount,
   totalChangeValue,
   totalValue,
 }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
   const navigation = useNavigation<RootNavigationProps>();
-  const isShowBalance = useSelector((state: RootState) => state.settings.isShowBalance);
-  const _toggleBalances = () => {
-    updateToggleBalance();
-    toggleBalancesVisibility().catch(console.log);
-  };
 
   return (
     <View style={containerStyle} pointerEvents="box-none">
-      <TouchableOpacity style={{ alignItems: 'center' }} onPress={_toggleBalances}>
         <BalancesVisibility value={totalValue} startWithSymbol subFloatNumber />
         <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 3, height: 40 }}>
-          {/* <View style={{ marginRight: 8 }}>
-            <Icon
-              size="md"
-              phosphorIcon={isShowBalance ? Eye : EyeSlash}
-              iconColor={theme.colorTextLight3}
-              weight={'bold'}
-            />
-          </View> */}
-          {/* {isShowBalance && ( */}
             <Number
               size={theme.fontSize}
               textStyle={{
@@ -86,8 +75,6 @@ export const TokenGroupsUpperBlock = ({
               value={totalChangeValue}
               prefix={isPriceDecrease ? '- $' : '+ $'}
             />
-          {/* )} */}
-
               <Typography.Text
                 style={{
                   ...FontMedium,
@@ -100,25 +87,7 @@ export const TokenGroupsUpperBlock = ({
                 >
                 {'Today'}
               </Typography.Text>
-
-          {/* <Tag
-            style={{ marginLeft: 8, height: 22 }}
-            color={isPriceDecrease ? 'error' : 'success'}
-            shape={'round'}
-            closable={false}>
-            <>
-                <Number
-                  textStyle={{ ...FontBold, lineHeight: 18 }}
-                  size={10}
-                  value={totalChangePercent}
-                  decimal={0}
-                  prefix={isPriceDecrease ? '- ' : '+ '}
-                  suffix={'%'}
-                />
-            </>
-          </Tag> */}
         </View>
-      </TouchableOpacity>
 
       <View style={[actionButtonWrapper]} pointerEvents="box-none">
         <ActionButton
@@ -147,6 +116,15 @@ export const TokenGroupsUpperBlock = ({
             buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
           />
         {/* )} */}
+          <ActionButton
+            label={'Swap'}
+            // image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
+            // imageSize={30}  
+            icon={ButtonIcon.Swap}
+            // UI NOTE: OPEN URL IN BROWSER
+            onPress={() => navigation.navigate('BrowserTabsManager', { url: 'https://meta.soulswap.finance', name: 'SoulSwap' })}
+            buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
+          />
       </View>
     </View>
   );
