@@ -54,6 +54,7 @@ const logoWrapperStyle: StyleProp<any> = {
   borderRadius: 28,
 };
 
+// DATA NOTE: GETS NETWORKS
 export const NetworkSelectItemContent = ({
   itemKey,
   itemName,

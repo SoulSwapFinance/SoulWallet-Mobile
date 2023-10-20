@@ -23,6 +23,7 @@ module.exports = {
           styles: './src/styles',
           types: './src/types',
           utils: './src/utils',
+          sdk: './src/sdk',
           services: './src/services',
           reducers: './src/reducers',
           routes: './src/routes',

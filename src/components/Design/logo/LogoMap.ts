@@ -1,6 +1,4 @@
-// Copyright 2019-2022 @subwallet/extension-base authors & contributors
-// SPDX-License-Identifier: Apache-2.0
-
+// UI NOTE: LOGOS
 export const ProjectLogos: Record<string, string> = {
   '1beam': require('./images/projects/1beam.png'),
   '2fa-guru': require('./images/projects/2fa-guru.png'),
@@ -44,6 +42,8 @@ export const ProjectLogos: Record<string, string> = {
   'autofarm-network': require('./images/projects/autofarm-network.png'),
   'automata-network': require('./images/projects/automata-network.png'),
   avault: require('./images/projects/avault.png'),
+  avax: require('./images/projects/avalanche.png'),
+  avalanche: require('./images/projects/avalanche.png'),
   avem: require('./images/projects/avem.png'),
   'aventus-network': require('./images/projects/aventus-network.png'),
   'axelar-network': require('./images/projects/axelar-network.png'),
@@ -654,6 +654,7 @@ export const ProjectLogos: Record<string, string> = {
 export const ChainLogoMap: Record<string, string> = {
   polkadot: ProjectLogos.polkadot,
   kusama: ProjectLogos.kusama,
+  avalanche: ProjectLogos.avalanche,
   westend: ProjectLogos.westend,
   rococo: ProjectLogos.rococo,
   statemint: ProjectLogos.statemine,
@@ -918,6 +919,7 @@ export const TokenLogoMap: Record<string, string> = {
   enj: ProjectLogos.enjin,
   ens: ProjectLogos.ens,
   ftm: ProjectLogos.ftm,
+  avax: ProjectLogos.avax,
   gala: ProjectLogos.gala,
   knc: ProjectLogos.kyber,
   mkr: ProjectLogos.mkr,

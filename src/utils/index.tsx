@@ -189,6 +189,8 @@ const evmBlockExplorer: Record<string, string> = {
   moonriver: 'https://moonriver.moonscan.io',
   moonbase: 'https://moonbase.moonscan.io',
   ethereum: 'https://etherscan.io',
+  avalanche: 'https://snowtrace.io',
+  fantom: 'https://ftmscan.com',
   ethereum_goerli: 'https://goerli.etherscan.io',
   binance: 'https://bscscan.com',
   binance_test: 'https://testnet.bscscan.com',

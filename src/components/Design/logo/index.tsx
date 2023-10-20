@@ -6,7 +6,7 @@ import Image from '../Image';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';
-import { ImageLogosMap } from 'assets/logo';
+// import { ImageLogosMap } from 'assets/logo';
 
 type IconShapeType = 'default' | 'circle' | 'squircle';
 
@@ -42,8 +42,10 @@ const Logo: React.FC<SWLogoProps> = ({
   const _style = LogoStyles(theme);
   const subLogoSize = size / 2.5;
   let srcLogo;
+  // UI NOTE: GETS TOKEN LOGO
   if (token) {
     srcLogo = assetLogoMap[token] || assetLogoMap[defaultLogoKey];
+    // UI NOTE: GETS NETWORK LOGO
   } else if (network) {
     srcLogo = chainLogoMap[network] || chainLogoMap[defaultLogoKey];
   }

@@ -138,8 +138,7 @@ import {
   ValidatorInfo,
 } from '@subwallet/extension-base/background/KoniTypes';
 import { Message } from '@subwallet/extension-base/types';
-import type { KeyringPair$Json } from '@subwallet/keyring/types';
-import type { KeyringAddress, KeyringPairs$Json } from '@subwallet/ui-keyring/types';
+import type { KeyringAddress, KeyringPair$Json, KeyringPairs$Json } from 'sdk/keyring/types';
 import type { HexString } from '@polkadot/util/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
 import { MetadataDef } from '@subwallet/extension-inject/types';
