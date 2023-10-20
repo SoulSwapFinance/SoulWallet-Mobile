@@ -21,7 +21,7 @@ import { isValidSubstrateAddress } from '@subwallet/extension-base/utils';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { WebRunnerContext } from 'providers/contexts';
-import { _AssetType, _ChainInfo } from 'constants/ChainInfo/Types';
+import { _AssetType, _ChainInfo } from '@subwallet/chain-list/types';
 import {
   _getTokenTypesSupportedByChain,
   _isChainTestNet,

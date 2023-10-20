@@ -1,4 +1,4 @@
-import { _ChainInfo } from 'constants/ChainInfo/Types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
 import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
 import {
   _getEvmChainId,

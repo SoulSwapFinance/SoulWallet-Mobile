@@ -1,4 +1,4 @@
-import { _ChainAsset, _ChainInfo } from 'constants/ChainInfo/Types';
+import { _ChainAsset, _ChainInfo } from '@subwallet/chain-list/types';
 import { AccountType } from 'types/ui-types';
 import {
   _getMultiChainAsset,

@@ -1,4 +1,4 @@
-import { _AssetType } from 'constants/ChainInfo/Types';
+import { _AssetType } from '@subwallet/chain-list/types';
 
 export interface AssetTypeOption {
   label: string;

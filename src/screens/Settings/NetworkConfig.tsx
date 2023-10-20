@@ -8,7 +8,7 @@ import { Warning } from 'components/Warning';
 import i18n from 'utils/i18n/i18n';
 import { RootNavigationProps } from 'routes/index';
 import { useNavigation } from '@react-navigation/native';
-import { _ChainInfo, _ChainStatus } from 'constants/ChainInfo/Types';
+import { _ChainInfo, _ChainStatus } from '@subwallet/chain-list/types';
 
 const filterFunction = (items: _ChainInfo[], searchString: string) => {
   return items.filter(network => network.name.toLowerCase().includes(searchString.toLowerCase()));

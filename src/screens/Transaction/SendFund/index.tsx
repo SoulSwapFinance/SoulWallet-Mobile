@@ -1,4 +1,4 @@
-import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from 'constants/ChainInfo/Types';
+import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@subwallet/chain-list/types';
 import {
   _getAssetDecimals,
   _getOriginChainOfAsset,

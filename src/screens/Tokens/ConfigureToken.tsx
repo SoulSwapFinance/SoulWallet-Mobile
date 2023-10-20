@@ -21,7 +21,7 @@ import useFormControl, { FormState } from 'hooks/screen/hooks/useFormControl';
 import { deleteCustomAssets, upsertCustomToken } from '../../messaging';
 import { Warning } from 'components/Warning';
 import { WebRunnerContext } from 'providers/contexts';
-import { _ChainAsset } from 'constants/ChainInfo/Types';
+import { _ChainAsset } from '@subwallet/chain-list/types';
 import { Button, Icon, Typography } from 'components/Design';
 import { TokenSelectField } from 'components/Field/TokenSelect';
 import { ThemeTypes } from 'styles/themes';

@@ -15,7 +15,7 @@ import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
 import { AccountSelectField } from 'components/Field/AccountSelect';
 import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { AccountJson } from '@subwallet/extension-base/background/types';
-import { _ChainInfo } from 'constants/ChainInfo/Types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
 import {
   _getSubstrateGenesisHash,
   _isChainEvmCompatible,

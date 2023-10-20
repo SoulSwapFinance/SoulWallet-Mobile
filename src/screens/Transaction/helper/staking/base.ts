@@ -1,4 +1,4 @@
-import { _ChainInfo } from 'constants/ChainInfo/Types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
 import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import {

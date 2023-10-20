@@ -1,4 +1,4 @@
-import { _ChainInfo } from 'constants/ChainInfo/Types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
 import { _getSubstrateGenesisHash } from '@subwallet/extension-base/services/chain-service/utils';
 
 export const findChainInfoByGenesisHash = (

@@ -23,7 +23,7 @@ import { BN_ZERO } from 'utils/chainBalances';
 import { IconProps } from 'phosphor-react-native';
 import { isValidURL } from 'utils/browser';
 import { SUPPORTED_TRANSFER_SUBSTRATE_CHAIN } from 'types/nft';
-import { _ChainInfo } from 'constants/ChainInfo/Types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
 import { Logo as SWLogo } from 'components/Design';
 import { DEFAULT_ACCOUNT_TYPES, EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 export const PREDEFINED_TRANSAK_NETWORK: Record<string, TransakNetwork> = {

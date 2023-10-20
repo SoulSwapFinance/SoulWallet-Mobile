@@ -1,4 +1,4 @@
-import { _ChainInfo } from 'constants/ChainInfo/Types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { _isChainEvmCompatible } from '@subwallet/extension-base/services/chain-service/utils';
 import { useMemo } from 'react';
