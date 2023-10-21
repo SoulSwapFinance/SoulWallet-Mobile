@@ -36,9 +36,9 @@ export const TokenGroupBalanceItem = ({
           <Text style={_style.textStyle} numberOfLines={1}>
             {symbol}
           </Text>
-
+          {/* UI NOTE: display price on balances page. */}
           <Number
-            value={isTestnet ? 0 : priceValue}
+            value={isTestnet ? 0 : symbol == 'SOUL'? 0.001 : priceValue}
             decimal={0}
             prefix={'$'}
             intColor={isTotalBalanceDecrease ? theme.colorError : theme.colorSuccess}
@@ -53,6 +53,7 @@ export const TokenGroupBalanceItem = ({
         <View style={_style.chainBalancePart2Wrapper}>
           <View style={_style.chainBalancePart2}>
               <>
+              {/* UI NOTE: Shows the Currency Amount on Balances */}
                 <Number
                   value={total.value}
                   decimal={0}
@@ -60,9 +61,11 @@ export const TokenGroupBalanceItem = ({
                   size={theme.fontSizeLG}
                   textStyle={{ ...FontSemiBold, lineHeight: theme.lineHeightLG * theme.fontSizeLG }}
                   suffix={symbol}
-                />
+                  />
+                  {/* UI NOTE: Shows the Currency Total Value on Balances */}
                 <Number
-                  value={total.convertedValue}
+                // UI NOTE: Shows the Currency Total Value on Balances (manual override for SOUL)
+                  value={ symbol == 'SOUL' && total.value ? total.value.multipliedBy(0.001) : total.convertedValue }
                   decimal={0}
                   intOpacity={0.45}
                   unitOpacity={0.45}
