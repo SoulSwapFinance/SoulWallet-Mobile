@@ -52,7 +52,7 @@ const persistRootConfig = {
 };
 
 const rootReducer = combineReducers({
-  // Basic mobile app store
+  // Basic Mobile App Store
   appState: appStateReducer,
   mobileSettings: mobileSettingsReducer,
   browser: persistReducer({ key: 'browser', storage: mmkvReduxStore } as PersistConfig<BrowserSlice>, browserReducer),
@@ -60,7 +60,7 @@ const rootReducer = combineReducers({
   passwordModalState: PasswordModalReducer,
   appVersion: appVersionReducer,
 
-  //Feature
+  // Feature
   transactionHistory: TransactionHistoryReducer,
   crowdloan: CrowdloanReducer,
   nft: NftReducer,
@@ -70,7 +70,7 @@ const rootReducer = combineReducers({
   bonding: BondingReducer,
   walletConnect: WalletConnectReducer,
 
-  //Common
+  // Common
   chainStore: persistReducer(
     { key: 'chainStore', storage: mmkvReduxStore } as PersistConfig<ChainStore>,
     ChainStoreReducer,
@@ -80,7 +80,7 @@ const rootReducer = combineReducers({
     AssetRegistryReducer,
   ),
 
-  //Base
+  // Base
   requestState: RequestStateReducer,
   settings: SettingsReducer,
   accountState: AccountStateReducer,
