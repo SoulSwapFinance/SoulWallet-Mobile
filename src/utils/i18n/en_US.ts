@@ -566,7 +566,7 @@ export const en = {
     warningAccTitle: 'Warning: Never disclose this key',
     warningAccMessage: 'Anyone with your key can use any assets held in your account',
     warningPasswordTitle: 'Password Requirements',
-    warningPasswordMessage: '6 character (minimum). Uppercase, numbers, and special characters are recommended.',
+    warningPasswordMessage: '6 character (min). Uppercase, numbers, and special characters are recommended.',
     warningCreatePasswordTitle: 'Password Requirements',
   },
   message: {
@@ -978,7 +978,7 @@ export const en = {
     noNetworkAvailable: 'No network available',
     noServiceAvailable: 'No service available',
     secretPhraseWarning:
-      'Warning: we cannot recover your account for you.',
+      'Warning: only you can recover your account.',
     unableDecode: 'Unable to decode using the supplied passphrase',
     invalidJsonFile: 'Invalid Json file',
     doNotMatchPasswordWarning: 'Passwords do not match',
