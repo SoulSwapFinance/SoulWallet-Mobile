@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { NavigatorScreenParams } from '@react-navigation/native';
-import { StakingScreenStackParamList } from 'routes/staking/stakingScreen';
+// import { StakingScreenStackParamList } from 'routes/staking/stakingScreen';
 import { NFTStackParamList } from 'screens/Home/NFT/NFTStackScreen';
 import { BrowserHomeProps, RootStackParamList } from 'routes/index';
 

@@ -112,6 +112,7 @@ export const ReceiveModal = ({ address, selectedNetwork, modalVisible, setModalV
           {i18n.header.yourAddress}
         </Typography.Text>
         <View style={{ paddingTop: 38 }}>
+          {/* @ts-ignore */}
           {formattedAddress && <QRCode qrRef={(ref?) => (svg = ref)} value={formattedAddress} errorLevel={'Q'} />}
         </View>
 

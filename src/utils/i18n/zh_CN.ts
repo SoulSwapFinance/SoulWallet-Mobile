@@ -751,6 +751,7 @@ export const zh = {
       rarity: 'Rarity',
       properties: '财产',
       resourcesOrInventory: '资源或存储',
+      contract: 'Contract Address',
       createdBy: '创建由',
     },
   },

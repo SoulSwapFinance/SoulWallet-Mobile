@@ -10,6 +10,8 @@ import {
   NetworkJson,
   TransakNetwork,
 } from '@subwallet/extension-base/background/KoniTypes';
+import Clipboard from '@react-native-clipboard/clipboard';
+import { useToast } from 'react-native-toast-notifications';
 import { KeypairType } from '@polkadot/util-crypto/types';
 import { AccountAuthType, AccountJson, AccountWithChildren } from '@subwallet/extension-base/background/types';
 import { isAccountAll, uniqueStringArray } from '@subwallet/extension-base/utils';
@@ -26,6 +28,7 @@ import { SUPPORTED_TRANSFER_SUBSTRATE_CHAIN } from 'types/nft';
 import { _ChainInfo } from '@subwallet/chain-list/types';
 import { Logo as SWLogo } from 'components/Design';
 import { DEFAULT_ACCOUNT_TYPES, EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
+import i18n from './i18n/i18n';
 export const PREDEFINED_TRANSAK_NETWORK: Record<string, TransakNetwork> = {
   polkadot: {
     networks: ['mainnet'],
@@ -230,6 +233,18 @@ export function getScanExplorerAddressInfoUrl(networkKey: string, address: strin
   }
 
   return `${subscanByNetworkKey[networkKey]}/account/${address}`;
+}
+
+export function getScanExplorer(networkKey: string): string {
+  if (Object.keys(evmBlockExplorer).indexOf(networkKey) > -1) {
+    return `${evmBlockExplorer[networkKey]}`;
+  }
+
+  if (!subscanByNetworkKey[networkKey]) {
+    return '';
+  }
+
+  return `${subscanByNetworkKey[networkKey]}`;
 }
 
 export const notDef = (x: any) => x === null || typeof x === 'undefined';
@@ -688,4 +703,11 @@ export const convertKeyTypes = (authTypes: AccountAuthType[]): KeypairType[] => 
   const _rs = uniqueStringArray(result) as KeypairType[];
 
   return _rs.length ? _rs : DEFAULT_ACCOUNT_TYPES;
+};
+
+export const copyToClipboard = (text: string) => {
+  const toast = useToast();
+      Clipboard.setString(text);
+      toast.hideAll();
+      toast.show(i18n.common.copiedToClipboard);
 };

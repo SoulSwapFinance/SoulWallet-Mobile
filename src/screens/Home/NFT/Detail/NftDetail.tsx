@@ -7,7 +7,8 @@ import ImagePreview from 'components/ImagePreview';
 import useGoHome from 'hooks/screen/hooks/useGoHome';
 import useHandleGoHome from 'hooks/screen/hooks/useHandleGoHome';
 import useScanExplorerAddressUrl from 'hooks/screen/hooks/useScanExplorerAddressUrl';
-import { SlidersHorizontal } from 'phosphor-react-native';
+import useScanExplorer from 'hooks/screen/hooks/useScanExplorer';
+// import { SlidersHorizontal } from 'phosphor-react-native';
 import React, { useCallback, useMemo } from 'react';
 import { Linking, ScrollView, StyleProp, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { useToast } from 'react-native-toast-notifications';
@@ -19,12 +20,12 @@ import { ContainerHorizontalPadding, FontMedium, FontSemiBold, sharedStyles } fr
 import { accountCanSign, findAccountByAddress, getAccountSignMode } from 'utils/account';
 import { noop } from 'utils/function';
 import i18n from 'utils/i18n/i18n';
-import reformatAddress from 'utils/index';
+import reformatAddress, { copyToClipboard, toShort } from 'utils/index';
 import { NFTDetailProps } from 'screens/Home/NFT/NFTStackScreen';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Button } from 'components/Design';
 import useFetchChainInfo from 'hooks/common/useFetchChainInfo';
-import { _getChainSubstrateAddressPrefix } from '@subwallet/extension-base/services/chain-service/utils';
+import { _getBlockExplorerFromChain, _getChainSubstrateAddressPrefix } from '@subwallet/extension-base/services/chain-service/utils';
 
 const ContainerHeaderStyle: StyleProp<any> = {
   width: '100%',
@@ -164,6 +165,7 @@ const NftDetail = ({
 
   const originChainInfo = useFetchChainInfo(data.chain as string);
   const ownerUrl = useScanExplorerAddressUrl(originChainInfo?.slug || '', data.owner || '');
+  const explorerUrl = useScanExplorer(originChainInfo?.slug || '');
 
   const ownerAccount = useMemo(() => {
     if (data.owner) {
@@ -190,9 +192,9 @@ const NftDetail = ({
     [toast],
   );
 
-  const handleClickComingSoon = useCallback(() => {
-    show(i18n.notificationMessage.comingSoon);
-  }, [show]);
+  // const handleClickComingSoon = useCallback(() => {
+  //   show(i18n.notificationMessage.comingSoon);
+  // }, [show]);
 
   const handleClickTransfer = useCallback(() => {
     if (!originChainInfo || !canSend || !data.chain) {
@@ -225,6 +227,20 @@ const NftDetail = ({
     }
     return () => {
       Linking.openURL(url);
+    };
+  }, []);
+  
+  const handleOpen = useCallback((address?: string) => {
+    // const chainInfo = useFetchChainInfo(selectedNetwork || '');
+
+    // const blockExplorer = selectedNetwork && _getBlockExplorerFromChain(chainInfo);
+
+    if (!address) {
+      return noop;
+    }
+    return () => {
+      console.log(explorerUrl)
+      Linking.openURL(explorerUrl + 'address/' + address);
     };
   }, []);
 
@@ -264,6 +280,12 @@ const NftDetail = ({
             label={i18n.inputLabel.nftCollectionName}
             showRightIcon={!!data.externalUrl}
             onPressRightIcon={handleClickInfoIcon(data.externalUrl)}
+          />
+          <TextField
+            text={toShort(data?.collectionId, 7, 7) || ''}
+            label={i18n.inputLabel.contractAddress}
+            showRightIcon={true}
+            onPressRightIcon={handleOpen(data?.collectionId)}
           />
           {!!data.owner && (
             <AddressField

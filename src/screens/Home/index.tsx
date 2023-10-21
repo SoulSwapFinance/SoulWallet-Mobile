@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { BottomTabBarButtonProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import StakingScreen from './Staking/StakingScreen';
+import StakingScreen from './Staking/StakingScreen';
 
 import { Linking, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-// import { Aperture, Database, Globe, Rocket, Wallet } from 'phosphor-react-native';
+import { Aperture, Database, Globe, Rocket, Wallet } from 'phosphor-react-native';
 import { CryptoScreen } from 'screens/Home/Crypto';
 import { FontMedium } from 'styles/sharedStyles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -53,9 +53,9 @@ const nftTabbarIcon = ({ color }: tabbarIconColor) => {
 // const crowdloanTabbarIcon = ({ color }: tabbarIconColor) => {
 //   return <Rocket size={24} color={color} weight={'fill'} />;
 // };
-// const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
-//   return <Database size={24} color={color} weight={'fill'} />;
-// };
+const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
+  return <Database size={24} color={color} weight={'fill'} />;
+};
 const browserTabbarIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicBall width={32} height={32} color={color} />;
 };
