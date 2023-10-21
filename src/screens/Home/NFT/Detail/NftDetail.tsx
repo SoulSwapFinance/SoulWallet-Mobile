@@ -253,12 +253,12 @@ const NftDetail = ({
               <Text style={AttValueStyle}>{data?.description}</Text>
             </View>
           )}
-          <TouchableOpacity style={ResourceContainerStyle} activeOpacity={0.5} onPress={handleClickComingSoon}>
+          {/* <TouchableOpacity style={ResourceContainerStyle} activeOpacity={0.5} onPress={handleClickComingSoon}>
             <View style={ResourceIconContainerStyle}>
               <SlidersHorizontal size={20} color={ColorMap.primary} />
             </View>
             <Text style={ResourceTitleStyle}>{i18n.nftScreen.nftDetail.resourcesOrInventory}</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TextField
             text={collectionName || ''}
             label={i18n.inputLabel.nftCollectionName}

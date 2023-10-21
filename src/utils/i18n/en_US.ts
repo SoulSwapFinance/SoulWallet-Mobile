@@ -563,8 +563,8 @@ export const en = {
     walletConnectEmptyDetailMessage: 'Your approved dApp will appear here',
   },
   warning: {
-    warningAccTitle: 'Warning: Never disclose this key',
-    warningAccMessage: 'Anyone with your key can use any assets held in your account',
+    warningAccTitle: 'Warning: Never disclose this key.',
+    warningAccMessage: 'Your key enables full-access to your account.',
     warningPasswordTitle: 'Password Requirements',
     warningPasswordMessage: '6 character (min). Uppercase, numbers, and special characters are recommended.',
     warningCreatePasswordTitle: 'Password Requirements',
@@ -758,7 +758,7 @@ export const en = {
     nftDetail: {
       rarity: 'Rarity',
       properties: 'Properties',
-      resourcesOrInventory: 'Resources or inventory',
+      resourcesOrInventory: 'Resources or Inventory',
       createdBy: 'Created by',
     },
   },

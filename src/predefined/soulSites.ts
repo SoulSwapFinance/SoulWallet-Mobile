@@ -2,15 +2,7 @@
 
 import React from 'react';
 import { PredefinedDApps } from 'types/browser';
-import i18n from 'utils/i18n/i18n';
-
-export const SoulIconMap: Record<string, string> = {
-  // 'app.soulswap.finance': 'https://soulswap.finance/favicon.png',
-};
-
-export const SoulTitleMap: Record<string, string> = {
-  // 'app.soulswap.finance': 'Crosschain swaps, meta-aggregator, limit orders, and more.',
-};
+// import i18n from 'utils/i18n/i18n';
 
 export const soulSites: PredefinedDApps = {
   categories: () => [
