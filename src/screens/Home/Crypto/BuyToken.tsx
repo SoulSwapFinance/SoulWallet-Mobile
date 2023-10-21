@@ -94,6 +94,7 @@ export const BuyToken = ({
             </View>
 
             <View style={{ flex: 1 }}>
+              {/* UI NOTE: Selected Token in Buy Token View */}
               <TokenSelector
                 disabled={!selectedBuyAccount || !!tokenGroupSlug}
                 items={buyTokenSelectorItems}

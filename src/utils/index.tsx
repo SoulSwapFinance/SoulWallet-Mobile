@@ -62,6 +62,10 @@ export const PREDEFINED_TRANSAK_NETWORK: Record<string, TransakNetwork> = {
     networks: ['bsc'],
     tokens: ['BNB'],
   },
+  avalanche: {
+    networks: ['avalanche'],
+    tokens: ['AVAX'],
+  },
 };
 export const defaultRecoded: Recoded = { account: null, formatted: null, prefix: 42, isEthereum: false };
 export const accountAllRecoded: Recoded = {
@@ -339,14 +343,17 @@ export function recodeAddress(
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function getNetworkLogo(logoKey: string, size: number, defaultLogoKey = 'default', outerStyle?: StyleProp<any>) {
+export function getNetworkLogo(logoKey: string, size: number, defaultLogoKey = '', outerStyle?: StyleProp<any>) {
+  // UI-NOTE: Shows network logo (transfers)
   return <SWLogo network={logoKey} defaultLogoKey={defaultLogoKey} size={size} />;
 }
+
+// UI-NOTE: Shows token logo (transfers)
 export function getTokenLogo(
   logoKey: string,
   subLogoKey: string | undefined,
   size: number,
-  defaultLogoKey = 'default',
+  defaultLogoKey = 'soul',
 ) {
   return (
     <SWLogo

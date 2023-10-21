@@ -12,7 +12,7 @@ const ConnectParitySigner: React.FC<Props> = () => {
   return (
     <ConnectQrSigner
       description={i18n.attachAccount.connectPolkadotVaultMessage2}
-      instructionUrl={'Connect your QR wallet'}
+      instructionUrl={'Connect QR Wallet'}
       logoUrl={ImageLogosMap.parity}
       subTitle={i18n.attachAccount.connectPolkadotVaultMessage1}
       title={i18n.header.connectPolkadotVault}

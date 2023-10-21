@@ -482,7 +482,7 @@ export const zh = {
   },
   placeholder: {
     password: '密码',
-    typeYourSubwalletPassword: '填充你的Subwallet密码',
+    typeYourSoulwalletPassword: '填充你的Soulwallet密码',
     accountName: '账户名字',
     secretPhrase: '助记词',
     currentPassword: '当前密码',
@@ -699,7 +699,7 @@ export const zh = {
     signatureRequired: '需要签名',
     messageDetails: '消息内容',
     signatureRequest: '签名请求',
-    connectSubwallet: '连接SoulWallet',
+    connectSoulwallet: '连接SoulWallet',
     connectWebsite: '连接网站',
     dAppConfiguration: 'dApp配置',
     accessConfiguration: '访问配置',
@@ -981,7 +981,7 @@ export const zh = {
     ethSignWarningMessage:
       '签署此消息可能存在风险。此签名有可能代表你的账户执行任何操作，包括将你的账户以及所有资产完全控制权授予请求的网站。只有在你知晓自己在做任何事项或完全信任请求的网站时才签署此消息。',
     clearHistoryWarningMessage: '确认是否需要清档记录',
-    phishingMessage: '该网站被阻止是因Subwallet应用损害了该网站可能会影响你的帐户和通证的安全。',
+    phishingMessage: '该网站被阻止是因Soulwallet应用损害了该网站可能会影响你的帐户和通证的安全。',
     balanceTooLow: '你的余额过低，无法支付费用',
     thresholdLagerThan: 'T必须大于',
     invalidQRCode: '二维码无效',

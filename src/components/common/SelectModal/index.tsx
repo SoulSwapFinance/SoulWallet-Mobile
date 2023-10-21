@@ -290,7 +290,8 @@ function _SelectModal<T>(selectModalProps: Props<T>, ref: ForwardedRef<any>) {
               isShowFilterBtn={isShowFilterBtn}
               filterFunction={filterFunction}
               filterOptions={filterOptions}
-              placeholder={placeholder}
+              // UI NOTE: Search input (default value) within network select module.
+              placeholder={placeholder} // "Search network"
               loading={loading}
               withSearchInput={withSearchInput}
               isShowListWrapper={isShowListWrapper}

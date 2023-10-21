@@ -12,6 +12,7 @@ interface Props<T> {
 export function ChainSelectItem<T>({ item, selectedValueMap, onSelectItem, onCloseModal }: Props<T>) {
   const { name, slug } = item as ChainInfo;
   return (
+    // UI NOTE: Import token (network) select module items.
     <NetworkSelectItem
       itemName={name}
       itemKey={slug}
@@ -19,9 +20,10 @@ export function ChainSelectItem<T>({ item, selectedValueMap, onSelectItem, onClo
         onSelectItem && onSelectItem(item);
         onCloseModal && onCloseModal();
       }}
-      showSeparator={false}
+      showSeparator={true}
       iconSize={28}
       isSelected={!!selectedValueMap[slug]}
+      defaultItemKey={'avalanche_c'}
     />
   );
 }

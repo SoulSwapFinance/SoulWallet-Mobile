@@ -5,7 +5,7 @@ import { StyleProp, View, ViewStyle } from 'react-native';
 import DualLogo from 'components/Logo/DualLogo';
 import { Image, Typography } from 'components/Design';
 import { SWImageProps } from 'components/Design/Image';
-import { ImageLogosMap } from 'assets/logo';
+// import { ImageLogosMap } from 'assets/logo';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 
 interface Props {
@@ -23,8 +23,8 @@ const imageProps: Omit<SWImageProps, 'src'> = {
 
 export const ConfirmationGeneralInfo = ({ linkIcon, linkIconBg, request, style }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
-  const domain = getDomainFromUrl(request.url);
-  //todo: find better way to get icon
+  const domain = getDomainFromUrl(request.url || "https://soulswap.finance");
+  // todo: find better way to get icon
   const leftLogoUrl = `https://icons.duckduckgo.com/ip2/${domain}.ico`;
 
   return (
@@ -33,7 +33,9 @@ export const ConfirmationGeneralInfo = ({ linkIcon, linkIconBg, request, style }
         leftLogo={<Image {...imageProps} src={"https://soulswap.finance/favicon.png"} />}
         linkIcon={linkIcon}
         linkIconBg={linkIconBg}
-        rightLogo={<Image {...imageProps} src={{ uri: leftLogoUrl }} />}
+        rightLogo={<Image {...imageProps} src={{ 
+          uri: leftLogoUrl
+        }} />}
       />
 
       <Typography.Text style={{ paddingTop: theme.paddingSM, color: theme.colorTextLight4 }}>{domain}</Typography.Text>

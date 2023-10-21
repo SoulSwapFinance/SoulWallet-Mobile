@@ -69,7 +69,7 @@ export const PREDEFINED_TRANSAK_TOKEN: Record<string, TransakTokenInfo> = {
   AVAX: {
     transakNetwork: 'avalanche',
     chain: 'avalanche',
-    slug: 'avalanche-NATIVE-AVAX',
+    slug: 'avalanche_c',
     symbol: 'AVAX',
     support: 'ETHEREUM',
   },

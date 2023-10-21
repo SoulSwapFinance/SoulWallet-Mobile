@@ -486,7 +486,7 @@ export const vi = {
   },
   placeholder: {
     password: 'Mật khẩu',
-    typeYourSubwalletPassword: 'Nhập mật khẩu SoulWallet của bạn',
+    typeYourSoulwalletPassword: 'Nhập mật khẩu SoulWallet của bạn',
     accountName: 'Tên tài khoản',
     secretPhrase: 'Seed phrase',
     currentPassword: 'Mật khẩu hiện tại',
@@ -705,7 +705,7 @@ export const vi = {
     signatureRequired: 'Yêu cầu chữ ký',
     messageDetails: 'Thông tin chi tiết',
     signatureRequest: 'Yêu cầu chữ ký',
-    connectSubwallet: 'Kết nối SoulWallet',
+    connectSoulwallet: 'Kết nối SoulWallet',
     connectWebsite: 'Kết nối trang web',
     dAppConfiguration: 'Cấu hình dApp',
     accessConfiguration: 'Cấu hình  truy cập',

@@ -98,7 +98,7 @@ export const CustomizationModal = ({ modalVisible, setVisible }: Props) => {
   const onToggleItem = (item: ChainInfoWithState) => {
     setPendingChainMap({ ...pendingChainMap, [item.slug]: !item.active });
     const reject = () => {
-      console.warn('Toggle network request failed!');
+      console.warn('Toggle network request failed.');
       // @ts-ignore
       delete pendingNetworkMap[item.key];
       setPendingChainMap({ ...pendingChainMap });

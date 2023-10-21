@@ -12,7 +12,7 @@ const ConnectKeystone: React.FC<Props> = () => {
   return (
     <ConnectQrSigner
       description={i18n.attachAccount.connectKeystoneMessage2}
-      instructionUrl={'Connect your QR wallet'}
+      instructionUrl={'Connect QR Wallet'}
       logoUrl={ImageLogosMap.keystone}
       subTitle={i18n.attachAccount.connectKeystoneMessage1}
       title={i18n.header.connectKeystoneDevice}

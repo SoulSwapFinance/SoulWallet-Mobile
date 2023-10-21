@@ -11,7 +11,7 @@ import { HIDE_MODAL_DURATION } from 'constants/index';
 import useAppLock from 'hooks/useAppLock';
 import { PREDEFINED_TRANSAK_TOKEN, PREDEFINED_TRANSAK_TOKEN_BY_SLUG } from '../../../predefined/transak';
 import { _getChainSubstrateAddressPrefix } from '@subwallet/extension-base/services/chain-service/utils';
-import { ImageLogosMap } from 'assets/logo';
+// import { ImageLogosMap } from 'assets/logo';
 import { FullSizeSelectModal } from 'components/Common/SelectModal';
 import { ModalRef } from 'types/modalRef';
 import { ServiceSelectField } from 'components/Field/ServiceSelect';
@@ -141,7 +141,12 @@ export const ServiceModal = ({
     return (
       <ServiceSelectItem
         url={item.url}
-        logo={<Image source={item.icon} style={{ width: 24, height: 24 }} />}
+        logo={
+          <Image 
+          source={item.icon} 
+          style={{ width: 24, height: 24 }}
+          />
+        }
         serviceName={item.label}
         onPressItem={() => onPressItem(item.value, item.url)}
       />
