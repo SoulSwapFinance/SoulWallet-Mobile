@@ -134,13 +134,14 @@ function createStyleSheet(theme: ThemeTypes) {
       paddingBottom: 2,
       marginLeft: -8,
       marginRight: -8,
+      marginBottom: 24,
     },
     topArea: {
       alignSelf: 'stretch',
       flexDirection: 'row',
       alignItems: 'center',
       paddingTop: 16,
-      paddingBottom: 16,
+      paddingBottom: 8,
     },
     tokenDisplay: {
       flex: 1,
