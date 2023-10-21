@@ -108,6 +108,6 @@ export const connectWalletConnect = (wcUrl: string, toast?: ToastType) => {
       });
     }
   } else {
-    toast?.show('Invalid uri');
+    toast?.show('Invalid URI');
   }
 };

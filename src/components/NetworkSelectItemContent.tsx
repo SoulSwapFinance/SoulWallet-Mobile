@@ -59,7 +59,7 @@ export const NetworkSelectItemContent = ({
   itemKey,
   itemName,
   isSelected,
-  defaultItemKey,
+  defaultItemKey = 'default',
   showSeparator = true,
   iconSize = 28,
 }: Props) => {

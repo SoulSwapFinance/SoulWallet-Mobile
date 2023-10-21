@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ViewStyle } from 'react-native';
-import Svg, { Path } from 'react-native-svg';
+import Svg, { Circle, Path } from 'react-native-svg';
 import MaskedView from '@react-native-masked-view/masked-view';
 
 interface Props {
@@ -37,7 +37,7 @@ const Squircle: React.FC<Props> = ({
         <Svg width={squircleSize} height={squircleSize} viewBox="0 0 64 64">
           <Path
             d="M32 0C56.2653 0 64 7.73474 64 32C64 56.2653 56.2653 64 32 64C7.73473 64 0 56.2653 0 32C0 7.73474 7.73473 0 32 0Z"
-            fill={'#000'}
+            fill={'#6A01FE'}
           />
         </Svg>
       }>

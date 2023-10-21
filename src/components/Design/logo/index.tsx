@@ -41,7 +41,7 @@ const Logo: React.FC<SWLogoProps> = ({
   const { chainLogoMap, assetLogoMap } = useSelector((state: RootState) => state.logoMaps);
   const _style = LogoStyles(theme);
   const subLogoSize = size / 2.5;
-  let srcLogo;
+  let srcLogo= "https://soulswap.finance/favicon.png"
   // UI NOTE: GETS TOKEN LOGO
   if (token) {
     srcLogo = assetLogoMap[token] || assetLogoMap[defaultLogoKey];
@@ -50,7 +50,7 @@ const Logo: React.FC<SWLogoProps> = ({
     srcLogo = chainLogoMap[network] || chainLogoMap[defaultLogoKey];
   }
 
-  let srcSubLogo;
+  let srcSubLogo = "https://soulswap.finance/favicon.png"
   if (subToken) {
     srcSubLogo = assetLogoMap[subToken] || assetLogoMap[defaultLogoKey];
   } else if (subNetwork) {
