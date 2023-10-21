@@ -102,7 +102,7 @@ const Content = ({ origin, accountAuthType, authInfo }: Props) => {
       {
         key: 'forgetSite',
         icon: X,
-        backgroundColor: theme['yellow-6'],
+        backgroundColor: theme.colorTextLightPurple,
         name: i18n.common.forgetSite,
         onPress: () => {
           forgetSite(origin, updateAuthUrls).catch(console.error);
@@ -118,7 +118,7 @@ const Content = ({ origin, accountAuthType, authInfo }: Props) => {
           icon: Plugs,
           name: i18n.common.disconnectAll,
           // @ts-ignore
-          backgroundColor: theme['gray-3'],
+          backgroundColor: theme.colorTextLightPurple,
           onPress: () => {
             changeAuthorization(false, origin, updateAuthUrls).catch(console.error);
             setModalVisible(false);
@@ -128,7 +128,7 @@ const Content = ({ origin, accountAuthType, authInfo }: Props) => {
           key: 'connectAll',
           icon: PlugsConnected,
           name: i18n.common.connectAll,
-          backgroundColor: theme['green-6'],
+          backgroundColor: theme.colorTextLightPurple,
           onPress: () => {
             changeAuthorization(true, origin, updateAuthUrls).catch(console.error);
             setModalVisible(false);

@@ -125,7 +125,7 @@ export const Security = () => {
 
           <SelectItem
             icon={Key}
-            backgroundColor={theme['gold-6']}
+            backgroundColor={theme.colorTextDarkPurple}
             label={i18n.settings.changePassword}
             onPress={() => navigation.navigate('ChangePassword')}
             rightIcon={<Icon phosphorIcon={CaretRight} size={'sm'} />}
@@ -133,7 +133,7 @@ export const Security = () => {
 
           <SelectItem
             icon={Globe}
-            backgroundColor={theme['blue-6']}
+            backgroundColor={theme.colorTextDarkPurple}
             label={i18n.settings.manageWebsiteAccess}
             onPress={() => navigation.navigate('DAppAccess')}
             rightIcon={<Icon phosphorIcon={CaretRight} size={'sm'} />}
@@ -141,7 +141,7 @@ export const Security = () => {
 
           <SelectItem
             icon={Globe}
-            backgroundColor={theme['geekblue-6']}
+            backgroundColor={theme.colorTextDarkPurple}
             label={i18n.settings.manageWalletConnectDapp}
             onPress={() => {
               toast.hideAll();
@@ -151,7 +151,7 @@ export const Security = () => {
           />
           <SelectItem
             icon={ShieldCheck}
-            backgroundColor={theme['green-6']}
+            backgroundColor={theme.colorTextDarkPurple}
             label={i18n.settings.appLock}
             onPress={() => setIsShowAutoLockModal(true)}
             rightIcon={

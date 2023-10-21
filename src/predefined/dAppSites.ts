@@ -189,6 +189,15 @@ export const predefinedDApps: PredefinedDApps = {
       isSupportSubstrateAccount: false,
       isSupportEthereumAccount: true,
     },
+    {
+      name: 'Rarible',
+      icon: 'https://rarible.com/favicon.ico',
+      id: 'rarible.com',
+      url: 'https://rarible.com/',
+      categories: ['nft'],
+      isSupportSubstrateAccount: false,
+      isSupportEthereumAccount: true,
+    },
     // {
     //   name: 'ACE',
     //   icon: 'https://dotinsights.subwallet.app/assets/images/projects/ace.png',

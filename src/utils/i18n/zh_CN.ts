@@ -76,7 +76,7 @@ export const zh = {
     history: '记录',
     openInBrowser: '在浏览器中打开',
     removeFromFavourites: '删除于收藏',
-    addToFavourites: '添加到收藏',
+    addBookmark: '添加到收藏',
     searchAtDuckDuckGo: 'DuckDuckGo上搜索',
     searchResult: '搜索结果',
     seeAll: '查看全部',

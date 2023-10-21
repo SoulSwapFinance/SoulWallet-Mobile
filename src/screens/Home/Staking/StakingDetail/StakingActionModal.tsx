@@ -182,7 +182,7 @@ const StakingActionModal = (props: Props) => {
       if (action === StakingAction.UNSTAKE) {
         return {
           action: StakingAction.UNSTAKE,
-          backgroundIconColor: 'magenta-6',
+          backgroundIconColor: theme.colorTextDarkPurple,
           icon: MinusCircle,
           label: i18n.buttonTitles.unstake,
           onPress: unStakeAction,
@@ -190,7 +190,7 @@ const StakingActionModal = (props: Props) => {
       } else if (action === StakingAction.WITHDRAW) {
         return {
           action: StakingAction.WITHDRAW,
-          backgroundIconColor: 'geekblue-6',
+          backgroundIconColor: theme.colorTextDarkPurple,
           icon: ArrowCircleDown,
           label: i18n.buttonTitles.withDrawUnstakedFunds,
           onPress: handleWithdrawalAction,
@@ -198,7 +198,7 @@ const StakingActionModal = (props: Props) => {
       } else if (action === StakingAction.CLAIM_REWARD) {
         return {
           action: StakingAction.CLAIM_REWARD,
-          backgroundIconColor: 'green-7',
+          backgroundIconColor: theme.colorTextDarkPurple,
           icon: Wallet,
           label: i18n.buttonTitles.claimRewards,
           onPress: handleClaimRewardAction,
@@ -206,7 +206,7 @@ const StakingActionModal = (props: Props) => {
       } else if (action === StakingAction.CANCEL_UNSTAKE) {
         return {
           action: StakingAction.CANCEL_UNSTAKE,
-          backgroundIconColor: 'purple-8',
+          backgroundIconColor: theme.colorTextDarkPurple,
           icon: ArrowArcLeft,
           label: i18n.buttonTitles.cancelUnstaking,
           onPress: cancelUnstakeAction,
@@ -215,7 +215,7 @@ const StakingActionModal = (props: Props) => {
 
       return {
         action: StakingAction.STAKE,
-        backgroundIconColor: 'green-6',
+        backgroundIconColor: theme.colorTextDarkPurple,
         icon: PlusCircle,
         label: i18n.buttonTitles.stakeMore,
         onPress: stakeAction,

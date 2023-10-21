@@ -24,11 +24,6 @@ export const soulSites: PredefinedDApps = {
       id: 'earn',
       theme: 'cyan',
     },
-    // {
-    //   name: i18n.browser.nft,
-    //   id: 'nft',
-    //   theme: 'primary',
-    // },
     {
       name: 'Tools', // i18n.browser.utilities,
       id: 'utilities',

@@ -92,7 +92,7 @@ export const DAppAccessScreen = () => {
         key: 'forgetAll',
         name: i18n.common.forgetAll,
         icon: X,
-        backgroundColor: theme['yellow-6'],
+        backgroundColor: theme.colorTextDarkPurple,
         onPress: () => {
           forgetAllSite(updateAuthUrls).catch(console.error);
           setModalVisible(false);
@@ -102,7 +102,7 @@ export const DAppAccessScreen = () => {
         key: 'disconnectAll',
         name: i18n.common.disconnectAll,
         icon: Plugs,
-        backgroundColor: theme['gray-3'],
+        backgroundColor: theme.colorTextDarkPurple,
         onPress: () => {
           changeAuthorizationAll(false, updateAuthUrls).catch(console.error);
           setModalVisible(false);

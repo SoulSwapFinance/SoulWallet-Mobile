@@ -77,7 +77,7 @@ export const vi = {
     history: 'Lịch sử',
     openInBrowser: 'Mở trong trình duyệt',
     removeFromFavourites: 'Loại bỏ khỏi mục ưa thích',
-    addToFavourites: 'Thêm vào mục ưa thích',
+    addBookmark: 'Thêm vào mục ưa thích',
     searchAtDuckDuckGo: 'Tìm kiếm tại DuckDuckGo',
     searchResult: 'Kết quả tìm kiếm',
     seeAll: 'Xem tất cả',

@@ -51,8 +51,8 @@ const Component = ({ visibleModal, setVisibleModal }: Props, ref: ForwardedRef<B
     {
       key: 'toggleFavouriteSite',
       icon: isBookmarked ? StarHalf : Star,
-      label: isBookmarked ? i18n.common.removeFromFavourites : i18n.common.addToFavourites,
-      iconBackgroundColor: isBookmarked ? theme['gray-3'] : theme['green-6'],
+      label: isBookmarked ? i18n.common.removeFromFavourites : i18n.common.addBookmark,
+      iconBackgroundColor: isBookmarked ? theme.colorTextDarkPurple : theme.colorTextDarkPurple,
       onPress: () => {
         if (isBookmarked) {
           removeBookmark(siteInfo);
@@ -66,7 +66,7 @@ const Component = ({ visibleModal, setVisibleModal }: Props, ref: ForwardedRef<B
       key: 'openInBrowser',
       icon: ArrowSquareUpRight,
       label: i18n.common.openInBrowser,
-      iconBackgroundColor: theme['geekblue-7'],
+      iconBackgroundColor: theme.colorTextDarkPurple,
       onPress: () => {
         if (siteInfo.url) {
           Linking.canOpenURL(siteInfo.url).then(() => Linking.openURL(siteInfo.url));
