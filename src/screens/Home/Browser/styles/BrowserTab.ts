@@ -73,13 +73,13 @@ export default (theme: ThemeTypes) =>
       borderWidth: 2,
       borderRadius: 4,
       borderColor: ColorMap.light,
-    }, // todo: will be remove
+    }, // todo: will be removed
     buttonTabsText: {
       color: ColorMap.light,
       ...FontSize0,
       ...FontMedium,
       lineHeight: 16,
-    }, // todo: will be remove
+    }, // todo: will be removed
     phishingBlockerLayer: {
       top: 0,
       left: 0,

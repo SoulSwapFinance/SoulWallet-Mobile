@@ -18,7 +18,7 @@ interface Props {
 const ConfirmationGeneralInfo: React.FC<Props> = (props: Props) => {
   const { request, gap = 0 } = props;
   const domain = getDomainFromUrl(request.url);
-  const leftLogoUrl = `https://icons.duckduckgo.com/ip2/${domain || 'https://soulswap.finance'}.ico`;
+  const leftLogoUrl = `https://icons.duckduckgo.com/ip2/${domain || 'soulswap.finance'}.ico`;
   const isWCRequest = useMemo(() => isWalletConnectRequest(request.id), [request.id]);
   const theme = useSoulWalletTheme().swThemes;
 

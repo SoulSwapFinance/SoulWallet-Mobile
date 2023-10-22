@@ -105,7 +105,7 @@ const BrowserHome = () => {
     return (
       <IconItem
         data={data}
-        url={item.url}
+        url={"https://soulswap.finance/favicon.png"} // item.url
         onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: data?.name })}
       />
     );
@@ -129,8 +129,8 @@ const BrowserHome = () => {
         style={stylesheet.browserItem}
         title={item.name}
         subtitle={getHostName(item.url)}
-        url={item.url}
-        logo={item.icon}
+        url={item.url || "https://soulswap.finance/favicon.png"}
+        logo={item.icon || "https://soulswap.finance/favicon.png"}
         tags={item.categories}
         onPress={() => onPressSectionItem(item)}
       />

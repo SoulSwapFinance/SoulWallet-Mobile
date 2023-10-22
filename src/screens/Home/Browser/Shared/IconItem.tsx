@@ -18,7 +18,9 @@ interface IconItemProps {
 }
 
 const IconItem: React.FC<IconItemProps> = ({ data, url, defaultData, isWithText, onPress }) => {
-  const [image, setImage] = useState(data?.icon || `https://${getHostName(url)}/favicon.ico`);
+  const [image, setImage] = useState(
+    data?.icon || `https://${getHostName(url)}/favicon.ico`
+    );
   const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
   const assetLogoMap = useSelector((state: RootState) => state.logoMaps.assetLogoMap);

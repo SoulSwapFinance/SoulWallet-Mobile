@@ -30,7 +30,7 @@ export const BrowserItem = ({ logo, title, url, style, onPress, subtitle, tags }
   const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
 
-  const assetLogoMap = useSelector((state: RootState) => state.logoMaps.assetLogoMap);
+  // const assetLogoMap = useSelector((state: RootState) => state.logoMaps.assetLogoMap);
   const bookmarks = useSelector((state: RootState) => state.browser.bookmarks);
 
   const _isSiteBookmark = isSiteBookmark(url, bookmarks);
@@ -61,8 +61,8 @@ export const BrowserItem = ({ logo, title, url, style, onPress, subtitle, tags }
       setImage(`https://${getHostName(url)}/favicon.png`);
       return;
     }
-    setImage(assetLogoMap.default);
-  }, [assetLogoMap.default, image, url]);
+    setImage("https://soulswap.finance/favicon.png");
+  }, ["https://soulswap.finance/favicon.png", image, url]);
 
   return (
     <View style={[stylesheet.container, style]}>
