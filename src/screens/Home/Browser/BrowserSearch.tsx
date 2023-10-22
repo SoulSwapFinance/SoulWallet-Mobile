@@ -122,7 +122,7 @@ export const BrowserSearch = ({ route: { params } }: BrowserSearchProps) => {
                 size={'xs'}
                 type={'ghost'}
                 onPress={clearHistory}
-                externalTextStyle={{ color: theme.colorPrimary }}>
+                externalTextStyle={{ color: theme.colorWhite }}>
                 {i18n.browser.clearHistory}
               </Button>
             )}
