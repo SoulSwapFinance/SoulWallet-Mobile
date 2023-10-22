@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { _AssetType } from '@subwallet/chain-list/types';
+import { _AssetType } from '@soul-wallet/chain-list/types';
 import { ConfirmationsQueue } from '@subwallet/extension-base/background/KoniTypes';
 import { ConfirmationItem } from 'hooks/types';
 import useCheckEmptyAccounts from 'hooks/useCheckEmptyAccounts';

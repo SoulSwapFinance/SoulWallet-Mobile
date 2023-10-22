@@ -26,7 +26,7 @@ import { NominationSelector } from 'components/Modal/common/NominationSelector';
 import { InputAmount } from 'components/Input/InputAmount';
 import { formatBalance } from 'utils/number';
 import { BN_ZERO } from 'utils/chainBalances';
-import { _ChainInfo } from '@subwallet/chain-list/types';
+import { _ChainInfo } from '@soul-wallet/chain-list/types';
 import { AccountJson } from '@subwallet/extension-base/background/types';
 import { accountFilterFunc } from 'screens/Transaction/helper/staking';
 import { Button, Icon, Typography } from 'components/Design';

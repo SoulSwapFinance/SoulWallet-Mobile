@@ -4,7 +4,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit/dist';
 import { AllLogoMap } from '@subwallet/extension-base/background/KoniTypes';
 import ChainLogoMap, { ProjectLogos } from 'components/Design/Logo/LogoMap';
-// import { AssetLogoMap, ChainLogoMap } from '@subwallet/chain-list/types';
+// import { AssetLogoMap, ChainLogoMap } from '@soul-wallet/chain-list/types';
 
 const initialState: AllLogoMap = {
   chainLogoMap: ChainLogoMap,

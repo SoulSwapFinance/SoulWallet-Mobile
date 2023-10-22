@@ -9,7 +9,7 @@ import { isAccountAll, reformatAddress } from '@subwallet/extension-base/utils';
 import { MODE_CAN_SIGN } from 'constants/signer';
 import { AccountSignMode } from 'types/signer';
 import { AccountAddressType } from 'types/index';
-import { _ChainInfo } from '@subwallet/chain-list/types';
+import { _ChainInfo } from '@soul-wallet/chain-list/types';
 import { Recoded } from 'types/ui-types';
 
 export const findAccountByAddress = (accounts: AccountJson[], address?: string): AccountJson | null => {

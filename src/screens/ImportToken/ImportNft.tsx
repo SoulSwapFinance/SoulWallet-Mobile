@@ -23,7 +23,7 @@ import {
   _isChainTestNet,
   _parseMetadataForSmartContractAsset,
 } from '@subwallet/extension-base/services/chain-service/utils';
-import { _AssetType, _ChainInfo } from '@subwallet/chain-list/types';
+import { _AssetType, _ChainInfo } from '@soul-wallet/chain-list/types';
 import { Button, Icon } from 'components/Design';
 import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import { TokenTypeSelector } from 'components/Modal/common/TokenTypeSelector';

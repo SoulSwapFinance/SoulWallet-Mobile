@@ -1,4 +1,4 @@
-import { _ChainInfo } from '@subwallet/chain-list/types';
+import { _ChainInfo } from '@soul-wallet/chain-list/types';
 import { AbstractAddressJson, AccountJson } from '@subwallet/extension-base/background/types';
 import {
   findChainInfoByChainId,

@@ -71,6 +71,6 @@
 //     icon: string;
 // }
 
-import { _ChainInfo } from '@subwallet/chain-list/types'
+import { _ChainInfo } from '@soul-wallet/chain-list/types'
 
 export declare function _getChainName(chainInfo: _ChainInfo): string;

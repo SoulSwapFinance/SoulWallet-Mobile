@@ -189,7 +189,7 @@
 - Update chainlist
 
 ## 1.0.3 (169)
-- Update web-runner with latest @subwallet/chain-list
+- Update web-runner with latest @soul-wallet/chain-list
 
 ## 1.0.3 (168)
 - Update web-runner to fix staking issue
