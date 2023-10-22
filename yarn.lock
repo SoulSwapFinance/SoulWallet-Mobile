@@ -4011,7 +4011,7 @@
     web3-eth-contract "^1.10.0"
     web3-utils "^1.10.0"
 
-"@soul-wallet/extension-chains@1.0.0":
+"@soul-wallet/extension-chains@1.0.0", "@soul-wallet/extension-chains@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@soul-wallet/extension-chains/-/extension-chains-1.0.0.tgz#36feef94286d6470805b5e00f1dc369f6ba3ea80"
   integrity sha512-YrVlaKICNc3SllYzXjtaa+5xmFUXpK3UYY4oCfH5shUuuVqPg2gkiTw1G/T/7+kgPy4F3GDwz62sO8XnVJ2Alw==

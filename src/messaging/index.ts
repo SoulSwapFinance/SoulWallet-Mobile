@@ -1,6 +1,6 @@
 import { getId } from '@soul-wallet/extension-base/src/utils/getId';
-import { metadataExpand } from '@subwallet/extension-chains';
-import { Chain } from '@subwallet/extension-chains/types';
+import { metadataExpand } from '@soul-wallet/extension-chains';
+import { Chain } from '@soul-wallet/extension-chains/src/types';
 import { RefObject } from 'react';
 import WebView from 'react-native-webview';
 import { WebRunnerStatus } from 'providers/contexts';
