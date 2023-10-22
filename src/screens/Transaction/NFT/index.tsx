@@ -1,8 +1,8 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { NftCollection, NftItem } from '@subwallet/extension-base/background/KoniTypes';
-import { isSameAddress } from '@subwallet/extension-base/utils';
+import { NftCollection, NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { isSameAddress } from '@soul-wallet/extension-base/src/utils';
 import useHandleSubmitTransaction from 'hooks/transaction/useHandleSubmitTransaction';
 import { useTransaction } from 'hooks/screen/Transaction/useTransaction';
 import {
@@ -28,7 +28,7 @@ import reformatAddress from 'utils/index';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { FormState } from 'hooks/screen/hooks/useFormControl';
 import { nftParamsHandler } from '../helper';
-import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';
+import { SWTransactionResponse } from '@soul-wallet/extension-base/src/services/transaction-service/types';
 import { evmNftSubmitTransaction, substrateNftSubmitTransaction } from 'messaging/index';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';

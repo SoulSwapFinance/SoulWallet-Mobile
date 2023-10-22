@@ -1,4 +1,4 @@
-import { NftCollection } from '@subwallet/extension-base/background/KoniTypes';
+import { NftCollection } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { FlatListScreen } from 'components/FlatListScreen';
 import React, { useCallback, useEffect } from 'react';
 import { ListRenderItemInfo, RefreshControl, SectionListData } from 'react-native';

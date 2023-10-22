@@ -7,7 +7,7 @@ import {
   NominatorMetadata,
   StakingItem,
   StakingRewardItem,
-} from '@subwallet/extension-base/background/KoniTypes';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { ReduxStatus, StakingStore } from 'stores/types';
 
 const initialState = {

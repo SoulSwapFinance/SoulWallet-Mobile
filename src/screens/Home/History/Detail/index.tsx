@@ -10,8 +10,8 @@ import { Button, Icon, SwModal } from 'components/Design';
 import { ArrowSquareUpRight } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';
 import { Linking, View } from 'react-native';
-import { getExplorerLink } from '@subwallet/extension-base/services/transaction-service/utils';
-import { ExtrinsicType, TransactionAdditionalInfo } from '@subwallet/extension-base/background/KoniTypes';
+import { getExplorerLink } from '@soul-wallet/extension-base/src/services/transaction-service/utils';
+import { ExtrinsicType, TransactionAdditionalInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 
 type Props = {

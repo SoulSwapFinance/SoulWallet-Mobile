@@ -7,7 +7,7 @@ import { ColorMap } from 'styles/color';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { AvatarSubIcon } from 'types/ui-types';
 import { toDataUrl } from 'utils/blockies';
-import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
 
 interface AvatarProps extends ViewProps {
   address: string;

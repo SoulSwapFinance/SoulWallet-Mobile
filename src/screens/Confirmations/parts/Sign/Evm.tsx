@@ -7,7 +7,7 @@ import { CheckCircle, IconProps, QrCode, Swatches, XCircle } from 'phosphor-reac
 import { DisplayPayloadModal, EvmQr } from 'screens/Confirmations/parts/Qr/DisplayPayload';
 import { EvmSignatureSupportType } from 'types/confirmation';
 import { completeConfirmation } from 'messaging/index';
-import { ConfirmationDefinitions, ConfirmationResult } from '@subwallet/extension-base/background/KoniTypes';
+import { ConfirmationDefinitions, ConfirmationResult } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { SigData } from 'types/signer';
 import { getSignMode } from 'utils/account';
 import { AccountSignMode } from 'types/signer';

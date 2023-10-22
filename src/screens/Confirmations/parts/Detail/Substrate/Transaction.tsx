@@ -1,7 +1,7 @@
 import { ExtrinsicEra, ExtrinsicPayload } from '@polkadot/types/interfaces';
 import { SignerPayloadJSON } from '@polkadot/types/types';
 import { bnToBn, formatNumber } from '@polkadot/util';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainInfoByGenesisHash from 'hooks/chain/useGetChainInfoByGenesisHash';
 import useMetadata from 'hooks/transaction/confirmation/useMetadata';

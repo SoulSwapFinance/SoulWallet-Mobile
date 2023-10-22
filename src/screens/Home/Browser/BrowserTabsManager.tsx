@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { _AssetType } from '@soul-wallet/chain-list/types';
-import { ConfirmationsQueue } from '@subwallet/extension-base/background/KoniTypes';
+import { ConfirmationsQueue } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { ConfirmationItem } from 'hooks/types';
 import useCheckEmptyAccounts from 'hooks/useCheckEmptyAccounts';
 import useConfirmations from 'hooks/useConfirmations';
@@ -17,7 +17,7 @@ import { Plug, Plugs, PlugsConnected } from 'phosphor-react-native';
 import { useGetCurrentAuth } from 'hooks/auth/useGetCurrentAuth';
 import { ConnectWebsiteModal } from 'components/Modal/ConnectWebsiteModal';
 import { isEthereumAddress } from '@polkadot/util-crypto';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { funcSortByName } from 'utils/account';
 import { isAccountAll } from 'utils/accountAll';
 import { BackgroundIcon, Button } from 'components/Design';

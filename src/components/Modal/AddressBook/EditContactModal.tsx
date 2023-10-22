@@ -10,7 +10,7 @@ import { FormItem } from 'components/Common/FormItem';
 import Input from 'components/Design/Input';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { editContactAddress, removeContactAddress } from 'messaging/index';
-import { AddressJson } from '@subwallet/extension-base/background/types';
+import { AddressJson } from '@soul-wallet/extension-base/src/background/types';
 import { ReadonlyAddressField } from 'components/Modal/AddressBook/ReadonlyAddressField';
 import { Trash } from 'phosphor-react-native';
 import useConfirmModal from 'hooks/modal/useConfirmModal';

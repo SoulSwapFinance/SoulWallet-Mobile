@@ -1,4 +1,4 @@
-import { NftItem as _NftItem } from '@subwallet/extension-base/background/KoniTypes';
+import { NftItem as _NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { FlatListScreen } from 'components/FlatListScreen';
 import useGoHome from 'hooks/screen/hooks/useGoHome';
 import useHandleGoHome from 'hooks/screen/hooks/useHandleGoHome';
@@ -18,7 +18,7 @@ import { useRefresh } from 'hooks/useRefresh';
 import { Trash } from 'phosphor-react-native';
 import DeleteModal from 'components/Common/Modal/DeleteModal';
 import useConfirmModal from 'hooks/modal/useConfirmModal';
-import { _isCustomAsset, _isSmartContractToken } from '@subwallet/extension-base/services/chain-service/utils';
+import { _isCustomAsset, _isSmartContractToken } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { useToast } from 'react-native-toast-notifications';
 import useGetChainAssetInfo from 'hooks/common/userGetChainAssetInfo';
 import { SectionListData } from 'react-native';

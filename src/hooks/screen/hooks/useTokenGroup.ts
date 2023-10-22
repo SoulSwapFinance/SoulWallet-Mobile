@@ -1,4 +1,4 @@
-import { _getMultiChainAsset, _isNativeTokenBySlug } from '@subwallet/extension-base/services/chain-service/utils';
+import { _getMultiChainAsset, _isNativeTokenBySlug } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

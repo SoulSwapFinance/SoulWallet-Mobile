@@ -1,4 +1,4 @@
-import { ExtrinsicType, TransactionAdditionalInfo } from '@subwallet/extension-base/background/KoniTypes';
+import { ExtrinsicType, TransactionAdditionalInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import MetaInfo from 'components/MetaInfo';
 import React, { useMemo } from 'react';
 import { TransactionHistoryDisplayItem } from 'types/history';

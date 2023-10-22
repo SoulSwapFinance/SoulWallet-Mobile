@@ -1,4 +1,4 @@
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { SelectAccountItem } from 'components/Common/SelectAccountItem';
 import React, { useCallback, useMemo, useRef } from 'react';
 import { Keyboard, ListRenderItemInfo, View } from 'react-native';
@@ -10,9 +10,9 @@ import { AccountsScreenProps, RootNavigationProps } from 'routes/index';
 import i18n from 'utils/i18n/i18n';
 import { MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import { saveCurrentAccountAddress } from 'messaging/index';
-import { isAccountAll } from '@subwallet/extension-base/utils';
+import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
 import { findAccountByAddress } from 'utils/index';
-import { CurrentAccountInfo } from '@subwallet/extension-base/background/KoniTypes';
+import { CurrentAccountInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { Button, Icon } from 'components/Design';
 import { AccountCreationArea } from 'components/Common/Account/AccountCreationArea';
 import { FlatListScreen } from 'components/FlatListScreen';

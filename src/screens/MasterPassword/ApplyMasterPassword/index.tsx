@@ -1,6 +1,6 @@
 import useConfirmModal from 'hooks/modal/useConfirmModal';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { ScrollView, View } from 'react-native';
 import { Avatar, Button, Icon } from 'components/Design';
@@ -9,7 +9,7 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ApplyMasterPasswordStyle from './style';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';
-import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
 import { AddressField } from 'components/Field/Address';
 import { TextField } from 'components/Field/Text';
 import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/hooks/useFormControl';

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useRef } from 'react';
 import i18n from 'utils/i18n/i18n';
-import { NominationInfo } from '@subwallet/extension-base/background/KoniTypes';
+import { NominationInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { ListRenderItemInfo } from 'react-native';
 import { StakingNominationItem } from 'components/Common/StakingNominationItem';
 import { NominationSelectorField } from 'components/Field/NominationSelector';

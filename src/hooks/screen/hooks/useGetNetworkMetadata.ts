@@ -1,4 +1,4 @@
-import { NETWORK_STATUS, NetWorkMetadataDef } from '@subwallet/extension-base/background/KoniTypes';
+import { NETWORK_STATUS, NetWorkMetadataDef } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

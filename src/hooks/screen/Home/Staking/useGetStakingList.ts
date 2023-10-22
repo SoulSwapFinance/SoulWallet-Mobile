@@ -8,9 +8,9 @@ import {
   StakingRewardItem,
   StakingStatus,
   StakingType,
-} from '@subwallet/extension-base/background/KoniTypes';
-import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
-import { _getChainNativeTokenBasicInfo } from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
+import { _getChainNativeTokenBasicInfo } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 

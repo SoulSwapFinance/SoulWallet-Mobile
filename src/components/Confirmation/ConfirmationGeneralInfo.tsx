@@ -1,6 +1,6 @@
 import React from 'react';
-import { ConfirmationRequestBase } from '@subwallet/extension-base/background/types';
-import { getDomainFromUrl } from '@subwallet/extension-base/utils';
+import { ConfirmationRequestBase } from '@soul-wallet/extension-base/src/background/types';
+import { getDomainFromUrl } from '@soul-wallet/extension-base/src/utils';
 import { StyleProp, View, ViewStyle } from 'react-native';
 import DualLogo from 'components/Logo/DualLogo';
 import { Image, Typography } from 'components/Design';

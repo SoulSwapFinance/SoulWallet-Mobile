@@ -12,7 +12,7 @@ import { formatHistoryDate } from 'utils/customFormatDate';
 import { IconProps } from 'phosphor-react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { LanguageType } from '@subwallet/extension-base/background/KoniTypes';
+import { LanguageType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 
 interface Props {
   data: TransactionHistoryDisplayItem;

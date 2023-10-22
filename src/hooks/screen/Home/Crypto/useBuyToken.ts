@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { AccountJson } from '@subwallet/extension-base/background/types';
-import { isAccountAll as checkIsAccountAll } from '@subwallet/extension-base/utils';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { isAccountAll as checkIsAccountAll } from '@soul-wallet/extension-base/src/utils';
 import { getAccountType } from 'utils/index';
 import { findNetworkJsonByGenesisHash } from 'utils/getNetworkJsonByGenesisHash';
 import { findAccountByAddress } from 'utils/account';

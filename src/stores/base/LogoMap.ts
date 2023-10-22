@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit/dist';
-import { AllLogoMap } from '@subwallet/extension-base/background/KoniTypes';
+import { AllLogoMap } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import ChainLogoMap, { ProjectLogos } from 'components/Design/Logo/LogoMap';
 // import { AssetLogoMap, ChainLogoMap } from '@soul-wallet/chain-list/types';
 

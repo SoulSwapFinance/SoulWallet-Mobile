@@ -1,4 +1,4 @@
-import { CrowdloanParaState } from '@subwallet/extension-base/background/KoniTypes';
+import { CrowdloanParaState } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { Logo, Number, Tag } from 'components/Design';
 import { TagNativeProps } from 'components/Design/Tag';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';

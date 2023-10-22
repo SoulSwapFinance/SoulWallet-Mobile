@@ -2,7 +2,7 @@ import ConfirmationFooter from 'components/Common/Confirmation/ConfirmationFoote
 import SignatureScanner from 'components/Scanner/SignatureScanner';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import React, { useCallback, useMemo, useState } from 'react';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { ExtrinsicPayload } from '@polkadot/types/interfaces';
 import { approveSignPasswordV2, approveSignSignature, cancelSignRequest } from 'messaging/index';
 import { useSelector } from 'react-redux';

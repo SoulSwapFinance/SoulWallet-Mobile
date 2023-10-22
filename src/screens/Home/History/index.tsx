@@ -17,7 +17,7 @@ import {
   LanguageType,
   TransactionDirection,
   TransactionHistoryItem,
-} from '@subwallet/extension-base/background/KoniTypes';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { isTypeStaking, isTypeTransfer } from 'utils/transaction/detectType';
 import { TransactionHistoryDisplayData, TransactionHistoryDisplayItem } from 'types/history';
 import { customFormatDate, formatHistoryDate } from 'utils/customFormatDate';

@@ -1,4 +1,4 @@
-import { TransactionHistoryItem } from '@subwallet/extension-base/background/KoniTypes';
+import { TransactionHistoryItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { SWIconProps } from 'components/Design/Icon';
 
 export interface TransactionHistoryDisplayData {

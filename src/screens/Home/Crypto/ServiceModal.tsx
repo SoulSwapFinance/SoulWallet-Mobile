@@ -10,7 +10,7 @@ import { ServiceSelectItem } from 'components/ServiceSelectItem';
 import { HIDE_MODAL_DURATION } from 'constants/index';
 import useAppLock from 'hooks/useAppLock';
 import { PREDEFINED_TRANSAK_TOKEN, PREDEFINED_TRANSAK_TOKEN_BY_SLUG } from '../../../predefined/transak';
-import { _getChainSubstrateAddressPrefix } from '@subwallet/extension-base/services/chain-service/utils';
+import { _getChainSubstrateAddressPrefix } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 // import { ImageLogosMap } from 'assets/logo';
 import { FullSizeSelectModal } from 'components/Common/SelectModal';
 import { ModalRef } from 'types/modalRef';

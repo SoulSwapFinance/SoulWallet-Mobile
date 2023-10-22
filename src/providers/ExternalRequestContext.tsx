@@ -1,4 +1,4 @@
-import { ExternalState } from '@subwallet/extension-base/signers/types';
+import { ExternalState } from '@soul-wallet/extension-base/src/signers/types';
 import { SigData } from 'types/signer';
 import React, { useCallback, useReducer } from 'react';
 

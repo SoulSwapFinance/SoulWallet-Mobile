@@ -1,12 +1,12 @@
 import { useCallback, useContext, useMemo } from 'react';
-import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
+import { ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { TRANSACTION_TITLE_MAP } from 'constants/transaction';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import useFormControl, { FormControlConfig, FormControlOption } from 'hooks/screen/hooks/useFormControl';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { _getOriginChainOfAsset } from '@subwallet/extension-base/services/chain-service/utils';
+import { _getOriginChainOfAsset } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { isAccountAll } from 'utils/accountAll';
 import { ExtraExtrinsicType, ExtrinsicTypeMobile } from 'types/transaction';

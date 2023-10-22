@@ -1,4 +1,4 @@
-import { NftItem as _NftItem } from '@subwallet/extension-base/background/KoniTypes';
+import { NftItem as _NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import React, { useMemo } from 'react';
 import { StyleProp, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import ImagePreview from 'components/ImagePreview';

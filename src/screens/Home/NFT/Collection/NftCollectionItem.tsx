@@ -1,4 +1,4 @@
-import { NftCollection } from '@subwallet/extension-base/background/KoniTypes';
+import { NftCollection } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import ImagePreview from 'components/ImagePreview';
 import React from 'react';
 import { StyleProp, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';

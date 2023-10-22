@@ -20,7 +20,7 @@ import { RootNavigationProps, RootStackParamList } from 'routes/index';
 import ToastContainer from 'react-native-toast-notifications';
 import { SelectAccountTypeModal } from 'components/Modal/SelectAccountTypeModal';
 import { KeypairType } from '@polkadot/util-crypto/types';
-import { canDerive } from '@subwallet/extension-base/utils';
+import { canDerive } from '@soul-wallet/extension-base/src/utils';
 import { AccountActionSelectModal, ActionItemType } from 'components/Modal/AccountActionSelectModal';
 import { ModalRef } from 'types/modalRef';
 import useGoHome from 'hooks/screen/hooks/useGoHome';

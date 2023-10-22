@@ -1,4 +1,4 @@
-import { DelegationItem } from '@subwallet/extension-base/background/KoniTypes';
+import { DelegationItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
 
 export interface ConfirmUnStakeState {
   delegations?: DelegationItem[];

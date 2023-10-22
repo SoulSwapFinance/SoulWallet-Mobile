@@ -1,12 +1,14 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { IconProps } from 'phosphor-react-native';
-import { IconWeight } from 'phosphor-react-native/lib/typescript';
-import React from 'react';
-import { StyleProp, View, ViewStyle } from 'react-native';
-import { Icon, Squircle } from '..';
-import BackgroundIconStyles from './style';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { ImageShape } from '@subwallet/react-ui/es/image';
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { IconProps } from 'phosphor-react-native'
+import { IconWeight } from 'phosphor-react-native/lib/typescript'
+import React from 'react'
+import { StyleProp, View, ViewStyle } from 'react-native'
+import { Icon, Squircle } from '..'
+import BackgroundIconStyles from './style'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+
+declare const ImageShapes: readonly ["default", "square", "circle", "squircle", "none"]
+export type ImageShape = typeof ImageShapes[number]
 
 interface BackgroundIconProps {
   shape?: ImageShape;

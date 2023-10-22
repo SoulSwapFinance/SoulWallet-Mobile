@@ -1,13 +1,13 @@
 import { _ChainAsset, _ChainInfo } from '@soul-wallet/chain-list/types';
-import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
-import { AccountJson } from '@subwallet/extension-base/background/types';
-import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
+import { StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
 import {
   _getChainNativeTokenSlug,
   _getSubstrateGenesisHash,
   _isChainEvmCompatible,
   _isChainSupportSubstrateStaking,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

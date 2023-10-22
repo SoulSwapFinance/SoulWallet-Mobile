@@ -1,4 +1,4 @@
-import { isAccountAll } from '@subwallet/extension-base/utils';
+import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
 import createStyle from './styles';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
@@ -10,7 +10,7 @@ import i18n from 'utils/i18n/i18n';
 import { toShort } from 'utils/index';
 
 import AccountItemBase, { AccountItemBaseProps } from '../AccountItemBase';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 
 interface Props extends AccountItemBaseProps {
   direction?: 'vertical' | 'horizontal';

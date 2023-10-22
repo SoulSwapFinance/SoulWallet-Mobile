@@ -1,5 +1,5 @@
-import { MESSAGE_ORIGIN_PAGE } from '@subwallet/extension-base/defaults';
-import { getId } from '@subwallet/extension-base/utils/getId';
+import { MESSAGE_ORIGIN_PAGE } from '@soul-wallet/extension-base/src/defaults';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 import { predefinedDApps } from '../../../predefined/dAppSites';
 import { getHostName } from 'utils/browser';
 

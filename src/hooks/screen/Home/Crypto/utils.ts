@@ -4,7 +4,7 @@ import {
   _getMultiChainAsset,
   _isAssetFungibleToken,
   _isChainEvmCompatible,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 
 export function getAccountTypeByTokenGroup(
   tokenGroupSlug: string,

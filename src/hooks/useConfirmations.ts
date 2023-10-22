@@ -14,7 +14,7 @@ import {
   rejectMetaRequest,
 } from 'messaging/index';
 import { ConfirmationHookType, ConfirmationItem, ConfirmationType } from 'hooks/types';
-import { ConfirmationDefinitions } from '@subwallet/extension-base/background/KoniTypes';
+import { ConfirmationDefinitions } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { ConfirmationSlice } from 'stores/types';
 import { toggleConfirmationDisplayState } from 'stores/updater';
 

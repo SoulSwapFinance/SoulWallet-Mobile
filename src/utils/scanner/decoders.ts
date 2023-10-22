@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import {
   EthereumParsedData,
   ParsedData,

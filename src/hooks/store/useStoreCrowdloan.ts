@@ -1,12 +1,12 @@
 import { StoreStatus } from 'stores/types';
 import { useContext, useEffect, useState } from 'react';
 import { WebRunnerContext } from 'providers/contexts';
-import { CrowdloanJson } from '@subwallet/extension-base/background/KoniTypes';
+import { CrowdloanJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { updateCrowdloan } from 'stores/updater';
 import { clearWebRunnerHandler, subscribeCrowdloan } from 'messaging/index';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { getId } from '@subwallet/extension-base/utils/getId';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 
 export default function useStoreCrowdloan(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

@@ -2,17 +2,17 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { _AssetRef, _AssetType, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@soul-wallet/chain-list/types';
-import { AssetSetting, ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AssetSetting, ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import {
   _getAssetDecimals,
   _getOriginChainOfAsset,
   _isAssetFungibleToken,
   _isChainEvmCompatible,
   _isTokenTransferredByEvm,
-} from '@subwallet/extension-base/services/chain-service/utils';
-import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';
-import { addLazy, isSameAddress, removeLazy } from '@subwallet/extension-base/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { SWTransactionResponse } from '@soul-wallet/extension-base/src/services/transaction-service/types';
+import { addLazy, isSameAddress, removeLazy } from '@soul-wallet/extension-base/src/utils';
 import BigN from 'bignumber.js';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 

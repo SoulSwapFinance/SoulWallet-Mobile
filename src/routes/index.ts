@@ -2,7 +2,7 @@ import { NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { KeypairType } from '@polkadot/util-crypto/types';
 import { HomeStackParamList } from 'routes/home';
-import { ConfirmationsQueue } from '@subwallet/extension-base/background/KoniTypes';
+import { ConfirmationsQueue } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { NftTransferActionStackParamList } from 'routes/nft/transferAction';
 import { SigningActionStackParamList } from 'routes/signing';
 import { TransactionActionStackParamList } from 'routes/transaction/transactionAction';

@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { SVGImages } from 'assets/index';
 import { AccountType, Recoded } from 'types/ui-types';
-import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
 import isaac from 'isaac';
 import {
   ContractType,
@@ -9,12 +9,12 @@ import {
   NetWorkGroup,
   NetworkJson,
   TransakNetwork,
-} from '@subwallet/extension-base/background/KoniTypes';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
 import Clipboard from '@react-native-clipboard/clipboard';
 import { useToast } from 'react-native-toast-notifications';
 import { KeypairType } from '@polkadot/util-crypto/types';
-import { AccountAuthType, AccountJson, AccountWithChildren } from '@subwallet/extension-base/background/types';
-import { isAccountAll, uniqueStringArray } from '@subwallet/extension-base/utils';
+import { AccountAuthType, AccountJson, AccountWithChildren } from '@soul-wallet/extension-base/src/background/types';
+import { isAccountAll, uniqueStringArray } from '@soul-wallet/extension-base/src/utils';
 import { decodeAddress, encodeAddress, ethereumEncode, isAddress, isEthereumAddress } from '@polkadot/util-crypto';
 import { StyleProp, View } from 'react-native';
 import { ColorMap } from 'styles/color';

@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Button, Icon, SelectItem } from 'components/Design';
 import i18n from 'utils/i18n/i18n';
-import { NominationPoolInfo, StakingType } from '@subwallet/extension-base/background/KoniTypes';
+import { NominationPoolInfo, StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import useGetValidatorList, { NominationPoolDataType } from 'hooks/screen/Staking/useGetValidatorList';
 import { Keyboard, ListRenderItemInfo } from 'react-native';
 import { StakingPoolItem } from 'components/Common/StakingPoolItem';
 import useGetNominatorInfo from 'hooks/screen/Staking/useGetNominatorInfo';
-import { PREDEFINED_STAKING_POOL } from '@subwallet/extension-base/constants';
+import { PREDEFINED_STAKING_POOL } from '@soul-wallet/extension-base/src/constants';
 import { PoolSelectorField } from 'components/Field/PoolSelector';
 import { PoolSelectorDetailModal } from 'components/Modal/common/PoolSelectorDetailModal';
 import { ArrowCounterClockwise, MagnifyingGlass, SortAscending, SortDescending } from 'phosphor-react-native';

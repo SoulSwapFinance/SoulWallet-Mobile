@@ -5,7 +5,7 @@ import {
   AuthorizeRequest,
   MetadataRequest,
   SigningRequest,
-} from '@subwallet/extension-base/background/types';
+} from '@soul-wallet/extension-base/src/background/types';
 import { ConfirmationHeader } from 'components/Common/ConfirmationHeader';
 import { NEED_SIGN_CONFIRMATION } from 'constants/transaction';
 import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
@@ -16,7 +16,7 @@ import useConfirmationsInfo from 'hooks/screen/Confirmation/useConfirmationsInfo
 import { KeyboardAvoidingView, Platform, StyleProp, View } from 'react-native';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';
-import { ConfirmationDefinitions, ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
+import { ConfirmationDefinitions, ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { ColorMap } from 'styles/color';
 import { isRawPayload } from 'utils/confirmation/request/substrate';
 
@@ -33,7 +33,7 @@ import {
 } from './variants';
 import { STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
-import { WalletConnectSessionRequest } from '@subwallet/extension-base/services/wallet-connect-service/types';
+import { WalletConnectSessionRequest } from '@soul-wallet/extension-base/src/services/wallet-connect-service/types';
 import { ConnectWalletConnectConfirmation } from 'screens/Confirmations/variants/ConnectWalletConnectConfirmation';
 import { SafeAreaView } from 'react-native-safe-area-context';
 

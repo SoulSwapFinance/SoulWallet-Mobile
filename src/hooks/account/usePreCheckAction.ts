@@ -1,8 +1,8 @@
 // Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { useCallback } from 'react';
 
 import { isEthereumAddress } from '@polkadot/util-crypto';

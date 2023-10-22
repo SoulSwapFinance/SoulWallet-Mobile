@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@soul-wallet/chain-list/types';
-import { AuthUrls } from '@subwallet/extension-base/background/handlers/State';
+import { AuthUrls } from '@soul-wallet/extension-base/src/background/handlers/State';
 import {
   AccountsWithCurrentAddress,
   AddressBookInfo,
@@ -22,7 +22,7 @@ import {
   ThemeNames,
   TransactionHistoryItem,
   UiSettings,
-} from '@subwallet/extension-base/background/KoniTypes';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
 import {
   AccountJson,
   AccountsContext,
@@ -30,15 +30,15 @@ import {
   ConfirmationRequestBase,
   MetadataRequest,
   SigningRequest,
-} from '@subwallet/extension-base/background/types';
-import { _ChainState } from '@subwallet/extension-base/services/chain-service/types';
-import { SWTransactionResult } from '@subwallet/extension-base/services/transaction-service/types';
-import { addLazy, canDerive } from '@subwallet/extension-base/utils';
+} from '@soul-wallet/extension-base/src/background/types';
+import { _ChainState } from '@soul-wallet/extension-base/src/services/chain-service/types';
+import { SWTransactionResult } from '@soul-wallet/extension-base/src/services/transaction-service/types';
+import { addLazy, canDerive } from '@soul-wallet/extension-base/src/utils';
 import { lazySendMessage, lazySubscribeMessage } from 'messaging/index';
 import { AppSettings } from 'stores/types';
 import { store } from '..';
 import { buildHierarchy } from 'utils/buildHierarchy';
-import { WalletConnectSessionRequest } from '@subwallet/extension-base/services/wallet-connect-service/types';
+import { WalletConnectSessionRequest } from '@soul-wallet/extension-base/src/services/wallet-connect-service/types';
 import { SessionTypes } from '@walletconnect/types';
 // Setup redux stores
 

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useGetValidatorList, { ValidatorDataType } from 'hooks/screen/Staking/useGetValidatorList';
-import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
+import { StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
 import { Button, Icon, SelectItem } from 'components/Design';
@@ -10,7 +10,7 @@ import { getValidatorKey } from 'utils/transaction/stake';
 import useGetNominatorInfo from 'hooks/screen/Staking/useGetNominatorInfo';
 import { useSelectValidators } from 'hooks/screen/Transaction/useSelectValidators';
 import useGetChainStakingMetadata from 'hooks/screen/Staking/useGetChainStakingMetadata';
-import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
+import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
 import {
   ArrowCounterClockwise,
   CheckCircle,
@@ -27,8 +27,8 @@ import { ColorMap } from 'styles/color';
 import ToastContainer from 'react-native-toast-notifications';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { _getChainSubstrateAddressPrefix } from '@subwallet/extension-base/services/chain-service/utils';
-import { getValidatorLabel } from '@subwallet/extension-base/koni/api/staking/bonding/utils';
+import { _getChainSubstrateAddressPrefix } from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { getValidatorLabel } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils';
 import { ModalRef } from 'types/modalRef';
 import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import BigN from 'bignumber.js';

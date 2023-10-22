@@ -33,7 +33,7 @@ import TransactionHistoryReducer from './feature/TransactionHistory';
 import PasswordModalReducer from 'stores/PasswordModalState';
 import LogoMap from 'stores/base/LogoMap';
 import { mmkvReduxStore } from 'utils/storage';
-import { PriceJson } from '@subwallet/extension-base/background/KoniTypes';
+import { PriceJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { AssetRegistryStore, BalanceStore, BrowserSlice, ChainStore } from './types';
 
 const persistRootConfig = {

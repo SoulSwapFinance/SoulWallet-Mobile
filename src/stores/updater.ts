@@ -1,4 +1,4 @@
-import { ActiveCronAndSubscriptionMap, PriceJson, UiSettings } from '@subwallet/extension-base/background/KoniTypes';
+import { ActiveCronAndSubscriptionMap, PriceJson, UiSettings } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { store } from 'stores/index';
 import { AuthUrlsSlice, BrowserSlice, BrowserSliceTab, SiteInfo } from 'stores/types';
 

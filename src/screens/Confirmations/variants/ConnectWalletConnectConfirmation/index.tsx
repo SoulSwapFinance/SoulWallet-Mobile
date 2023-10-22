@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { WalletConnectSessionRequest } from '@subwallet/extension-base/services/wallet-connect-service/types';
+import { WalletConnectSessionRequest } from '@soul-wallet/extension-base/src/services/wallet-connect-service/types';
 import { approveWalletConnectSession, rejectWalletConnectSession } from 'messaging/index';
 import { isAccountAll } from 'utils/accountAll';
 import {
   WALLET_CONNECT_EIP155_NAMESPACE,
   WALLET_CONNECT_POLKADOT_NAMESPACE,
-} from '@subwallet/extension-base/services/wallet-connect-service/constants';
+} from '@soul-wallet/extension-base/src/services/wallet-connect-service/constants';
 import useSelectWalletConnectAccount from 'hooks/wallet-connect/useSelectWalletConnectAccount';
 import { VoidFunction } from 'types/index';
 import { useToast } from 'react-native-toast-notifications';

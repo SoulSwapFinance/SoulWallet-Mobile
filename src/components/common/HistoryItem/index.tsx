@@ -4,7 +4,7 @@ import { TransactionHistoryDisplayItem } from 'types/history';
 import { CaretRight } from 'phosphor-react-native';
 import { Icon, Logo, Typography } from 'components/Design';
 import { Number } from 'components/Design';
-import { ExtrinsicStatus, TransactionDirection } from '@subwallet/extension-base/background/KoniTypes';
+import { ExtrinsicStatus, TransactionDirection } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import HistoryItemStyles from './style';
 import { ThemeTypes } from 'styles/themes';

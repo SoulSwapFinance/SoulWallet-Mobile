@@ -1,4 +1,4 @@
-import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';
+import { SWTransactionResponse } from '@soul-wallet/extension-base/src/services/transaction-service/types';
 import { useCallback, useMemo } from 'react';
 import { useToast } from 'react-native-toast-notifications';
 

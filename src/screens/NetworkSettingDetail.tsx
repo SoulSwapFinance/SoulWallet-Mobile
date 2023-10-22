@@ -23,10 +23,10 @@ import {
   _isCustomChain,
   _isPureEvmChain,
   _isSubstrateChain,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import InputText from 'components/Input/InputText';
 import { Button, Icon } from 'components/Design';
-import { _NetworkUpsertParams } from '@subwallet/extension-base/services/chain-service/types';
+import { _NetworkUpsertParams } from '@soul-wallet/extension-base/src/services/chain-service/types';
 import { removeChain, upsertChain } from 'messaging/index';
 import { useToast } from 'react-native-toast-notifications';
 import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl';

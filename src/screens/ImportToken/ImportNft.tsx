@@ -16,13 +16,13 @@ import { NetworkField } from 'components/Field/Network';
 import { requestCameraPermission } from 'utils/permission/camera';
 import { RESULTS } from 'react-native-permissions';
 import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
-import { isValidSubstrateAddress } from '@subwallet/extension-base/utils';
+import { isValidSubstrateAddress } from '@soul-wallet/extension-base/src/utils';
 import { WebRunnerContext } from 'providers/contexts';
 import {
   _getNftTypesSupportedByChain,
   _isChainTestNet,
   _parseMetadataForSmartContractAsset,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { _AssetType, _ChainInfo } from '@soul-wallet/chain-list/types';
 import { Button, Icon } from 'components/Design';
 import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles';

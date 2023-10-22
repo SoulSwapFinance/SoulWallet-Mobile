@@ -11,7 +11,7 @@ import { TokenToggleItem } from 'components/Common/TokenToggleItem';
 import { updateAssetSetting } from '../../messaging';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { _isAssetFungibleToken, _isCustomAsset } from '@subwallet/extension-base/services/chain-service/utils';
+import { _isAssetFungibleToken, _isCustomAsset } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 
 const searchFunction = (items: _ChainAsset[], searchString: string) => {
   return items.filter(item => item?.symbol.toLowerCase().includes(searchString.toLowerCase()));

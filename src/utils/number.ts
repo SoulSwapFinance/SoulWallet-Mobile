@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 import BigN from 'bignumber.js';
-import { AmountData } from '@subwallet/extension-base/background/KoniTypes';
+import { AmountData } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import isaac from 'isaac';
 
 // 1000.12345 -> 1,000; 1000,654321 -> 1,001

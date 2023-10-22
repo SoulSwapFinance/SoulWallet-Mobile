@@ -1,10 +1,10 @@
-import { NftCollection } from '@subwallet/extension-base/background/KoniTypes';
+import { NftCollection } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { NftCollectionType } from 'hooks/types';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import reformatAddress from 'utils/index';
-import { isAccountAll } from '@subwallet/extension-base/utils';
+import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
 import { findNetworkJsonByGenesisHash } from 'utils/getNetworkJsonByGenesisHash';
 
 export default function useFetchNftCollection(): NftCollectionType {

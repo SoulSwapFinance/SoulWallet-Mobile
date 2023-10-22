@@ -6,8 +6,8 @@ import { WebRunnerContext } from 'providers/contexts';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { StoreStatus } from 'stores/types';
-import { getId } from '@subwallet/extension-base/utils/getId';
-import { addLazy, removeLazy } from '@subwallet/extension-base/utils/lazy';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId';
+import { addLazy, removeLazy } from '@soul-wallet/extension-base/src/utils/lazy';
 
 export default function useStoreNetworkMap(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

@@ -6,8 +6,8 @@ import {
   HandleTxResponse,
   NetworkJson,
   PasswordRequestSign,
-} from '@subwallet/extension-base/background/KoniTypes';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import PasswordRequest from 'components/Signing/Password/PasswordRequest';
 import QrRequest from 'components/Signing/QR/QrRequest';
 import UnknownRequest from 'components/Signing/Unknown/UnknownRequest';

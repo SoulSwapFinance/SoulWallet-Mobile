@@ -1,13 +1,13 @@
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { AbstractAddressJson, AccountJson } from '@subwallet/extension-base/background/types';
+import { AbstractAddressJson, AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import {
   findChainInfoByChainId,
   findChainInfoByHalfGenesisHash,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import {
   WALLET_CONNECT_EIP155_NAMESPACE,
   WALLET_CONNECT_POLKADOT_NAMESPACE,
-} from '@subwallet/extension-base/services/wallet-connect-service/constants';
+} from '@soul-wallet/extension-base/src/services/wallet-connect-service/constants';
 import { SessionTypes } from '@walletconnect/types';
 
 import { findAccountByAddress } from '../account';

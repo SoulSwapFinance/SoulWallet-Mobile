@@ -1,5 +1,5 @@
-import { NominatorMetadata, StakingType } from '@subwallet/extension-base/background/KoniTypes';
-import { isSameAddress } from '@subwallet/extension-base/utils';
+import { NominatorMetadata, StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { isSameAddress } from '@soul-wallet/extension-base/src/utils';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

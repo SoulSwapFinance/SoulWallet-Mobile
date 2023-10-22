@@ -1,4 +1,4 @@
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { Eye, HardDrives, QrCode } from 'phosphor-react-native';
 import { useMemo } from 'react';
 import { AccountSignMode } from 'types/signer';

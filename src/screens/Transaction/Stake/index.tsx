@@ -10,7 +10,7 @@ import {
   NominatorMetadata,
   StakingType,
   ValidatorInfo,
-} from '@subwallet/extension-base/background/KoniTypes';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { AccountSelectField } from 'components/Field/AccountSelect';
@@ -35,9 +35,9 @@ import MetaInfo from 'components/MetaInfo';
 import useGetChainStakingMetadata from 'hooks/screen/Staking/useGetChainStakingMetadata';
 import { PlusCircle } from 'phosphor-react-native';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
-import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';
+import { SWTransactionResponse } from '@soul-wallet/extension-base/src/services/transaction-service/types';
 import { isAccountAll } from 'utils/accountAll';
-import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
+import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
 import { BN_TEN } from 'utils/number';
 import { NetworkDetailModal } from 'screens/Transaction/Stake/NetworkDetailModal';
 import { TransactionLayout } from 'screens/Transaction/parts/TransactionLayout';

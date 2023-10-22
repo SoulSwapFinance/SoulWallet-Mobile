@@ -13,7 +13,7 @@ import { useRefresh } from 'hooks/useRefresh';
 import useGetStakingList from 'hooks/screen/Home/Staking/useGetStakingList';
 import { StakingDetailModal } from 'screens/Home/Staking/StakingDetail/StakingDetailModal';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
+import { StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { RootNavigationProps } from 'routes/index';
 import { EmptyList } from 'components/EmptyList';
 import { setAdjustPan } from 'rn-android-keyboard-adjust';

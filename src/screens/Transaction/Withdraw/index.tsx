@@ -7,15 +7,15 @@ import { AccountSelectField } from 'components/Field/AccountSelect';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
-import { AccountJson } from '@subwallet/extension-base/background/types';
-import { isSameAddress } from '@subwallet/extension-base/utils';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { isSameAddress } from '@soul-wallet/extension-base/src/utils';
 import {
   NominatorMetadata,
   RequestStakeWithdrawal,
   StakingType,
   UnstakingInfo,
   UnstakingStatus,
-} from '@subwallet/extension-base/background/KoniTypes';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { accountFilterFunc } from 'screens/Transaction/helper/staking';
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
 import useGetNominatorInfo from 'hooks/screen/Staking/useGetNominatorInfo';
@@ -28,7 +28,7 @@ import { ArrowCircleRight, XCircle } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
 import useHandleSubmitTransaction from 'hooks/transaction/useHandleSubmitTransaction';
-import { isActionFromValidator } from '@subwallet/extension-base/koni/api/staking/bonding/utils';
+import { isActionFromValidator } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils';
 import { submitStakeWithdrawal } from 'messaging/index';
 import { TransactionLayout } from 'screens/Transaction/parts/TransactionLayout';
 import { WithdrawProps } from 'routes/transaction/transactionAction';
@@ -36,8 +36,8 @@ import { MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
 import { ModalRef } from 'types/modalRef';
 import { AccountSelector } from 'components/Modal/common/AccountSelector';
-import { getAstarWithdrawable } from '@subwallet/extension-base/koni/api/staking/bonding/astar';
-import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
+import { getAstarWithdrawable } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/astar';
+import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
 
 const filterAccount = (
   chainInfoMap: Record<string, _ChainInfo>,

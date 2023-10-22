@@ -1,6 +1,6 @@
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { AmountData } from '@subwallet/extension-base/background/KoniTypes';
-import { _getChainNativeTokenSlug } from '@subwallet/extension-base/services/chain-service/utils';
+import { AmountData } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { _getChainNativeTokenSlug } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StakingScreenNavigationProps } from 'routes/staking/stakingScreen';
 import { ScrollView, View } from 'react-native';
 import { FreeBalance } from 'screens/Transaction/parts/FreeBalance';
-import { NominatorMetadata, StakingRewardItem, StakingType } from '@subwallet/extension-base/background/KoniTypes';
+import { NominatorMetadata, StakingRewardItem, StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';
 import useGetNominatorInfo from 'hooks/screen/Staking/useGetNominatorInfo';
@@ -14,16 +14,16 @@ import { submitStakeClaimReward } from 'messaging/index';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
 import { AccountSelectField } from 'components/Field/AccountSelect';
 import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
 import {
   _getSubstrateGenesisHash,
   _isChainEvmCompatible,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { isAccountAll } from 'utils/accountAll';
 import { isEthereumAddress } from '@polkadot/util-crypto';
-import { isSameAddress } from '@subwallet/extension-base/utils';
-import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
+import { isSameAddress } from '@soul-wallet/extension-base/src/utils';
+import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
 import BigN from 'bignumber.js';
 import { BN_ZERO } from 'utils/chainBalances';
 import MetaInfo from 'components/MetaInfo';

@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { Icon, Image, Typography, Web3Block } from 'components/Design';
 import { SessionTypes } from '@walletconnect/types';
-import { stripUrl } from '@subwallet/extension-base/utils';
+import { stripUrl } from '@soul-wallet/extension-base/src/utils';
 import { TouchableOpacity, View } from 'react-native';
 import { DAppIconMap } from '../../predefined/dAppSites';
-import { AbstractAddressJson } from '@subwallet/extension-base/background/types';
+import { AbstractAddressJson } from '@soul-wallet/extension-base/src/background/types';
 import { getWCAccountList } from 'utils/walletConnect';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

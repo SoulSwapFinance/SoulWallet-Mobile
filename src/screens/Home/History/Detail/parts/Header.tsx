@@ -1,4 +1,4 @@
-import { ExtrinsicType, TransactionAdditionalInfo } from '@subwallet/extension-base/background/KoniTypes'
+import { ExtrinsicType, TransactionAdditionalInfo } from '@soul-wallet/extension-base/src/background/KoniTypes'
 import { _getChainName } from 'hooks/chain/useGetChainName'
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';

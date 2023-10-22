@@ -7,7 +7,7 @@ import { NetworkConfigDetailProps, RootNavigationProps } from 'routes/index';
 import { SelectItem } from 'components/SelectItem';
 import i18n from 'utils/i18n/i18n';
 import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles';
-import { NETWORK_ERROR, NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
+import { NETWORK_ERROR, NetworkJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { completeConfirmation, upsertNetworkMap, validateNetwork } from 'messaging/index';
 import { useToast } from 'react-native-toast-notifications';
 import { useNavigation } from '@react-navigation/native';

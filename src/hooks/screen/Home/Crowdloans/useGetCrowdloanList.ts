@@ -1,10 +1,10 @@
-import { APIItemState, CrowdloanItem } from '@subwallet/extension-base/background/KoniTypes';
+import { APIItemState, CrowdloanItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import {
   _getChainNativeTokenBasicInfo,
   _getCrowdloanUrlFromChain,
   _getSubstrateParaId,
   _getSubstrateRelayParent,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
 import { useSelector } from 'react-redux';

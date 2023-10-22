@@ -5,7 +5,7 @@ import { FontSemiBold } from 'styles/sharedStyles';
 import { Book, Lightning } from 'phosphor-react-native';
 import { ActivityIndicator, Avatar, Button, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { NominationPoolInfo } from '@subwallet/extension-base/background/KoniTypes';
+import { NominationPoolInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { toShort } from 'utils/index';
 import i18n from 'utils/i18n/i18n';
 

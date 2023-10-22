@@ -4,7 +4,7 @@ import {
   _getEvmChainId,
   _getSubstrateGenesisHash,
   _isChainEvmCompatible,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 
 export const getNetworkJsonByGenesisHash = (
   networkMap: Record<string, NetworkJson>,

@@ -1,8 +1,8 @@
 // Copyright 2019-2022 @polkadot/extension-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { AccountJson } from '@subwallet/extension-base/background/types';
-import { canDerive } from '@subwallet/extension-base/utils';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { canDerive } from '@soul-wallet/extension-base/src/utils';
 import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import { ActivityIndicator } from 'components/Design';
 import { deviceHeight, EVM_ACCOUNT_TYPE, TOAST_DURATION } from 'constants/index';

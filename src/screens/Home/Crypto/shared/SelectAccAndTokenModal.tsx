@@ -1,5 +1,5 @@
 import React from 'react';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { TokenItemType, TokenSelector } from 'components/Modal/common/TokenSelector';

@@ -1,5 +1,5 @@
 import { NavigationState } from '@react-navigation/routers';
-import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
 import React, { ComponentType, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { LinkingOptions, NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import AttachReadOnly from 'screens/Account/AttachReadOnly';

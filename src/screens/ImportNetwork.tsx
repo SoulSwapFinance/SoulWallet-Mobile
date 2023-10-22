@@ -14,18 +14,18 @@ import {
   WifiSlash,
 } from 'phosphor-react-native';
 import { ActivityIndicator, Button, Icon } from 'components/Design';
-import { ValidateStatus } from '@subwallet/react-ui/es/form/FormItem';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { isUrl } from 'utils/index';
 import { upsertChain, validateCustomChain } from '../messaging';
-import { _CHAIN_VALIDATION_ERROR } from '@subwallet/extension-base/services/chain-service/handler/types';
-import { _generateCustomProviderKey } from '@subwallet/extension-base/services/chain-service/utils';
-import { _NetworkUpsertParams } from '@subwallet/extension-base/services/chain-service/types';
+import { _CHAIN_VALIDATION_ERROR } from '@soul-wallet/extension-base/src/services/chain-service/handler/types';
+import { _generateCustomProviderKey } from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { _NetworkUpsertParams } from '@soul-wallet/extension-base/src/services/chain-service/types';
 import { useToast } from 'react-native-toast-notifications';
 import { HIDE_MODAL_DURATION } from 'constants/index';
 import i18n from 'utils/i18n/i18n';
+import { ValidateStatus } from './AddProvider';
 
 interface ValidationInfo {
   status: ValidateStatus;

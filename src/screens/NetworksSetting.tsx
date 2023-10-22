@@ -11,7 +11,7 @@ import {
   _isChainEvmCompatible,
   _isCustomChain,
   _isSubstrateChain,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { EmptyList } from 'components/EmptyList';
 import i18n from 'utils/i18n/i18n';
 

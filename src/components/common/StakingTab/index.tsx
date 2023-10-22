@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import StakingTabStyle from './style';
-import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
+import { StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

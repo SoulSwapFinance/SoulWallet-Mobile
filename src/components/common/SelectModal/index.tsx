@@ -11,7 +11,7 @@ import { IconProps, MagnifyingGlass } from 'phosphor-react-native';
 import { SelectModalField } from 'components/Common/SelectModal/parts/SelectModalField';
 import { EmptyList } from 'components/EmptyList';
 import i18n from 'utils/i18n/i18n';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { TokenItemType } from 'components/Modal/common/TokenSelector';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

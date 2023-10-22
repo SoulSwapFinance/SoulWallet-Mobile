@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { updateNftCollection } from 'stores/updater';
 import { clearWebRunnerHandler, subscribeNftCollection } from 'messaging/index';
-import { NftCollection } from '@subwallet/extension-base/background/KoniTypes';
+import { NftCollection } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { WebRunnerContext } from 'providers/contexts';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { StoreStatus } from 'stores/types';
-import { getId } from '@subwallet/extension-base/utils/getId';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 
 export default function useStoreNftCollection(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

@@ -1,4 +1,4 @@
-import { isAccountAll } from '@subwallet/extension-base/utils';
+import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

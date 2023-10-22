@@ -11,8 +11,8 @@ import {
   RequestStakePoolingUnbonding,
   RequestUnbondingSubmit,
   StakingType,
-} from '@subwallet/extension-base/background/KoniTypes';
-import { isActionFromValidator } from '@subwallet/extension-base/koni/api/staking/bonding/utils';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { isActionFromValidator } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils';
 import BigN from 'bignumber.js';
 import useHandleSubmitTransaction from 'hooks/transaction/useHandleSubmitTransaction';
 import { BondedBalance } from 'screens/Transaction/parts/BondedBalance';
@@ -27,11 +27,11 @@ import { InputAmount } from 'components/Input/InputAmount';
 import { formatBalance } from 'utils/number';
 import { BN_ZERO } from 'utils/chainBalances';
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { accountFilterFunc } from 'screens/Transaction/helper/staking';
 import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';
+import { SWTransactionResponse } from '@soul-wallet/extension-base/src/services/transaction-service/types';
 import { submitPoolUnbonding, submitUnbonding } from 'messaging/index';
 import { FontMedium, MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import { TransactionLayout } from 'screens/Transaction/parts/TransactionLayout';

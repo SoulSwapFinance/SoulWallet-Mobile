@@ -11,13 +11,12 @@ import {
   _isChainEvmCompatible,
   _isCustomProvider,
   _isSubstrateChain,
-} from '@subwallet/extension-base/services/chain-service/utils';
-import { ValidateStatus } from '@subwallet/react-ui/es/form/FormItem';
-import { _NetworkUpsertParams } from '@subwallet/extension-base/services/chain-service/types';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { _NetworkUpsertParams } from '@soul-wallet/extension-base/src/services/chain-service/types';
 import { upsertChain, validateCustomChain } from 'messaging/index';
 import { useToast } from 'react-native-toast-notifications';
 import { useNavigation } from '@react-navigation/native';
-import { _CHAIN_VALIDATION_ERROR } from '@subwallet/extension-base/services/chain-service/handler/types';
+import { _CHAIN_VALIDATION_ERROR } from '@soul-wallet/extension-base/src/services/chain-service/handler/types';
 import { ActivityIndicator, Button, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { isUrl } from 'utils/index';
@@ -25,6 +24,9 @@ import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/
 import i18n from 'utils/i18n/i18n';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
 import { HIDE_MODAL_DURATION } from 'constants/index';
+
+declare const ValidateStatuses: readonly ["success", "warning", "error", "validating", ""];
+export type ValidateStatus = typeof ValidateStatuses[number];
 
 interface ValidationInfo {
   status: ValidateStatus;

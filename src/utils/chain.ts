@@ -1,5 +1,5 @@
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { _getSubstrateGenesisHash } from '@subwallet/extension-base/services/chain-service/utils';
+import { _getSubstrateGenesisHash } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 
 export const findChainInfoByGenesisHash = (
   chainMap: Record<string, _ChainInfo>,

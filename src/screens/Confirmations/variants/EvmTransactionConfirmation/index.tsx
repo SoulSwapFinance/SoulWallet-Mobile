@@ -1,4 +1,4 @@
-import { ConfirmationsQueueItem, EvmSendTransactionRequest } from '@subwallet/extension-base/background/KoniTypes';
+import { ConfirmationsQueueItem, EvmSendTransactionRequest } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import BigN from 'bignumber.js';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import MetaInfo from 'components/MetaInfo';

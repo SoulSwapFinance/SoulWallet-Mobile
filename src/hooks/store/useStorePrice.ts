@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { clearWebRunnerHandler, subscribePrice } from 'messaging/index';
 import { updatePrice } from 'stores/updater';
-import { PriceJson } from '@subwallet/extension-base/background/KoniTypes';
+import { PriceJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { WebRunnerContext } from 'providers/contexts';
 import { StoreStatus } from 'stores/types';
-import { getId } from '@subwallet/extension-base/utils/getId';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 
 export default function useStorePrice(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

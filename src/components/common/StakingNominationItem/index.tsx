@@ -4,7 +4,7 @@ import { Avatar, Icon, Number } from 'components/Design';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { FontMedium } from 'styles/sharedStyles';
 import { toShort } from 'utils/index';
-import { NominationInfo } from '@subwallet/extension-base/background/KoniTypes';
+import { NominationInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
 import { CheckCircle } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

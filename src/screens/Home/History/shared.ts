@@ -1,5 +1,5 @@
 import { CheckCircle, PaperPlaneTilt, ProhibitInset, Queue, Record, Spinner, StopCircle } from 'phosphor-react-native';
-import { ExtrinsicStatus, ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
+import { ExtrinsicStatus, ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import i18n from 'utils/i18n/i18n';
 import { StatusType } from 'screens/Home/History/Detail';
 

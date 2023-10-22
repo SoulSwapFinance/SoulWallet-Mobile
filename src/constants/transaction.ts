@@ -1,7 +1,7 @@
 // Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
+import { ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { ConfirmationType } from 'stores/base/RequestState';
 import { ExtraExtrinsicType, ExtrinsicTypeMobile } from 'types/transaction';
 import i18n from 'utils/i18n/i18n';

@@ -17,7 +17,7 @@ import { requestCameraPermission } from 'utils/permission/camera';
 import { RESULTS } from 'react-native-permissions';
 import { AddressScanner } from 'components/Scanner/AddressScanner';
 import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
-import { isValidSubstrateAddress } from '@subwallet/extension-base/utils';
+import { isValidSubstrateAddress } from '@soul-wallet/extension-base/src/utils';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { WebRunnerContext } from 'providers/contexts';
@@ -26,9 +26,9 @@ import {
   _getTokenTypesSupportedByChain,
   _isChainTestNet,
   _parseMetadataForSmartContractAsset,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { Button, Icon } from 'components/Design';
-import { ConfirmationResult } from '@subwallet/extension-base/background/KoniTypes';
+import { ConfirmationResult } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { useToast } from 'react-native-toast-notifications';
 import { TokenTypeSelector } from 'components/Modal/common/TokenTypeSelector';
 import { AssetTypeOption } from 'types/asset';

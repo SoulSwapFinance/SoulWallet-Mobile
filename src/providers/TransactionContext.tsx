@@ -1,4 +1,4 @@
-import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
+import { ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import React from 'react';
 import { TransactionContextProps } from 'types/transaction';
 

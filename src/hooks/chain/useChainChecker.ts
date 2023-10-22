@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useEffect, useRef, useState } from 'react';
-import { _ChainConnectionStatus } from '@subwallet/extension-base/services/chain-service/types';
+import { _ChainConnectionStatus } from '@soul-wallet/extension-base/src/services/chain-service/types';
 import { enableChain } from 'messaging/index';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';

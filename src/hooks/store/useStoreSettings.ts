@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { clearWebRunnerHandler, subscribeSettings } from 'messaging/index';
 import { updateSettings } from 'stores/updater';
-import { UiSettings } from '@subwallet/extension-base/background/KoniTypes';
+import { UiSettings } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { WebRunnerContext } from 'providers/contexts';
 import { StoreStatus } from 'stores/types';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { getId } from '@subwallet/extension-base/utils/getId';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 
 export default function useStoreSettings(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

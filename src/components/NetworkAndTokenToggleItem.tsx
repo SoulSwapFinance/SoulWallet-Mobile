@@ -5,7 +5,7 @@ import { ColorMap } from 'styles/color';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { BackgroundIcon, Button, Icon, Logo } from 'components/Design';
 import { CircleNotch, IconProps, PencilSimpleLine, WifiHigh, WifiSlash } from 'phosphor-react-native';
-import { _ChainConnectionStatus } from '@subwallet/extension-base/services/chain-service/types';
+import { _ChainConnectionStatus } from '@soul-wallet/extension-base/src/services/chain-service/types';
 
 interface Props {
   itemName: string;

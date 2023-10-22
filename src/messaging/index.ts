@@ -1,4 +1,4 @@
-import { getId } from '@subwallet/extension-base/utils/getId';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 import { metadataExpand } from '@subwallet/extension-chains';
 import { Chain } from '@subwallet/extension-chains/types';
 import { RefObject } from 'react';
@@ -27,7 +27,7 @@ import type {
   SeedLengths,
   SigningRequest,
   SubscriptionMessageTypes,
-} from '@subwallet/extension-base/background/types';
+} from '@soul-wallet/extension-base/src/background/types';
 import {
   AccountExternalError,
   AccountsWithCurrentAddress,
@@ -136,8 +136,8 @@ import {
   UiSettings,
   ValidateNetworkResponse,
   ValidatorInfo,
-} from '@subwallet/extension-base/background/KoniTypes';
-import { Message } from '@subwallet/extension-base/types';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { Message } from '@soul-wallet/extension-base/src/types';
 import type { KeyringAddress, KeyringPair$Json, KeyringPairs$Json } from 'sdk/keyring/types';
 import type { HexString } from '@polkadot/util/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
@@ -145,15 +145,15 @@ import { MetadataDef } from '@subwallet/extension-inject/types';
 import {
   SWTransactionResponse,
   SWTransactionResult,
-} from '@subwallet/extension-base/services/transaction-service/types';
+} from '@soul-wallet/extension-base/src/services/transaction-service/types';
 import {
   _ChainState,
   _NetworkUpsertParams,
   _ValidateCustomAssetRequest,
   _ValidateCustomAssetResponse,
-} from '@subwallet/extension-base/services/chain-service/types';
+} from '@soul-wallet/extension-base/src/services/chain-service/types';
 import { _ChainAsset, _ChainInfo } from '@soul-wallet/chain-list/types';
-import { AuthUrls } from '@subwallet/extension-base/services/request-service/types';
+import { AuthUrls } from '@soul-wallet/extension-base/src/services/request-service/types';
 import { _getKnownHashes } from 'utils/defaultChains';
 
 interface Handler {

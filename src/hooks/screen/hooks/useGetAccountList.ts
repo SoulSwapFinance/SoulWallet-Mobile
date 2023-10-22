@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { useMemo } from 'react';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 
 export default function useGetAccountList(networkKey?: string) {
   const networkMap = useSelector((state: RootState) => state.chainStore.chainInfoMap);

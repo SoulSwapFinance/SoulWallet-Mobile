@@ -1,8 +1,9 @@
 // Copyright 2019-2022 @polkadot/extension-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { _ChainAsset, _MultiChainAsset } from '@soul-wallet/chain-list/types';
-import { APIItemState } from '@subwallet/extension-base/background/KoniTypes';
+import { useEffect, useState } from 'react'
+import { _ChainAsset, _MultiChainAsset } from '@soul-wallet/chain-list/types'
+import { APIItemState } from '@soul-wallet/extension-base/src/background/KoniTypes'
 import {
   _getAssetDecimals,
   _getAssetOriginChain,
@@ -12,14 +13,13 @@ import {
   _getMultiChainAssetPriceId,
   _getMultiChainAssetSymbol,
   _isAssetValuable,
-} from '@subwallet/extension-base/services/chain-service/utils';
-import BigN from 'bignumber.js';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { AccountBalanceHookType } from 'types/hook';
-import { TokenBalanceItemType } from 'types/balance';
-import { AssetRegistryStore, BalanceStore, ChainStore, PriceStore } from 'stores/types';
-import { useEffect, useState } from 'react';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils'
+import BigN from 'bignumber.js'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { AccountBalanceHookType } from 'types/hook'
+import { TokenBalanceItemType } from 'types/balance'
+import { AssetRegistryStore, BalanceStore, ChainStore, PriceStore } from 'stores/types'
 
 const BN_0 = new BigN(0);
 const BN_10 = new BigN(10);

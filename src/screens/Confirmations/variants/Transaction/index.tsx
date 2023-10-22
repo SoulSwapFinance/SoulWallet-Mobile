@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { ConfirmationDefinitions, ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
+import { ConfirmationDefinitions, ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { BaseTransactionConfirmation } from 'screens/Confirmations/variants/Transaction/variants/Base';
 import BondTransactionConfirmation from 'screens/Confirmations/variants/Transaction/variants/Bond';
 import CancelUnstakeTransactionConfirmation from 'screens/Confirmations/variants/Transaction/variants/CancelUnstake';
@@ -9,9 +9,9 @@ import WithdrawTransactionConfirmation from 'screens/Confirmations/variants/Tran
 import { ConfirmationQueueItem } from 'stores/base/RequestState';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { SigningRequest } from '@subwallet/extension-base/background/types';
+import { SigningRequest } from '@soul-wallet/extension-base/src/background/types';
 import useParseSubstrateRequestPayload from 'hooks/transaction/confirmation/useParseSubstrateRequestPayload';
-import { SWTransactionResult } from '@subwallet/extension-base/services/transaction-service/types';
+import { SWTransactionResult } from '@soul-wallet/extension-base/src/services/transaction-service/types';
 import { JoinPoolTransactionConfirmation, SendNftTransactionConfirmation } from './variants';
 import { SubstrateSignArea } from 'screens/Confirmations/parts/Sign/Substrate';
 import { EvmSignArea } from 'screens/Confirmations/parts/Sign/Evm';

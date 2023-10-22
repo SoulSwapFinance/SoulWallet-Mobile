@@ -11,7 +11,7 @@ import {
   _getContractAddressOfToken,
   _isCustomAsset,
   _isSmartContractToken,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { ContainerHorizontalPadding, FontSemiBold, MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import { CopySimple, Pencil, Sun, Trash } from 'phosphor-react-native';
 import Clipboard from '@react-native-clipboard/clipboard';

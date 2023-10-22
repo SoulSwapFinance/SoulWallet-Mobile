@@ -1,5 +1,5 @@
 import { SignerPayloadJSON } from '@polkadot/types/types';
-import { SigningRequest } from '@subwallet/extension-base/background/types';
+import { SigningRequest } from '@soul-wallet/extension-base/src/background/types';
 import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import useParseSubstrateRequestPayload from 'hooks/transaction/confirmation/useParseSubstrateRequestPayload';

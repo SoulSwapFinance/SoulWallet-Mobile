@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { NftCollection, NftItem } from '@subwallet/extension-base/background/KoniTypes';
+import { NftCollection, NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { AddressField } from 'components/Field/Address';
 import { NetworkField } from 'components/Field/Network';
 import { TextField } from 'components/Field/Text';
@@ -25,7 +25,7 @@ import { NFTDetailProps } from 'screens/Home/NFT/NFTStackScreen';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Button } from 'components/Design';
 import useFetchChainInfo from 'hooks/common/useFetchChainInfo';
-import { _getBlockExplorerFromChain, _getChainSubstrateAddressPrefix } from '@subwallet/extension-base/services/chain-service/utils';
+import { _getBlockExplorerFromChain, _getChainSubstrateAddressPrefix } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 
 const ContainerHeaderStyle: StyleProp<any> = {
   width: '100%',

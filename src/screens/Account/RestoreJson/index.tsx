@@ -11,7 +11,7 @@ import { DirectoryPickerResponse, DocumentPickerResponse } from 'react-native-do
 import * as RNFS from 'react-native-fs';
 import { isKeyringPairs$Json } from 'types/typeGuards';
 import { batchRestoreV2, jsonGetAccountInfo, jsonRestoreV2 } from 'messaging/index';
-import { ResponseJsonGetAccountInfo } from '@subwallet/extension-base/background/types';
+import { ResponseJsonGetAccountInfo } from '@soul-wallet/extension-base/src/background/types';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { Warning } from 'components/Warning';

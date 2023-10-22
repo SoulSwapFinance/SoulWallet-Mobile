@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { isAccountAll } from '@subwallet/extension-base/utils';
+import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
 
 const useGetDefaultAccountName = () => {
   const { accounts } = useSelector((state: RootState) => state.accountState);

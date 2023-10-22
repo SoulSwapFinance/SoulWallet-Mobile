@@ -1,4 +1,4 @@
-import { ConfirmationRequestBase } from '@subwallet/extension-base/background/types';
+import { ConfirmationRequestBase } from '@soul-wallet/extension-base/src/background/types';
 
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

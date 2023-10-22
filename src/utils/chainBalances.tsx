@@ -1,5 +1,5 @@
 import { AccountInfoItem, BalanceInfo, BalanceSubInfo } from 'types/index';
-import { NetworkJson, TokenInfo } from '@subwallet/extension-base/background/KoniTypes';
+import { NetworkJson, TokenInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import BigN from 'bignumber.js';
 import { getTokenBalanceKey, isEmptyArray } from 'utils/index';
 

@@ -1,15 +1,15 @@
 import React, { useCallback, useRef } from 'react';
 import { View } from 'react-native';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import { VoidFunction } from 'types/index';
 import AlertBox from 'components/Design/AlertBox';
 import i18n from 'utils/i18n/i18n';
 import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import { Button, Icon } from 'components/Design';
 import { WCAccountInput } from 'components/WalletConnect/Account/WCAccountInput';
-import { isSameAddress } from '@subwallet/extension-base/utils';
+import { isSameAddress } from '@soul-wallet/extension-base/src/utils';
 import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
-import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
 import { CheckCircle } from 'phosphor-react-native';
 import { ModalRef } from 'types/modalRef';
 

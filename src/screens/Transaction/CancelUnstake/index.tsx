@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { StakingScreenNavigationProps } from 'routes/staking/stakingScreen';
-import { NominatorMetadata, StakingType } from '@subwallet/extension-base/background/KoniTypes';
+import { NominatorMetadata, StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { useNavigation } from '@react-navigation/native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useSelector } from 'react-redux';
@@ -13,8 +13,8 @@ import { ScrollView, View } from 'react-native';
 import { AccountSelectField } from 'components/Field/AccountSelect';
 import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { AccountJson } from '@subwallet/extension-base/background/types';
-import { isSameAddress } from '@subwallet/extension-base/utils';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { isSameAddress } from '@soul-wallet/extension-base/src/utils';
 import { accountFilterFunc } from 'screens/Transaction/helper/staking';
 import { FreeBalance } from 'screens/Transaction/parts/FreeBalance';
 import { CancelUnstakeSelector } from 'components/Modal/common/CancelUnstakeSelector';

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { _isChainSupportEvmNft, _isChainSupportWasmNft } from '@subwallet/extension-base/services/chain-service/utils';
+import { _isChainSupportEvmNft, _isChainSupportWasmNft } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
 
 function filterContractTypes(chainInfoMap: Record<string, _ChainInfo>) {

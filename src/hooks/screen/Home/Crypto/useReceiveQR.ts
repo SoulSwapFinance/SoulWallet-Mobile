@@ -1,13 +1,13 @@
 // Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import {
   _getMultiChainAsset,
   _isAssetFungibleToken,
   _isChainEvmCompatible,
-} from '@subwallet/extension-base/services/chain-service/utils';
-import { isAccountAll as checkIsAccountAll } from '@subwallet/extension-base/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { isAccountAll as checkIsAccountAll } from '@soul-wallet/extension-base/src/utils';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 

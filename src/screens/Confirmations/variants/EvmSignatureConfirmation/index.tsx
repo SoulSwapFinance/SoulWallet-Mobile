@@ -1,4 +1,4 @@
-import { ConfirmationsQueueItem, EvmSignatureRequest } from '@subwallet/extension-base/background/KoniTypes';
+import { ConfirmationsQueueItem, EvmSignatureRequest } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';

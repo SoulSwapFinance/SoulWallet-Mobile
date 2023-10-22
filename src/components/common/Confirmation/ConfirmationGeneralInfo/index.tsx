@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react';
 import { Text, View } from 'react-native';
-import { ConfirmationRequestBase } from '@subwallet/extension-base/background/types';
-import { getDomainFromUrl } from '@subwallet/extension-base/utils';
+import { ConfirmationRequestBase } from '@soul-wallet/extension-base/src/background/types';
+import { getDomainFromUrl } from '@soul-wallet/extension-base/src/utils';
 import { Image } from 'components/Design';
 import DualLogo from 'components/Logo/DualLogo';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStyle from './styles';
 // import { ImageLogosMap } from 'assets/logo';
-import { isWalletConnectRequest } from '@subwallet/extension-base/services/wallet-connect-service/helpers';
+import { isWalletConnectRequest } from '@soul-wallet/extension-base/src/services/wallet-connect-service/helpers';
 import { SVGImages } from 'assets/index';
 
 interface Props {

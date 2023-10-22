@@ -1,4 +1,4 @@
-import { QrState } from '@subwallet/extension-base/signers/types';
+import { QrState } from '@soul-wallet/extension-base/src/signers/types';
 import React, { useCallback, useReducer } from 'react';
 
 export enum QrStep {

@@ -1,4 +1,4 @@
-import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
+import { StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import BigN from 'bignumber.js';
 import { Icon, Number, Tag } from 'components/Design';
 import { StakingDataType } from 'hooks/types';

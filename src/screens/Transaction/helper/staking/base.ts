@@ -1,13 +1,13 @@
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import {
   _getSubstrateGenesisHash,
   _isChainEvmCompatible,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 
 import { isEthereumAddress } from '@polkadot/util-crypto';
-import { isAccountAll } from '@subwallet/extension-base/utils';
+import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
 import { ALL_KEY } from 'constants/index';
 
 const defaultAccountFilter = (stakingType: StakingType, chain?: _ChainInfo): ((account: AccountJson) => boolean) => {

@@ -9,7 +9,7 @@ import { CaretDown } from 'phosphor-react-native'
 import { ThemeTypes } from 'styles/themes'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import { Typography } from 'components/Design'
-import { _getChainName } from '@subwallet/extension-base/services/chain-service/utils'
+import { _getChainName } from '@soul-wallet/extension-base/src/services/chain-service/utils'
 
 interface Props extends FieldBaseProps {
   networkKey: string;

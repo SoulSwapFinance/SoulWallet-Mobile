@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit/dist';
-import { PriceJson } from '@subwallet/extension-base/background/KoniTypes';
+import { PriceJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { PriceStore } from 'stores/types';
 
 const initialState = {

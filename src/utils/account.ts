@@ -1,11 +1,11 @@
 import { decodeAddress, encodeAddress, isAddress, isEthereumAddress } from '@polkadot/util-crypto';
-import { AbstractAddressJson, AccountJson, AccountWithChildren } from '@subwallet/extension-base/background/types';
-import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
+import { AbstractAddressJson, AccountJson, AccountWithChildren } from '@soul-wallet/extension-base/src/background/types';
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
 import {
   _getChainSubstrateAddressPrefix,
   _isChainEvmCompatible,
-} from '@subwallet/extension-base/services/chain-service/utils';
-import { isAccountAll, reformatAddress } from '@subwallet/extension-base/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { isAccountAll, reformatAddress } from '@soul-wallet/extension-base/src/utils';
 import { MODE_CAN_SIGN } from 'constants/signer';
 import { AccountSignMode } from 'types/signer';
 import { AccountAddressType } from 'types/index';

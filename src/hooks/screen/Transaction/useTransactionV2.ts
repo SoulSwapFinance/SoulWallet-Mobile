@@ -1,5 +1,5 @@
 import { useCallback, useContext, useMemo } from 'react';
-import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
+import { ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { TRANSACTION_TITLE_MAP } from 'constants/transaction';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';

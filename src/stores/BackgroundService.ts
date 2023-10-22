@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { BackgroundServiceSlice } from 'stores/types';
-import { ActiveCronAndSubscriptionMap } from '@subwallet/extension-base/background/KoniTypes';
+import { ActiveCronAndSubscriptionMap } from '@soul-wallet/extension-base/src/background/KoniTypes';
 
 const initialState: BackgroundServiceSlice = {
   activeState: {

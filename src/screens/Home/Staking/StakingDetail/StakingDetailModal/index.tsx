@@ -10,9 +10,9 @@ import {
   StakingType,
   UnstakingInfo,
   UnstakingStatus,
-} from '@subwallet/extension-base/background/KoniTypes';
-import { isShowNominationByValidator } from '@subwallet/extension-base/koni/api/staking/bonding/utils';
-import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { isShowNominationByValidator } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils';
+import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
@@ -21,7 +21,7 @@ import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
 import {
   _getChainNativeTokenBasicInfo,
   _getChainSubstrateAddressPrefix,
-} from '@subwallet/extension-base/services/chain-service/utils';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { ALL_KEY, deviceHeight, TOAST_DURATION } from 'constants/index';
 import { useNavigation } from '@react-navigation/native';
@@ -32,7 +32,7 @@ import { getUnstakingPeriod, getWaitingTime } from 'screens/Transaction/helper/s
 import { ScrollView, TouchableHighlight, View } from 'react-native';
 import { Avatar, Button, Icon, Number, SwModal, Typography } from 'components/Design';
 import { ArrowCircleUpRight, DotsThree } from 'phosphor-react-native';
-import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
 import { FontMedium, STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
 import { ThemeTypes } from 'styles/themes';
 import { isAccountAll } from 'utils/accountAll';

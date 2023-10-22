@@ -4,7 +4,7 @@ import {
   EvmSendTransactionRequest,
   NetworkJson,
   ResponseParseEVMContractInput,
-} from '@subwallet/extension-base/background/KoniTypes';
+} from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { parseEVMTransactionInput, validateCustomToken } from 'messaging/index';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

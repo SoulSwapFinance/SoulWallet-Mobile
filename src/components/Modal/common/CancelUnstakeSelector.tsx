@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { ListRenderItemInfo } from 'react-native';
 import i18n from 'utils/i18n/i18n';
-import { UnstakingInfo } from '@subwallet/extension-base/background/KoniTypes';
+import { UnstakingInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { CancelUnstakeSelectorField } from 'components/Field/CancelUnstakeSelector';
 import { CancelUnstakeItem } from 'components/Common/CancelUnstakeItem';
 import { FullSizeSelectModal } from 'components/Common/SelectModal';

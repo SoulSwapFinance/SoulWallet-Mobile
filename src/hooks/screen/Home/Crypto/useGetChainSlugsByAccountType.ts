@@ -1,6 +1,6 @@
 import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { AccountJson } from '@subwallet/extension-base/background/types';
-import { _isChainEvmCompatible } from '@subwallet/extension-base/services/chain-service/utils';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { _isChainEvmCompatible } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { isEthereumAddress } from '@polkadot/util-crypto';

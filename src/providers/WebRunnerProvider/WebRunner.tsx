@@ -7,11 +7,11 @@ import { WebViewMessage } from 'react-native-webview/lib/WebViewTypes';
 import { WebRunnerState, WebRunnerStatus } from 'providers/contexts';
 import StaticServer from 'react-native-static-server';
 import { listenMessage, restartAllHandlers } from 'messaging/index';
-import { Message } from '@subwallet/extension-base/types';
+import { Message } from '@soul-wallet/extension-base/src/types';
 import RNFS from 'react-native-fs';
 import i18n from 'utils/i18n/i18n';
 import VersionNumber from 'react-native-version-number';
-import { getId } from '@subwallet/extension-base/utils/getId';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 import { mmkvStore } from 'utils/storage';
 
 const WEB_SERVER_PORT = 9135;

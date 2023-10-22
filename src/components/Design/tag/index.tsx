@@ -3,10 +3,18 @@ import { StyleProp, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'r
 import Icon from '../Icon';
 import { TagPropsType } from './PropsType';
 import { X } from 'phosphor-react-native';
-import { PresetBrandColorTypes, PresetColorTypes, PresetStatusColorTypes } from '@subwallet/react-ui/es/_util/colors';
-import capitalize from '@subwallet/react-ui/es/_util/capitalize';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TagStyles from './style';
+
+export const PresetBrandColorTypes = ["primary", "secondary"];
+export const PresetStatusColorTypes = ["success", "processing", "error", "default", "warning", "danger"];
+export const PresetPositionColorTypes = ["header"];
+export const PresetColorTypes = ["pink", "red", "yellow", "orange", "cyan", "green", "blue", "purple", "geekblue", "magenta", "volcano", "gold", "lime"];
+export type PresetBrandColorType = typeof PresetBrandColorTypes[number];
+export type PresetColorType = typeof PresetColorTypes[number];
+export type PresetStatusColorType = typeof PresetStatusColorTypes[number];
+export type PresetPositionColorType = typeof PresetPositionColorTypes[number];
+
 const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 const PresetStatusColorRegex = new RegExp(`^(${PresetStatusColorTypes.join('|')})$`);
 const PresetBrandColorRegex = new RegExp(`^(${PresetBrandColorTypes.join('|')})$`);
@@ -14,6 +22,11 @@ const PresetBrandColorRegex = new RegExp(`^(${PresetBrandColorTypes.join('|')})$
 export interface TagNativeProps extends TagPropsType {
   style?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
+}
+
+function capitalize(term: any): string {
+  let termString = term.toString();
+  return termString.charAt(0).toUpperCase() + termString.slice(1).toLowerCase();
 }
 
 const Tag: React.FC<TagNativeProps> = props => {
@@ -74,9 +87,9 @@ const Tag: React.FC<TagNativeProps> = props => {
   };
   const presetColor = isPresetColor();
   // @ts-ignore
-  const wrapStyle = _styles[`${color}${capitalize(bgType)}Wrap`] || getTagColorBgc;
+  const wrapStyle = (_styles as {[key: string]: any})[`${color}${capitalize(bgType)}Wrap`] || getTagColorBgc;
   // @ts-ignore
-  const textStyle = _styles[`${color}${capitalize(bgType)}Text`] || getTagColorText;
+  const textStyle = (_styles as {[key: string]: any})[`${color}${capitalize(bgType)}Text`] || getTagColorText;
 
   const closableDom = closable ? (
     <TouchableOpacity style={_styles.close} onPress={onTagClose}>
@@ -86,7 +99,7 @@ const Tag: React.FC<TagNativeProps> = props => {
 
   return !closed ? (
     <View style={[_styles.tag, style]}>
-      <View style={[_styles.wrap, presetColor && wrapStyle, shape && _styles[`shape${capitalize(shape)}Style`]]}>
+      <View style={[_styles.wrap, presetColor && wrapStyle, shape && (_styles as {[key: string]: any})[`shape${capitalize(shape)}Style` as keyof typeof _styles]]}>
         {icon}
         {React.isValidElement(children) ? (
           children

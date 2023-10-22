@@ -1,6 +1,6 @@
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
 import { ScannerContext } from 'providers/ScannerContext';
 import { useContext, useMemo } from 'react';

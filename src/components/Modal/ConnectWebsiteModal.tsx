@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { AuthUrlInfo } from '@subwallet/extension-base/background/handlers/State';
+import { AuthUrlInfo } from '@soul-wallet/extension-base/src/background/handlers/State';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';

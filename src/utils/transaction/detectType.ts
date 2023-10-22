@@ -1,7 +1,7 @@
 // Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
+import { ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
 
 export const isTypeTransfer = (txType: ExtrinsicType) =>
   [ExtrinsicType.TRANSFER_BALANCE, ExtrinsicType.TRANSFER_TOKEN, ExtrinsicType.TRANSFER_XCM].includes(txType);

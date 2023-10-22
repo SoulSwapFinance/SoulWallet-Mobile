@@ -11,8 +11,8 @@ import { StoreStatus } from 'stores/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { updateConfirmations } from 'stores/Confirmation';
-import { AuthorizeRequest, MetadataRequest, SigningRequest } from '@subwallet/extension-base/background/types';
-import { getId } from '@subwallet/extension-base/utils/getId';
+import { AuthorizeRequest, MetadataRequest, SigningRequest } from '@soul-wallet/extension-base/src/background/types';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 
 function getStatus(isReady: boolean | undefined, isWaiting: boolean | undefined): StoreStatus {
   if (isReady) {

@@ -1,6 +1,6 @@
 import { StyleProp, TextStyle, View, ViewStyle } from 'react-native';
 import Text from '../components/Text';
-import { AccountJson } from '@subwallet/extension-base/background/types';
+import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
 import React, { useCallback } from 'react';
 import Clipboard from '@react-native-clipboard/clipboard';
 import { FontBold, FontSemiBold, sharedStyles } from 'styles/sharedStyles';
@@ -8,7 +8,7 @@ import { CircleWavyCheck, CopySimple } from 'phosphor-react-native';
 import { ColorMap } from 'styles/color';
 import { IconButton } from 'components/IconButton';
 import i18n from 'utils/i18n/i18n';
-import { isAccountAll } from '@subwallet/extension-base/utils';
+import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
 import { Avatar } from 'components/Design';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 
