@@ -600,7 +600,7 @@ export async function validateAccount(address: string, password: string): Promis
   return sendMessage('pri(accounts.validate)', { address, password });
 }
 
-export async function forgetAccount(address: string): Promise<boolean> {
+export async function forgotAccount(address: string): Promise<boolean> {
   return sendMessage('pri(accounts.forget)', { address });
 }
 

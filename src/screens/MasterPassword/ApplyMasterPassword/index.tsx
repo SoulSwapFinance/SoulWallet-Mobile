@@ -15,7 +15,7 @@ import { TextField } from 'components/Field/Text';
 import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/hooks/useFormControl';
 import { validatePassword } from 'screens/Shared/AccountNamePasswordCreation';
 import { PasswordField } from 'components/Field/Password';
-import { forgetAccount, keyringMigrateMasterPassword } from 'messaging/index';
+import { forgotAccount, keyringMigrateMasterPassword } from 'messaging/index';
 import { Introduction } from 'screens/MasterPassword/ApplyMasterPassword/Introduction';
 import { ApplyDone } from 'screens/MasterPassword/ApplyMasterPassword/ApplyDone';
 import useGoHome from 'hooks/screen/hooks/useGoHome';
@@ -198,7 +198,7 @@ const ApplyMasterPassword = () => {
     if (migrateAccount?.address) {
       setDeleting(true);
       setTimeout(() => {
-        forgetAccount(migrateAccount.address)
+        forgotAccount(migrateAccount.address)
           .then(() => {
             setIsError(false);
           })

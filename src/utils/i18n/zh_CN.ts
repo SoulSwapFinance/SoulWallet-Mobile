@@ -247,7 +247,7 @@ export const zh = {
     importAccMessage: '导入已存在的账户',
     attachAccLabel: '附加账户',
     attachAccMessage: '附加没有私钥的账户',
-    forgetAccount: '忘记密码？',
+    forgotAccount: '忘记密码？',
   },
   exportAccount: {
     exportSeedPhrase: '导出助记词',

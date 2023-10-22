@@ -20,7 +20,7 @@ import { EditAccountProps, RootNavigationProps } from 'routes/index';
 import { AccountSignMode } from 'types/signer';
 import i18n from 'utils/i18n/i18n';
 import { toShort } from 'utils/index';
-import { deriveAccountV3, editAccount, forgetAccount } from 'messaging/index';
+import { deriveAccountV3, editAccount, forgotAccount } from 'messaging/index';
 import createStyle from './styles';
 import { DisabledStyle } from 'styles/sharedStyles';
 
@@ -137,7 +137,7 @@ export const AccountDetail = ({
   const onDelete = useCallback(() => {
     if (account?.address) {
       setDeleting(true);
-      forgetAccount(account.address)
+      forgotAccount(account.address)
         .then(() => {
           goHome();
         })

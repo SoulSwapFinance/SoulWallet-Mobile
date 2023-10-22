@@ -249,7 +249,7 @@ export const vi = {
     importAccMessage: 'Nhập tài khoản có sẵn',
     attachAccLabel: 'Kết nối tài khoản',
     attachAccMessage: 'Kết nối tài khoản không có private key',
-    forgetAccount: 'Quên mật khẩu?',
+    forgotAccount: 'Quên mật khẩu?',
   },
   exportAccount: {
     exportSeedPhrase: 'Xuất seed phrase',
