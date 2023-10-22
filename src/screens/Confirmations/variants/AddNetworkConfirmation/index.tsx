@@ -111,11 +111,11 @@ const AddNetworkConfirmation: React.FC<Props> = (props: Props) => {
               <Text style={styles.text}>{chainEditInfo.blockExplorer || i18n.confirmation.blockExplorer}</Text>
             </View>
           </FieldBase>
-          <FieldBase>
+          {/* <FieldBase>
             <View style={styles.textField}>
               <Text style={styles.text}>{chainEditInfo.crowdloanUrl || i18n.confirmation.crowdloanURL}</Text>
             </View>
-          </FieldBase>
+          </FieldBase> */}
         </View>
       </ConfirmationContent>
       <ConfirmationFooter>

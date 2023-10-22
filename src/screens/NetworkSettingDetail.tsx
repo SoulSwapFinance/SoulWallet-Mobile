@@ -346,6 +346,7 @@ export const NetworkSettingDetail = ({
             placeholder={formState.labels.blockExplorer}
           />
 
+          {!isPureEvmChain &&
           <InputText
             ref={formState.refs.crowdloanUrl}
             value={formState.data.crowdloanUrl}
@@ -354,6 +355,8 @@ export const NetworkSettingDetail = ({
             errorMessages={formState.errors.crowdloanUrl}
             placeholder={formState.labels.crowdloanUrl}
           />
+          }
+
         </ScrollView>
 
         <View style={{ ...MarginBottomForSubmitButton }}>
