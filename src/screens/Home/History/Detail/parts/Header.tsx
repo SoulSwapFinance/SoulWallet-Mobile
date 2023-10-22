@@ -1,12 +1,12 @@
+import React, { useMemo } from 'react'
 import { ExtrinsicType, TransactionAdditionalInfo } from '@soul-wallet/extension-base/src/background/KoniTypes'
-import { _getChainName } from 'hooks/chain/useGetChainName'
-import React, { useMemo } from 'react';
-import { useSelector } from 'react-redux';
-import { TransactionHistoryDisplayItem } from 'types/history';
-import { RootState } from 'stores/index';
-import { isTypeStaking, isTypeTransfer } from 'utils/transaction/detectType';
-import MetaInfo from 'components/MetaInfo';
-import i18n from 'utils/i18n/i18n';
+import { useSelector } from 'react-redux'
+import { TransactionHistoryDisplayItem } from 'types/history'
+import { RootState } from 'stores/index'
+import { isTypeStaking, isTypeTransfer } from 'utils/transaction/detectType'
+import MetaInfo from 'components/MetaInfo'
+import i18n from 'utils/i18n/i18n'
+import { _getChainName } from '@soul-wallet/extension-base/src/services/chain-service/utils'
 
 interface Props {
   data: TransactionHistoryDisplayItem;

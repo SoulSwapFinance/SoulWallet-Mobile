@@ -359,14 +359,14 @@ export const ImportNetwork = () => {
           onChangeText={onChangeValue('blockExplorer')}
         />
 
-        <InputText
+        {/* <InputText
           leftIcon={Rocket}
           placeholder={formState.labels.crowdloanUrl}
           ref={formState.refs.crowdloanUrl}
           value={formState.data.crowdloanUrl}
           onSubmitField={onSubmitField('crowdloanUrl')}
           onChangeText={onChangeValue('crowdloanUrl')}
-        />
+        /> */}
       </View>
 
       <View style={{ ...ContainerHorizontalPadding, ...MarginBottomForSubmitButton }}>
