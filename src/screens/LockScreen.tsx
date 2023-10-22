@@ -24,7 +24,7 @@ const optionalConfigObject = {
   title: 'Authentication Required', // Android
   imageColor: '#e00606', // Android
   imageErrorColor: '#ff0000', // Android
-  sensorDescription: 'Touch sensor', // Android
+  sensorDescription: 'Touch Sensor', // Android
   sensorErrorDescription: 'Failed', // Android
   cancelText: 'Cancel', // Android
   fallbackLabel: 'Enter Password', // iOS (if empty, then label is hidden)

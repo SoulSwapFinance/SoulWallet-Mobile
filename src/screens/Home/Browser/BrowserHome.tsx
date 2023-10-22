@@ -146,7 +146,7 @@ const BrowserHome = () => {
     <View style={stylesheet.container}>
       <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
         <FastImage style={stylesheet.banner} resizeMode="cover" source={Images.browserBanner} />
-        {historyItems && historyItems.length > 0 && (
+        {/* {historyItems && historyItems.length > 0 && (
           <>
             <SectionHeader
               title={i18n.browser.recent}
@@ -165,7 +165,7 @@ const BrowserHome = () => {
               horizontal
             />
           </>
-        )}
+        )} */}
         {bookmarkItems && bookmarkItems.length > 0 && (
           <>
             <SectionHeader

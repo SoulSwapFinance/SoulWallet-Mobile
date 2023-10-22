@@ -14,7 +14,7 @@ import useCheckEmptyAccounts from 'hooks/useCheckEmptyAccounts';
 import { FirstScreen } from 'screens/Home/FirstScreen';
 // import { CrowdloansScreen } from 'screens/Home/Crowdloans';
 import { BrowserScreen } from 'screens/Home/Browser';
-import BrowserSoulSwap from 'screens/Home/Browser/BrowserSoulSwap';
+// import BrowserSoulSwap from 'screens/Home/Browser/BrowserSoulSwap';
 import { HomeStackParamList } from 'routes/home';
 import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
 // import withPageWrapper from 'components/PageWrapper';
@@ -40,6 +40,7 @@ import SvgLogo from 'assets/svg/Logo';
 import SvgMagicHat from 'assets/svg/MagicHat';
 import SvgMagicBall from 'assets/svg/MagicBall';
 import SvgPhoto from 'assets/svg/Photo';
+import SvgCauldron from 'assets/svg/Cauldron';
 
 interface tabbarIconColor {
   color: string;
@@ -54,15 +55,15 @@ const nftTabbarIcon = ({ color }: tabbarIconColor) => {
 //   return <Rocket size={24} color={color} weight={'fill'} />;
 // };
 const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <Database size={24} color={color} weight={'fill'} />;
+  return <SvgCauldron width={32} height={32} color={color} />;
 };
 const browserTabbarIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicBall width={32} height={32} color={color} />;
 };
 
-const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
-  return <SvgLogo width={36} height={36} color={color} />
-};
+// const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
+//   return <SvgLogo width={36} height={36} color={color} />
+// };
 // const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
 //   return (
 //     <Image 
@@ -153,7 +154,7 @@ const MainScreen = () => {
           tabBarIcon: crowdloanTabbarIcon,
         }}
       /> */}
-      {/* <Tab.Screen
+      <Tab.Screen
         name={'Staking'}
         component={StakingScreen}
         options={{
@@ -161,15 +162,15 @@ const MainScreen = () => {
           tabBarHideOnKeyboard: Platform.OS === 'android',
           tabBarIcon: stakingTabbarIcon,
         }}
-      /> */}
-      <Tab.Screen
+      />
+      {/* <Tab.Screen
         name={'SoulSwap'}
         component={BrowserSoulSwap}
         options={{
           tabBarLabel: 'SoulSwap',
           tabBarIcon: browserSoulSwapIcon,
         }}
-      />
+      /> */}
       <Tab.Screen
         name={'Browser'}
         component={BrowserScreen}

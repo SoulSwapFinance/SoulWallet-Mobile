@@ -8,7 +8,7 @@ export const CategoryEmptyList = () => {
     <EmptyList
       icon={GlobeSimple}
       title={i18n.emptyScreen.manageDAppEmptyTitle}
-      message={i18n.emptyScreen.categoryItemEmpty}
+      // message={i18n.emptyScreen.categoryItemEmpty}
     />
   );
 };

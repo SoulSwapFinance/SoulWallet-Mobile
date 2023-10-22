@@ -49,9 +49,9 @@ const Component = ({ visibleModal, setVisibleModal }: Props, ref: ForwardedRef<B
 
   const OPTIONS: OptionType[] = [
     {
-      key: 'toggleFavouriteSite',
+      key: 'toggleFavoriteSite',
       icon: isBookmarked ? StarHalf : Star,
-      label: isBookmarked ? i18n.common.removeFromFavourites : i18n.common.addBookmark,
+      label: isBookmarked ? i18n.common.removeFromFavorites : i18n.common.addBookmark,
       iconBackgroundColor: isBookmarked ? theme.colorTextDarkPurple : theme.colorTextDarkPurple,
       onPress: () => {
         if (isBookmarked) {
@@ -93,7 +93,7 @@ const Component = ({ visibleModal, setVisibleModal }: Props, ref: ForwardedRef<B
             key={opt.key}
             label={opt.label}
             isSelected={false}
-            disabled={opt.key === 'toggleFavouriteSite' && siteInfo.url.startsWith(`https://${searchDomain}`)}
+            disabled={opt.key === 'toggleFavoriteSite' && siteInfo.url.startsWith(`https://${searchDomain}`)}
             backgroundColor={opt.iconBackgroundColor}
           />
         ))}
