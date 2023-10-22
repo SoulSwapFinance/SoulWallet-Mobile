@@ -54,6 +54,7 @@
     "@soul-wallet/chain-list": "^1.0.6",
     "@soul-wallet/extension-base": "^1.0.8",
     "@soul-wallet/extension-chains": "^1.0.0",
+    "@soul-wallet/extension-inject": "^1.0.1",
     "boring-avatars": "^1.7.0",
     "deprecated-react-native-prop-types": "^4.0.0",
     "ed2curve": "^0.3.0",

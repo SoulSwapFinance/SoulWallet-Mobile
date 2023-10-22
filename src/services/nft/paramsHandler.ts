@@ -1,7 +1,7 @@
-// Copyright 2019-2022 @subwallet/extension-koni authors & contributors
+// Copyright 2023 @soul-wallet/extension-koni authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { CustomTokenType, NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { SUPPORTED_TRANSFER_CHAIN_NAME } from 'types/nft';
 
 const RMRK_PREFIX = 'RMRK';
@@ -76,9 +76,11 @@ function psp34Parser(nftItem: NftItem) {
 }
 
 export default function paramsHandler(nftItem: NftItem, networkKey: string) {
-  if (nftItem.type === CustomTokenType.erc721) {
+  // if (nftItem.type === CustomTokenType.erc721) {
+  if (nftItem.type === "ERC721") {
     return web3Parser(nftItem);
-  } else if (nftItem.type === CustomTokenType.psp34) {
+  // } else if (nftItem.type === CustomTokenType.psp34) {
+  } else if (nftItem.type === "PSP34") {
     return psp34Parser(nftItem);
   } else {
     switch (networkKey) {

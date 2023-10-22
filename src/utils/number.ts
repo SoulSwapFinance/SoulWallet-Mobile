@@ -40,7 +40,7 @@ export function randomIntFromInterval(min: number, max: number) {
   return Math.floor(isaac.random() * (max - min + 1) + min);
 }
 
-// Number from @subwallet-react-ui
+// Number from @soul-wallet-react-ui
 export const BN_TEN = new BigNumber(10);
 export interface NumberFormatter {
   (input: string, metadata?: Record<string, number>): string;

@@ -4231,30 +4231,6 @@
   resolved "https://registry.npmjs.org/@substrate/ss58-registry/-/ss58-registry-1.43.0.tgz"
   integrity sha512-USEkXA46P9sqClL7PZv0QFsit4S8Im97wchKG0/H/9q3AT/S76r40UHfCr4Un7eBJPE23f7fU9BZ0ITpP9MCsA==
 
-"@subwallet/extension-chains@^1.1.8-0":
-  version "1.1.8-0"
-  resolved "https://registry.npmjs.org/@subwallet/extension-chains/-/extension-chains-1.1.8-0.tgz"
-  integrity sha512-PzGQmAm6iCHGGsP84vZlhm6ZUELWj6Qg/2A4rpbrsAT1nWd1lEH+gPKp6cOM2i8Fd5XASMhZ9RnFCjA8u9xeGg==
-  dependencies:
-    "@babel/runtime" "^7.20.6"
-    "@polkadot/networks" "^12.3.2"
-    "@polkadot/util" "^12.3.2"
-    "@polkadot/util-crypto" "^12.3.2"
-    "@subwallet/extension-inject" "^1.1.8-0"
-
-"@subwallet/extension-inject@^1.1.8-0":
-  version "1.1.8-0"
-  resolved "https://registry.npmjs.org/@subwallet/extension-inject/-/extension-inject-1.1.8-0.tgz"
-  integrity sha512-qEMZql5RR5Aiu6av6EnaHyegsQaql+jW1Egu9Pc0/lN0p6EZFF2I93aVBCSTmuvNbyXrimZOLj/v+65xddgUBw==
-  dependencies:
-    "@babel/runtime" "^7.20.6"
-    "@polkadot/rpc-provider" "^10.9.1"
-    "@polkadot/types" "^10.9.1"
-    "@polkadot/util" "^12.3.2"
-    "@polkadot/util-crypto" "^12.3.2"
-    "@polkadot/x-global" "^12.2.1"
-    web3-core "^1.10.0"
-
 "@subwallet/keyring@^0.1.1", "@subwallet/keyring@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@subwallet/keyring/-/keyring-0.1.2.tgz#7b68da1ae5bdebc8ad6800d2b341df886416f242"

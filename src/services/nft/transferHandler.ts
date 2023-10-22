@@ -1,7 +1,7 @@
-// Copyright 2019-2022 @subwallet/extension-koni authors & contributors
+// Copyright 2023 @soul-wallet/extension-koni authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { CustomTokenType, NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { evmNftGetTransaction, substrateNftGetTransaction, wasmNftGetTransaction } from 'messaging/index';
 import { SUPPORTED_TRANSFER_CHAIN_NAME, TransferResponse } from 'types/nft';
 
@@ -94,9 +94,9 @@ export default async function transferHandler(
   params: Record<string, any>,
   nftItem: NftItem,
 ): Promise<TransferResponse | null> {
-  if (nftItem.type === CustomTokenType.erc721) {
+  if (nftItem.type === "ERC721") {
     return await web3TransferHandler(networkKey, senderAddress, recipientAddress, params);
-  } else if (nftItem.type === CustomTokenType.psp34) {
+  } else if (nftItem.type === "PSP34") {
     return await psp34TransferHandler(networkKey, senderAddress, recipientAddress, params);
   } else {
     switch (networkKey) {

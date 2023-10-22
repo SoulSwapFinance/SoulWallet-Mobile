@@ -141,7 +141,7 @@ import { Message } from '@soul-wallet/extension-base/src/types';
 import type { KeyringAddress, KeyringPair$Json, KeyringPairs$Json } from 'sdk/keyring/types';
 import type { HexString } from '@polkadot/util/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
-import { MetadataDef } from '@subwallet/extension-inject/types';
+import { MetadataDef } from '@soul-wallet/extension-inject/src/types';
 import {
   SWTransactionResponse,
   SWTransactionResult,
