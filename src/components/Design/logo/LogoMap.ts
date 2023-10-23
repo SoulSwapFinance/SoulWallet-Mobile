@@ -449,6 +449,7 @@ export const ProjectLogos: Record<string, string> = {
   'social-kyc': require('./images/projects/social-kyc.png'),
   solarbeam: require('./images/projects/solarbeam.png'),
   solarflare: require('./images/projects/solarflare.png'),
+  soul: require('./images/projects/soulswap.png'),
   soulswap: require('./images/projects/soulswap.png'),
   soulpower: require('./images/projects/soulswap.png'),
   sora: require('./images/projects/sora.png'),
@@ -654,7 +655,7 @@ export const ProjectLogos: Record<string, string> = {
 export const ChainLogoMap: Record<string, string> = {
   polkadot: ProjectLogos.polkadot,
   kusama: ProjectLogos.kusama,
-  avalanche: ProjectLogos.avalanche,
+  avalanche: "https://raw.githubusercontent.com/SoulSwapFinance/SoulWallet-Chainlist/master/packages/chain-list-assets/public/assets/chains/avalanche.png"  ,
   westend: ProjectLogos.westend,
   rococo: ProjectLogos.rococo,
   statemint: ProjectLogos.statemine,
@@ -796,7 +797,7 @@ export const ChainLogoMap: Record<string, string> = {
   alephSmartNet: ProjectLogos['aleph-zero'],
   kulupu: ProjectLogos['kulupu-network'],
   joystream: ProjectLogos.joystream,
-  soul: ProjectLogos.soulswap,
+  soul: "https://soulswap.finance/favicon.png",
   subwallet: ProjectLogos.subwallet,
   parity: ProjectLogos.parity,
   keystone: ProjectLogos.keystone,
@@ -807,7 +808,7 @@ export const ChainLogoMap: Record<string, string> = {
 };
 
 export const TokenLogoMap: Record<string, string> = {
-  soul: ProjectLogos.soulswap,
+  soul: "https://soulswap.finance/favicon.png",
   ausd: ProjectLogos.ausd,
   dot: ProjectLogos.polkadot,
   ldot: ProjectLogos.polkadot,

@@ -41,13 +41,26 @@ const Logo: React.FC<SWLogoProps> = ({
   const { chainLogoMap, assetLogoMap } = useSelector((state: RootState) => state.logoMaps);
   const _style = LogoStyles(theme);
   const subLogoSize = size / 2.5;
+  const avaxLogo = "https://raw.githubusercontent.com/SoulSwapFinance/SoulWallet-Chainlist/master/packages/chain-list-assets/public/assets/chains/avalanche.png"
   let srcLogo= "https://soulswap.finance/favicon.png"
+  let soulLogo= "https://soulswap.finance/favicon.png"
   // UI NOTE: GETS TOKEN LOGO
   if (token) {
-    srcLogo = assetLogoMap[token] || assetLogoMap[defaultLogoKey];
-    // UI NOTE: GETS NETWORK LOGO
+    token == "avax" ?  srcLogo = avaxLogo 
+    // manually gets the token logo
+      : token == "soul" ? srcLogo = soulLogo 
+        : srcLogo = assetLogoMap[token]
+          || assetLogoMap[defaultLogoKey];
+  
+  // UI NOTE: GETS NETWORK LOGO
   } else if (network) {
-    srcLogo = chainLogoMap[network] || chainLogoMap[defaultLogoKey];
+    // note: use this to identify chain name
+    // console.log(network)
+    // console.log(chainLogoMap[network])
+    // manually get the network logo
+    network == 'custom-EVM-avalanchec-chain-43114' ? srcLogo = avaxLogo 
+      : srcLogo = chainLogoMap[network] 
+        || chainLogoMap[defaultLogoKey];
   }
 
   let srcSubLogo = "https://soulswap.finance/favicon.png"
