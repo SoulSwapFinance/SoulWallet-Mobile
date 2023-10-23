@@ -42,11 +42,15 @@ export type BalanceValueType = {
 };
 
 export const getBalances = ({ balance, decimals, price, symbol }: BalanceType): BalanceValueType => {
-  const stable = price !== undefined ? price : symbol.toLowerCase().includes('usd') ? 1 : 0;
+  const misc = 
+    price !== undefined ? price 
+      : symbol.toLowerCase().includes('usd') ? 1  // stablecoins (usd)
+        : symbol.toLowerCase().includes('soul') ? 0.001 // soul
+          : 0;
 
   const balanceValue = getBalanceWithDecimals({ balance, decimals });
 
-  const priceValue = price || stable;
+  const priceValue = price || misc;
 
   const convertedBalanceValue = getConvertedBalance(balanceValue, `${priceValue}`);
 
