@@ -120,9 +120,9 @@ export const TokenGroupsUpperBlock = ({
             // imageSize={30}  
             icon={ButtonIcon.Swap}
             // UI NOTE: OPEN URL IN BROWSER
-            // onPress={() => navigation.navigate('BrowserTabsManager', { url: 'https://exchange.soulswap.finance', name: 'SoulSwap' })}
+            onPress={() => navigation.navigate('BrowserTabsManager', { url: 'https://cross.soulswap.finance', name: 'SoulSwap' })}
             // @ts-ignore
-            onPress={() => navigation.navigate('Home', { screen: 'Main', params: {screen: "NFTs", params: {} }})}
+            // onPress={() => navigation.navigate('Home', { screen: 'Main', params: {screen: "NFTs", params: {} }})}
               // params: {
               //   // @ts-ignore
               //   screen: 'NFTs'})}

@@ -6,7 +6,7 @@ import { _getSubstrateGenesisHash } from '@soul-wallet/extension-base/src/servic
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-
+// import chainInfo from 'constants/chainInfo.json'
 const useChainInfo = (slug?: string, genesisHash?: string | null): _ChainInfo | null => {
   const chainInfoMap = useSelector((state: RootState) => state.chainStore.chainInfoMap);
   return useMemo(() => {
