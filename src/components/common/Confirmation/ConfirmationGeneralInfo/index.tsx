@@ -29,7 +29,7 @@ const ConfirmationGeneralInfo: React.FC<Props> = (props: Props) => {
       <DualLogo
         leftLogo={<Image shape={'squircle'} src={"https://soulswap.finance/favicon.png"} squircleSize={56} />}
         linkIcon={isWCRequest ? <SVGImages.WalletConnect width={24} height={24} color={theme.colorWhite} /> : undefined}
-        rightLogo={<Image shape="squircle" src={{ uri: leftLogoUrl }} squircleSize={56} />}
+        rightLogo={<Image shape="squircle" src={{ uri: leftLogoUrl || "https://soulswap.finance/favicon.png" }} squircleSize={56} />}
       />
       <Text style={styles.text}>{domain}</Text>
     </View>

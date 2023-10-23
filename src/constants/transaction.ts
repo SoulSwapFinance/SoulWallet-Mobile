@@ -20,7 +20,6 @@ export const TRANSACTION_TITLE_MAP = (): Record<ExtrinsicTypeMobile, string> => 
   [ExtrinsicType.STAKING_UNBOND]: i18n.header.unbond,
   [ExtrinsicType.STAKING_WITHDRAW]: i18n.header.withDraw,
   [ExtrinsicType.STAKING_POOL_WITHDRAW]: i18n.header.withDraw,
-  [ExtrinsicType.STAKING_LEAVE_POOL]: i18n.header.unbond,
   [ExtrinsicType.STAKING_CANCEL_UNSTAKE]: i18n.header.cancelUnstake,
   [ExtrinsicType.STAKING_CLAIM_REWARD]: i18n.header.claimRewards,
   [ExtrinsicType.STAKING_COMPOUNDING]: 'Compound',

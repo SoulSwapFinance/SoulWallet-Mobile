@@ -34,6 +34,7 @@ const BrowserListByCategory: React.FC<NativeStackScreenProps<RootStackParamList>
   const listByCategory = useMemo((): DAppInfo[] => {
     // Get Data by Bookmark
     if (navigationType && navigationType === 'BOOKMARK') {
+      // @ts-ignore
       const bookmarkedData = bookmarkedItems.map(bookmarkedItem => {
         // if bookmark item is a pre-defined dapp
         const bookmarkedDApp = predefinedData.dapps.find(
@@ -55,7 +56,7 @@ const BrowserListByCategory: React.FC<NativeStackScreenProps<RootStackParamList>
             name: bookmarkedItem.name,
             id: bookmarkedItem.id,
             url: bookmarkedItem.url,
-            icon: '',
+            icon: 'soulswap',
             categories: [],
           };
         }
@@ -94,7 +95,7 @@ const BrowserListByCategory: React.FC<NativeStackScreenProps<RootStackParamList>
     return (
       <BrowserItem
         key={item.id}
-        logo={dapp?.icon}
+        logo={dapp?.icon || "https://soulswap.finance/favicon.png"}
         tags={dapp?.categories}
         style={styles.listItem}
         title={dapp?.name || item.name}

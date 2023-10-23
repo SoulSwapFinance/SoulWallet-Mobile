@@ -29,7 +29,7 @@ const IconItem: React.FC<IconItemProps> = ({ data, url, defaultData, isWithText,
       setImage(`https://${getHostName(url)}/favicon.png`);
       return;
     }
-    setImage(assetLogoMap.default);
+    setImage("https://soulswap.finance/favicon.png");
   }, [assetLogoMap.default, image, url]);
 
   return (

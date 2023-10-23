@@ -99,17 +99,17 @@ const BrowserHome = () => {
     navigation.navigate('BrowserTabsManager', { url: item.url, name: item.name });
   };
 
-  const renderRecentItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
-    const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
+  // const renderRecentItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
+  //   const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
 
-    return (
-      <IconItem
-        data={data}
-        url={"https://soulswap.finance/favicon.png"} // item.url
-        onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: data?.name })}
-      />
-    );
-  };
+  //   return (
+  //     <IconItem
+  //       data={data}
+  //       url={"https://soulswap.finance/favicon.png"} // item.url
+  //       onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: data?.name })}
+  //     />
+  //   );
+  // };
   const renderBookmarkItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
     const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
     return (
