@@ -154,10 +154,13 @@ function getAccountBalance(
         tokenGroupBalance.total.value = tokenGroupBalance.total.value.plus(tokenBalance.total.value);
       }
 
-      const priceId = _getAssetPriceId(chainAsset);
+      const priceId = _getAssetPriceId(chainAsset)
+      // chainAsset.symbol == "SOUL" ? 'soul-swap' : _getAssetPriceId(chainAsset);
+      // const soulPriceId =?  _getAssetPriceId(chainAsset) : '';
 
       // convert token value to real life currency value
       if (priceId && !tokenBalance.isTestnet) {
+
         const priceValue = priceMap[priceId] || 0;
         const price24hValue = price24hMap[priceId] || 0;
 

@@ -71,7 +71,7 @@ export const TokenGroupsDetail = ({
 
   const toast = useToast();
 
-  const isShowBalance = useSelector((state: RootState) => state.settings.isShowBalance);
+  const isShowBalance = true //useSelector((state: RootState) => state.settings.isShowBalance);
 
   const chainsByAccountType = useGetChainSlugs();
   const { tokenGroupMap, isComputing: isTokenGroupComputing } = useTokenGroup(chainsByAccountType, true);
@@ -154,6 +154,7 @@ export const TokenGroupsDetail = ({
     });
   }, [currentAccount, navigation, showNoti, tokenGroupSlug]);
 
+  // UI NOTE: total balance for selected token group.
   const listHeaderNode = useMemo(() => {
     return (
       <TokenGroupsDetailUpperBlock
