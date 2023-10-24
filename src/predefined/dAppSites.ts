@@ -4,28 +4,23 @@ import { PredefinedDApps } from 'types/browser';
 import i18n from 'utils/i18n/i18n';
 
 export const DAppIconMap: Record<string, string> = {
-  'app.soulswap.finance': 'https://soulswap.finance/favicon.png',
-  'links.soulswap.finance': 'https://soulswap.finance/favicon.png',
-  'cross.soulswap.finance': 'https://soulswap.finance/favicon.png',
-  'home.soulswap.finance': 'https://soulswap.finance/favicon.png',
-  'x.com': 'https://soulswap.finance/favicon.png',
-  'twitter.com': 'https://soulswap.finance/favicon.png',
-  'blockworks.co': 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/blockworks-logo.png',
-  'cointelegraph.com': 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/cointelegraph-logo.png',
-  'coindesk.com': 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/coindesk.png',
-  'debank.com': 'https://debank.com/favicon.ico',
-  'coingecko.com': 'https://www.coingecko.com/favicon.ico',
-  'coinmarketcap.com': 'https://www.coinmarketcap.com/favicon.ico',
-  'kintsugi.interlay.io': 'https://kintsugi.interlay.io/kintsugi/apple-touch-icon.png',
-  'kanaria.rmrk.app': 'https://rmrk-unrestricted.mypinata.cloud/ipfs/QmSkVkPiMsr1Ryu7122KHoAHqsCrgQCWthNniykLKqbA5H',
-  'distribution.acala.network': 'https://avatars.githubusercontent.com/u/54881907?s=200&v=4',
+  'app.soulswap.finance': 'https://soulswap.finance/favicon.png', // √
+  'links.soulswap.finance': 'https://soulswap.finance/favicon.png', // √
+  'cross.soulswap.finance': 'https://soulswap.finance/favicon.png', // √
+  'home.soulswap.finance': 'https://soulswap.finance/favicon.png', // √
+  'x.com': 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/twitter-circle.png', // √
+  'twitter.com': 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/twitter-circle.png', // √
+  'starsarena.com': 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/stars-arena.png', // √
+  'blockworks.co': 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/blockworks-logo.png', // √
+  'cointelegraph.com': 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/cointelegraph-logo.png', // √
+  'coindesk.com': 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/coindesk.png', // √
+  'debank.com': 'https://debank.com/favicon.ico', // √
+  'coingecko.com': 'https://www.coingecko.com/favicon.ico', // √
+  'coinmarketcap.com': 'https://www.coinmarketcap.com/favicon.ico', // √
   'www.xdao.app': 'https://moonbeam.network/wp-content/uploads/2022/03/xDAO.png',
-  'crowdloan.interlay.io': 'https://assets.coingecko.com/coins/images/26180/small/Interlay-Coinbase-2.png',
-  'ace.web3go.xyz': 'https://ace.web3go.xyz/favicon.ico',
   'www.avault.network': 'https://www.avault.network/logo.png',
-  'astr.domains': 'https://astr.domains/logo/logo_cic.png',
   'tfalpha.xyz': 'https://tfalpha.xyz/img/tfa-logo.png',
-  'sandbox.game': 'https://sandbox.game/favicon.ico',
+  'sandbox.game': 'https://sandbox.game/favicon.ico', // √
   'godsunchained.com': 'https://godsunchained.com/favicon.ico',
 };
 
@@ -56,21 +51,18 @@ export const DAppTitleMap: Record<string, string> = {
   'dapp.robonomics.network': 'Dapp Robonomics network', // √
   'app.bounce.finance': 'Bounce', // √
   'www.xdao.app': 'XDAO – MultiChain DAO Ecosystem', // √
-  'sub.id': 'Sub ID: Substrate Addresses, Balances, Crowdloans and NFTs',
-  'singular.app': 'Singular: Kusama-native NFTs #RMRK #NFT',
-  'dotmarketcap.com': 'DotMarketCap',
+  'sub.id': 'Sub ID: Substrate Addresses, Balances, Crowdloans and NFTs', // √
+  'singular.app': 'Singular: Kusama-native NFTs #RMRK #NFT', // √
+  'dotmarketcap.com': 'DotMarketCap', // √
+  'kodadot.xyz': 'KodaDot - Kusama NFT Market Explorer', // √
 
-  'kanaria.rmrk.app': 'KANARIA',
   'bifrost.app': 'Bifrost',
   'portal.astar.network': 'Astar Portal - Astar & Shiden Network',
   'app.subsocial.network': 'Subsocial - Decentralized social network on Polkadot & IPFS',
-  'kodadot.xyz': 'KodaDot - Kusama NFT Market Explorer',
   'app.parallel.fi': 'Parallel Finance',
   'polkadot.polkassembly.io': 'Polkassembly',
   'ksmcrowdloan.bit.country': 'Crowdloan - Bit.Country Pioneer Network',
   'crowdloan.parallel.fi': 'Parallel Finance',
-  'kintsugi.interlay.io': 'Kintsugi',
-  'distribution.acala.network': 'Acala Distribution Query',
   'apps.moonbeam.network': 'Moonbeam Network Apps',
   'app.solarflare.io': 'Solarflare',
   'app.beamswap.io': 'Beamswap',
@@ -79,7 +71,6 @@ export const DAppTitleMap: Record<string, string> = {
   'singular-rmrk2-dev.vercel.app': 'Singular: Kusama-native NFTs #RMRK #NFT',
   'app.arthswap.org': 'ArthSwap',
   'cbridge.celer.network': 'cBridge',
-  'crowdloan.interlay.io': 'Interlay',
   'moonwell.fi': 'Moonwell',
   'apps.litentry.com': 'Litmus Network',
   'apps.darwinia.network': 'Darwinia',
@@ -96,7 +87,6 @@ export const DAppTitleMap: Record<string, string> = {
   'www.avault.network': 'Avault', // √
   'panoramaswap.app': 'Panorama Swap',
   'app.taigaprotocol.io': 'TAIGA',
-  'astr.domains': 'Astar Web3 Domains (.astr) - Your Perfect NFT Domains',
   'event.tfalpha.xyz': 'Raffle & Claim Rewards',
   'tfalpha.xyz': 'Utopia & TF Alpha',
   'moons.money': 'Moon Web3 identity',
@@ -158,7 +148,7 @@ export const predefinedDApps: PredefinedDApps = {
   ],
   dapps: [
     {
-      name: 'Soul | Swap',
+      name: 'SoulSwap',
       icon: 'https://soulswap.finance/favicon.png',
       id: 'app.soulswap.finance',
       url: 'https://app.soulswap.finance/',
@@ -365,7 +355,7 @@ export const predefinedDApps: PredefinedDApps = {
       isSupportEthereumAccount: true,
     },
     {
-      name: 'Soul | Home',
+      name: 'SoulSwap Home',
       icon: 'https://soulswap.finance/favicon.png',
       id: 'home.soulswap.finance',
       url: 'https://soulswap.finance',
@@ -374,7 +364,7 @@ export const predefinedDApps: PredefinedDApps = {
       isSupportEthereumAccount: false,
     },
     {
-      name: 'Soul | Cross-Chain',
+      name: 'Soul Cross-Chain',
       icon: 'https://soulswap.finance/favicon.png',
       id: 'cross.soulswap.finance',
       url: 'https://cross.soulswap.finance',
@@ -383,7 +373,7 @@ export const predefinedDApps: PredefinedDApps = {
       isSupportEthereumAccount: true,
     },
     {
-      name: 'Soul | Links',
+      name: 'Soul Links',
       icon: 'https://soulswap.finance/favicon.png',
       id: 'links.soulswap.finance',
       url: 'https://links.soulswap.finance',
@@ -392,11 +382,20 @@ export const predefinedDApps: PredefinedDApps = {
       isSupportEthereumAccount: false,
     },
     {
-      name: 'Soul | Twitter',
-      icon: 'https://soulswap.finance/favicon.png',
+      name: 'X | formerly Twitter',
+      icon: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/twitter-circle.png',
       id: 'x.com',
       url: 'https://x.com/SoulSwapFinance',
-      categories: ['soul'],
+      categories: ['news'],
+      isSupportSubstrateAccount: false,
+      isSupportEthereumAccount: false,
+    },
+    {
+      name: 'Stars Arena',
+      icon: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/stars-arena.png',
+      id: 'starsarena.com',
+      url: 'https://starsarena.com',
+      categories: ['news', 'defi'],
       isSupportSubstrateAccount: false,
       isSupportEthereumAccount: false,
     },
@@ -562,42 +561,15 @@ export const predefinedDApps: PredefinedDApps = {
     //   isSupportSubstrateAccount: true,
     //   isSupportEthereumAccount: false,
     // },
-    // {
-    //   name: 'Kanaria',
-    //   icon: 'https://dotinsights.subwallet.app/assets/images/projects/kanaria.png',
-    //   id: 'kanaria.rmrk.app',
-    //   url: 'https://kanaria.rmrk.app/',
-    //   categories: ['nft'],
-    //   isSupportSubstrateAccount: true,
-    //   isSupportEthereumAccount: false,
-    // },
-    // {
-    //   name: 'Kintsugi Hub',
-    //   icon: 'https://dotinsights.subwallet.app/assets/images/projects/kintsugi.png',
-    //   id: 'kintsugi.interlay.io',
-    //   url: 'https://kintsugi.interlay.io/',
-    //   categories: ['defi'],
-    //   isSupportSubstrateAccount: true,
-    //   isSupportEthereumAccount: false,
-    // },
-    // {
-    //   name: 'KodaDot',
-    //   icon: 'https://dotinsights.subwallet.app/assets/images/projects/kodadot.png',
-    //   id: 'kodadot.xyz',
-    //   url: 'https://kodadot.xyz/',
-    //   categories: ['nft'],
-    //   isSupportSubstrateAccount: true,
-    //   isSupportEthereumAccount: false,
-    // },
-    // {
-    //   name: 'Kusama Lido',
-    //   icon: 'https://raw.githubusercontent.com/nova-wallet/nova-utils/master/icons/dapps/color/LIDO_KSM.svg',
-    //   id: 'kusama.lido.fi',
-    //   url: 'https://kusama.lido.fi/',
-    //   categories: ['defi', 'evm'],
-    //   isSupportSubstrateAccount: false,
-    //   isSupportEthereumAccount: true,
-    // },
+    {
+      name: 'KodaDot',
+      icon: 'https://dotinsights.subwallet.app/assets/images/projects/kodadot.png',
+      id: 'kodadot.xyz',
+      url: 'https://kodadot.xyz/',
+      categories: ['nft'],
+      isSupportSubstrateAccount: true,
+      isSupportEthereumAccount: false,
+    },
     {
       name: 'LidoFi | Liquid Staking',
       icon: 'https://dotinsights.subwallet.app/assets/images/projects/lido.png',
