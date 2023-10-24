@@ -56,6 +56,7 @@ export const ForgotPasswordModal = ({
             disabled={resetAccLoading || eraseAllLoading}
             loading={eraseAllLoading}
             style={{ flex: 1 }}
+            // onPress={onReset(true)}
             onPress={onReset(true)}
             type={'danger'}
             icon={renderRightBtnIcon}>
@@ -66,7 +67,6 @@ export const ForgotPasswordModal = ({
     </SwModal>
   );
 };
-
 function createStyle(theme: ThemeTypes) {
   return StyleSheet.create({
     contentWrapper: { width: '100%', alignItems: 'center', paddingTop: theme.padding },
