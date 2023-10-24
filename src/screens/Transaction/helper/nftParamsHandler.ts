@@ -43,6 +43,17 @@ function uniqueParser(nftItem: NftItem) {
   };
 }
 
+function varaParser(nftItem: NftItem) {
+  const contractAddress = nftItem.collectionId;
+  const tokenId = nftItem.id;
+
+  return {
+    contractAddress,
+    tokenId,
+    networkKey: nftItem.chain,
+  };
+}
+
 function statemineParser(nftItem: NftItem) {
   const collectionId = parseInt(nftItem.collectionId);
   const itemId = parseInt(nftItem.id);
@@ -94,6 +105,8 @@ export default function nftParamsHandler(nftItem: NftItem, chain: string) {
       return statemineParser(nftItem);
     } else if (_NFT_CHAIN_GROUP.unique_network.includes(chain)) {
       return uniqueParser(nftItem);
+    } else if (_NFT_CHAIN_GROUP.vara.includes(chain)) {
+      return varaParser(nftItem);
     }
   }
 

@@ -4975,34 +4975,6 @@
         "crowdloanFunds": []
       }
     },
-    "kate": {
-      "slug": "kate",
-      "name": "Avail Kate Testnet",
-      "isTestnet": true,
-      "chainStatus": "ACTIVE",
-      "icon": "https://chain-list-assets.subwallet.app/assets/chains/kate.png",
-      "providers": {
-        "AVAIL": "wss://kate.avail.tools/ws"
-      },
-      "evmInfo": null,
-      "substrateInfo": {
-        "relaySlug": null,
-        "paraId": null,
-        "genesisHash": "0xd12003ac837853b062aaccca5ce87ac4838c48447e41db4a3dcfb5bf312350c6",
-        "addressPrefix": 42,
-        "chainType": "RELAYCHAIN",
-        "crowdloanUrl": null,
-        "blockExplorer": null,
-        "existentialDeposit": "10000000000000",
-        "symbol": "AVL",
-        "decimals": 18,
-        "hasNativeNft": false,
-        "supportStaking": true,
-        "supportSmartContract": null,
-        "crowdloanParaId": null,
-        "crowdloanFunds": []
-      }
-    },
     "bridgeHubPolkadot": {
       "slug": "bridgeHubPolkadot",
       "name": "Polkadot Bridge Hub",
