@@ -106,7 +106,7 @@ export default {
   colorInfoTextActive: '#005ca6',
   colorInfoTextHover: '#2595e6',
   colorLink: '#6A00FF', // purple
-  colorLinkActive: '#0031a6',
+  colorLinkActive: '#9854FF', // lightPurple
   colorLinkHover: '#2565e6',
   colorPrimary: '#6A00FF', // purple
   'colorPrimary-1': '#00061b', // black-ish, blue
@@ -114,19 +114,19 @@ export default {
   'colorPrimary-2': '#000f36', // dark navy blue
   'colorPrimary-3': '#00174d',
   'colorPrimary-4': '#002273',
-  'colorPrimary-5': '#0031a6',
+  'colorPrimary-5': '#9854FF', // lightPurple
   'colorPrimary-6': '#6A00FF', // purple
   'colorPrimary-7': '#2565e6',
   'colorPrimary-8': '#4e8af2',
-  'colorPrimary-9': '#76aaf7',
-  colorPrimaryActive: '#0031a6',
+  'colorPrimary-9': '#76aaf7', // sky blue
+  colorPrimaryActive: '#9854FF', // lightPurple
   colorPrimaryBg: '#00061b',
   colorPrimaryBgHover: '#000f36',
   colorPrimaryBorder: '#00174d',
   colorPrimaryBorderHover: '#002273',
   colorPrimaryHover: '#2565e6',
   colorPrimaryText: '#0040d9',
-  colorPrimaryTextActive: '#0031a6',
+  colorPrimaryTextActive: '#9854FF', // lightPurple
   colorPrimaryTextHover: '#2565e6',
   colorSecondary: '#4cd9ac',
   'colorSecondary-1': '#071b16',
@@ -273,7 +273,7 @@ export default {
   'geekblue-2': '#000f36',
   'geekblue-3': '#00174d',
   'geekblue-4': '#002273',
-  'geekblue-5': '#0031a6',
+  'geekblue-5': '#9854FF', // lightPurple
   'geekblue-6': '#004BFF',
   'geekblue-7': '#2565e6',
   'geekblue-8': '#4e8af2',
