@@ -3840,109 +3840,19 @@
   dependencies:
     "@open-web3/orml-type-definitions" "1.1.4"
 
-"@soul-wallet/chain-list@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@soul-wallet/chain-list/-/chain-list-1.0.4.tgz#f7bcfb02bdd0fa57df18d43d21d911179f9a93d6"
-  integrity sha512-MYq9xDK0a/Jk1wwpwsv1H+fIknW+tMVY0mtiKJeFkDqKdm4P80+trFe2yf+JVx7R4U0gGneJ0sYYEvxYS5DJwQ==
-  dependencies:
-    "@polkadot/dev" "0.67.167"
-    "@polkadot/util" "^12.5.1"
-    eventemitter3 "^5.0.1"
-
-"@soul-wallet/chain-list@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@soul-wallet/chain-list/-/chain-list-1.0.5.tgz#261009a59a1c98eac4ad46619bc65425de6a2fea"
-  integrity sha512-mZSP6HiVRYwiDkQwrCWdnKlwzWJf9Chc3NkNrdx7ZHRi8HgpB3vpp+vtC/sFqJ1vruj8rro/M1lwHOB5+taJrw==
-  dependencies:
-    "@polkadot/dev" "0.67.167"
-    "@polkadot/util" "^12.5.1"
-    eventemitter3 "^5.0.1"
-
-"@soul-wallet/chain-list@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@soul-wallet/chain-list/-/chain-list-1.0.6.tgz#ff2bdaf72968af2346b3d8c6cc3b2aa62392ce5e"
-  integrity sha512-zV0euzjP0LnSr8bhw6LcBY8F7VOitM8F2Wz8IpXU0QPDnX9q3/CpUQIfHlSoUWKt3D6mvBiF6Ro/Q2nNn6ic3g==
-  dependencies:
-    "@polkadot/dev" "0.67.167"
-    "@polkadot/util" "^12.5.1"
-    eventemitter3 "^5.0.1"
-
-"@soul-wallet/extension-base@*", "@soul-wallet/extension-base@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@soul-wallet/extension-base/-/extension-base-1.0.4.tgz#d1044ece275a79b3ab562fdb9c3fa80d1faef345"
-  integrity sha512-1fETw6+Gqvxf33jJWcpT6n4RKSEWFMFWINYeylJhM2zz34fB1+jm2Tsw/vNwAjuGfNb+nYABG8LI5P+fcrbasg==
-  dependencies:
-    "@acala-network/api" "^5.0.2"
-    "@apollo/client" "^3.7.14"
-    "@azns/resolver-core" "^1.4.0"
-    "@equilab/api" "^1.14.25"
-    "@ethereumjs/common" "^2.6.5"
-    "@ethereumjs/tx" "^4.0.2"
-    "@ethersproject/abi" "^5.7.0"
-    "@json-rpc-tools/utils" "^1.7.6"
-    "@metamask/safe-event-emitter" "^2.0.0"
-    "@metaverse-network-sdk/type-definitions" "^0.0.1-13"
-    "@oak-foundation/types" "^0.0.23"
-    "@polkadot/api" "^10.9.1"
-    "@polkadot/api-contract" "^10.9.1"
-    "@polkadot/api-derive" "^10.9.1"
-    "@polkadot/apps-config" "^0.132.1"
-    "@polkadot/hw-ledger" "^12.3.2"
-    "@polkadot/networks" "^12.3.2"
-    "@polkadot/phishing" "^0.21.5"
-    "@polkadot/rpc-provider" "^10.9.1"
-    "@polkadot/types" "^10.9.1"
-    "@polkadot/types-augment" "^10.9.1"
-    "@polkadot/ui-settings" "^3.5.1"
-    "@polkadot/util" "^12.3.2"
-    "@polkadot/util-crypto" "^12.3.2"
-    "@reduxjs/toolkit" "^1.9.1"
-    "@sora-substrate/type-definitions" "^1.17.7"
-    "@soul-wallet/chain-list" "1.0.4"
-    "@soul-wallet/extension-base" "*"
-    "@soul-wallet/extension-chains" "1.0.0"
-    "@soul-wallet/extension-dapp" "^1.0.0"
-    "@soul-wallet/extension-inject" "^1.0.1"
-    "@substrate/connect" "^0.7.26"
-    "@subwallet/keyring" "^0.1.1"
-    "@subwallet/ui-keyring" "^0.1.1"
-    "@walletconnect/sign-client" "^2.8.4"
-    "@walletconnect/types" "^2.8.4"
-    "@walletconnect/utils" "^2.8.4"
-    avail-js-sdk "^0.0.10"
-    axios "^1.2.1"
-    bignumber.js "^9.1.1"
-    bn.js "^5.2.1"
-    browser-passworder "^2.0.3"
-    buffer "^6.0.3"
-    cross-fetch "^3.1.5"
-    dexie "^3.2.2"
-    eth-simple-keyring "^4.2.0"
-    ethereumjs-tx "^2.1.2"
-    ethereumjs-util "^7.1.5"
-    ethers "^6.4.2"
-    eventemitter3 "^5.0.0"
-    graphql "^16.8.1"
-    i18next "^21.9.2"
-    is-buffer "^2.0.5"
-    json-rpc-engine "^6.1.0"
-    manta-extension-sdk "^1.1.0"
-    moment "^2.29.4"
-    protobufjs "^7.2.4"
-    rxjs "^7.8.1"
-    uuid "^9.0.0"
-    web3 "^1.10.0"
-    web3-core "^1.10.0"
-    web3-core-helpers "^1.10.0"
-    web3-core-subscriptions "1.10.0"
-    web3-eth "1.10.0"
-    web3-eth-contract "^1.10.0"
-    web3-utils "^1.10.0"
-
-"@soul-wallet/extension-base@^1.0.8":
+"@soul-wallet/chain-list@^1.0.8":
   version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@soul-wallet/extension-base/-/extension-base-1.0.8.tgz#8c5beb92f3bd424e750af0c12b6206fce335b26f"
-  integrity sha512-XOhh0ZAjzhmsLlEH5IiIKuTtaNp6UwYXcd+K6tzYSVLCJ56rdc1kN3QR9c0hbxLSVC36L6RhYbd/YS+LRKxmxA==
+  resolved "https://registry.yarnpkg.com/@soul-wallet/chain-list/-/chain-list-1.0.8.tgz#7a87772da46126212cad03b91f0953df26ddec40"
+  integrity sha512-kfSYK4oV7EdsDOzhb8cOgi++1T0I+jnFbVM4+Mf4SOiAY511PXuC6+9ACuYeQHNbA3XaTAoZcHdB0BFwYVKOhw==
+  dependencies:
+    "@polkadot/dev" "0.67.167"
+    "@polkadot/util" "^12.5.1"
+    eventemitter3 "^5.0.1"
+
+"@soul-wallet/extension-base@*", "@soul-wallet/extension-base@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@soul-wallet/extension-base/-/extension-base-1.0.12.tgz#bd4a4625a77830e43393c069880d4e26b0057cc9"
+  integrity sha512-Hv6q4vHVQGkXeNjDgYnoMUbN9bYtpkylw+dJNuj423C+6LeEO6GdyrnEcuzm/Bw0y0m+hU4+4Bc/66my0g/3Cg==
   dependencies:
     "@acala-network/api" "^5.0.2"
     "@apollo/client" "^3.7.14"
@@ -3970,7 +3880,7 @@
     "@polkadot/util-crypto" "^12.3.2"
     "@reduxjs/toolkit" "^1.9.1"
     "@sora-substrate/type-definitions" "^1.17.7"
-    "@soul-wallet/chain-list" "1.0.5"
+    "@soul-wallet/chain-list" "^1.0.8"
     "@soul-wallet/extension-base" "*"
     "@soul-wallet/extension-chains" "1.0.0"
     "@soul-wallet/extension-dapp" "^1.0.0"

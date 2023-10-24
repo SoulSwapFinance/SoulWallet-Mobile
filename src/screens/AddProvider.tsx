@@ -1,32 +1,32 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
-import { Globe, Info, WifiHigh, WifiSlash } from 'phosphor-react-native';
-import { Keyboard, TouchableWithoutFeedback, View } from 'react-native';
-import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl';
-import InputText from 'components/Input/InputText';
-import { AddProviderProps, RootNavigationProps } from 'routes/index';
-import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader'
+import { Globe, Info, WifiHigh, WifiSlash } from 'phosphor-react-native'
+import { Keyboard, TouchableWithoutFeedback, View } from 'react-native'
+import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl'
+import InputText from 'components/Input/InputText'
+import { AddProviderProps, RootNavigationProps } from 'routes/index'
+import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo'
 import {
   _generateCustomProviderKey,
   _isChainEvmCompatible,
   _isCustomProvider,
   _isSubstrateChain,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
-import { _NetworkUpsertParams } from '@soul-wallet/extension-base/src/services/chain-service/types';
-import { upsertChain, validateCustomChain } from 'messaging/index';
-import { useToast } from 'react-native-toast-notifications';
-import { useNavigation } from '@react-navigation/native';
-import { _CHAIN_VALIDATION_ERROR } from '@soul-wallet/extension-base/src/services/chain-service/handler/types';
-import { ActivityIndicator, Button, Icon } from 'components/Design';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { isUrl } from 'utils/index';
-import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles';
-import i18n from 'utils/i18n/i18n';
-import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
-import { HIDE_MODAL_DURATION } from 'constants/index';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils'
+import { _NetworkUpsertParams } from '@soul-wallet/extension-base/src/services/chain-service/types'
+import { upsertChain, validateCustomChain } from 'messaging/index'
+import { useToast } from 'react-native-toast-notifications'
+import { useNavigation } from '@react-navigation/native'
+import { _CHAIN_VALIDATION_ERROR } from '@soul-wallet/extension-base/src/services/chain-service/handler/types'
+import { ActivityIndicator, Button, Icon } from 'components/Design'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { isUrl } from 'utils/index'
+import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles'
+import i18n from 'utils/i18n/i18n'
+import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo'
+import { HIDE_MODAL_DURATION } from 'constants/index'
 
-declare const ValidateStatuses: readonly ["success", "warning", "error", "validating", ""];
-export type ValidateStatus = typeof ValidateStatuses[number];
+declare const ValidateStatuses: readonly ["success", "warning", "error", "validating", ""]
+export type ValidateStatus = typeof ValidateStatuses[number]
 
 interface ValidationInfo {
   status: ValidateStatus;
