@@ -183,7 +183,7 @@ export const vi = {
     hours: 'giờ',
     forgotPassword: 'Bạn quên mật khẩu?',
     resetAccount: 'Đặt lại tài khoản',
-    eraseAll: 'Xóa tất cả',
+    eraseAll: 'Xóa',
     connecting: 'Đang kết nối...',
     chainConnected: (chain: string) => `Mạng ${chain} đã kết nối!`,
     enableChain: 'Bật mạng?',

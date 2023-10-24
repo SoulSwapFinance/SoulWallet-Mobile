@@ -145,7 +145,7 @@ export const LockScreen = () => {
             </Text>
             {authMethod === 'pinCode' && (
               <>
-                <Text
+                {/* <Text
                   style={{
                     fontSize: 14,
                     lineHeight: 22,
@@ -154,7 +154,7 @@ export const LockScreen = () => {
                     paddingBottom: 12,
                   }}>
                   {i18n.common.enterPinToUnlock}
-                </Text>
+                </Text> */}
                 <PinCodeField
                   value={value}
                   setError={setError}

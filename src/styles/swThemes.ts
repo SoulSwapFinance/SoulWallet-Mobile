@@ -109,9 +109,9 @@ export default {
   colorLinkActive: '#0031a6',
   colorLinkHover: '#2565e6',
   colorPrimary: '#6A00FF', // purple
-  'colorPrimary-1': '#00061b',
-  'colorPrimary-10': '#a0c7fa',
-  'colorPrimary-2': '#000f36',
+  'colorPrimary-1': '#00061b', // black-ish, blue
+  'colorPrimary-10': '#a0c7fa', // pale sky blue
+  'colorPrimary-2': '#000f36', // dark navy blue
   'colorPrimary-3': '#00174d',
   'colorPrimary-4': '#002273',
   'colorPrimary-5': '#0031a6',

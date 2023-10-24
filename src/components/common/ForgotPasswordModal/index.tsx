@@ -43,7 +43,7 @@ export const ForgotPasswordModal = ({
         <PageIcon icon={WarningCircle} color={theme.colorError} />
         <Typography.Text style={styles.forgotMessage}>{i18n.message.forgotPasswordMessage}</Typography.Text>
         <View style={styles.buttonWrapper}>
-          <Button
+          {/* <Button
             style={{ flex: 1 }}
             type={'secondary'}
             onPress={onReset(false)}
@@ -51,7 +51,7 @@ export const ForgotPasswordModal = ({
             disabled={resetAccLoading || eraseAllLoading}
             icon={renderLeftBtnIcon}>
             {i18n.common.resetAccount}
-          </Button>
+          </Button> */}
           <Button
             disabled={resetAccLoading || eraseAllLoading}
             loading={eraseAllLoading}

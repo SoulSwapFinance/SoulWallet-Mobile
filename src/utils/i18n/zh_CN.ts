@@ -181,7 +181,7 @@ export const zh = {
     hours: '时',
     forgotPassword: '忘记密码？',
     resetAccount: '重设账户',
-    eraseAll: '删除全部',
+    eraseAll: '删除',
     connecting: '正在连接...',
     chainConnected: (chain: string) => `${chain}网络已连接`,
     enableChain: '启用网络',
