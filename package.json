@@ -52,7 +52,7 @@
     "@react-navigation/native-stack": "^6.9.8",
     "@reduxjs/toolkit": "^1.9.2",
     "@soul-wallet/chain-list": "^1.0.8",
-    "@soul-wallet/extension-base": "^1.0.12",
+    "@soul-wallet/extension-base": "^1.0.13",
     "@soul-wallet/extension-chains": "^1.0.0",
     "@soul-wallet/extension-inject": "^1.0.1",
     "boring-avatars": "^1.7.0",
@@ -186,7 +186,7 @@
     "@polkadot/util": "^12.2.1",
     "@polkadot/api": "^10.7.2",
     "@polkadot/util-crypto": "^12.2.1",
-    "@soul-wallet/extension-base": "^1.0.12",
+    "@soul-wallet/extension-base": "^1.0.13",
     "react-native-svg": "^13.6.0"
   },
   "jest": {
