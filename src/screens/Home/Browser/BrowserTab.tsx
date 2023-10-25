@@ -57,14 +57,14 @@ type Props = {
   connectionTrigger: React.ReactNode;
 };
 
-type BrowserActionButtonType = {
+export type BrowserActionButtonType = {
   key: string;
   icon?: (iconProps: IconProps) => JSX.Element;
   onPress: () => void;
   isDisabled?: boolean;
 };
 
-type NavigationInfo = {
+export type NavigationInfo = {
   canGoBack: boolean;
   canGoForward: boolean;
 };

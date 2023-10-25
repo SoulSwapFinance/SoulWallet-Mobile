@@ -1,9 +1,21 @@
-import React, { useMemo, useState } from 'react';
-import { Animated, Dimensions, FlatList, ListRenderItem, ScrollView, View } from 'react-native';
+import React, { useContext, useMemo, useRef, useState } from 'react';
+import { Animated, Dimensions, FlatList, ListRenderItem, SafeAreaView, ScrollView, View } from 'react-native';
 import { soulSites } from '../../../predefined/soulSites';
-import { CaretRight } from 'phosphor-react-native';
+// import { CaretRight } from 'phosphor-react-native';
 import createStylesheet from './styles/BrowserHome';
-import { StyleSheet } from 'react-native';
+// import { StyleSheet } from 'react-native';
+import { RootNavigationProps } from 'routes/index';
+import {
+  ArrowClockwise,
+  CaretLeft,
+  CaretRight,
+  DotsThree,
+  GlobeSimple,
+  House,
+  IconProps,
+  X,
+} from 'phosphor-react-native';
+import TabIcon from 'screens/Home/Browser/Shared/TabIcon';
 
 import FastImage from 'react-native-fast-image';
 import { Images } from 'assets/index';
@@ -16,37 +28,47 @@ import { BrowserItem } from 'components/Browser/BrowserItem';
 import { SiteInfo, StoredSiteInfo } from 'stores/types';
 import { getHostName } from 'utils/browser';
 import { useNavigation, useNavigationState } from '@react-navigation/native';
-import { RootNavigationProps } from 'routes/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import i18n from 'utils/i18n/i18n';
+// import i18n from 'utils/i18n/i18n';
 import isaac from 'isaac';
-import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight';
+// import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight';
 import { ScreenContainer } from 'components/ScreenContainer';
-import BrowserHeader from './Shared/BrowserHeader';
+// import BrowserHeader from './Shared/BrowserHeader';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
+// import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { ThemeTypes } from 'styles/themes';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import SoulSwapListByCategory from './SoulSwapListByCategory';
-interface HeaderProps {
-  title?: string;
-  actionTitle: string;
-  onPress: () => void;
-}
+import { NoInternetScreen } from 'components/NoInternetScreen';
+import { EmptyList } from 'components/EmptyList';
+import i18n from 'utils/i18n/i18n';
+import WebView from 'react-native-webview';
+import { useToast } from 'react-native-toast-notifications';
+import { BrowserOptionModal, BrowserOptionModalRef } from './BrowserOptionModal';
+import { WebRunnerContext } from 'providers/contexts';
+import { NavigationInfo } from './BrowserTab';
+import { updateTabScreenshot } from 'stores/updater';
+import { captureScreen } from 'react-native-view-shot';
+import { BrowserService } from './BrowserService';
+import { DEVICE } from 'constants/index';
+// import SoulSwapListByCategory from './SoulSwapListByCategory';
+
+// interface HeaderProps {
+//   title?: string;
+//   actionTitle: string;
+//   onPress: () => void;
+// }
+
 interface SectionListProps {
-  data: RecommendedListType[];
-  renderItem: (item: DAppInfo) => JSX.Element;
+  data: RecommendedListType[]
+  renderItem: (item: DAppInfo) => JSX.Element
 }
 type RecommendedListType = {
-  data: DAppInfo[];
+  data: DAppInfo[]
 };
 type SearchItemType = {
-  isSearch?: boolean;
-} & SiteInfo;
-// const ICON_ITEM_HEIGHT = browserHomeItemIconOnly;
-// const ITEM_HEIGHT = browserHomeItem;
-// const ITEM_WIDTH = browserHomeItemWidth;
+  isSearch?: boolean
+} & SiteInfo
 
 const SectionList: React.FC<SectionListProps> = ({ data, renderItem }): JSX.Element => {
   const stylesheet = createStylesheet();
@@ -75,12 +97,10 @@ const SectionList: React.FC<SectionListProps> = ({ data, renderItem }): JSX.Elem
 // };
 
 const _BrowserSoulSwap = () => {
-  const stylesheet = createStylesheet();
-  const theme = useSoulWalletTheme().swThemes;
-  const [dApps] = useState<PredefinedDApps>(soulSites);
-  const navigation = useNavigation<RootNavigationProps>();
-  // const historyItems = useSelector((state: RootState) => state.browser.history);
-  // const bookmarkItems = useSelector((state: RootState) => state.browser.bookmarks);
+  const stylesheet = createStylesheet()
+  // const theme = useSoulWalletTheme().swThemes
+  const [dApps] = useState<PredefinedDApps>(soulSites)
+  const navigation = useNavigation<RootNavigationProps>()
   const recommendedList = useMemo((): RecommendedListType[] => {
     const sectionData = [];
     for (let i = 0; i < 20; i += 5) {
@@ -96,29 +116,6 @@ const _BrowserSoulSwap = () => {
     navigation.navigate('BrowserTabsManager', { url: item.url, name: item.name });
   };
 
-  // const renderRecentItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
-  //   const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
-
-  //   return (
-  //     <IconItem
-  //       data={data}
-  //       url={item.url}
-  //       onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: data?.name })}
-  //     />
-  //   );
-  // };
-  // const renderBookmarkItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
-  //   const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
-  //   return (
-  //     <IconItem
-  //       data={data}
-  //       url={item.url}
-  //       defaultData={item}
-  //       onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: item.name })}
-  //       isWithText
-  //     />
-  //   );
-  // };
   const renderSectionItem = (item: DAppInfo) => {
     return (
       <BrowserItem
@@ -133,23 +130,13 @@ const _BrowserSoulSwap = () => {
       />
     );
   };
-  // const getItemLayout = (data: StoredSiteInfo[] | null | undefined, index: number) => ({
-  //   index,
-  //   length: ITEM_WIDTH,
-  //   offset: ITEM_WIDTH * index,
-  // });
 
   return (
     <View style={stylesheet.container}>
-      {/* <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}> */}
+      <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
         <FastImage style={stylesheet.banner} resizeMode="cover" source={Images.soulswapBanner} />
-        {/* <SectionHeader
-          // title={i18n.browser.recommended}
-          actionTitle={i18n.browser.seeAll}
-          onPress={() => navigation.navigate('BrowserListByTabview', { type: 'RECOMMENDED' })}
-        /> */}
         <SectionList data={recommendedList} renderItem={renderSectionItem} />
-      {/* </ScrollView> */}
+      </ScrollView>
     </View>
   );
 };
@@ -200,102 +187,191 @@ const tabbarIcon = (focused: boolean, item: RoutesType, theme: ThemeTypes) => {
   );
 };
 
+
 const BrowserSoulSwap = ({ navigation }: NativeStackScreenProps<{}>) => {
- const createStylesheet = (theme: ThemeTypes) =>
-  StyleSheet.create({
-    fakeSearch: {
-      margin: theme.margin,
-    },
+  const [{ canGoBack, canGoForward }, setNavigationInfo] = useState<NavigationInfo>({
+    canGoBack: false,
+    canGoForward: false,
   });
-  const theme = useSoulWalletTheme().swThemes;
-  const stylesheet = createStylesheet(theme);
-  const [dApps] = useState<PredefinedDApps>(soulSites);
-  const [searchString] = useState<string>('');
-  const categoryTabRoutes = dApps.categories().map(item => ({ key: item.id, title: item.name }));
-  const allTabRoutes = [{ key: 'all', title: '' }, ...categoryTabRoutes];
-  const navigationState = useNavigationState(state => state);
-  const currentTabIndex = navigationState.routes[navigationState.routes.length - 1].state?.index || 0;
-  const av = new Animated.Value(0);
-  av.addListener(() => {
-    return;
-  });
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
-  const tabScreenOptions = (item: RoutesType) => {
-    return {
-      tabBarIcon: ({ focused }: TabbarType) => tabbarIcon(focused, item, theme),
-    };
+  const webviewRef = useRef<WebView>(null);
+  const browserSv = useRef<BrowserService | null>(null);
+  const siteUrl = useRef<string | null>(null);
+  const siteName = useRef('');
+  const browserOptionModalRef = useRef<BrowserOptionModalRef>(null);
+  const hostname = siteUrl.current ? getHostName(siteUrl.current) : null;
+  const isNetConnected = useContext(WebRunnerContext).isNetConnected;
+  // const isWebviewReady = !!(initWebViewSource && injectedScripts);
+  const toast = useToast();
+  type BrowserActionButtonType = {
+    key: string;
+    icon?: (iconProps: IconProps) => JSX.Element;
+    onPress: () => void;
+    isDisabled?: boolean;
+  };
+  
+  const goBack = () => {
+    if (navigation.canGoBack()) {
+      navigation.navigate('Home', { screen: 'Browser' });
+    } else {
+      navigation.replace('Home', { screen: 'Browser' });
+    }
   };
 
-  const screenListener = {
-    focus: () => {
-      Animated.timing(av, {
-        toValue: 1,
-        duration: 200,
-        useNativeDriver: true,
-      }).start();
+  const bottomButtonList: BrowserActionButtonType[] = [
+    {
+      key: 'back',
+      icon: CaretLeft,
+      onPress: () => {
+        if (!canGoBack) {
+          return;
+        }
+        const { current } = webviewRef;
+        current && current.goBack && current.goBack();
+      },
+      isDisabled: !canGoBack,
     },
-  };
+    {
+      key: 'forward',
+      icon: CaretRight,
+      onPress: () => {
+        if (!canGoForward) {
+          return;
+        }
+        const { current } = webviewRef;
+        current && current.goForward && current.goForward();
+      },
+      isDisabled: !canGoForward,
+    },
+    {
+      key: 'home',
+      icon: House,
+      onPress: goBack,
+    },
+    {
+      key: 'tabs',
+      onPress: () => {
+        captureScreen({
+          format: 'jpg',
+          quality: 1,
+          width: DEVICE.width,
+          height: DEVICE.height,
+        })
+          .then(screenShot => {
+            // updateTabScreenshot(tabId, screenShot);
+          })
+          .catch(e => {
+            console.log('Error when taking screenshot:', e);
+          })
+          .finally(() => {
+            // onOpenBrowserTabs();
+          });
+      },
+    },
+    {
+      key: 'more',
+      icon: DotsThree,
+      // isDisabled: !isWebviewReady,
+      onPress: () => {
+        setModalVisible(true);
+      },
+    },
+  ];
+
+  const renderBrowserTabBar = (button: BrowserActionButtonType) => {
+    // if (!button.icon) {
+      if (button.key === 'back') {
+        // return button.icon;
+        return <TabIcon onPress={button.onPress} />;
+      // }
+      // if (button.key === 'tabs') {
+      //   return <TabIcon onPress={button.onPress} />;
+      // }
+
+      return null;
+    }
+  }
+
 
   return (
-    <ScreenContainer backgroundColor={theme.colorBgDefault}>
-      <>
-        <BrowserHeader />
-        {/* @ts-ignore */}
-        {/* <FakeSearchInput style={stylesheet.fakeSearch} onPress={() => navigation.navigate('BrowserSearch')} /> */}
+    <ScreenContainer backgroundColor={'#0C0C0C'}>
+      <View
+        style={{
+          flex: 1,
+          position: 'relative',
+          backgroundColor: 'black',
+        }}>
 
-        {/* ISOLATE RECOMMENDED SCREEN */}
-        <Tab.Navigator
-         initialLayout={initialLayout}
-         sceneContainerStyle={transparent}
-         initialRouteName="TabBrowserHome0"
-         screenListeners={screenListener}
-         screenOptions={screenOptions(currentTabIndex)}
-        >
-         {allTabRoutes.map((item, index) => {
-          if (index === 0) {
-            return (
-              <Tab.Screen
-                key={'TabBrowserHome0'}
-                name="TabBrowserHome0"
-                component={_BrowserSoulSwap}
-                options={tabScreenOptions(item)}
-              />
-            );
-          }
-        })}
-        </Tab.Navigator>
+        <WebView
+          // style={stylesheet.colorBlack}
+          ref={webviewRef}
+          originWhitelist={['*']}
+          source={{ uri: 'https://cryptoverse-by-rohit.vercel.app' }}
+          // injectedJavaScriptBeforeContentLoaded={injectedScripts}
+          // onLoadStart={onLoadStart}
+          // onLoad={onLoad}
+          // onLoadProgress={onLoadProgress}
+          // onMessage={onWebviewMessage}
+          // onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
+          // onContentProcessDidTerminate={onOutOfMemmories}
+          allowFileAccess
+          allowsInlineMediaPlayback
+          allowUniversalAccessFromFileURLs
+          allowFileAccessFromFileURLs
+          domStorageEnabled
+          javaScriptEnabled
+        />
+      </View>
 
-        {/* <Tab.Navigator
-          initialLayout={initialLayout}
-          sceneContainerStyle={transparent}
-          initialRouteName="TabBrowserHome0"
-          screenListeners={screenListener}
-          screenOptions={screenOptions(currentTabIndex)}>
-          {allTabRoutes.map((item, index) => {
-            if (index === 0) {
-              return (
-                <Tab.Screen
-                  key={'TabBrowserHome0'}
-                  name="TabBrowserHome0"
-                  component={_BrowserSoulSwap}
-                  options={tabScreenOptions(item)}
-                />
-              );
-            }
-            return (
-              <Tab.Screen
-                key={item.key}
-                name={item.key}
-                initialParams={{ searchString }}
-                component={SoulSwapListByCategory}
-                options={tabScreenOptions(item)}
-              />
-            );
-          })}
-        </Tab.Navigator> */}
-      </>
+      {/* <View style={{
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-between',
+        paddingHorizontal: 16,
+        backgroundColor: '#1A1A1A',
+        alignItems: 'center',
+      }}>{bottomButtonList.map(renderBrowserTabBar)}
+      </View> */}
+      <SafeAreaView style={{
+        backgroundColor: '#1A1A1A'
+      }}
+      />
+      <BrowserOptionModal ref={browserOptionModalRef} visibleModal={modalVisible} setVisibleModal={setModalVisible} />
+
     </ScreenContainer>
-  );
+  )
+  // return (
+  //   <ScreenContainer backgroundColor={theme.colorBgDefault}>
+  //     <>
+  //       {/* <BrowserHeader /> */}
+  //       {/* @ts-ignore */}
+  //       {/* <FakeSearchInput style={stylesheet.fakeSearch} onPress={() => navigation.navigate('BrowserSearch')} /> */}
+
+  //       {/* ISOLATE RECOMMENDED SCREEN */}
+  //       <Tab.Navigator
+  //        initialLayout={initialLayout}
+  //        sceneContainerStyle={transparent}
+  //        initialRouteName="TabBrowserHome0"
+  //        screenListeners={screenListener}
+  //        screenOptions={screenOptions(currentTabIndex)}
+  //       >
+  //        {allTabRoutes.map((item, index) => {
+  //         if (index === 0) {
+  //           return (
+  //             <Tab.Screen
+  //               key={'TabBrowserHome0'}
+  //               name="TabBrowserHome0"
+  //               component={_BrowserSoulSwap}
+  //               options={tabScreenOptions(item)}
+  //             />
+  //           );
+  //         }
+  //       })}
+  //       </Tab.Navigator>
+  //     </>
+  //   </ScreenContainer>
+  // );
 };
 
 export default BrowserSoulSwap;
