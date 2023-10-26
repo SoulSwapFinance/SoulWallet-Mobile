@@ -15,6 +15,8 @@ import { FirstScreen } from 'screens/Home/FirstScreen';
 // import { CrowdloansScreen } from 'screens/Home/Crowdloans';
 import { BrowserScreen } from 'screens/Home/Browser';
 import BrowserSoulSwap from 'screens/Home/Browser/BrowserSoulSwap';
+import BrowserMarkets from 'screens/Home/Browser/BrowserMarkets';
+// import BrowserNews from 'screens/Home/Browser/BrowserNews';
 import { HomeStackParamList } from 'routes/home';
 import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
 // import withPageWrapper from 'components/PageWrapper';
@@ -41,6 +43,7 @@ import SvgMagicHat from 'assets/svg/MagicHat';
 import SvgMagicBall from 'assets/svg/MagicBall';
 import SvgPhoto from 'assets/svg/Photo';
 import SvgCauldron from 'assets/svg/Cauldron';
+import SvgMagicMarkets from 'assets/svg/Markets';
 
 interface tabbarIconColor {
   color: string;
@@ -64,6 +67,13 @@ const browserTabbarIcon = ({ color }: tabbarIconColor) => {
 const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
   return <SvgLogo width={36} height={36} color={color} />
 };
+
+const browserMarketsIcon = ({ color }: tabbarIconColor) => {
+  return <SvgMagicMarkets width={36} height={36} color={color} />
+};
+// const browserNewsIcon = ({ color }: tabbarIconColor) => {
+//   return <SvgLogo width={36} height={36} color={color} />
+// };
 // const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
 //   return (
 //     <Image 
@@ -181,6 +191,22 @@ const MainScreen = () => {
           tabBarIcon: browserSoulSwapIcon,
         }}
       />
+      <Tab.Screen
+        name={'Markets'}
+        component={BrowserMarkets}
+        options={{
+          tabBarLabel: 'Markets',
+          tabBarIcon: browserMarketsIcon,
+        }}
+      />
+      {/* <Tab.Screen
+        name={'News'}
+        component={BrowserNews}
+        options={{
+          tabBarLabel: 'News',
+          tabBarIcon: browserNewsIcon,
+        }}
+      /> */}
       <Tab.Screen
         name={'Browser'}
         component={BrowserScreen}

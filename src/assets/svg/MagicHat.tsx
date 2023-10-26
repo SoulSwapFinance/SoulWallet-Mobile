@@ -1,13 +1,7 @@
 import Svg, { G, SvgProps, Path } from 'react-native-svg';
 const SvgMagicHat = (props: SvgProps) => (
   <Svg 
-    viewBox="0 0 192 192" 
-    // width="512" 
-    // height="512"
-    // width={36}
-    // height={36}
-    // fill="currentColor"
-    // stroke="currentColor"
+    viewBox="0 0 192 192"
     accessibilityRole="image"
     style={{
       marginTop: 2,
