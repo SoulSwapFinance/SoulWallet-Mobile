@@ -194,14 +194,14 @@ const MainScreen = () => {
           tabBarIcon: browserSoulSwapIcon,
         }}
       /> */}
-      <Tab.Screen
+      {/* <Tab.Screen
         name={'Markets'}
         component={BrowserMarkets}
         options={{
           tabBarLabel: 'Markets',
           tabBarIcon: browserMarketsIcon,
         }}
-      />
+      /> */}
       <Tab.Screen
         name={'News'}
         component={NewsScreen}

@@ -19,7 +19,7 @@ export type HomeStackParamList = {
   Staking: NavigatorScreenParams<StakingScreenStackParamList> | undefined;
   SoulSwap: NavigatorScreenParams<BrowserHomeProps>;
   News: NavigatorScreenParams<BrowserHomeProps>;
-  Markets: NavigatorScreenParams<BrowserHomeProps>;
+  // Markets: NavigatorScreenParams<BrowserHomeProps>;
   Browser: NavigatorScreenParams<BrowserHomeProps>;
 };
 

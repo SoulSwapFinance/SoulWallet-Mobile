@@ -140,7 +140,6 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
             paddingLeft: 4,
             paddingRight: 4,
             marginTop: 64,
-            // animation: 'pulse 2s infinite',
           }}
           onPress={() => {
             try {
@@ -155,17 +154,12 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
             }
           }}
         >
-          {/* <View
-        > */}
 
           <Text
             style={{
               color: '#FFFFFF',
               fontSize: 24,
-              // paddingTop: 16,
               paddingBottom: 32,
-              // lineHeight: 36,
-              // fontStyle: 'header'
             }}
           >{currentId}
           </Text>
@@ -177,85 +171,13 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
 
   useEffect(() => {
     navigation.setOptions({
-      headerShown: true,
+      // todo: hides header
+      headerShown: false,
       header: () => (
-
-        // <Box
-        //   ref={containerRef}
-        //   bg="background-default"
-        //   // justifyContent="space-between"
-        //   borderBottomWidth="1px"
-        //   borderBottomColor="divider"
-        //   style={{
-        //     display: "flex",
-        //     // marginBottom: -36,
-        //     marginRight: 4,
-        //     marginTop: 42,
-        //     flexDirection: "row",
-        //     justifyContent: "space-between",
-        //     // justifyContent: "flex-start",
-        //   }}
-        // >
-        /* <Box 
-          flexDirection="column"
-          h="9" 
-          w="100%"
-          alignContent="center"
-          mt={4}
-          mb={16}
-          // gap={12}
-          style={{
-            gap: 4,
-          }}
-          // ml={4}
-        > */
-        /* <CategorySelector 
-            currentId={'Market Updates'} 
-            imageURL={'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/icons/news.png'} 
-            /> */
         <NewsSelector />
-        /* </Box> */
-
-        /* UI NOTE: Refresh controller for browser UI. */
-        /* <Pressable
-          onPress={() => {
-            try {
-              const polyfillUrl = new URL(currentUrl);
-              polyfillUrl.searchParams.set(
-                'soulwallet-browser-refresh',
-                Math.random().toString(),
-              );
-              setCurrentUrl(polyfillUrl.toString());
-            } catch (error) {
-              console.warn(error);
-            }
-          }}
-          style={{
-            borderWidth: 3,
-            borderColor: "#303046",
-            borderRadius: 12,
-            paddingRight: 2,
-            paddingLeft: 2,
-            display: 'flex',
-            justifyContent: 'center',
-            // marginBottom: 4,
-            // marginTop: 2,
-            marginLeft: -52,
-            height: 36,
-            width: 36,
-          }}
-        >
-          <Icon
-            name="ArrowPathOutline"
-            size={26}
-          // circle
-          />
-        </Pressable> */
-
-        // </Box>
       ),
-    });
-  }, [currentUrl, webviewRef, modalMode, navigation, url]);
+    })
+  }, [currentUrl, webviewRef, modalMode, navigation, url])
 
   return (
     // <WebView src={currentUrl} />
