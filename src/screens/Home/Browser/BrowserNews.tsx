@@ -32,7 +32,7 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
 
   const modalMode = false
 
-  const url = 'https://cryptoverse-app-beryl.vercel.app/news'
+  const url = 'https://markets.soulswap.finance'
   //  `https://blockworks.co?utm_source=soulswap`
   const imgURL = `https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/blockworks-logo.png`
   const [currentUrl, setCurrentUrl] = useState(url);
