@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Animated, Dimensions, FlatList, ListRenderItem, ScrollView, View } from 'react-native';
 import { soulSites } from '../../../predefined/soulSites';
-import { CaretRight } from 'phosphor-react-native';
+// import { CaretRight } from 'phosphor-react-native';
 import createStylesheet from './styles/BrowserHome';
 import { StyleSheet } from 'react-native';
 
@@ -20,15 +20,15 @@ import { RootNavigationProps } from 'routes/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import i18n from 'utils/i18n/i18n';
 import isaac from 'isaac';
-import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight';
+// import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight';
 import { ScreenContainer } from 'components/ScreenContainer';
 import BrowserHeader from './Shared/BrowserHeader';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
+// import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
 import { FontSemiBold } from 'styles/sharedStyles';
 import { ThemeTypes } from 'styles/themes';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import SoulSwapListByCategory from './SoulSwapListByCategory';
+// import SoulSwapListByCategory from './SoulSwapListByCategory';
 interface HeaderProps {
   title?: string;
   actionTitle: string;
