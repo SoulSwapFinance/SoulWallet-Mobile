@@ -18,7 +18,7 @@ export type HomeStackParamList = {
   // Crowdloans: undefined;
   Staking: NavigatorScreenParams<StakingScreenStackParamList> | undefined;
   SoulSwap: NavigatorScreenParams<BrowserHomeProps>;
-  // News: NavigatorScreenParams<BrowserHomeProps>;
+  News: NavigatorScreenParams<BrowserHomeProps>;
   Markets: NavigatorScreenParams<BrowserHomeProps>;
   Browser: NavigatorScreenParams<BrowserHomeProps>;
 };

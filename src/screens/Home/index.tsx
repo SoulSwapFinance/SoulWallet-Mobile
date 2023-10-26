@@ -16,7 +16,7 @@ import { FirstScreen } from 'screens/Home/FirstScreen';
 import { BrowserScreen } from 'screens/Home/Browser';
 import BrowserSoulSwap from 'screens/Home/Browser/BrowserSoulSwap';
 import BrowserMarkets from 'screens/Home/Browser/BrowserMarkets';
-// import BrowserNews from 'screens/Home/Browser/BrowserNews';
+import NewsScreen from 'screens/Home/Browser/BrowserNews';
 import { HomeStackParamList } from 'routes/home';
 import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
 // import withPageWrapper from 'components/PageWrapper';
@@ -44,6 +44,7 @@ import SvgMagicBall from 'assets/svg/MagicBall';
 import SvgPhoto from 'assets/svg/Photo';
 import SvgCauldron from 'assets/svg/Cauldron';
 import SvgMagicMarkets from 'assets/svg/Markets';
+import SvgNewspaper from 'assets/svg/Newspaper';
 
 interface tabbarIconColor {
   color: string;
@@ -71,9 +72,11 @@ const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
 const browserMarketsIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicMarkets width={36} height={36} color={color} />
 };
-// const browserNewsIcon = ({ color }: tabbarIconColor) => {
-//   return <SvgLogo width={36} height={36} color={color} />
-// };
+
+const browserNewsIcon = ({ color }: tabbarIconColor) => {
+  return <SvgNewspaper width={36} height={36} color={color} />
+};
+
 // const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
 //   return (
 //     <Image 
@@ -183,14 +186,14 @@ const MainScreen = () => {
           tabBarIcon: stakingTabbarIcon,
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name={'SoulSwap'}
         component={BrowserSoulSwap}
         options={{
           tabBarLabel: 'SoulSwap',
           tabBarIcon: browserSoulSwapIcon,
         }}
-      />
+      /> */}
       <Tab.Screen
         name={'Markets'}
         component={BrowserMarkets}
@@ -199,14 +202,14 @@ const MainScreen = () => {
           tabBarIcon: browserMarketsIcon,
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name={'News'}
-        component={BrowserNews}
+        component={NewsScreen}
         options={{
           tabBarLabel: 'News',
           tabBarIcon: browserNewsIcon,
         }}
-      /> */}
+      />
       <Tab.Screen
         name={'Browser'}
         component={BrowserScreen}
