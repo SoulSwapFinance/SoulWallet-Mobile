@@ -104,16 +104,6 @@ const BrowserMarkets = ({ navigation }: NativeStackScreenProps<{}>) => {
           javaScriptEnabled
         />
       </View>
-
-      {/* <View style={{
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'space-between',
-        paddingHorizontal: 16,
-        backgroundColor: '#1A1A1A',
-        alignItems: 'center',
-      }}>{bottomButtonList.map(renderBrowserTabBar)}
-      </View> */}
       <SafeAreaView style={{
         backgroundColor: '#1A1A1A'
       }}
