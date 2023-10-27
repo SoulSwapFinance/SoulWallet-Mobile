@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ListRenderItemInfo, View } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ListRenderItemInfo, SafeAreaView, View } from 'react-native';
 import { CryptoNavigationProps, TokenGroupsDetailProps } from 'routes/home';
 import { SwNumberProps } from 'components/Design/Number';
 import { TokenBalanceItemType } from 'types/balance';
@@ -22,10 +22,13 @@ import useAccountBalance from 'hooks/screen/hooks/useAccountBalance';
 import { useToast } from 'react-native-toast-notifications';
 import i18n from 'utils/i18n/i18n';
 import { SelectAccAndTokenModal } from 'screens/Home/Crypto/shared/SelectAccAndTokenModal';
+import WebView from 'react-native-webview';
+import { _getAssetPriceId } from '@soul-wallet/extension-base/src/services/chain-service/utils';
 
 type CurrentSelectToken = {
   symbol: string;
   slug: string;
+  priceId: string;
 };
 
 export const TokenGroupsDetail = ({
@@ -39,6 +42,23 @@ export const TokenGroupsDetail = ({
   const [tokenDetailVisible, setTokenDetailVisible] = useState<boolean>(false);
   const assetRegistryMap = useSelector((root: RootState) => root.assetRegistry.assetRegistry);
   const multiChainAssetMap = useSelector((state: RootState) => state.assetRegistry.multiChainAssetMap);
+
+  const groupPriceId = useMemo<string>(() => {
+    let priceId = '';
+    if (tokenGroupSlug) {
+      if (multiChainAssetMap[tokenGroupSlug]) {
+        priceId = multiChainAssetMap[tokenGroupSlug].priceId ?? '';
+      }
+
+      if (assetRegistryMap[tokenGroupSlug]) {
+        assetRegistryMap[tokenGroupSlug].symbol == "SOUL" ? priceId = 'soul-swap' 
+          : priceId = assetRegistryMap[tokenGroupSlug].priceId ?? 
+        '';
+      }
+    }
+
+    return priceId;
+  }, [tokenGroupSlug, assetRegistryMap, multiChainAssetMap])
   const groupSymbol = useMemo<string>(() => {
     if (tokenGroupSlug) {
       if (multiChainAssetMap[tokenGroupSlug]) {
@@ -80,6 +100,8 @@ export const TokenGroupsDetail = ({
     tokenGroupBalanceMap,
     isComputing: isAccountBalanceComputing,
   } = useAccountBalance(tokenGroupMap, true);
+
+  let priceId
   const tokenBalanceValue = useMemo<SwNumberProps['value']>(() => {
     if (tokenGroupSlug) {
       if (tokenGroupBalanceMap[tokenGroupSlug]) {
@@ -125,6 +147,7 @@ export const TokenGroupsDetail = ({
       setCurrentTokenInfo({
         slug: item.slug,
         symbol: item.symbol,
+        priceId: groupPriceId
       });
       setTokenDetailVisible(true);
     };

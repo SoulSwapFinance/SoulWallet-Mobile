@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import ActionButton from 'components/ActionButton';
 import i18n from 'utils/i18n/i18n';
@@ -17,6 +17,7 @@ import { ButtonIcon } from 'screens/Home/Crypto/shared/Button';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { ColorMap } from 'styles/color';
+import WebView from 'react-native-webview';
 
 interface Props {
   balanceValue: SwNumberProps['value'];
@@ -41,7 +42,6 @@ export const TokenGroupsDetailUpperBlock = ({
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   const isAllAccount = useSelector((state: RootState) => state.accountState.isAllAccount);
   const _style = createStyleSheet(theme);
-
   const isSupportBuyTokens = useMemo(() => {
     if (Platform.OS === 'ios') {
       return false;
@@ -114,8 +114,24 @@ export const TokenGroupsDetailUpperBlock = ({
             onPress={() => navigation.navigate('Drawer', { screen: 'BuyToken', params: {} })}
             buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
           />
-      </View>
+      <ActionButton
+            // label={'Swap'}
+            // image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
+            // imageSize={30}  
+            icon={ButtonIcon.Charts}
+            // UI NOTE: OPEN URL IN BROWSER
+            // onPress={toggleTokenView}
+            onPress={() => navigation.navigate('BrowserTabsManager', { url: `https://coingecko.com/en/coins/${'soul-swap'}?utm_source=soulswap`, name: 'SoulSwap' })}
+            // @ts-ignore
+            // onPress={() => navigation.navigate('Home', { screen: 'Main', params: {screen: "NFTs", params: {} }})}
+            // params: {
+              //   // @ts-ignore
+              //   screen: 'NFTs'})}
+              buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
+              />
+        </View>
     </View>
+
   );
 };
 
