@@ -121,7 +121,7 @@ export const TokenGroupsDetailUpperBlock = ({
             icon={ButtonIcon.Charts}
             // UI NOTE: OPEN URL IN BROWSER
             // onPress={toggleTokenView}
-            onPress={() => navigation.navigate('BrowserTabsManager', { url: `https://coingecko.com/en/coins/${'soul-swap'}?utm_source=soulswap`, name: 'SoulSwap' })}
+            onPress={ () => navigation.navigate('BrowserTabsManager', { url: `https://coingecko.com/en/coins/${'soul-swap'}?utm_source=soulswap`, name: 'SoulSwap' }) }
             // @ts-ignore
             // onPress={() => navigation.navigate('Home', { screen: 'Main', params: {screen: "NFTs", params: {} }})}
             // params: {
