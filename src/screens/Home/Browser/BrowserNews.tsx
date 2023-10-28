@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import type { FC } from 'react'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/core'
 import { URL } from 'react-native-url-polyfill'
 import Image from 'components/Design/Image'
@@ -32,11 +32,14 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
 
   const modalMode = false
 
-  const url = 'https://markets.soulswap.finance'
+  const url = 'https://blockworks.co?utm_source=soulswap'
   //  `https://blockworks.co?utm_source=soulswap`
   const imgURL = `https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/blockworks-logo.png`
   const [currentUrl, setCurrentUrl] = useState(url);
   const [currentId, setCurrentId] = useState('Home');
+  const [showHeader, setShowHeader] = useState(true);
+  const [currentName, setCurrentName] = useState('Blockworks');
+  const [showOptions, setShowOptions] = useState(false);
   const [currentImageURL, setCurrentImageURL] = useState(imgURL)
   const webviewRef = useRef<WebView>(null);
 
@@ -67,6 +70,13 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
       imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/blockworks-logo.png',
       name: 'Blockworks'
     }
+    
+    const coingecko = {
+        id: 'CoinGecko',
+        url: 'https://coingecko.com?utm_source=soulswap',
+        imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
+        name: 'CoinGecko'
+    }
 
     const cointelegraph = {
       id: 'Cointelegraph',
@@ -80,6 +90,13 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
       url: 'https://coindesk.com?utm_source=soulswap',
       imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
       name: 'CoinDesk'
+    }
+    
+    const starsarena = {
+      id: 'StarsArena',
+      url: 'https://starsarena.com?utm_source=soulswap',
+      imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
+      name: 'StarsArena'
     }
 
     const twitter = {
@@ -98,33 +115,47 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
 
     const supportedScreens = [
       blockworks,
+      coingecko,
       cointelegraph,
       coindesk,
+      starsarena,
       twitter,
       youtube,
     ]
 
+
+    // const onApply = useCallback(() => {
+    //   onCloseModal();
+    //   setSelectedItems(Object.keys(selectionMap).filter(o => selectionMap[o]));
+    // }, [onCloseModal, selectionMap]);
+
+    const toggleShowOptions = useCallback(() => {
+      setShowOptions(!showOptions)
+    }, [showOptions])
+
     // const [currentURL, setCurrentUrl] = useState(props?.currentURL)
 
     return (
-
       <View
-      // accessibilityLabel="More options menu" {...triggerProps}
-      // style={{
-      //   flexDirection: 'row',
-      //   alignItems: 'center',
-      //   justifyContent: 'center',
-      //   width: "100%",
-      //   height: 40,
-      //   borderRadius: 12,
-      //   borderWidth: 2,
-      //   borderColor: '#9854FF',
-      //   backgroundColor: 'background-default',
-      //   paddingLeft: 4,
-      //   paddingRight: 4,
-      //   marginTop: 48,
-      //   // animation: 'pulse 2s infinite',
-      // }}
+        // accessibilityLabel="More options menu" {...triggerProps}
+        // style={{
+        //   flexDirection: 'row',
+        //   alignItems: 'center',
+        //   justifyContent: 'center',
+        //   width: "100%",
+        //   height: 40,
+        //   borderRadius: 12,
+        //   borderWidth: 2,
+        //   borderColor: '#9854FF',
+        //   backgroundColor: 'background-default',
+        //   paddingLeft: 4,
+        //   paddingRight: 4,
+        //   marginTop: 48,
+        //   // animation: 'pulse 2s infinite',
+        // }}
+        style={{
+          height: 120
+        }}
       >
         <Button
           style={{
@@ -133,37 +164,306 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
             justifyContent: 'center',
             width: "100%",
             height: 40,
-            borderRadius: 12,
             borderWidth: 2,
             borderColor: '#9854FF',
             backgroundColor: 'background-default',
             paddingLeft: 4,
             paddingRight: 4,
-            marginTop: 64,
+            marginTop: 96,
           }}
           onPress={() => {
             try {
-              const polyfillUrl = new URL(currentUrl);
+              const polyfillUrl = new URL(currentUrl)
               polyfillUrl.searchParams.set(
                 'soulwallet-browser-refresh',
-                Math.random().toString(),
-              );
-              setCurrentUrl(polyfillUrl.toString());
+                Math.random().toString()
+              )
+              setCurrentUrl(polyfillUrl.toString())
+              toggleShowOptions()
             } catch (error) {
-              console.warn(error);
+              console.warn(error)
             }
           }}
         >
-
           <Text
             style={{
               color: '#FFFFFF',
               fontSize: 24,
               paddingBottom: 32,
             }}
-          >{currentId}
+          >{currentName}
           </Text>
         </Button>
+        {showOptions &&
+          <>
+            <Button
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: "100%",
+                height: 40,
+                borderWidth: 2,
+                borderLeftColor: '#9854FF',
+                borderRightColor: '#9854FF',
+                backgroundColor: '#000000',
+                paddingLeft: 4,
+                paddingRight: 4,
+              }}
+              onPress={() => {
+                try {
+                  const polyfillUrl = new URL(currentUrl)
+                  polyfillUrl.searchParams.set(
+                    'soulwallet-browser-refresh',
+                    Math.random().toString()
+                  )
+                  setCurrentUrl(supportedScreens[0].url.toString())
+                  setShowOptions(false)
+                  setCurrentName(supportedScreens[0].name)
+                } catch (error) {
+                  console.warn(error)
+                }
+              }}
+            >
+              <Text
+                style={{
+                  color: '#FFFFFF',
+                  fontSize: 24,
+                  paddingBottom: 32,
+                }}
+              >{supportedScreens[0].name}
+              </Text>
+            </Button>
+            <Button
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: "100%",
+                height: 40,
+                borderWidth: 2,
+                borderLeftColor: '#9854FF',
+                borderRightColor: '#9854FF',
+                backgroundColor: '#000000',
+                paddingLeft: 4,
+                paddingRight: 4,
+              }}
+              onPress={() => {
+                try {
+                  const polyfillUrl = new URL(currentUrl)
+                  polyfillUrl.searchParams.set(
+                    'soulwallet-browser-refresh',
+                    Math.random().toString()
+                  )
+                  setCurrentUrl(supportedScreens[1].url.toString())
+                  setShowOptions(false)
+                  setCurrentName(supportedScreens[1].name)
+                } catch (error) {
+                  console.warn(error)
+                }
+              }}
+            >
+              <Text
+                style={{
+                  color: '#FFFFFF',
+                  fontSize: 24,
+                  paddingBottom: 32,
+                }}
+              >{supportedScreens[1].name}
+              </Text>
+            </Button>
+            <Button
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: "100%",
+                height: 40,
+                borderWidth: 2,
+                borderLeftColor: '#9854FF',
+                borderRightColor: '#9854FF',
+                backgroundColor: '#000000',
+                paddingLeft: 4,
+                paddingRight: 4,
+              }}
+              onPress={() => {
+                try {
+                  const polyfillUrl = new URL(currentUrl)
+                  polyfillUrl.searchParams.set(
+                    'soulwallet-browser-refresh',
+                    Math.random().toString()
+                  )
+                  setCurrentUrl(supportedScreens[2].url.toString())
+                  setShowOptions(false)
+                  setCurrentName(supportedScreens[2].name)
+                } catch (error) {
+                  console.warn(error)
+                }
+              }}
+            >
+              <Text
+                style={{
+                  color: '#FFFFFF',
+                  fontSize: 24,
+                  paddingBottom: 32,
+                }}
+              >{supportedScreens[2].name}
+              </Text>
+            </Button>
+            <Button
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: "100%",
+                height: 40,
+                borderWidth: 2,
+                borderLeftColor: '#9854FF',
+                borderRightColor: '#9854FF',
+                backgroundColor: '#000000',
+                paddingLeft: 4,
+                paddingRight: 4,
+              }}
+              onPress={() => {
+                try {
+                  const polyfillUrl = new URL(currentUrl)
+                  polyfillUrl.searchParams.set(
+                    'soulwallet-browser-refresh',
+                    Math.random().toString()
+                  )
+                  setCurrentUrl(supportedScreens[3].url.toString())
+                  setShowOptions(false)
+                  setCurrentName(supportedScreens[3].name)
+                } catch (error) {
+                  console.warn(error)
+                }
+              }}
+            >
+              <Text
+                style={{
+                  color: '#FFFFFF',
+                  fontSize: 24,
+                  paddingBottom: 32,
+                }}
+              >{supportedScreens[3].name}
+              </Text>
+            </Button>
+            <Button
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: "100%",
+                height: 40,
+                borderWidth: 2,
+                borderLeftColor: '#9854FF',
+                borderRightColor: '#9854FF',
+                backgroundColor: '#000000',
+                paddingLeft: 4,
+                paddingRight: 4,
+              }}
+              onPress={() => {
+                try {
+                  const polyfillUrl = new URL(currentUrl)
+                  polyfillUrl.searchParams.set(
+                    'soulwallet-browser-refresh',
+                    Math.random().toString()
+                  )
+                  setCurrentUrl(supportedScreens[4].url.toString())
+                  setShowOptions(false)
+                  setCurrentName(supportedScreens[4].name)
+                } catch (error) {
+                  console.warn(error)
+                }
+              }}
+            >
+              <Text
+                style={{
+                  color: '#FFFFFF',
+                  fontSize: 24,
+                  paddingBottom: 32,
+                }}
+              >{supportedScreens[4].name}
+              </Text>
+            </Button>
+            <Button
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: "100%",
+                height: 40,
+                borderWidth: 2,
+                borderLeftColor: '#9854FF',
+                borderRightColor: '#9854FF',
+                backgroundColor: '#000000',
+                paddingLeft: 4,
+                paddingRight: 4,
+              }}
+              onPress={() => {
+                try {
+                  const polyfillUrl = new URL(currentUrl)
+                  polyfillUrl.searchParams.set(
+                    'soulwallet-browser-refresh',
+                    Math.random().toString()
+                  )
+                  setCurrentUrl(supportedScreens[5].url.toString())
+                  setShowOptions(false)
+                  setCurrentName(supportedScreens[5].name)
+                } catch (error) {
+                  console.warn(error)
+                }
+              }}
+            >
+              <Text
+                style={{
+                  color: '#FFFFFF',
+                  fontSize: 24,
+                  paddingBottom: 32,
+                }}
+              >{supportedScreens[5].name}
+              </Text>
+            </Button>
+            <Button
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: "100%",
+                height: 40,
+                borderWidth: 2,
+                borderLeftColor: '#9854FF',
+                borderRightColor: '#9854FF',
+                backgroundColor: '#000000',
+                paddingLeft: 4,
+                paddingRight: 4,
+              }}
+              onPress={() => {
+                try {
+                  const polyfillUrl = new URL(currentUrl)
+                  polyfillUrl.searchParams.set(
+                    'soulwallet-browser-refresh',
+                    Math.random().toString()
+                  )
+                  setCurrentUrl(supportedScreens[6].url.toString())
+                  setShowOptions(false)
+                  setCurrentName(supportedScreens[6].name)
+                } catch (error) {
+                  console.warn(error)
+                }
+              }}
+            >
+              <Text
+                style={{
+                  color: '#FFFFFF',
+                  fontSize: 24,
+                  paddingBottom: 32,
+                }}
+              >{supportedScreens[6].name}
+              </Text>
+            </Button>
+          </>
+        }
       </View>
     )
 
@@ -172,7 +472,7 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
   useEffect(() => {
     navigation.setOptions({
       // todo: hides header
-      headerShown: false,
+      headerShown: showHeader,
       header: () => (
         <NewsSelector />
       ),
@@ -180,8 +480,9 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
   }, [currentUrl, webviewRef, modalMode, navigation, url])
 
   return (
-    // <WebView src={currentUrl} />
-    <ScreenContainer backgroundColor={'#0C0C0C'}>
+    <ScreenContainer 
+      backgroundColor={'#0C0C0C'}
+    >
       <View
         style={{
           flex: 1,

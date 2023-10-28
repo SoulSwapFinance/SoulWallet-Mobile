@@ -67,7 +67,7 @@ export const TokenGroupsDetailUpperBlock = ({
     }
 
     return false;
-  }, [accounts, currentAccount?.address, isAllAccount, groupSymbol]);
+  }, [accounts, currentAccount?.address, isAllAccount, ]);
 
   return (
     <View style={_style.containerStyle} pointerEvents="box-none">
