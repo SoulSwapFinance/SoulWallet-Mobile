@@ -12,6 +12,8 @@ const DEFAULT_BALANCE = { value: '0', symbol: '', decimals: 18 };
 const useGetBalance = (chain = '', address = '', tokenSlug = '') => {
   const { chainInfoMap, chainStateMap } = useSelector((state: RootState) => state.chainStore);
   const { assetSettingMap, assetRegistry } = useSelector((state: RootState) => state.assetRegistry);
+  // console.log('chain: %s', chain)
+  // console.log('tokenSlug: %s', tokenSlug)
 
   const chainInfo = useMemo((): _ChainInfo | undefined => chainInfoMap[chain], [chainInfoMap, chain]);
   const nativeTokenSlug = useMemo(() => (chainInfo ? _getChainNativeTokenSlug(chainInfo) : undefined), [chainInfo]);

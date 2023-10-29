@@ -57,6 +57,20 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
     // const getScreen = (id: string) => {
     //   return supportedScreens.find((screen) => screen.id === id);
     // }
+
+    const style =
+      {flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: "100%",
+      height: 40,
+      borderWidth: 2,
+      borderColor: '#9854FF',
+      backgroundColor: 'background-default',
+      paddingLeft: 4,
+      paddingRight: 4,
+      marginTop: 96,}
+  
     type Screen = {
       id: string;
       url: string;
@@ -204,9 +218,10 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
                 width: "100%",
                 height: 40,
                 borderWidth: 2,
+                backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
                 borderRightColor: '#9854FF',
-                backgroundColor: '#000000',
+                borderRadius: 0,
                 paddingLeft: 4,
                 paddingRight: 4,
               }}
@@ -242,9 +257,10 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
                 width: "100%",
                 height: 40,
                 borderWidth: 2,
+                backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
                 borderRightColor: '#9854FF',
-                backgroundColor: '#000000',
+                borderRadius: 0,
                 paddingLeft: 4,
                 paddingRight: 4,
               }}
@@ -280,9 +296,10 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
                 width: "100%",
                 height: 40,
                 borderWidth: 2,
+                backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
                 borderRightColor: '#9854FF',
-                backgroundColor: '#000000',
+                borderRadius: 0,
                 paddingLeft: 4,
                 paddingRight: 4,
               }}
@@ -318,9 +335,10 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
                 width: "100%",
                 height: 40,
                 borderWidth: 2,
+                backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
                 borderRightColor: '#9854FF',
-                backgroundColor: '#000000',
+                borderRadius: 0,
                 paddingLeft: 4,
                 paddingRight: 4,
               }}
@@ -356,9 +374,10 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
                 width: "100%",
                 height: 40,
                 borderWidth: 2,
+                backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
                 borderRightColor: '#9854FF',
-                backgroundColor: '#000000',
+                borderRadius: 0,
                 paddingLeft: 4,
                 paddingRight: 4,
               }}
@@ -394,9 +413,10 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
                 width: "100%",
                 height: 40,
                 borderWidth: 2,
+                backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
                 borderRightColor: '#9854FF',
-                backgroundColor: '#000000',
+                borderRadius: 0,
                 paddingLeft: 4,
                 paddingRight: 4,
               }}
@@ -432,9 +452,10 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
                 width: "100%",
                 height: 40,
                 borderWidth: 2,
+                backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
                 borderRightColor: '#9854FF',
-                backgroundColor: '#000000',
+                borderRadius: 0,
                 paddingLeft: 4,
                 paddingRight: 4,
               }}
@@ -466,7 +487,6 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
         }
       </View>
     )
-
   }
 
   useEffect(() => {
