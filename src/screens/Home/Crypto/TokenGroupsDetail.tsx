@@ -1,29 +1,29 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ListRenderItemInfo, SafeAreaView, View } from 'react-native';
-import { CryptoNavigationProps, TokenGroupsDetailProps } from 'routes/home';
-import { SwNumberProps } from 'components/Design/Number';
-import { TokenBalanceItemType } from 'types/balance';
-import { GradientBackgroundColorSet, ScreenContainer } from 'components/ScreenContainer';
-import { Header } from 'components/Header';
-import { TokensLayout } from 'screens/Home/Crypto/shared/TokensLayout';
-import { itemWrapperStyle } from 'screens/Home/Crypto/layers/shared';
-import { TokenBalanceItem } from 'components/Common/TokenBalanceItem';
-import { TokenGroupsDetailUpperBlock } from 'screens/Home/Crypto/TokenGroupsDetailUpperBlock';
-import { useNavigation } from '@react-navigation/native';
-import { TokenDetailModal } from 'screens/Home/Crypto/TokenDetailModal';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import useReceiveQR from 'hooks/screen/Home/Crypto/useReceiveQR';
-import { ReceiveModal } from 'screens/Home/Crypto/ReceiveModal';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { useGetChainSlugs } from 'hooks/screen/Home/useGetChainSlugs';
-import useTokenGroup from 'hooks/screen/hooks/useTokenGroup';
-import useAccountBalance from 'hooks/screen/hooks/useAccountBalance';
-import { useToast } from 'react-native-toast-notifications';
-import i18n from 'utils/i18n/i18n';
-import { SelectAccAndTokenModal } from 'screens/Home/Crypto/shared/SelectAccAndTokenModal';
-import WebView from 'react-native-webview';
-import { _getAssetPriceId } from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { ListRenderItemInfo, View } from 'react-native'
+import { CryptoNavigationProps, TokenGroupsDetailProps } from 'routes/home'
+import { SwNumberProps } from 'components/Design/Number'
+import { TokenBalanceItemType } from 'types/balance'
+import { GradientBackgroundColorSet, ScreenContainer } from 'components/ScreenContainer'
+import { Header } from 'components/Header'
+import { TokensLayout } from 'screens/Home/Crypto/shared/TokensLayout'
+import { itemWrapperStyle } from 'screens/Home/Crypto/layers/shared'
+import { TokenBalanceItem } from 'components/Common/TokenBalanceItem'
+import { TokenGroupsDetailUpperBlock } from 'screens/Home/Crypto/TokenGroupsDetailUpperBlock'
+import { useNavigation } from '@react-navigation/native'
+import { TokenDetailModal } from 'screens/Home/Crypto/TokenDetailModal'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import useReceiveQR from 'hooks/screen/Home/Crypto/useReceiveQR'
+import { ReceiveModal } from 'screens/Home/Crypto/ReceiveModal'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { useGetChainSlugs } from 'hooks/screen/Home/useGetChainSlugs'
+import useTokenGroup from 'hooks/screen/hooks/useTokenGroup'
+import useAccountBalance from 'hooks/screen/hooks/useAccountBalance'
+import { useToast } from 'react-native-toast-notifications'
+import i18n from 'utils/i18n/i18n'
+import { SelectAccAndTokenModal } from 'screens/Home/Crypto/shared/SelectAccAndTokenModal'
+// import WebView from 'react-native-webview'
+import { _getAssetPriceId } from '@soul-wallet/extension-base/src/services/chain-service/utils'
 
 type CurrentSelectToken = {
   symbol: string;
@@ -198,6 +198,7 @@ export const TokenGroupsDetail = ({
         onOpenSendFund={_onOpenSendFund}
         balanceValue={tokenBalanceValue}
         balanceUSD={tokenBalanceUSD}
+        groupPriceId={groupPriceId}
         onClickBack={onClickBack}
         groupSymbol={groupSymbol}
         tokenGroupSlug={tokenGroupSlug}
