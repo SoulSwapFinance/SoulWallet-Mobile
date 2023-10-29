@@ -38,36 +38,36 @@ export const TokenGroupsDetailUpperBlock = ({
 }: Props) => {
   const navigation = useNavigation<RootNavigationProps>();
   const theme = useSoulWalletTheme().swThemes;
-  const accounts = useSelector((state: RootState) => state.accountState.accounts);
-  const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
-  const isAllAccount = useSelector((state: RootState) => state.accountState.isAllAccount);
+  // const accounts = useSelector((state: RootState) => state.accountState.accounts);
+  // const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
+  // const isAllAccount = useSelector((state: RootState) => state.accountState.isAllAccount);
   const _style = createStyleSheet(theme);
-  const isSupportBuyTokens = useMemo(() => {
-    if (Platform.OS === 'ios') {
-      return false;
-    }
-    const transakInfoItems = Object.values(PREDEFINED_TRANSAK_TOKEN);
+  // const isSupportBuyTokens = useMemo(() => {
+  //   if (Platform.OS === 'ios') {
+  //     return false;
+  //   }
+  //   const transakInfoItems = Object.values(PREDEFINED_TRANSAK_TOKEN);
 
-    for (const infoItem of transakInfoItems) {
-      if (infoItem.symbol === groupSymbol) {
-        const supportType = infoItem.support;
+  //   for (const infoItem of transakInfoItems) {
+  //     if (infoItem.symbol === groupSymbol) {
+  //       const supportType = infoItem.support;
 
-        if (isAllAccount) {
-          for (const account of accounts) {
-            if (supportType === getAccountType(account.address)) {
-              return true;
-            }
-          }
-        } else {
-          if (currentAccount?.address && supportType === getAccountType(currentAccount?.address)) {
-            return true;
-          }
-        }
-      }
-    }
+  //       if (isAllAccount) {
+  //         for (const account of accounts) {
+  //           if (supportType === getAccountType(account.address)) {
+  //             return true;
+  //           }
+  //         }
+  //       } else {
+  //         if (currentAccount?.address && supportType === getAccountType(currentAccount?.address)) {
+  //           return true;
+  //         }
+  //       }
+  //     }
+  //   }
 
-    return false;
-  }, [accounts, currentAccount?.address, isAllAccount, ]);
+  //   return false;
+  // }, [accounts, currentAccount?.address, isAllAccount, ]);
 
   return (
     <View style={_style.containerStyle} pointerEvents="box-none">
