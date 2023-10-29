@@ -1,20 +1,20 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import i18n from 'utils/i18n/i18n';
-import { Image, ListRenderItemInfo, Platform } from 'react-native';
-import qs from 'querystring';
-import reformatAddress from 'utils/index';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { InAppBrowser } from 'react-native-inappbrowser-reborn';
-import { ServiceSelectItem } from 'components/ServiceSelectItem';
-import { HIDE_MODAL_DURATION } from 'constants/index';
-import useAppLock from 'hooks/useAppLock';
-import { PREDEFINED_TRANSAK_TOKEN, PREDEFINED_TRANSAK_TOKEN_BY_SLUG } from '../../../predefined/transak';
-import { _getChainSubstrateAddressPrefix } from '@soul-wallet/extension-base/src/services/chain-service/utils';
-// import { ImageLogosMap } from 'assets/logo';
-import { FullSizeSelectModal } from 'components/Common/SelectModal';
-import { ModalRef } from 'types/modalRef';
-import { ServiceSelectField } from 'components/Field/ServiceSelect';
+import React, { useEffect, useMemo, useState } from 'react'
+import i18n from 'utils/i18n/i18n'
+import { Image, ListRenderItemInfo, Platform } from 'react-native'
+import qs from 'querystring'
+import reformatAddress from 'utils/index'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { InAppBrowser } from 'react-native-inappbrowser-reborn'
+import { ServiceSelectItem } from 'components/ServiceSelectItem'
+import { HIDE_MODAL_DURATION } from 'constants/index'
+import useAppLock from 'hooks/useAppLock'
+import { PREDEFINED_TRANSAK_TOKEN, PREDEFINED_TRANSAK_TOKEN_BY_SLUG } from 'constants/predefined/transak'
+import { _getChainSubstrateAddressPrefix } from '@soul-wallet/extension-base/src/services/chain-service/utils'
+// import { ImageLogosMap } from 'assets/logo'
+import { FullSizeSelectModal } from 'components/Common/SelectModal'
+import { ModalRef } from 'types/modalRef'
+import { ServiceSelectField } from 'components/Field/ServiceSelect'
 import TransactLogo from 'assets/logo/transak.png'
 
 interface Props {

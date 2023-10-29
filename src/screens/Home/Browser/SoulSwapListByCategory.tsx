@@ -1,18 +1,18 @@
-import React, { useMemo, useState } from 'react';
-import { FlatList, ListRenderItem, View } from 'react-native';
-import { soulSites } from '../../../predefined/soulSites';
-import { RootStackParamList } from 'routes/index';
-import browserHomeStyle from './styles/BrowserListByCategory';
-// import { useSelector } from 'react-redux';
-// import { RootState } from 'stores/index';
-import { DAppInfo, PredefinedDApps } from 'types/browser';
-import { BrowserItem } from 'components/Browser/BrowserItem';
-import { SiteInfo } from 'stores/types';
-import { getHostName } from 'utils/browser';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { CategoryEmptyList } from 'screens/Home/Browser/Shared/CategoryEmptyList';
-import { browserListItemHeight, browserListSeparator } from 'constants/itemHeight';
+import React, { useMemo, useState } from 'react'
+import { FlatList, ListRenderItem, View } from 'react-native'
+import { soulSites } from 'constants/predefined/soulSites'
+import { RootStackParamList } from 'routes/index'
+import browserHomeStyle from './styles/BrowserListByCategory'
+// import { useSelector } from 'react-redux'
+// import { RootState } from 'stores/index'
+import { DAppInfo, PredefinedDApps } from 'types/browser'
+import { BrowserItem } from 'components/Browser/BrowserItem'
+import { SiteInfo } from 'stores/types'
+import { getHostName } from 'utils/browser'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { CategoryEmptyList } from 'screens/Home/Browser/Shared/CategoryEmptyList'
+import { browserListItemHeight, browserListSeparator } from 'constants/itemHeight'
 
 export interface SoulSwapListByCategoryProps {
   searchString: string;

@@ -6,7 +6,7 @@ import { isAccountAll as checkIsAccountAll } from '@soul-wallet/extension-base/s
 import { getAccountType } from 'utils/index';
 import { findNetworkJsonByGenesisHash } from 'utils/getNetworkJsonByGenesisHash';
 import { findAccountByAddress } from 'utils/account';
-import { PREDEFINED_TRANSAK_TOKEN } from '../../../../predefined/transak';
+import { PREDEFINED_TRANSAK_TOKEN } from '../../../../constants/predefined/transak';
 import { AccountType } from 'types/ui-types';
 import { TokenItemType } from 'components/Modal/common/TokenSelector';
 import { ModalRef } from 'types/modalRef';

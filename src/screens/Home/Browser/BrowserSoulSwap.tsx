@@ -1,36 +1,37 @@
-import React, { useMemo, useState } from 'react';
-import { Animated, Dimensions, FlatList, ListRenderItem, ScrollView, View } from 'react-native';
-import { soulSites } from '../../../predefined/soulSites';
-import { CaretRight } from 'phosphor-react-native';
-import createStylesheet from './styles/BrowserHome';
-import { StyleSheet } from 'react-native';
+import React, { useMemo, useState } from 'react'
+import { Animated, Dimensions, FlatList, ListRenderItem, ScrollView, View } from 'react-native'
+import { soulSites } from 'constants/predefined/soulSites'
+// import { CaretRight } from 'phosphor-react-native'
+import createStylesheet from './styles/BrowserHome'
+import { StyleSheet } from 'react-native'
 
-import FastImage from 'react-native-fast-image';
-import { Images } from 'assets/index';
-import { Icon, Typography } from 'components/Design';
-// import { TouchableOpacity } from 'react-native-gesture-handler';
-// import { useSelector } from 'react-redux';
-// import { RootState } from 'stores/index';
-import { DAppInfo, PredefinedDApps } from 'types/browser';
-import { BrowserItem } from 'components/Browser/BrowserItem';
-import { SiteInfo, StoredSiteInfo } from 'stores/types';
-import { getHostName } from 'utils/browser';
-import { useNavigation, useNavigationState } from '@react-navigation/native';
-import { RootNavigationProps } from 'routes/index';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import i18n from 'utils/i18n/i18n';
-import isaac from 'isaac';
-import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight';
-import { ScreenContainer } from 'components/ScreenContainer';
-import BrowserHeader from './Shared/BrowserHeader';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
-import { FontSemiBold } from 'styles/sharedStyles';
-import { ThemeTypes } from 'styles/themes';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import SoulSwapListByCategory from './SoulSwapListByCategory';
+import FastImage from 'react-native-fast-image'
+import { Images } from 'assets/index'
+import { Icon, Typography } from 'components/Design'
+// import { TouchableOpacity } from 'react-native-gesture-handler'
+// import { useSelector } from 'react-redux'
+// import { RootState } from 'stores/index'
+import { DAppInfo, PredefinedDApps } from 'types/browser'
+import { BrowserItem } from 'components/Browser/BrowserItem'
+import { SiteInfo, StoredSiteInfo } from 'stores/types'
+import { getHostName } from 'utils/browser'
+import { useNavigation, useNavigationState } from '@react-navigation/native'
+import { RootNavigationProps } from 'routes/index'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+// import i18n from 'utils/i18n/i18n'
+import isaac from 'isaac'
+// import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight'
+import { ScreenContainer } from 'components/ScreenContainer'
+import BrowserHeader from './Shared/BrowserHeader'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+// import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput'
+import { FontSemiBold } from 'styles/sharedStyles'
+import { ThemeTypes } from 'styles/themes'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
+// import SoulSwapListByCategory from './SoulSwapListByCategory'
+
 interface HeaderProps {
-  title?: string;
+  title?: string
   actionTitle: string;
   onPress: () => void;
 }
@@ -74,7 +75,7 @@ const SectionList: React.FC<SectionListProps> = ({ data, renderItem }): JSX.Elem
 //   return <View style={stylesheet.flatListSeparator} />;
 // };
 
-const _BrowserSoulSwap = () => {
+export const _BrowserSoulSwap = () => {
   const stylesheet = createStylesheet();
   const theme = useSoulWalletTheme().swThemes;
   const [dApps] = useState<PredefinedDApps>(soulSites);

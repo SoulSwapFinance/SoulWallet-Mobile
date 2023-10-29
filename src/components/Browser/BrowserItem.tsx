@@ -1,15 +1,15 @@
-import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
-import React, { useCallback, useState } from 'react';
-import { Button, Icon, Image, Tag, Typography } from 'components/Design';
-import { Star } from 'phosphor-react-native';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { StoredSiteInfo } from 'stores/types';
-import { addBookmark, removeBookmark } from 'stores/updater';
-import createStylesheet from './styles/BrowserItem';
-import { predefinedDApps } from '../../predefined/dAppSites';
-import { getHostName, searchDomain } from 'utils/browser';
+import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native'
+import React, { useCallback, useState } from 'react'
+import { Button, Icon, Image, Tag, Typography } from 'components/Design'
+import { Star } from 'phosphor-react-native'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { StoredSiteInfo } from 'stores/types'
+import { addBookmark, removeBookmark } from 'stores/updater'
+import createStylesheet from './styles/BrowserItem'
+import { predefinedDApps } from 'constants/predefined/dAppSites'
+import { getHostName, searchDomain } from 'utils/browser'
 
 interface Props {
   logo?: string;

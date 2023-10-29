@@ -1,25 +1,25 @@
-import React, { useMemo } from 'react';
-import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
-import { Button, Icon, PageIcon, Typography } from 'components/Design';
-import { ShoppingCartSimple } from 'phosphor-react-native';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { AccountSelector } from 'components/Modal/common/AccountSelectorNew';
-import { TokenSelector } from 'components/Modal/common/TokenSelectorNew';
-import useBuyToken from 'hooks/screen/Home/Crypto/useBuyToken';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { AccountSelectField } from 'components/Field/AccountSelect';
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
-import i18n from 'utils/i18n/i18n';
-import { useNavigation } from '@react-navigation/native';
-import { RootNavigationProps } from 'routes/index';
-import { TokenSelectField } from 'components/Field/TokenSelect';
-import { PREDEFINED_TRANSAK_TOKEN_BY_SLUG } from '../../../predefined/transak';
-import { StyleSheet, View } from 'react-native';
-import { ServiceModal } from 'screens/Home/Crypto/ServiceModal';
-import { FontSemiBold, MarginBottomForSubmitButton } from 'styles/sharedStyles';
-import { ThemeTypes } from 'styles/themes';
-import { BuyTokenProps } from 'routes/wrapper';
+import React, { useMemo } from 'react'
+import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader'
+import { Button, Icon, PageIcon, Typography } from 'components/Design'
+import { ShoppingCartSimple } from 'phosphor-react-native'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { AccountSelector } from 'components/Modal/common/AccountSelectorNew'
+import { TokenSelector } from 'components/Modal/common/TokenSelectorNew'
+import useBuyToken from 'hooks/screen/Home/Crypto/useBuyToken'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { AccountSelectField } from 'components/Field/AccountSelect'
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress'
+import i18n from 'utils/i18n/i18n'
+import { useNavigation } from '@react-navigation/native'
+import { RootNavigationProps } from 'routes/index'
+import { TokenSelectField } from 'components/Field/TokenSelect'
+import { PREDEFINED_TRANSAK_TOKEN_BY_SLUG } from 'constants/predefined/transak'
+import { StyleSheet, View } from 'react-native'
+import { ServiceModal } from 'screens/Home/Crypto/ServiceModal'
+import { FontSemiBold, MarginBottomForSubmitButton } from 'styles/sharedStyles'
+import { ThemeTypes } from 'styles/themes'
+import { BuyTokenProps } from 'routes/wrapper'
 
 export const BuyToken = ({
   route: {

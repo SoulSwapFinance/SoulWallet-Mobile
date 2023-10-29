@@ -1,25 +1,25 @@
-import React, { useMemo, useState } from 'react';
-import { FlatList, ListRenderItem, ScrollView, View } from 'react-native';
-import { predefinedDApps } from '../../../predefined/dAppSites';
-import { CaretRight } from 'phosphor-react-native';
-import createStylesheet from './styles/BrowserHome';
-import FastImage from 'react-native-fast-image';
-import { Images } from 'assets/index';
-import { Icon, Typography } from 'components/Design';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { DAppInfo, PredefinedDApps } from 'types/browser';
-import { BrowserItem } from 'components/Browser/BrowserItem';
-import { SiteInfo, StoredSiteInfo } from 'stores/types';
-import IconItem from './Shared/IconItem';
-import { getHostName } from 'utils/browser';
-import { useNavigation } from '@react-navigation/native';
-import { RootNavigationProps } from 'routes/index';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import i18n from 'utils/i18n/i18n';
-import isaac from 'isaac';
-import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight';
+import React, { useMemo, useState } from 'react'
+import { FlatList, ListRenderItem, ScrollView, View } from 'react-native'
+import { predefinedDApps } from 'constants/predefined/dAppSites'
+import { CaretRight } from 'phosphor-react-native'
+import createStylesheet from './styles/BrowserHome'
+import FastImage from 'react-native-fast-image'
+import { Images } from 'assets/index'
+import { Icon, Typography } from 'components/Design'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { DAppInfo, PredefinedDApps } from 'types/browser'
+import { BrowserItem } from 'components/Browser/BrowserItem'
+import { SiteInfo, StoredSiteInfo } from 'stores/types'
+import IconItem from './Shared/IconItem'
+import { getHostName } from 'utils/browser'
+import { useNavigation } from '@react-navigation/native'
+import { RootNavigationProps } from 'routes/index'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import i18n from 'utils/i18n/i18n'
+import isaac from 'isaac'
+import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight'
 
 interface HeaderProps {
   title: string;

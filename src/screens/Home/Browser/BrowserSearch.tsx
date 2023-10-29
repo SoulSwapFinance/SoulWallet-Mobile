@@ -1,27 +1,27 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { SectionListRenderItemInfo, SectionList, View, Platform } from 'react-native';
-import { DAppTitleMap, predefinedDApps } from '../../../predefined/dAppSites';
-import { useNavigation } from '@react-navigation/native';
-import { BrowserSearchProps, RootNavigationProps } from 'routes/index';
-import { navigateAndClearCurrentScreenHistory } from 'utils/navigation';
-import { StoredSiteInfo } from 'stores/types';
-import { getHostName, getValidURL, searchDomain } from 'utils/browser';
-import { clearHistory, createNewTab } from 'stores/updater';
-import { BrowserItem } from 'components/Browser/BrowserItem';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import createStylesheet from './styles/BrowserSearch';
-import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
-import Typography from '../../../components/Design/Typography';
-import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
-import { Search } from 'components/Search';
-import { ScrollViewStyle } from 'styles/sharedStyles';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { addLazy } from '@soul-wallet/extension-base/src/utils';
-import { BrowserSearchItem } from 'components/Browser/BrowserSearchItem';
-import { Button } from 'components/Design';
-import i18n from 'utils/i18n/i18n';
-import { browserListItemHeight, browserListSeparator } from 'constants/itemHeight';
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { SectionListRenderItemInfo, SectionList, View, Platform } from 'react-native'
+import { DAppTitleMap, predefinedDApps } from 'constants/predefined/dAppSites'
+import { useNavigation } from '@react-navigation/native'
+import { BrowserSearchProps, RootNavigationProps } from 'routes/index'
+import { navigateAndClearCurrentScreenHistory } from 'utils/navigation'
+import { StoredSiteInfo } from 'stores/types'
+import { getHostName, getValidURL, searchDomain } from 'utils/browser'
+import { clearHistory, createNewTab } from 'stores/updater'
+import { BrowserItem } from 'components/Browser/BrowserItem'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import createStylesheet from './styles/BrowserSearch'
+import { SectionListData } from 'react-native/Libraries/Lists/SectionList'
+import Typography from '../../../components/Design/Typography'
+import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader'
+import { Search } from 'components/Search'
+import { ScrollViewStyle } from 'styles/sharedStyles'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { addLazy } from '@soul-wallet/extension-base/src/utils'
+import { BrowserSearchItem } from 'components/Browser/BrowserSearchItem'
+import { Button } from 'components/Design'
+import i18n from 'utils/i18n/i18n'
+import { browserListItemHeight, browserListSeparator } from 'constants/itemHeight'
 
 type SearchItemType = {
   logo?: string;

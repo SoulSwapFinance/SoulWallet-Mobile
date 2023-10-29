@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { ScreenContainer } from 'components/ScreenContainer';
-import { predefinedDApps } from '../../../predefined/dAppSites';
-import { PredefinedDApps } from 'types/browser';
-import BrowserHome from './BrowserHome';
-import BrowserHeader from './Shared/BrowserHeader';
-import BrowserListByCategory from './BrowserListByCategory';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Animated, Dimensions, View } from 'react-native';
-import { useNavigationState } from '@react-navigation/native';
-import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import createStylesheet from './styles';
-import { FontSemiBold } from 'styles/sharedStyles';
-import { Typography } from 'components/Design';
-import { ThemeTypes } from 'styles/themes';
-import i18n from 'utils/i18n/i18n';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React, { useState } from 'react'
+import { ScreenContainer } from 'components/ScreenContainer'
+import { predefinedDApps } from 'constants/predefined/dAppSites'
+import { PredefinedDApps } from 'types/browser'
+import BrowserHome from './BrowserHome'
+import BrowserHeader from './Shared/BrowserHeader'
+import BrowserListByCategory from './BrowserListByCategory'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { Animated, Dimensions, View } from 'react-native'
+import { useNavigationState } from '@react-navigation/native'
+import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import createStylesheet from './styles'
+import { FontSemiBold } from 'styles/sharedStyles'
+import { Typography } from 'components/Design'
+import { ThemeTypes } from 'styles/themes'
+import i18n from 'utils/i18n/i18n'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 type RoutesType = {
   key: string;

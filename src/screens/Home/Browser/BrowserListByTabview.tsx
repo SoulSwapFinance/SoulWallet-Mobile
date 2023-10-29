@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { predefinedDApps } from '../../../predefined/dAppSites';
-import { PredefinedDApps } from 'types/browser';
-import BrowserListByCategory from './BrowserListByCategory';
-import { BrowserListByTabviewProps } from 'routes/index';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
-import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Animated, View } from 'react-native';
-import { Typography } from 'components/Design';
-import { FontSemiBold } from 'styles/sharedStyles';
-import { ThemeTypes } from 'styles/themes';
-import i18n from 'utils/i18n/i18n';
+import React, { useState } from 'react'
+import { predefinedDApps } from 'constants/predefined/dAppSites'
+import { PredefinedDApps } from 'types/browser'
+import BrowserListByCategory from './BrowserListByCategory'
+import { BrowserListByTabviewProps } from 'routes/index'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader'
+import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { Animated, View } from 'react-native'
+import { Typography } from 'components/Design'
+import { FontSemiBold } from 'styles/sharedStyles'
+import { ThemeTypes } from 'styles/themes'
+import i18n from 'utils/i18n/i18n'
 
 type RoutesType = {
   key: string;

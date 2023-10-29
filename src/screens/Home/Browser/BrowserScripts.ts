@@ -1,7 +1,7 @@
-import { MESSAGE_ORIGIN_PAGE } from '@soul-wallet/extension-base/src/defaults';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
-import { predefinedDApps } from '../../../predefined/dAppSites';
-import { getHostName } from 'utils/browser';
+import { MESSAGE_ORIGIN_PAGE } from '@soul-wallet/extension-base/src/defaults'
+import { getId } from '@soul-wallet/extension-base/src/utils/getId'
+import { predefinedDApps } from 'constants/predefined/dAppSites'
+import { getHostName } from 'utils/browser'
 
 export const ConnectToNovaScript = `
 (function () {  

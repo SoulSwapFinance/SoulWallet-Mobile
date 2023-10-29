@@ -1,15 +1,15 @@
-import { Typography } from 'components/Design';
-import Web3Block, { Web3BlockProps } from '../Web3Block';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import React, { useMemo } from 'react';
-import { Image, StyleProp, View, ViewStyle } from 'react-native';
-import createStyle from './styles';
-import { CaretRight } from 'phosphor-react-native';
-import { DAppIconMap, DAppTitleMap } from '../../../../predefined/dAppSites';
-import { AuthUrlInfo } from '@soul-wallet/extension-base/src/background/handlers/State';
-import { isEthereumAddress } from '@polkadot/util-crypto';
-import { ColorMap } from 'styles/color';
-import { getHostName } from 'utils/browser';
+import { Typography } from 'components/Design'
+import Web3Block, { Web3BlockProps } from '../Web3Block'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import React, { useMemo } from 'react'
+import { Image, StyleProp, View, ViewStyle } from 'react-native'
+import createStyle from './styles'
+import { CaretRight } from 'phosphor-react-native'
+import { DAppIconMap, DAppTitleMap } from 'constants/predefined/dAppSites'
+import { AuthUrlInfo } from '@soul-wallet/extension-base/src/background/handlers/State'
+import { isEthereumAddress } from '@polkadot/util-crypto'
+import { ColorMap } from 'styles/color'
+import { getHostName } from 'utils/browser'
 
 export interface DappAccessItemProps extends Omit<Web3BlockProps, 'customStyle'> {
   item: AuthUrlInfo;

@@ -1,17 +1,17 @@
-import React, { useMemo } from 'react';
-import { Icon, Image, Typography, Web3Block } from 'components/Design';
-import { SessionTypes } from '@walletconnect/types';
-import { stripUrl } from '@soul-wallet/extension-base/src/utils';
-import { TouchableOpacity, View } from 'react-native';
-import { DAppIconMap } from '../../predefined/dAppSites';
-import { AbstractAddressJson } from '@soul-wallet/extension-base/src/background/types';
-import { getWCAccountList } from 'utils/walletConnect';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { CaretRight } from 'phosphor-react-native';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
-import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
+import React, { useMemo } from 'react'
+import { Icon, Image, Typography, Web3Block } from 'components/Design'
+import { SessionTypes } from '@walletconnect/types'
+import { stripUrl } from '@soul-wallet/extension-base/src/utils'
+import { TouchableOpacity, View } from 'react-native'
+import { DAppIconMap } from 'constants/predefined/dAppSites'
+import { AbstractAddressJson } from '@soul-wallet/extension-base/src/background/types'
+import { getWCAccountList } from 'utils/walletConnect'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { CaretRight } from 'phosphor-react-native'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { FontMedium, FontSemiBold } from 'styles/sharedStyles'
+import { BUTTON_ACTIVE_OPACITY } from 'constants/index'
 
 interface Props {
   session: SessionTypes.Struct;
