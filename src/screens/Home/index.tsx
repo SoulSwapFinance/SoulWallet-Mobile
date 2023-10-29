@@ -45,6 +45,7 @@ import SvgPhoto from 'assets/svg/Photo';
 import SvgCauldron from 'assets/svg/Cauldron';
 import SvgMagicMarkets from 'assets/svg/Markets';
 import SvgNewspaper from 'assets/svg/Newspaper';
+import PortfolioScreen from './Browser/BrowserPortfolio';
 
 interface tabbarIconColor {
   color: string;
@@ -184,6 +185,14 @@ const MainScreen = () => {
           tabBarLabel: i18n.tabName.staking,
           tabBarHideOnKeyboard: Platform.OS === 'android',
           tabBarIcon: stakingTabbarIcon,
+        }}
+      />
+      <Tab.Screen
+        name={'Portfolio'}
+        component={PortfolioScreen}
+        options={{
+          tabBarLabel: 'Portfolio',
+          tabBarIcon: browserSoulSwapIcon,
         }}
       />
       {/* <Tab.Screen
