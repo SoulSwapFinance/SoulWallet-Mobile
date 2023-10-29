@@ -11,15 +11,15 @@ const useGetAccountTitleByAddress = (address?: string): string => {
   return useMemo((): string => {
     switch (signMode) {
       case AccountSignMode.LEDGER:
-        return 'Ledger account';
+        return 'Ledger Account';
       case AccountSignMode.ALL_ACCOUNT:
-        return 'All account';
+        return 'All Account';
       case AccountSignMode.PASSWORD:
-        return 'Normal account';
+        return 'Normal Account';
       case AccountSignMode.QR:
-        return 'QR signer account';
+        return 'QR Signer Account';
       case AccountSignMode.READ_ONLY:
-        return 'Watch-only account';
+        return 'Watch-Only Account';
       case AccountSignMode.UNKNOWN:
       default:
         return 'Unknown account';

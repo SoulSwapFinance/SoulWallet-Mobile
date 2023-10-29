@@ -1,7 +1,7 @@
 import { SOUL_ADDRESS } from 'constants/addresses'
 import { ChainId } from 'constants/chains'
 import { useEffect, useState } from 'react'
-import { useActiveWeb3React } from 'services/web3'
+// import { useActiveWeb3React } from 'services/web3'
 // import { useActiveWeb3React } from 'services/web3'
 
 type T = Record<string, string>
@@ -89,8 +89,7 @@ const BASE_URL = 'https://api.soulswap.finance'
 //     return { status, swapQuote }
 // }
 
-export function usePriceUSD(tokenAddress): { status: string; price: T } {
-    const { chainId } = useActiveWeb3React()
+export function usePriceUSD(tokenAddress, chainId): { status: string; price: T } {
     const [status, setStatus] = useState<string>('idle')
     const [price, setPrice] = useState<T>()
     // const URL = getBaseUrl()
@@ -118,229 +117,9 @@ export function usePriceUSD(tokenAddress): { status: string; price: T } {
     return { status, price }
 }
 
-// √ pages/soul/dashboard
-export function useSoulInfo(): { status: string; soulInfo: T } {
-    const { chainId } = useActiveWeb3React()
-    const [status, setStatus] = useState<string>('idle')
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-    
-    const [soulInfo, setInfo] = useState<T>({
-        address: SOUL_ADDRESS[chainId ?? ChainId.FANTOM],
-        name: 'Soul Power',
-        mcap: '1000',
-        symbol: 'SOUL',
-        price: '0.001',
-        decimals: '18',
-        supply: '1000000',
-        stakedSoul: '1000000',
 
-        totalReserveValue: '1000',
-        totalLiquidityValue: '1000',
-        totalValue: '2000',
 
-        SoulBalance: '1000000',
-        // NativeBalance: '0',
-        NativeValue: '0',
-        SoulValue: '1000',
-        // SoulPairedBalance: '0',
-  
-        // NativeSoulValue: '0',
-        // SoulUsdcValue: '0',
-        // NativeEthereumValue: '0',
-        // UsdcDaiValue: '0',
-        // NativeUsdcValue: '0',
-        // NativeBitcoinValueValue: '0',
-        // NativeDaiValue: '0',
-        // NativeBinanceValue: '0',
-        // NativeSeanceValue: '0',
-        // BitcoinEthereumValue: '0',
-
-        api: "https://api.soulswap.finance/soulswap",
-        image: 'https://raw.githubusercontent.com/soulswapfinance/assets/master/blockchains/fantom/assets/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/logo.png'
-      })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/soulswap`,
-         {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-           if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, soulInfo }
-}
-
-export function useBondInfo(): { status: string; bondInfo: T } {
-    const { chainId } = useActiveWeb3React()
-    const [status, setStatus] = useState<string>('idle')
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-    const [bondInfo, setInfo] = useState<T>({
-        NativeSoulValue: '0',
-        SoulUsdcValue: '0',
-        NativeEthereumValue: '0',
-        UsdcEthereumValue: '0',
-        UsdcBitcoinValue: '0',
-        UsdcUsdcValue: '0',
-        UsdcDaiValue: '0',
-        NativeUsdcValue: '0',
-        NativeBitcoinValueValue: '0',
-        NativeDaiValue: '0',
-        NativeBinanceValue: '0',
-        NativeSeanceValue: '0',
-        totalLiquidityValue: '0',
-        totalValue: '0',
-        api: 'https://api.soulswap.finance/bonds'
-      })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/bonds`,
-         {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, bondInfo }
-}
-
-export function useSoulBondInfo(pid): { status: string; soulBondInfo: T } {
-    const { account, chainId } = useActiveWeb3React()
-    const [status, setStatus] = useState<string>('idle')
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-    const [soulBondInfo, setInfo] = useState<T>({
-      address: '',
-      name: 'SoulSwap LP',
-      symbol: 'SOUL-LP',
-      token0: '',
-      token1: '',
-      token0Symbol: '',
-      token1Symbol: '',
-      decimals: '18',
-      supply: '0',
-      mcap: '0',
-      tvl: '0',
-      apr: '0',
-      api: `https://${URL}/bonds/${pid}`
-      })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/bonds/${pid}`,
-         {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, soulBondInfo }
-}
-
-export function useBondUserInfo(pid, userAddress): { status: string; soulBondUserInfo: T } {
-    const { chainId } = useActiveWeb3React()
-    const [status, setStatus] = useState<string>('idle')
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-    const [soulBondUserInfo, setInfo] = useState<T>({
-      address: '',
-      name: 'SoulSwap LP',
-      symbol: 'SOUL-LP',
-      token0: '',
-      token1: '',
-      token0Symbol: '',
-      token1Symbol: '',
-      decimals: '18',
-      supply: '0',
-      mcap: '0',
-      pairPrice: '0',
-      pendingSoul: '0',
-      userBalance: '0',
-      stakedBalance: '0',
-      userTvl: '0',
-      tvl: '0',
-      api: `https://${URL}/bonds/users/${userAddress}/${pid}`
-      })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/bonds/users/${userAddress}/${pid}`,
-         {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, soulBondUserInfo }
-}
-
-export function useTotalSupply(tokenAddress): { status: string; supply: T } {
-    const { chainId } = useActiveWeb3React()
-    const [status, setStatus] = useState<string>('idle')
-    const [supply, setSupply] = useState<T>()
-    const URL = chainId == 250 ? BASE_URL : `avax-api.soulswap.finance`
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/tokens/${tokenAddress}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setSupply(json['supply'] as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, supply }
-}
-
-export function useTokenInfo(tokenAddress): { status: string; tokenInfo: T } {
-    const { chainId } = useActiveWeb3React()
+export function useTokenInfo(tokenAddress, chainId): { status: string; tokenInfo: T } {
     const [status, setStatus] = useState<string>('idle')
         const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
 
@@ -375,12 +154,43 @@ export function useTokenInfo(tokenAddress): { status: string; tokenInfo: T } {
     return { status, tokenInfo }
 }
 
-export function useUserInfo(): { status: string; userInfo: T } {
-    const { account, chainId } = useActiveWeb3React()
+// export function useUserInfo(account, chainId): { status: string; userInfo: T } {
+//     const [status, setStatus] = useState<string>('idle')
+//     const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
+//     const [userInfo, setInfo] = useState<T>({
+//         address: '',
+//         nativeBalance: '0',
+//         votingPower: '0',
+//         protocolOwnership: '0',
+//         stakedBalance: '0'
+//     })  
+//     useEffect(() => {
+//       const fetchData = async () => {
+//         setStatus('fetching')
+//         const response = await fetch(`${URL}/users/${account}`, {
+//           method: 'GET',
+//           headers: {
+//             'Content-Type': 'application/json',
+//             'Referrer-Policy': 'no-referrer',
+//           },
+//         })
+//         const json = await response.json()
+//         setInfo(json as T)
+//         setStatus('fetched')
+//       }
+//       if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
+//       fetchData()
+//     }, [])
+  
+//     return { status, userInfo }
+// }
+
+export function useUserInfo_FTM(account): { status: string; userInfo_FTM: T } {
     const [status, setStatus] = useState<string>('idle')
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
- 
-    const [userInfo, setInfo] = useState<T>({
+    // const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
+    const URL = 'https://api.soulswap.finance'
+    const [dataFetched, setFetchedData] = useState(false)
+    const [userInfo_FTM, setInfo] = useState<T>({
         address: '',
         nativeBalance: '0',
         votingPower: '0',
@@ -400,17 +210,52 @@ export function useUserInfo(): { status: string; userInfo: T } {
         const json = await response.json()
         setInfo(json as T)
         setStatus('fetched')
+        setFetchedData(true)
       }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
+      // if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
+      if(!dataFetched) { fetchData() } else return
+
     }, [])
   
-    return { status, userInfo }
+    return { status, userInfo_FTM }
+}
+
+export function useUserInfo_AVAX(account): { status: string; userInfo_AVAX: T } {
+    const [status, setStatus] = useState<string>('idle')
+    const [dataFetched, setFetchedData] = useState(false)
+
+    const URL = `https://avax-api.soulswap.finance`
+    const [userInfo_AVAX, setInfo] = useState<T>({
+        address: '',
+        nativeBalance: '0',
+        votingPower: '0',
+        protocolOwnership: '0',
+        stakedBalance: '0'
+    })  
+    useEffect(() => {
+      const fetchData = async () => {
+        setStatus('fetching')
+        const response = await fetch(`${URL}/users/${account}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Referrer-Policy': 'no-referrer',
+          },
+        })
+        const json = await response.json()
+        setInfo(json as T)
+        setStatus('fetched')
+        setFetchedData(true)
+      }
+      // if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
+      if(!dataFetched) { fetchData() } else return
+    }, [])
+  
+    return { status, userInfo_AVAX }
 }
 
 // √ features/summoner, features/defarms, features/bonds, etc.
-export function useUserTokenInfo(userAddress, tokenAddress): { status: string; userTokenInfo: T } {
-    const { chainId } = useActiveWeb3React()
+export function useUserTokenInfo(userAddress, tokenAddress, chainId): { status: string; userTokenInfo: T } {
     const [status, setStatus] = useState<string>('idle')
     const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
 
@@ -443,333 +288,4 @@ export function useUserTokenInfo(userAddress, tokenAddress): { status: string; u
     }, [])
   
     return { status, userTokenInfo }
-}
-
-// √ features/bond
-export function useUserPairInfo(userAddress, pairAddress): { status: string; pairUserInfo: T } {
-    const { chainId } = useActiveWeb3React()
-    const [status, setStatus] = useState<string>('idle')
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-    const [pairUserInfo, setInfo] = useState<T>({
-        name: '',
-        address: '',
-        lpPrice: '0',
-        lpValue: '0',
-
-        token0Address: '',
-        token1Address: '',
-
-        token0Decimals: '',
-        token1Decimals: '',
-
-        userBalance: '0',
-        pairDecimals: '18',
-        pairType: ''
-    })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/pairs/${userAddress}/${pairAddress}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, pairUserInfo }
-}
-
-// √ features/autostake, pages/soul/autostake
-export function useAutoStakeInfo(): { status: string; autoStakeInfo: T } {
-    const { chainId } = useActiveWeb3React()
-    const [status, setStatus] = useState<string>('idle')
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-    const [autoStakeInfo, setInfo] = useState<T>({
-      totalSupply: '7975019.590004936',
-      harvestRewards: '2.7874870645417755',
-      soulTvl: '8407711.327837521',
-      tvl: '63876.77321225582',
-      apy: '42.08453254750358',
-      pendingSoulRewards: '278.826990654351',
-      pricePerShare: '1.054255884007467,',
-      callFee: '100',
-      bounty: '100',
-      performanceFee: '500',
-      withdrawFee: '0.01',
-      withdrawFeePeriod: '259200',
-      withdrawFeeHours: '72',
-      soulPrice: '0.009753108589030435',
-    })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/soulswap/vault`
-        , {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, autoStakeInfo }
-}
-
-// √ pages/soul/autostake
-export function useUserAutoStakeInfo(userAddress): { status: string; userAutoStakeInfo: T } {
-    const { chainId } = useActiveWeb3React()
-    const [status, setStatus] = useState<string>('idle')
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-    const [userAutoStakeInfo, setInfo] = useState<T>({
-      userBalance: '0',
-      stakedBalance: '0',
-      totalSupply: '7975019.590004936',
-      harvestRewards: '2.7874870645417755',
-      soulTvl: '8407711.327837521',
-      tvl: '63876.77321225582',
-      pendingSoulRewards: '278.826990654351',
-      pricePerShare: '1.054255884007467,',
-      callFee: '100',
-      bounty: '100',
-      performanceFee: '500',
-      withdrawFee: '0.01',
-      withdrawFeePeriod: '259200',
-      withdrawFeeHours: '72',
-      soulPrice: '0.009753108589030435',
-    })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/soulswap/vault/users/${userAddress}`
-        , {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, userAutoStakeInfo }
-}
-
-export function usePairInfo(pairAddress): { status: string; pairInfo: T } {
-    const [status, setStatus] = useState<string>('idle')
-    const { chainId } = useActiveWeb3React()
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-    const [pairInfo, setInfo] = useState<T>({
-        address: '',
-        name: '',
-        symbol: '',
-        pairDecimals: '18',
-        pairType: 'swap',
-        supply: '0',
-
-        lpPrice: '0',
-        lpValue: '0',
-
-        token0Decimals: '18',
-        token1Decimals: '18',
-
-        token0Address: '',
-        token1Address: '',
-
-        token0Symbol: '',
-        token1Symbol: '',
-
-        token0Balance: '0',
-        token1Balance: '0',
-
-        token0Price: '0',
-        token1Price: '0',
-
-        luxorTreasuryBalance: '0',
-        api: ''
-    })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/pairs/${pairAddress}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, pairInfo }
-}
-
-export function useSummonerPoolInfo(pid): { status: string; summonerPoolInfo: T } {
-  const { chainId } = useActiveWeb3React()
-  const [status, setStatus] = useState<string>('idle')
-  const URL = chainId == 250 ? BASE_URL : `https://avax-api.soulswap.finance`
-
-  const [summonerPoolInfo, setInfo] = useState<T>({
-      pid: '1',
-
-      lpAddress: '',
-      token0: '',
-      token1: '',
-      
-      allocPoint: '0',
-      allocShare: '0',
-
-      status: '',
-      pairType: '',
-
-      token0Balance: '0',
-      token1Balance: '0',
-      lpBalance: '0',
-
-      lpPrice: '0',
-      annualRewardsValue: '0',
-
-      tvl: '0',
-      apr: '0'
-
-  })  
-  useEffect(() => {
-    const fetchData = async () => {
-      setStatus('fetching')
-      const response = await fetch(`${URL}/summoner/${pid}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Referrer-Policy': 'no-referrer',
-        },
-      })
-      const json = await response.json()
-      setInfo(json as T)
-      setStatus('fetched')
-    }
-    if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-    fetchData()
-  }, [])
-
-  return { status, summonerPoolInfo }
-}
-
-// √ features/summoner
-export function useSummonerUserInfo(pid): { status: string; summonerUserInfo: T } {
-  const { account, chainId } = useActiveWeb3React()
-  const [status, setStatus] = useState<string>('idle')
-  const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-  const [summonerUserInfo, setInfo] = useState<T>({
-      userAddress: account,
-      pairAddress: '',
-      walletBalance: '0',
-      stakedBalance: '0',
-      stakedValue: '0',
-      pendingSoul: '0',
-      pendingValue: '0',
-      lpPrice: '0',
-
-      userDelta: '0',
-      timeDelta: '0',
-      firstDepositTime: '0',
-      lastDepositTime: '0',
-      secondsRemaining: '0',
-      rewardDebtAtTimes: '0',
-      currentRate: '0',
-      api: 'https://api.soulswap.finance',
-  })  
-  useEffect(() => {
-    const fetchData = async () => {
-      setStatus('fetching')
-      const response = await fetch(`${URL}/summoner/users/${account}/${pid}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Referrer-Policy': 'no-referrer',
-        },
-      })
-      const json = await response.json()
-      setInfo(json as T)
-      setStatus('fetched')
-    }
-    if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-    fetchData()
-  }, [])
-
-  return { status, summonerUserInfo }
-}
-
-export function useManifestationUserInfo(pid): { status: string; manifestationUserInfo: T } {
-  const { account, chainId } = useActiveWeb3React()
-  const [status, setStatus] = useState<string>('idle')
-  const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-  const [manifestationUserInfo, setInfo] = useState<T>({
-    userAddress: '0xFd63Bf84471Bc55DD9A83fdFA293CCBD27e1F4C8',
-    name: 'Manifest: RewardToken',
-    pairAddress:'0xA905afF2dFAd9d3925D30c782ccbaE6423345917',
-    pendingRewards: '0',
-    pendingValue: '0',
-    stakedBalance: '0',
-    walletBalance: '0',
-    stakedValue: '0',
-    lpPrice: '.04069',
-    userDelta: '0',
-    rewardDebt: '0',
-    lastWithdrawTime: '0',
-    firstDepositTime: '0',
-    timeDelta: '0',
-    secondsRemaining: '864000',
-    currentRate: '0',
-    startTime: '0',
-    endTime: '0',
-  })
-  useEffect(() => {
-    const fetchData = async () => {
-      setStatus('fetching')
-      const response = await fetch(`${URL}/manifester/users/${account}/${pid}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Referrer-Policy': 'no-referrer',
-        },
-      })
-      const json = await response.json()
-      setInfo(json as T)
-      setStatus('fetched')
-    }
-    if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-    fetchData()
-  }, [])
-
-  return { status, manifestationUserInfo }
 }
