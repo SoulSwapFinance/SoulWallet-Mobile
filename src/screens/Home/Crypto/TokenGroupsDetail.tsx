@@ -279,7 +279,8 @@ export const TokenGroupsDetail = ({
         <PriceChart 
           groupSymbol={groupSymbol}
           networkId={groupNetwork ?? 'ethereum'}
-        /></>
+        />
+      </>
     </ScreenContainer>
   );
 };
