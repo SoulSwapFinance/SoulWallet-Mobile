@@ -6,6 +6,7 @@ import { CaretRight } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TokenGroupBalanceItemStyles from './style';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
+import { SOUL_PRICE } from 'constants/prices';
 
 interface Props extends TokenBalanceItemType, TouchableOpacityProps {
   isShowBalance?: boolean;
@@ -38,7 +39,7 @@ export const TokenGroupBalanceItem = ({
           </Text>
           {/* UI NOTE: display price on balances page. */}
           <Number
-            value={isTestnet ? 0 : symbol == 'SOUL'? 0.001 : priceValue}
+            value={isTestnet ? 0 : symbol == 'SOUL'? SOUL_PRICE : priceValue}
             decimal={0}
             prefix={'$'}
             intColor={isTotalBalanceDecrease ? theme.colorError : theme.colorSuccess}
@@ -65,7 +66,7 @@ export const TokenGroupBalanceItem = ({
                   {/* UI NOTE: Shows the Currency Total Value on Balances */}
                 <Number
                 // UI NOTE: Shows the Currency Total Value on Balances (manual override for SOUL)
-                  value={ symbol == 'SOUL' && total.value ? total.value.multipliedBy(0.001) : total.convertedValue }
+                  value={ symbol == 'SOUL' && total.value ? total.value.multipliedBy(SOUL_PRICE) : total.convertedValue }
                   decimal={0}
                   intOpacity={0.45}
                   unitOpacity={0.45}

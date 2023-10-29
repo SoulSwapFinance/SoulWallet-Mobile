@@ -1,12 +1,14 @@
-import React from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
-import { TokenBalanceItemType } from 'types/balance';
-import { BN_ZERO } from 'utils/chainBalances';
-import { Icon, Logo, Number, Typography } from 'components/Design';
-import { DotsThree } from 'phosphor-react-native';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import TokenBalanceItemStyles from './style';
-import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
+import React from 'react'
+import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native'
+import { TokenBalanceItemType } from 'types/balance'
+import { BN_ZERO } from 'utils/chainBalances'
+import { Icon, Logo, Number, Typography } from 'components/Design'
+import { DotsThree } from 'phosphor-react-native'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import TokenBalanceItemStyles from './style'
+import { FontMedium, FontSemiBold } from 'styles/sharedStyles'
+import BigN from 'bignumber.js'
+import { SOUL_PRICE } from 'constants/prices'
 
 interface Props extends TokenBalanceItemType, TouchableOpacityProps {
   isShowBalance?: boolean;
@@ -24,6 +26,8 @@ export const TokenBalanceItem = ({
 }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
   const _style = TokenBalanceItemStyles(theme);
+  const isSoul = symbol === 'SOUL'
+  const customValue = isSoul ? new BigN(SOUL_PRICE).times(total.value) : new BigN(0)
 
   return (
     <TouchableOpacity style={{ width: '100%' }} {...wrapperProps}>
@@ -43,6 +47,9 @@ export const TokenBalanceItem = ({
           <Text style={_style.chainNameStyle} numberOfLines={1}>
             {chainDisplayName?.replace(' Relay Chain', '')}
           </Text>
+          {/* <Text style={_style.chainNameStyle} numberOfLines={1}>
+            {balanceUSD}
+          </Text> */}
         </View>
 
         <View style={_style.chainBalancePart2Wrapper}>
@@ -57,7 +64,10 @@ export const TokenBalanceItem = ({
                   textStyle={{ ...FontSemiBold, lineHeight: theme.lineHeightLG * theme.fontSizeLG }}
                 />
                 <Number
-                  value={isTestnet || !isReady ? BN_ZERO : total.convertedValue}
+                  value={isTestnet || !isReady ? BN_ZERO : 
+                    symbol == 'SOUL' ? customValue
+                    : total.convertedValue
+                    }
                   decimal={0}
                   intOpacity={0.45}
                   unitOpacity={0.45}

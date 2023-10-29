@@ -209,6 +209,7 @@ export const TokenGroupsDetail = ({
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<TokenBalanceItemType>) => (
       <View key={item.slug} style={[itemWrapperStyle, { backgroundColor: theme.colorBgSecondary }]}>
+        {/* UI NOTE: Token Group Item (show logo, symbol, network, balance, balanceUSD) */}
         <TokenBalanceItem onPress={onClickItem(item)} {...item} isShowBalance={isShowBalance} />
       </View>
     ),

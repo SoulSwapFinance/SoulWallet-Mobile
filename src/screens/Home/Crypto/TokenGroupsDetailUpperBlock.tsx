@@ -28,6 +28,7 @@ import { RootState } from 'stores/index'
 import BigN from 'bignumber.js'
 import Text from 'components/Text'
 import { _getAssetPriceId } from '@soul-wallet/extension-base/src/services/chain-service/utils'
+import { SOUL_PRICE } from 'constants/prices'
 
 interface Props {
   balanceValue: SwNumberProps['value'];
@@ -58,7 +59,7 @@ export const TokenGroupsDetailUpperBlock = ({
     tokenGroupSlug == 'custom-custom-EVM-avalanchec-chain-43114-ERC20-SOUL-0x11d6DD25c1695764e64F439E32cc7746f3945543'
   const _style = createStyleSheet(theme)
   const balance = new BigN(balanceValue)
-  const tokenPrice = isSoul ? new BigN(0.0012) : new BigN(balanceUSD).div(balance)
+  const tokenPrice = isSoul ? new BigN(SOUL_PRICE) : new BigN(balanceUSD).div(balance)
   const USDValue = isSoul ? tokenPrice.times(balance) : balanceUSD
 
   return (
