@@ -31,8 +31,8 @@ export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceM
   const _style = createStyleSheet(theme);
   const modalBaseV2Ref = useRef<SWModalRefProps>(null);
   const items: ItemType[] = useMemo(() => {
-    const symbol = currentTokenInfo?.symbol || '';
-    const balanceInfo = currentTokenInfo ? tokenBalanceMap[currentTokenInfo.slug] : undefined;
+    const symbol = currentTokenInfo?.symbol || ''
+    const balanceInfo = currentTokenInfo ? tokenBalanceMap[currentTokenInfo.slug] : undefined
 
     return [
       {
@@ -48,8 +48,8 @@ export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceM
         value: balanceInfo ? balanceInfo.locked.value : new BigN(0),
       },
     ];
-  }, [currentTokenInfo, tokenBalanceMap]);
-  const onChangeModalVisible = () => modalBaseV2Ref?.current?.close();
+  }, [currentTokenInfo, tokenBalanceMap])
+  const onChangeModalVisible = () => modalBaseV2Ref?.current?.close()
 
   return (
     <SwModal
@@ -63,7 +63,6 @@ export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceM
         {items.map(item => (
           <View key={item.key} style={_style.row}>
             <Typography.Text style={{ ...FontSemiBold, color: theme.colorTextLight1 }}>{item.label}</Typography.Text>
-
             <Number
               style={_style.value}
               textStyle={{ ...FontMedium }}

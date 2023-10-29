@@ -101,8 +101,21 @@ export const TokenGroupsDetail = ({
     isComputing: isAccountBalanceComputing,
   } = useAccountBalance(tokenGroupMap, true);
 
-  let priceId
   const tokenBalanceValue = useMemo<SwNumberProps['value']>(() => {
+    if (tokenGroupSlug) {
+      if (tokenGroupBalanceMap[tokenGroupSlug]) {
+        return tokenGroupBalanceMap[tokenGroupSlug].total.value;
+      }
+
+      if (tokenBalanceMap[tokenGroupSlug]) {
+        return tokenBalanceMap[tokenGroupSlug].total.value;
+      }
+    }
+
+    return '0';
+  }, [tokenGroupSlug, tokenBalanceMap, tokenGroupBalanceMap]);
+  
+  const tokenBalanceUSD = useMemo<SwNumberProps['value']>(() => {
     if (tokenGroupSlug) {
       if (tokenGroupBalanceMap[tokenGroupSlug]) {
         return tokenGroupBalanceMap[tokenGroupSlug].total.convertedValue;
@@ -184,6 +197,7 @@ export const TokenGroupsDetail = ({
         onOpenReceive={onOpenReceive}
         onOpenSendFund={_onOpenSendFund}
         balanceValue={tokenBalanceValue}
+        balanceUSD={tokenBalanceUSD}
         onClickBack={onClickBack}
         groupSymbol={groupSymbol}
         tokenGroupSlug={tokenGroupSlug}

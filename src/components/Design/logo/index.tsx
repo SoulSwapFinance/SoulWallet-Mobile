@@ -64,10 +64,14 @@ const Logo: React.FC<SWLogoProps> = ({
   }
 
   let srcSubLogo = "https://soulswap.finance/favicon.png"
+  // network == 'custom-EVM-avalanchec-chain-43114' ? srcSubLogo = axaxLogo : srcSubLogo = chainLogoMap[network]
+  
   if (subToken) {
+    subToken == 'custom-EVM-avalanchec-chain-43114' ? srcSubLogo = avaxLogo :
     srcSubLogo = assetLogoMap[subToken] || assetLogoMap[defaultLogoKey];
   } else if (subNetwork) {
-    srcSubLogo = chainLogoMap[subNetwork] || chainLogoMap[defaultLogoKey];
+    subNetwork == 'custom-EVM-avalanchec-chain-43114' ? srcSubLogo = avaxLogo :
+    srcSubLogo = chainLogoMap[subNetwork] || chainLogoMap[defaultLogoKey]
   }
 
   return (
