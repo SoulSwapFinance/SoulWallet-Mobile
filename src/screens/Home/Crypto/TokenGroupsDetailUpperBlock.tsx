@@ -1,23 +1,24 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import ActionButton from 'components/ActionButton';
-import i18n from 'utils/i18n/i18n';
+// import i18n from 'utils/i18n/i18n';
 import { CaretLeft } from 'phosphor-react-native';
 import { SwNumberProps } from 'components/Design/Number';
+import Number from 'components/Design/Number';
 import { BalancesVisibility } from 'components/BalancesVisibility';
 import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontSemiBold } from 'styles/sharedStyles';
-import { getAccountType } from 'utils/index';
-import { PREDEFINED_TRANSAK_TOKEN } from '../../../predefined/transak';
-import { RootState } from 'stores/index';
-import { useSelector } from 'react-redux';
+// import { getAccountType } from 'utils/index';
+// import { PREDEFINED_TRANSAK_TOKEN } from '../../../predefined/transak';
+// import { RootState } from 'stores/index';
+// import { useSelector } from 'react-redux';
 import { ThemeTypes } from 'styles/themes';
 import { ButtonIcon } from 'screens/Home/Crypto/shared/Button';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { ColorMap } from 'styles/color';
-import WebView from 'react-native-webview';
+// import WebView from 'react-native-webview';
 
 interface Props {
   balanceValue: SwNumberProps['value'];
@@ -85,7 +86,7 @@ export const TokenGroupsDetailUpperBlock = ({
           </Typography.Title>
         </View>
       </View>
-
+    {/* UI NOTE: Balance Summary (token detail view) */}
       <BalancesVisibility value={balanceValue} startWithSymbol subFloatNumber />
 
       <View style={[_style.actionButtonWrapper]} pointerEvents="box-none">

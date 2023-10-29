@@ -77,10 +77,10 @@ export const BalancesVisibility = ({ value, symbol, startWithSymbol = true, subF
         
   //         setVotingPower(_votingPower.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
   // }, [votingPower], );
-  const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
+  // const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   
-  const isShowBalance = true // useSelector((state: RootState) => state.settings.isShowBalance);
-  const theme = useSoulWalletTheme().swThemes
+  // const isShowBalance = true // useSelector((state: RootState) => state.settings.isShowBalance);
+  // const theme = useSoulWalletTheme().swThemes
 
   // const chain = ['fantom', 'avax']
   // const tokenSlug = 'custom-fantom-ERC20-AURA-0x91Dd51634f280DB77dA5D8c383a9de1e72224C4e'
