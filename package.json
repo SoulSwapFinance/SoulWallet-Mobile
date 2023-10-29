@@ -24,6 +24,8 @@
     "watch:restart": "watchman shutdown-server && watchman watch-del-all"
   },
   "dependencies": {
+    "@ethersproject/contracts": "5.4.0",
+    "@ethersproject/providers": "5.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
@@ -55,6 +57,7 @@
     "@soul-wallet/extension-base": "^1.0.13",
     "@soul-wallet/extension-chains": "^1.0.0",
     "@soul-wallet/extension-inject": "^1.0.1",
+    "@web3-react/core": "^6.1.9",
     "boring-avatars": "^1.7.0",
     "deprecated-react-native-prop-types": "^4.0.0",
     "ed2curve": "^0.3.0",
@@ -138,6 +141,8 @@
     "rn-android-keyboard-adjust": "^2.1.2",
     "rn-fetch-blob": "0.13.0-beta.2",
     "rn-qr-generator": "^1.3.1",
+    "soulswap-limit-orders-lib": "^1.1.0",
+    "swr": "2.2.0",
     "url-parse": "^1.5.10"
   },
   "devDependencies": {
