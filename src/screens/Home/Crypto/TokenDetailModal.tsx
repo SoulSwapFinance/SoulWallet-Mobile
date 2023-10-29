@@ -8,6 +8,7 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
 import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
+import PriceChart from 'components/Chart/PriceChart';
 
 type ItemType = {
   symbol: string;
@@ -52,7 +53,7 @@ export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceM
   const onChangeModalVisible = () => modalBaseV2Ref?.current?.close()
 
   return (
-    <SwModal
+    <><SwModal
       isUseModalV2
       setVisible={setVisible}
       modalBaseV2Ref={modalBaseV2Ref}
@@ -72,12 +73,20 @@ export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceM
               size={14}
               suffix={item.symbol}
               unitOpacity={0.85}
-              value={item.value}
-            />
+              value={item.value} />
           </View>
         ))}
       </View>
     </SwModal>
+    {/* <PriceChart
+        // tokenSlug={tokenSlug}
+        tokenChain={'ethereum'}
+        tokenAddress={tokenBalanceMap.tokenAddress} 
+    />
+        {console.log('address: %s', currentTokenInfo?.slug)}
+
+    </> */}
+    </>
   );
 };
 

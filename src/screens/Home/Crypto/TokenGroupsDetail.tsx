@@ -24,11 +24,13 @@ import i18n from 'utils/i18n/i18n'
 import { SelectAccAndTokenModal } from 'screens/Home/Crypto/shared/SelectAccAndTokenModal'
 // import WebView from 'react-native-webview'
 import { _getAssetPriceId } from '@soul-wallet/extension-base/src/services/chain-service/utils'
+import PriceChart from 'components/Chart/PriceChart'
 
 type CurrentSelectToken = {
   symbol: string;
   slug: string;
   priceId: string;
+  address: string;
 };
 
 export const TokenGroupsDetail = ({
@@ -71,6 +73,21 @@ export const TokenGroupsDetail = ({
     }
 
     return '';
+  }, [tokenGroupSlug, assetRegistryMap, multiChainAssetMap]);
+  
+  const groupNetwork = useMemo<string>(() => {
+    let address = ''
+    if (tokenGroupSlug) {
+      if (multiChainAssetMap[tokenGroupSlug]) {
+        address =  multiChainAssetMap[tokenGroupSlug].originChainAsset
+      }
+
+      if (assetRegistryMap[tokenGroupSlug]) {
+        address = assetRegistryMap[tokenGroupSlug].originChain;
+      }
+    }
+
+    return address;
   }, [tokenGroupSlug, assetRegistryMap, multiChainAssetMap]);
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
 
@@ -160,7 +177,8 @@ export const TokenGroupsDetail = ({
       setCurrentTokenInfo({
         slug: item.slug,
         symbol: item.symbol,
-        priceId: groupPriceId
+        priceId: groupPriceId,
+        address: groupNetwork
       });
       setTokenDetailVisible(true);
     };
@@ -204,7 +222,7 @@ export const TokenGroupsDetail = ({
         tokenGroupSlug={tokenGroupSlug}
       />
     );
-  }, [onOpenReceive, _onOpenSendFund, tokenBalanceValue, onClickBack, groupSymbol, tokenGroupSlug]);
+  }, [onOpenReceive, _onOpenSendFund, tokenBalanceValue, onClickBack, groupSymbol, groupNetwork, tokenGroupSlug]);
 
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<TokenBalanceItemType>) => (
@@ -257,7 +275,11 @@ export const TokenGroupsDetail = ({
           selectedNetwork={selectedNetwork}
           setModalVisible={setQrModalVisible}
         />
-      </>
+
+        <PriceChart 
+          groupSymbol={groupSymbol}
+          networkId={groupNetwork ?? 'ethereum'}
+        /></>
     </ScreenContainer>
   );
 };

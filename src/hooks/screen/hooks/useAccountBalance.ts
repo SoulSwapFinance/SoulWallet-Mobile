@@ -12,6 +12,7 @@ import {
   _getChainName,
   _getMultiChainAssetPriceId,
   _getMultiChainAssetSymbol,
+  _getTokenOnChainAssetId,
   _isAssetValuable,
 } from '@soul-wallet/extension-base/src/services/chain-service/utils'
 import BigN from 'bignumber.js'
@@ -155,6 +156,7 @@ function getAccountBalance(
       }
 
       const priceId = _getAssetPriceId(chainAsset)
+      // const ethTokenAddress = _getTokenOnChainAssetId(chainAsset)
       // chainAsset.symbol == "SOUL" ? 'soul-swap' : _getAssetPriceId(chainAsset);
       // const soulPriceId =?  _getAssetPriceId(chainAsset) : '';
 

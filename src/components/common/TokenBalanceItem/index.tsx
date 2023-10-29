@@ -63,6 +63,7 @@ export const TokenBalanceItem = ({
                   size={theme.fontSizeLG}
                   textStyle={{ ...FontSemiBold, lineHeight: theme.lineHeightLG * theme.fontSizeLG }}
                 />
+                {/* UI NOTE: Total Value for given token (USD) */}
                 <Number
                   value={isTestnet || !isReady ? BN_ZERO : 
                     symbol == 'SOUL' ? customValue
