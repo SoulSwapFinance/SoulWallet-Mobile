@@ -186,6 +186,7 @@ export function useTokenInfo(tokenAddress, chainId): { status: string; tokenInfo
 // }
 
 export function useUserInfo_FTM(account): { status: string; userInfo_FTM: T } {
+    const chainId = 250
     const [status, setStatus] = useState<string>('idle')
     // const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
     const URL = 'https://api.soulswap.finance'
@@ -208,19 +209,19 @@ export function useUserInfo_FTM(account): { status: string; userInfo_FTM: T } {
           },
         })
         const json = await response.json()
+        setFetchedData(true)
         setInfo(json as T)
         setStatus('fetched')
-        setFetchedData(true)
       }
-      // if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      if(!dataFetched) { fetchData() } else return
-
+      if ([ChainId.FANTOM].includes(chainId) && !dataFetched)
+      fetchData()
     }, [])
   
     return { status, userInfo_FTM }
 }
 
 export function useUserInfo_AVAX(account): { status: string; userInfo_AVAX: T } {
+    const chainId = 43114
     const [status, setStatus] = useState<string>('idle')
     const [dataFetched, setFetchedData] = useState(false)
 
@@ -243,12 +244,12 @@ export function useUserInfo_AVAX(account): { status: string; userInfo_AVAX: T } 
           },
         })
         const json = await response.json()
+        setFetchedData(true)
         setInfo(json as T)
         setStatus('fetched')
-        setFetchedData(true)
       }
-      // if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      if(!dataFetched) { fetchData() } else return
+      if ([ChainId.AVALANCHE].includes(chainId) && !dataFetched)
+      fetchData()
     }, [])
   
     return { status, userInfo_AVAX }

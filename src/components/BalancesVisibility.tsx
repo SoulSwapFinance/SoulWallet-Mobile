@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleProp, View } from 'react-native'
 import Text from '../components/Text'
 import { FontSemiBold } from 'styles/sharedStyles'
@@ -9,9 +9,9 @@ import { RootState } from 'stores/index'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import { ColorMap } from 'styles/color'
 import { useUserInfo_FTM, useUserInfo_AVAX } from 'hooks/useAPI'
-import { AURA_ADDRESS } from 'constants/addresses'
-import { formatNumber } from 'utils/number'
-import { ChainId } from 'constants/chains'
+// import { AURA_ADDRESS } from 'constants/addresses'
+// import { formatNumber } from 'utils/number'
+// import { ChainId } from 'constants/chains'
 import BigN from 'bignumber.js'
 
 type Props = {
@@ -52,21 +52,32 @@ const wrapperStyle: StyleProp<any> = {
 
 // UI NOTE: Shows your total balance.
 export const BalancesVisibility = ({ value, symbol, startWithSymbol = true, subFloatNumber = false }: Props) => {
+  const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   
   const isShowBalance = true // useSelector((state: RootState) => state.settings.isShowBalance);
   const theme = useSoulWalletTheme().swThemes
-  const { userInfo_FTM } = useUserInfo_FTM('0xFd63Bf84471Bc55DD9A83fdFA293CCBD27e1F4C8')
-  const { userInfo_AVAX } = useUserInfo_AVAX('0xFd63Bf84471Bc55DD9A83fdFA293CCBD27e1F4C8')
+  // const [powerStatus, setPowerStatus] = useState(0)
+  // const [votingPower, setVotingPower] = useState('0')
 
-  // @ts-ignore
-  const ftmBalance = userInfo_FTM?.votingPower // userTokenInfo?.balance.valueOf()[0]
-  const avaxBalance = userInfo_AVAX?.votingPower // userTokenInfo?.balance.valueOf()[0]
-  // @ts-ignore
-  const _votingPower = ftmBalance + avaxBalance
-  const votingPower_raw = new BigN(_votingPower).toNumber().toFixed(0)
-  const votingPower = votingPower_raw.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  // console.log('ftmBalance: %s', ftmBalance)
-  // console.log('avaxBalance: %s', avaxBalance)
+  // const handlePower = (newAmount) => {
+  //   if (powerStatus === 0) {
+  //     setPowerStatus(2)
+  //     return setVotingPower(newAmount)
+  //   } else {
+  //     setPowerStatus(2)
+  //     return votingPower
+  //   }
+  // }
+  
+  // const handleSetVotingPower = () => {
+    const { userInfo_FTM } = useUserInfo_FTM(currentAccount?.address)
+    const { userInfo_AVAX } = useUserInfo_AVAX(currentAccount?.address)
+    // const ftmBalance = userInfo_FTM.votingPower // userTokenInfo?.balance.valueOf()[0]
+    // const avaxBalance = userInfo_AVAX.votingPower // userTokenInfo?.balance.valueOf()[0]
+    // @ts-ignore
+    // const _votingPower = userInfo_FTM.votingPower + userInfo_AVAX.votingPower
+    // const votingPower_raw = new BigN(userInfo_FTM.votingPower + userInfo_AVAX.votingPower).toNumber().toFixed(0)
+    const votingPower = new BigN(userInfo_FTM.votingPower + userInfo_AVAX.votingPower).toNumber().toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
   return (
     <View 
