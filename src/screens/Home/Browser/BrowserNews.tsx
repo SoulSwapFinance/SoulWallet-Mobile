@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unstable-nested-components */
 import type { FC } from 'react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { useNavigation } from '@react-navigation/core'
+// import { useNavigation } from '@react-navigation/core'
 import { URL } from 'react-native-url-polyfill'
-import Image from 'components/Design/Image'
-import Icon from 'components/Design/Icon'
+// import Image from 'components/Design/Image'
+// import Icon from 'components/Design/Icon'
 // import Image from 'components/Image'
 // import HStack from 'components/HStack'
 // import Menu from 'components/Menu'
@@ -18,8 +18,8 @@ import WebView from 'react-native-webview'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { ScreenContainer } from 'components/ScreenContainer'
 import { SafeAreaView, View } from 'react-native'
-import { BrowserOptionModal, BrowserOptionModalRef } from './BrowserOptionModal';
-import { CheckCircle } from 'phosphor-react-native'
+// import { BrowserOptionModal, BrowserOptionModalRef } from './BrowserOptionModal';
+// import { CheckCircle } from 'phosphor-react-native'
 import Button from 'components/Design/Button'
 // import Menu from 'components/Menu'
 
@@ -34,13 +34,13 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
 
   const url = 'https://blockworks.co?utm_source=soulswap'
   //  `https://blockworks.co?utm_source=soulswap`
-  const imgURL = `https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/blockworks-logo.png`
-  const [currentUrl, setCurrentUrl] = useState(url);
-  const [currentId, setCurrentId] = useState('Home');
-  const [showHeader, setShowHeader] = useState(true);
-  const [currentName, setCurrentName] = useState('Blockworks');
-  const [showOptions, setShowOptions] = useState(false);
-  const [currentImageURL, setCurrentImageURL] = useState(imgURL)
+  // const imgURL = `https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/blockworks-logo.png`
+  const [currentUrl, setCurrentUrl] = useState(url)
+  // const [currentId, setCurrentId] = useState('Home')
+  const [showHeader, setShowHeader] = useState(true)
+  const [currentName, setCurrentName] = useState('Blockworks')
+  const [showOptions, setShowOptions] = useState(false)
+  // const [currentImageURL, setCurrentImageURL] = useState(imgURL)
   const webviewRef = useRef<WebView>(null);
 
   // const containerRef = useRef<typeof Box>(null);
@@ -168,7 +168,7 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
         //   // animation: 'pulse 2s infinite',
         // }}
         style={{
-          height: 120
+          height: 72
         }}
       >
         <Button
@@ -178,12 +178,12 @@ export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
             justifyContent: 'center',
             width: "100%",
             height: 40,
-            borderWidth: 2,
+            borderWidth: 3,
             borderColor: '#9854FF',
             backgroundColor: 'background-default',
             paddingLeft: 4,
             paddingRight: 4,
-            marginTop: 96,
+            marginTop: 56,
           }}
           onPress={() => {
             try {
