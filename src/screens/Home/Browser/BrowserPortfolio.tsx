@@ -75,21 +75,35 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
 
     const dexscreener: Screen = {
       id: 'DexScreener',
-      url: `https://dexscreener.com/portfolio/${accountAddress ?? ''}`,
+      url: `https://dexscreener.com/portfolio/${accountAddress ?? ''}?utm_source=soulswap`,
       imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/blockworks-logo.png',
       name: 'DexScreener'
     }
     
     const debank = {
         id: 'DeBank',
-        url: `https://debank.com/profile/${accountAddress ?? ''}`,
+        url: `https://debank.com/profile/${accountAddress ?? ''}?utm_source=soulswap`,
         imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
         name: 'DeBank'
     }
+    
+    const soulswap = {
+        id: 'SoulSwap',
+        url: `https://exchange.soulswap.finance/portfolio/${accountAddress ?? ''}?utm_source=soulswap`,
+        imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
+        name: 'SoulSwap'
+    }
 
-    const metamask = {
+    const zerion = {
+        id: 'Zerion',
+        url: `https://app.zerion.io/${accountAddress ?? ''}/overview?utm_source=soulswap`,
+        imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
+        name: 'Zerion'
+    }
+   
+  const metamask = {
         id: 'MetaMask',
-        url: `https://debank.com/profile/${accountAddress ?? ''}`,
+        url: `https://portfolio.metamask.io`,
         imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
         name: 'MetaMask'
     }
@@ -98,7 +112,9 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
     const supportedScreens = [
       dexscreener,
       debank,
-      debank,
+      soulswap,
+      zerion,
+      metamask,
     ]
 
 
@@ -116,22 +132,6 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
     return (
       
       <View
-      // accessibilityLabel="More options menu" {...triggerProps}
-      // style={{
-        //   flexDirection: 'row',
-        //   alignItems: 'center',
-        //   justifyContent: 'center',
-        //   width: "100%",
-        //   height: 40,
-        //   borderRadius: 12,
-        //   borderWidth: 2,
-        //   borderColor: '#9854FF',
-        //   backgroundColor: 'background-default',
-        //   paddingLeft: 4,
-        //   paddingRight: 4,
-        //   marginTop: 48,
-        //   // animation: 'pulse 2s infinite',
-        // }}
         style={{
           height: 72
         }}
@@ -372,84 +372,6 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
               >{supportedScreens[4].name}
               </Text>
             </Button>
-            <Button
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: "100%",
-                height: 40,
-                borderWidth: 2,
-                backgroundColor: '#0F0F0F',
-                borderLeftColor: '#9854FF',
-                borderRightColor: '#9854FF',
-                borderRadius: 0,
-                paddingLeft: 4,
-                paddingRight: 4,
-              }}
-              onPress={() => {
-                try {
-                  const polyfillUrl = new URL(currentUrl)
-                  polyfillUrl.searchParams.set(
-                    'soulwallet-browser-refresh',
-                    Math.random().toString()
-                  )
-                  setCurrentUrl(supportedScreens[5].url.toString())
-                  setShowOptions(false)
-                  setCurrentName(supportedScreens[5].name)
-                } catch (error) {
-                  console.warn(error)
-                }
-              }}
-            >
-              <Text
-                style={{
-                  color: '#FFFFFF',
-                  fontSize: 24,
-                  paddingBottom: 32,
-                }}
-              >{supportedScreens[5].name}
-              </Text>
-            </Button>
-            <Button
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: "100%",
-                height: 40,
-                borderWidth: 2,
-                backgroundColor: '#0F0F0F',
-                borderLeftColor: '#9854FF',
-                borderRightColor: '#9854FF',
-                borderRadius: 0,
-                paddingLeft: 4,
-                paddingRight: 4,
-              }}
-              onPress={() => {
-                try {
-                  const polyfillUrl = new URL(currentUrl)
-                  polyfillUrl.searchParams.set(
-                    'soulwallet-browser-refresh',
-                    Math.random().toString()
-                  )
-                  setCurrentUrl(supportedScreens[6].url.toString())
-                  setShowOptions(false)
-                  setCurrentName(supportedScreens[6].name)
-                } catch (error) {
-                  console.warn(error)
-                }
-              }}
-            >
-              <Text
-                style={{
-                  color: '#FFFFFF',
-                  fontSize: 24,
-                  paddingBottom: 32,
-                }}
-              >{supportedScreens[6].name}
-              </Text>
-            </Button>
           </>
         }
       </View>
@@ -475,16 +397,28 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
           flex: 1,
           position: 'relative',
           backgroundColor: 'black',
-        }}>
+        }}
+      >
 
         <WebView
           // style={stylesheet.colorBlack}
           // ref={webviewRef}
           originWhitelist={['*']}
           source={{ uri: currentUrl }}
+          onClick={() => setShowOptions(false)}
           // injectedJavaScriptBeforeContentLoaded={injectedScripts}
           // onLoadStart={onLoadStart}
-          // onLoad={onLoad}
+          onLoad={() => {
+            try {
+            const polyfillUrl = new URL(currentUrl)
+            polyfillUrl.searchParams.set(
+              'soulwallet-browser-refresh',
+              Math.random().toString()
+            )}
+            catch (error) {
+              console.warn(error)
+            }
+          }}
           // onLoadProgress={onLoadProgress}
           // onMessage={onWebviewMessage}
           // onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}

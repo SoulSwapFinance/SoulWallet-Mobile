@@ -21,14 +21,14 @@ import { SafeAreaView, View } from 'react-native'
 // import { BrowserOptionModal, BrowserOptionModalRef } from './BrowserOptionModal';
 // import { CheckCircle } from 'phosphor-react-native'
 import Button from 'components/Design/Button'
+import { useNavigation } from '@react-navigation/native'
 // import Menu from 'components/Menu'
 
 // todo
 // import { CategorySelector } from '../Market/Components/CategorySelector/CategorySelector';
 
-export const NewsScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
-  // const intl = useIntl();
-  // const navigation = useNavigation();
+export const NewsScreen = () => {
+  const navigation = useNavigation();
 
   const modalMode = false
 

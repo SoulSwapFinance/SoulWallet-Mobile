@@ -45,7 +45,9 @@ import SvgPhoto from 'assets/svg/Photo';
 import SvgCauldron from 'assets/svg/Cauldron';
 import SvgMagicMarkets from 'assets/svg/Markets';
 import SvgNewspaper from 'assets/svg/Newspaper';
+import MarketsScreen from './Browser/BrowserMarkets';
 import PortfolioScreen from './Browser/BrowserPortfolio';
+// import PortfolioScreen from './Browser/BrowserPortfolio';
 
 interface tabbarIconColor {
   color: string;
@@ -188,13 +190,21 @@ const MainScreen = () => {
         }}
       />
       <Tab.Screen
+        name={'Markets'}
+        component={MarketsScreen}
+        options={{
+          tabBarLabel: 'Markets',
+          tabBarIcon: browserMarketsIcon,
+        }}
+      />
+      {/* <Tab.Screen
         name={'Portfolio'}
         component={PortfolioScreen}
         options={{
           tabBarLabel: 'Portfolio',
           tabBarIcon: browserSoulSwapIcon,
         }}
-      />
+      /> */}
       {/* <Tab.Screen
         name={'SoulSwap'}
         component={BrowserSoulSwap}
@@ -211,14 +221,14 @@ const MainScreen = () => {
           tabBarIcon: browserMarketsIcon,
         }}
       /> */}
-      <Tab.Screen
+      {/* <Tab.Screen
         name={'News'}
         component={NewsScreen}
         options={{
           tabBarLabel: 'News',
           tabBarIcon: browserNewsIcon,
         }}
-      />
+      /> */}
       <Tab.Screen
         name={'Browser'}
         component={BrowserScreen}
