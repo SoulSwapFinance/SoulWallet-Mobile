@@ -35,7 +35,7 @@ export const TokenBalanceItem = ({
         <View style={_style.chainBalancePart1}>
           <Logo 
             size={40} token={symbol.toLowerCase()} 
-            isShowSubLogo
+            isShowSoulLogo
             subNetwork={chain} 
           />
         </View>

@@ -361,7 +361,7 @@ export function getTokenLogo(
       subNetwork={subLogoKey}
       defaultLogoKey={defaultLogoKey}
       size={size}
-      isShowSubLogo={!!subLogoKey}
+      isShowSoulLogo={!!subLogoKey}
     />
   );
 }

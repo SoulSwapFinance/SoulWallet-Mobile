@@ -29,7 +29,7 @@ export const TokenToggleItem = ({ item, onPress, isEnabled, onValueChange, isDis
             subNetwork={item.originChain}
             defaultLogoKey={'soul'}
             size={36}
-            isShowSubLogo
+            isShowSoulLogo
           />
           <Text numberOfLines={1} style={_style.itemTextStyle}>
             {item.symbol || ''}

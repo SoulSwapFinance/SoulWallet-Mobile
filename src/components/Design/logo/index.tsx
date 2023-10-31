@@ -12,7 +12,7 @@ type IconShapeType = 'default' | 'circle' | 'squircle';
 
 export interface SWLogoProps {
   defaultLogoKey?: string;
-  isShowSubLogo?: boolean;
+  isShowSoulLogo?: boolean;
   isShowSubIcon?: boolean;
   network?: string;
   shape?: IconShapeType;
@@ -26,7 +26,7 @@ export interface SWLogoProps {
 
 const Logo: React.FC<SWLogoProps> = ({
   defaultLogoKey = 'circle',
-  isShowSubLogo,
+  isShowSoulLogo,
   isShowSubIcon,
   network,
   shape = 'default',
@@ -82,8 +82,8 @@ const Logo: React.FC<SWLogoProps> = ({
         squircleSize={size}
         shape={shape}
       />
-      {isShowSubIcon && !isShowSubLogo && <View style={_style.subLogoContainer}>{subIcon}</View>}
-      {isShowSubLogo && (
+      {isShowSubIcon && !isShowSoulLogo && <View style={_style.subLogoContainer}>{subIcon}</View>}
+      {isShowSoulLogo && (
         <Image
           src={srcSubLogo ? { uri: srcSubLogo } : "https://soulswap.finance/favicon.png"}
           style={{ width: subLogoSize, height: subLogoSize }}

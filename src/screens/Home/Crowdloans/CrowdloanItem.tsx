@@ -67,7 +67,7 @@ export const CrowdloanItem = ({ item }: Props) => {
             <Logo
               size={40}
               network={item.slug.toLowerCase()}
-              isShowSubLogo
+              isShowSoulLogo
               defaultLogoKey="soul"
               subNetwork={getGroupKey(item.relayParentDisplayName)}
               subLogoShape="circle"
