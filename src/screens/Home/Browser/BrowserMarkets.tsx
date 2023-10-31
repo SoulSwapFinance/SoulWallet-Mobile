@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import type { FC } from 'react'
+// import type { FC } from 'react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 // import { useNavigation } from '@react-navigation/core'
 import { URL } from 'react-native-url-polyfill'
@@ -24,10 +24,10 @@ import Button from 'components/Design/Button'
 import { useSelector } from 'react-redux'
 import { RootState } from 'stores/index'
 import { isAccountAll } from '@soul-wallet/extension-base/src/utils'
-import { AccountSettingButton } from 'components/AccountSettingButton'
+// import { AccountSettingButton } from 'components/AccountSettingButton'
 import { useNavigation } from '@react-navigation/native'
 import { RootNavigationProps } from 'routes/index'
-import NewsScreen from './BrowserNews'
+// import NewsScreen from './BrowserNews'
 // import Menu from 'components/Menu'
 
 // todo
@@ -35,7 +35,7 @@ import NewsScreen from './BrowserNews'
 
 export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount)
-  const isAll = useMemo((): boolean => !!currentAccount && isAccountAll(currentAccount.address), [currentAccount]);
+  // const isAll = useMemo((): boolean => !!currentAccount && isAccountAll(currentAccount.address), [currentAccount]);
   const accountAddress = currentAccount.address ?? ''
   const navigation = useNavigation<RootNavigationProps>();
 

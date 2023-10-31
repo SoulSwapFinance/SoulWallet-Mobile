@@ -4,7 +4,7 @@ import StakingScreen from './Staking/StakingScreen';
 
 import { Linking, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Aperture, Database, Globe, Rocket, Wallet } from 'phosphor-react-native';
+// import { Aperture, Database, Globe, Rocket, Wallet } from 'phosphor-react-native';
 import { CryptoScreen } from 'screens/Home/Crypto';
 import { FontMedium } from 'styles/sharedStyles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -14,8 +14,8 @@ import useCheckEmptyAccounts from 'hooks/useCheckEmptyAccounts';
 import { FirstScreen } from 'screens/Home/FirstScreen';
 // import { CrowdloansScreen } from 'screens/Home/Crowdloans';
 import { BrowserScreen } from 'screens/Home/Browser';
-import BrowserSoulSwap from 'screens/Home/Browser/BrowserSoulSwap';
-import BrowserMarkets from 'screens/Home/Browser/BrowserMarkets';
+// import BrowserSoulSwap from 'screens/Home/Browser/BrowserSoulSwap';
+// import BrowserMarkets from 'screens/Home/Browser/BrowserMarkets';
 import NewsScreen from 'screens/Home/Browser/BrowserNews';
 import { HomeStackParamList } from 'routes/home';
 import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
@@ -45,8 +45,8 @@ import SvgPhoto from 'assets/svg/Photo';
 import SvgCauldron from 'assets/svg/Cauldron';
 import SvgMagicMarkets from 'assets/svg/Markets';
 import SvgNewspaper from 'assets/svg/Newspaper';
-import MarketsScreen from './Browser/BrowserMarkets';
-import PortfolioScreen from './Browser/BrowserPortfolio';
+// import MarketsScreen from './Browser/BrowserMarkets';
+// import PortfolioScreen from './Browser/BrowserPortfolio';
 // import PortfolioScreen from './Browser/BrowserPortfolio';
 
 interface tabbarIconColor {
@@ -189,14 +189,14 @@ const MainScreen = () => {
           tabBarIcon: stakingTabbarIcon,
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name={'Markets'}
         component={MarketsScreen}
         options={{
           tabBarLabel: 'Markets',
           tabBarIcon: browserMarketsIcon,
         }}
-      />
+      /> */}
       {/* <Tab.Screen
         name={'Portfolio'}
         component={PortfolioScreen}
@@ -221,14 +221,14 @@ const MainScreen = () => {
           tabBarIcon: browserMarketsIcon,
         }}
       /> */}
-      {/* <Tab.Screen
-        name={'News'}
+      <Tab.Screen
+        name={'Markets'}
         component={NewsScreen}
         options={{
-          tabBarLabel: 'News',
-          tabBarIcon: browserNewsIcon,
+          tabBarLabel: 'Markets',
+          tabBarIcon: browserMarketsIcon,
         }}
-      /> */}
+      />
       <Tab.Screen
         name={'Browser'}
         component={BrowserScreen}
