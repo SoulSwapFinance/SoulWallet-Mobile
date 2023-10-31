@@ -3,7 +3,7 @@
     android:height="82dp"
     android:viewportWidth="294"
     android:viewportHeight="82">
-<path android:fillColor="#6A01FE" android:opacity="1.000000" android:stroke="none" 
+<path android:fillColor="#6A01FE"
 	android:pathData="
 M717.010742,882.005310 
 	C693.684937,900.251648 670.749084,918.467529 650.678772,939.855835 
@@ -61,7 +61,7 @@ M717.010742,882.005310
 	C831.382324,793.061584 797.375061,819.870728 763.099487,846.386047 
 	C747.834473,858.195007 732.581421,870.019409 717.010742,882.005310 
 z"/>
-<path android:fillColor="#6A00FF" android:opacity="1.000000" android:stroke="none" 
+<path android:fillColor="#6A00FF"
 	android:pathData="
 M315.216888,400.196411 
 	C336.146637,366.773468 356.908936,333.675720 377.735626,300.618500 
