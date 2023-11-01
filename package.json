@@ -1,7 +1,7 @@
 {
   "name": "soulwallet-mobile",
   "version": "1.0.14",
-  "build": "211",
+  "build": "212",
   "private": true,
   "license": "Apache-2.0",
   "reactNativePermissionsIOS": [
@@ -17,6 +17,7 @@
   "scripts": {
     "postinstall": "patch-package && rm -rf node_modules/react-native-qrcode-scanner/node_modules/react-native-permissions && npx react-native setup-ios-permissions",
     "android": "react-native run-android",
+    "android:clean": "rm -rf android/.gradle && rm -rf android/build",
     "ios": "react-native run-ios",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start": "react-native start",
