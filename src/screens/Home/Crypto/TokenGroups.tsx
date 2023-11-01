@@ -7,7 +7,7 @@ import { ListRenderItemInfo, StyleProp, View } from 'react-native';
 import { itemWrapperStyle } from 'screens/Home/Crypto/layers/shared';
 import { TokenGroupBalanceItem } from 'components/Common/TokenGroupBalanceItem';
 import { LeftIconButton } from 'components/LeftIconButton';
-import { ClockCounterClockwise, FadersHorizontal, MagnifyingGlass, SlidersHorizontal } from 'phosphor-react-native';
+import { ClockCounterClockwise, FadersHorizontal, MagnifyingGlass, SlidersHorizontal, PaintBrush } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';
 import { TokenGroupsUpperBlock } from 'screens/Home/Crypto/TokenGroupsUpperBlock';
 import { Header } from 'components/Header';
@@ -23,6 +23,7 @@ import { useGetChainSlugs } from 'hooks/screen/Home/useGetChainSlugs';
 import useTokenGroup from 'hooks/screen/hooks/useTokenGroup';
 import useAccountBalance from 'hooks/screen/hooks/useAccountBalance';
 import { CustomizationModal } from 'screens/Home/Crypto/CustomizationModal';
+import { CollectiblesModal } from 'screens/Home/Crypto/Collectibles/CollectiblesModal';
 import { useToast } from 'react-native-toast-notifications';
 import { TokenSearchModal } from 'screens/Home/Crypto/TokenSearchModal';
 import { SelectAccAndTokenModal } from 'screens/Home/Crypto/shared/SelectAccAndTokenModal';
@@ -53,6 +54,7 @@ export const TokenGroups = () => {
   const isShowBalance = useSelector((state: RootState) => state.settings.isShowBalance);
   const isTotalBalanceDecrease = totalBalanceInfo.change.status === 'decrease';
   const [isCustomizationModalVisible, setCustomizationModalVisible] = useState<boolean>(false);
+  const [isCollectiblesModalVisible, setCollectiblesModalVisible] = useState<boolean>(false);
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   const {
     accountSelectorItems,
@@ -120,6 +122,10 @@ export const TokenGroups = () => {
     setCustomizationModalVisible(true);
   }, []);
 
+  const onOpenCollectiblesModal = useCallback(() => {
+    setCollectiblesModalVisible(true);
+  }, []);
+
   const onOpenTokenSearchModal = useCallback(() => tokenSearchRef && tokenSearchRef.current?.onOpenModal(), []);
 
   const onOpenHistoryScreen = useCallback(() => {
@@ -149,13 +155,19 @@ export const TokenGroups = () => {
           <Button
             type="ghost"
             size="xs"
+            icon={<Icon size="md" phosphorIcon={PaintBrush} iconColor={theme.colorTextLight3} />}
+            onPress={onOpenCollectiblesModal}
+          />
+          <Button
+            type="ghost"
+            size="xs"
             icon={<Icon size="md" phosphorIcon={ClockCounterClockwise} iconColor={theme.colorTextLight3} />}
             onPress={onOpenHistoryScreen}
           />
         </View>
       </View>
     );
-  }, [onOpenHistoryScreen, onOpenCustomizationModal, onOpenTokenSearchModal, theme]);
+  }, [onOpenHistoryScreen, onOpenCustomizationModal, onOpenCollectiblesModal, onOpenTokenSearchModal, theme]);
 
   const showNoti = useCallback(
     (text: string) => {
@@ -269,6 +281,7 @@ export const TokenGroups = () => {
         />
 
         <CustomizationModal modalVisible={isCustomizationModalVisible} setVisible={setCustomizationModalVisible} />
+        <CollectiblesModal modalVisible={isCollectiblesModalVisible} setVisible={setCollectiblesModalVisible} />
       </>
     </ScreenContainer>
   );
