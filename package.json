@@ -1,7 +1,7 @@
 {
   "name": "soulwallet-mobile",
   "version": "1.0.14",
-  "build": "209",
+  "build": "211",
   "private": true,
   "license": "Apache-2.0",
   "reactNativePermissionsIOS": [
