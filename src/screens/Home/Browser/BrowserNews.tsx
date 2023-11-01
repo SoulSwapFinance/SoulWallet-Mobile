@@ -15,7 +15,7 @@ import Text from 'components/Text'
 // import WebView from '../../../components/WebView'
 // import { current } from '@reduxjs/toolkit'
 import WebView from 'react-native-webview'
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
+// import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { ScreenContainer } from 'components/ScreenContainer'
 import { SafeAreaView, View } from 'react-native'
 // import { BrowserOptionModal, BrowserOptionModalRef } from './BrowserOptionModal';
@@ -178,7 +178,7 @@ export const NewsScreen = () => {
             alignItems: 'center',
             justifyContent: 'center',
             width: "100%",
-            height: 50,
+            height: 56,
             borderWidth: 2,
             borderColor: '#9854FF',
             backgroundColor: '#0F0F0F',
@@ -220,7 +220,7 @@ export const NewsScreen = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 50,
+                height: 56,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -259,7 +259,7 @@ export const NewsScreen = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 50,
+                height: 56,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -298,7 +298,7 @@ export const NewsScreen = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 50,
+                height: 56,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -337,7 +337,7 @@ export const NewsScreen = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 50,
+                height: 56,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -376,7 +376,7 @@ export const NewsScreen = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 50,
+                height: 56,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -415,7 +415,7 @@ export const NewsScreen = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 50,
+                height: 56,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
