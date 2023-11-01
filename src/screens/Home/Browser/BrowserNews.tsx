@@ -36,6 +36,7 @@ export const NewsScreen = () => {
   //  `https://blockworks.co?utm_source=soulswap`
   // const imgURL = `https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/blockworks-logo.png`
   const [currentUrl, setCurrentUrl] = useState(url)
+  const [currentScreen, setCurrentScreen] = useState(0)
   // const [currentId, setCurrentId] = useState('Home')
   const [showHeader, setShowHeader] = useState(true)
   const [currentName, setCurrentName] = useState('Blockworks')
@@ -57,19 +58,6 @@ export const NewsScreen = () => {
     // const getScreen = (id: string) => {
     //   return supportedScreens.find((screen) => screen.id === id);
     // }
-
-    const style =
-      {flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: "100%",
-      height: 40,
-      borderWidth: 2,
-      borderColor: '#9854FF',
-      backgroundColor: 'background-default',
-      paddingLeft: 4,
-      paddingRight: 4,
-      marginTop: 96,}
   
     type Screen = {
       id: string;
@@ -106,12 +94,12 @@ export const NewsScreen = () => {
       name: 'CoinDesk'
     }
     
-    const starsarena = {
-      id: 'StarsArena',
-      url: 'https://starsarena.com?utm_source=soulswap',
-      imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
-      name: 'StarsArena'
-    }
+    // const starsarena = {
+    //   id: 'StarsArena',
+    //   url: 'https://starsarena.com?utm_source=soulswap',
+    //   imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
+    //   name: 'StarsArena'
+    // }
 
     const twitter = {
       id: 'Twitter',
@@ -128,13 +116,13 @@ export const NewsScreen = () => {
     }
 
     const supportedScreens = [
-      blockworks,
-      coingecko,
-      cointelegraph,
-      coindesk,
-      starsarena,
-      twitter,
-      youtube,
+      blockworks,     // 0
+      coingecko,      // 1
+      cointelegraph,  // 2
+      coindesk,       // 3
+      // starsarena,     // 4
+      twitter,        // 4
+      youtube,        // 5
     ]
 
 
@@ -146,6 +134,16 @@ export const NewsScreen = () => {
     const toggleShowOptions = useCallback(() => {
       setShowOptions(!showOptions)
     }, [showOptions])
+
+    const handleScreen = useCallback((id) => {
+      setCurrentScreen(id)
+      setCurrentUrl(supportedScreens[id].url.toString())
+      setCurrentName(supportedScreens[id].name)
+    }, [showOptions])
+
+    const showOption = (id) => {
+      return currentScreen !== id
+    }
 
     // const [currentURL, setCurrentUrl] = useState(props?.currentURL)
 
@@ -161,15 +159,18 @@ export const NewsScreen = () => {
         //   borderRadius: 12,
         //   borderWidth: 2,
         //   borderColor: '#9854FF',
-        //   backgroundColor: 'background-default',
+        //   backgroundColor: '#0F0F0F',
         //   paddingLeft: 4,
         //   paddingRight: 4,
         //   marginTop: 48,
         //   // animation: 'pulse 2s infinite',
         // }}
-        style={{
-          height: 72
-        }}
+        // style={{
+        //   marginTop: 56, 
+        //   height: 24,
+        //   borderWidth: 4,
+        //   borderColor: '#9854FF',
+        // }}
       >
         <Button
           style={{
@@ -177,13 +178,14 @@ export const NewsScreen = () => {
             alignItems: 'center',
             justifyContent: 'center',
             width: "100%",
-            height: 40,
-            borderWidth: 3,
+            height: 50,
+            borderWidth: 2,
             borderColor: '#9854FF',
-            backgroundColor: 'background-default',
+            backgroundColor: '#0F0F0F',
             paddingLeft: 4,
             paddingRight: 4,
             marginTop: 56,
+            marginBottom: showOptions ? 0 : -24,
           }}
           onPress={() => {
             try {
@@ -202,21 +204,23 @@ export const NewsScreen = () => {
           <Text
             style={{
               color: '#FFFFFF',
-              fontSize: 24,
-              paddingBottom: 32,
+              fontWeight: 'bold',
+              fontSize: 18,
+              // padding: 32,
             }}
           >{currentName}
           </Text>
         </Button>
         {showOptions &&
           <>
+        {showOption(0) &&
             <Button
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 40,
+                height: 50,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -232,9 +236,8 @@ export const NewsScreen = () => {
                     'soulwallet-browser-refresh',
                     Math.random().toString()
                   )
-                  setCurrentUrl(supportedScreens[0].url.toString())
+                  handleScreen(0)
                   setShowOptions(false)
-                  setCurrentName(supportedScreens[0].name)
                 } catch (error) {
                   console.warn(error)
                 }
@@ -243,19 +246,20 @@ export const NewsScreen = () => {
               <Text
                 style={{
                   color: '#FFFFFF',
-                  fontSize: 24,
-                  paddingBottom: 32,
+                  fontSize: 18,
                 }}
               >{supportedScreens[0].name}
               </Text>
             </Button>
+          }
+          {showOption(1) &&
             <Button
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 40,
+                height: 50,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -271,9 +275,8 @@ export const NewsScreen = () => {
                     'soulwallet-browser-refresh',
                     Math.random().toString()
                   )
-                  setCurrentUrl(supportedScreens[1].url.toString())
+                  handleScreen(1)
                   setShowOptions(false)
-                  setCurrentName(supportedScreens[1].name)
                 } catch (error) {
                   console.warn(error)
                 }
@@ -282,19 +285,20 @@ export const NewsScreen = () => {
               <Text
                 style={{
                   color: '#FFFFFF',
-                  fontSize: 24,
-                  paddingBottom: 32,
+                  fontSize: 18,
                 }}
               >{supportedScreens[1].name}
               </Text>
             </Button>
+          }
+          { showOption(2) &&
             <Button
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 40,
+                height: 50,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -310,9 +314,8 @@ export const NewsScreen = () => {
                     'soulwallet-browser-refresh',
                     Math.random().toString()
                   )
-                  setCurrentUrl(supportedScreens[2].url.toString())
+                  handleScreen(2)
                   setShowOptions(false)
-                  setCurrentName(supportedScreens[2].name)
                 } catch (error) {
                   console.warn(error)
                 }
@@ -321,19 +324,20 @@ export const NewsScreen = () => {
               <Text
                 style={{
                   color: '#FFFFFF',
-                  fontSize: 24,
-                  paddingBottom: 32,
+                  fontSize: 18,
                 }}
               >{supportedScreens[2].name}
               </Text>
             </Button>
+          }
+          { showOption(3) &&
             <Button
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 40,
+                height: 50,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -349,9 +353,8 @@ export const NewsScreen = () => {
                     'soulwallet-browser-refresh',
                     Math.random().toString()
                   )
-                  setCurrentUrl(supportedScreens[3].url.toString())
+                  handleScreen(3)
                   setShowOptions(false)
-                  setCurrentName(supportedScreens[3].name)
                 } catch (error) {
                   console.warn(error)
                 }
@@ -360,19 +363,20 @@ export const NewsScreen = () => {
               <Text
                 style={{
                   color: '#FFFFFF',
-                  fontSize: 24,
-                  paddingBottom: 32,
+                  fontSize: 18,
                 }}
               >{supportedScreens[3].name}
               </Text>
             </Button>
+          }
+          { showOption(4) &&
             <Button
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 40,
+                height: 50,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -388,9 +392,8 @@ export const NewsScreen = () => {
                     'soulwallet-browser-refresh',
                     Math.random().toString()
                   )
-                  setCurrentUrl(supportedScreens[4].url.toString())
+                  handleScreen(4)
                   setShowOptions(false)
-                  setCurrentName(supportedScreens[4].name)
                 } catch (error) {
                   console.warn(error)
                 }
@@ -399,19 +402,20 @@ export const NewsScreen = () => {
               <Text
                 style={{
                   color: '#FFFFFF',
-                  fontSize: 24,
-                  paddingBottom: 32,
+                  fontSize: 18,
                 }}
               >{supportedScreens[4].name}
               </Text>
             </Button>
+          }
+          { showOption(5) &&
             <Button
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: "100%",
-                height: 40,
+                height: 50,
                 borderWidth: 2,
                 backgroundColor: '#0F0F0F',
                 borderLeftColor: '#9854FF',
@@ -438,51 +442,12 @@ export const NewsScreen = () => {
               <Text
                 style={{
                   color: '#FFFFFF',
-                  fontSize: 24,
-                  paddingBottom: 32,
+                  fontSize: 18,
                 }}
               >{supportedScreens[5].name}
               </Text>
             </Button>
-            <Button
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: "100%",
-                height: 40,
-                borderWidth: 2,
-                backgroundColor: '#0F0F0F',
-                borderLeftColor: '#9854FF',
-                borderRightColor: '#9854FF',
-                borderRadius: 0,
-                paddingLeft: 4,
-                paddingRight: 4,
-              }}
-              onPress={() => {
-                try {
-                  const polyfillUrl = new URL(currentUrl)
-                  polyfillUrl.searchParams.set(
-                    'soulwallet-browser-refresh',
-                    Math.random().toString()
-                  )
-                  setCurrentUrl(supportedScreens[6].url.toString())
-                  setShowOptions(false)
-                  setCurrentName(supportedScreens[6].name)
-                } catch (error) {
-                  console.warn(error)
-                }
-              }}
-            >
-              <Text
-                style={{
-                  color: '#FFFFFF',
-                  fontSize: 24,
-                  paddingBottom: 32,
-                }}
-              >{supportedScreens[6].name}
-              </Text>
-            </Button>
+        }
           </>
         }
       </View>

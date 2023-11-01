@@ -146,7 +146,7 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
             height: 40,
             borderWidth: 3,
             borderColor: '#9854FF',
-            backgroundColor: 'background-default',
+            backgroundColor: '#0F0F0F',
             paddingLeft: 4,
             paddingRight: 4,
             marginTop: 56,

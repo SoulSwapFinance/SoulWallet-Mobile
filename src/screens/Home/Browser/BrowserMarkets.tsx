@@ -633,7 +633,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
             height: showOptions ? 40 : 30,
             borderWidth: 1,
             borderColor: '#9854FF',
-            backgroundColor: 'background-default',
+            backgroundColor: '#0F0F0F',
             paddingLeft: 4,
             paddingRight: 4,
             marginTop: showOptions ? 56 : 2,
