@@ -17,7 +17,7 @@ There are 2 reasons why we do this:
 ### Start development
 - From package folder run `yarn start` to make sure we installed all required packages
 - Android
-  - Make sure you started a silumator and check it with command `adb devices`
+  - Make sure you started a simulator and check it with command `adb devices`
   - Run `yarn android`
 - IOS
   - Run `yarn ios` to start development

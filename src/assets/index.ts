@@ -35,7 +35,5 @@ export const Images = {
   historyEmpty: require('./transaction-history-coming-soon.png'),
   squircleBorder: require('./squircleBorder.png'),
   avatarPlaceholder: require('./avatar-placeholder.png'),
-  soulswapBanner: require('./soulswap-banner.png'),
-  browserBanner: require('./browser-banner.png'),
   circleRobot: require('./circle-robot.png'),
 };

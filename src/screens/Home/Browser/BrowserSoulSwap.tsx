@@ -4,9 +4,9 @@ import { soulSites } from 'constants/predefined/soulSites'
 // import { CaretRight } from 'phosphor-react-native'
 import createStylesheet from './styles/BrowserHome'
 import { StyleSheet } from 'react-native'
-
-import FastImage from 'react-native-fast-image'
-import { Images } from 'assets/index'
+import { Image } from 'components/Design'
+// import FastImage from 'react-native-fast-image'
+// import { Images } from 'assets/index'
 import { Icon, Typography } from 'components/Design'
 // import { TouchableOpacity } from 'react-native-gesture-handler'
 // import { useSelector } from 'react-redux'
@@ -143,7 +143,8 @@ export const _BrowserSoulSwap = () => {
   return (
     <View style={stylesheet.container}>
       {/* <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}> */}
-        <FastImage style={stylesheet.banner} resizeMode="cover" source={Images.soulswapBanner} />
+        {/* <FastImage style={stylesheet.banner} resizeMode="cover" source={Images.soulswapBanner} /> */}
+        <Image style={stylesheet.banner} resizeMode="cover" src={"https://exchange.soulswap.finance/images/splash.png"} />
         {/* <SectionHeader
           // title={i18n.browser.recommended}
           actionTitle={i18n.browser.seeAll}

@@ -3,8 +3,9 @@ import { FlatList, ListRenderItem, ScrollView, View } from 'react-native'
 import { predefinedDApps } from 'constants/predefined/dAppSites'
 import { CaretRight } from 'phosphor-react-native'
 import createStylesheet from './styles/BrowserHome'
-import FastImage from 'react-native-fast-image'
-import { Images } from 'assets/index'
+// import FastImage from 'react-native-fast-image'
+// import { Images } from 'assets/index'
+import { Image } from 'components/Design'
 import { Icon, Typography } from 'components/Design'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useSelector } from 'react-redux'
@@ -145,7 +146,8 @@ const BrowserHome = () => {
   return (
     <View style={stylesheet.container}>
       <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
-        <FastImage style={stylesheet.banner} resizeMode="cover" source={Images.browserBanner} />
+        {/* <FastImage style={stylesheet.banner} resizeMode="cover" source={Images.browserBanner} /> */}
+        <Image style={stylesheet.banner} resizeMode="cover" src={"https://exchange.soulswap.finance/images/splash.png"} />
         {/* {historyItems && historyItems.length > 0 && (
           <>
             <SectionHeader
