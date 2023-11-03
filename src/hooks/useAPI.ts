@@ -89,75 +89,109 @@ const BASE_URL = 'https://api.soulswap.finance'
 //     return { status, swapQuote }
 // }
 
-export function usePriceUSD(tokenAddress, chainId): { status: string; price: T } {
-    const [status, setStatus] = useState<string>('idle')
-    const [price, setPrice] = useState<T>()
-    // const URL = getBaseUrl()
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/priceusd/${tokenAddress}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        // console.log('price:%s', json)
-        setPrice(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, price }
-}
-
-
-
-export function useTokenInfo(tokenAddress, chainId): { status: string; tokenInfo: T } {
-    const [status, setStatus] = useState<string>('idle')
-        const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-    const [tokenInfo, setTokenInfo] = useState<T>({
-        name: '',
-        symbol: '',
-        price: '0',
-        luxorTreasuryBalance: '0',
-        decimals: '18',
-        supply: '0',
-        mcap: '0',
-        image: ''
-    })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/tokens/${tokenAddress}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setTokenInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, tokenInfo }
-}
-
-// export function useUserInfo(account, chainId): { status: string; userInfo: T } {
+// export function usePriceUSD(tokenAddress, chainId): { status: string; price: T } {
 //     const [status, setStatus] = useState<string>('idle')
+//     const [price, setPrice] = useState<T>()
+//     // const URL = getBaseUrl()
 //     const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-//     const [userInfo, setInfo] = useState<T>({
+  
+//     useEffect(() => {
+//       const fetchData = async () => {
+//         setStatus('fetching')
+//         const response = await fetch(`${URL}/priceusd/${tokenAddress}`, {
+//           method: 'GET',
+//           headers: {
+//             'Content-Type': 'application/json',
+//             'Referrer-Policy': 'no-referrer',
+//           },
+//         })
+//         const json = await response.json()
+//         // console.log('price:%s', json)
+//         setPrice(json as T)
+//         setStatus('fetched')
+//       }
+//       if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
+//       fetchData()
+//     }, [])
+  
+//     return { status, price }
+// }
+
+
+
+// export function useTokenInfo(tokenAddress, chainId): { status: string; tokenInfo: T } {
+//     const [status, setStatus] = useState<string>('idle')
+//         const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
+
+//     const [tokenInfo, setTokenInfo] = useState<T>({
+//         name: '',
+//         symbol: '',
+//         price: '0',
+//         luxorTreasuryBalance: '0',
+//         decimals: '18',
+//         supply: '0',
+//         mcap: '0',
+//         image: ''
+//     })  
+//     useEffect(() => {
+//       const fetchData = async () => {
+//         setStatus('fetching')
+//         const response = await fetch(`${URL}/tokens/${tokenAddress}`, {
+//           method: 'GET',
+//           headers: {
+//             'Content-Type': 'application/json',
+//             'Referrer-Policy': 'no-referrer',
+//           },
+//         })
+//         const json = await response.json()
+//         setTokenInfo(json as T)
+//         setStatus('fetched')
+//       }
+//       if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
+//       fetchData()
+//     }, [])
+  
+//     return { status, tokenInfo }
+// }
+
+// // export function useUserInfo(account, chainId): { status: string; userInfo: T } {
+// //     const [status, setStatus] = useState<string>('idle')
+// //     const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
+// //     const [userInfo, setInfo] = useState<T>({
+// //         address: '',
+// //         nativeBalance: '0',
+// //         votingPower: '0',
+// //         protocolOwnership: '0',
+// //         stakedBalance: '0'
+// //     })  
+// //     useEffect(() => {
+// //       const fetchData = async () => {
+// //         setStatus('fetching')
+// //         const response = await fetch(`${URL}/users/${account}`, {
+// //           method: 'GET',
+// //           headers: {
+// //             'Content-Type': 'application/json',
+// //             'Referrer-Policy': 'no-referrer',
+// //           },
+// //         })
+// //         const json = await response.json()
+// //         setInfo(json as T)
+// //         setStatus('fetched')
+// //       }
+// //       if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
+// //       fetchData()
+// //     }, [])
+  
+// //     return { status, userInfo }
+// // }
+
+// export function useUserInfo_FTM(account): { status: string; userInfo_FTM: T } {
+//     const chainId = 250
+//     const [status, setStatus] = useState<string>('idle')
+//     // const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
+//     const URL = 'https://api.soulswap.finance'
+//     const [dataFetched, setFetchedData] = useState(false)
+//     const [userInfo_FTM, setInfo] = useState<T>({
 //         address: '',
 //         nativeBalance: '0',
 //         votingPower: '0',
@@ -175,6 +209,78 @@ export function useTokenInfo(tokenAddress, chainId): { status: string; tokenInfo
 //           },
 //         })
 //         const json = await response.json()
+//         setFetchedData(true)
+//         setInfo(json as T)
+//         setStatus('fetched')
+//       }
+//       if ([ChainId.FANTOM].includes(chainId) && !dataFetched)
+//       fetchData()
+//     }, [])
+  
+//     return { status, userInfo_FTM }
+// }
+
+// export function useUserInfo_AVAX(account): { status: string; userInfo_AVAX: T } {
+//     const chainId = 43114
+//     const [status, setStatus] = useState<string>('idle')
+//     const [dataFetched, setFetchedData] = useState(false)
+
+//     const URL = `https://avax-api.soulswap.finance`
+//     const [userInfo_AVAX, setInfo] = useState<T>({
+//         address: '',
+//         nativeBalance: '0',
+//         votingPower: '0',
+//         protocolOwnership: '0',
+//         stakedBalance: '0'
+//     })  
+//     useEffect(() => {
+//       const fetchData = async () => {
+//         setStatus('fetching')
+//         const response = await fetch(`${URL}/users/${account}`, {
+//           method: 'GET',
+//           headers: {
+//             'Content-Type': 'application/json',
+//             'Referrer-Policy': 'no-referrer',
+//           },
+//         })
+//         const json = await response.json()
+//         setFetchedData(true)
+//         setInfo(json as T)
+//         setStatus('fetched')
+//       }
+//       if ([ChainId.AVALANCHE].includes(chainId) && !dataFetched)
+//       fetchData()
+//     }, [])
+  
+//     return { status, userInfo_AVAX }
+// }
+
+// // √ features/summoner, features/defarms, features/bonds, etc.
+// export function useUserTokenInfo(userAddress, tokenAddress, chainId): { status: string; userTokenInfo: T } {
+//     const [status, setStatus] = useState<string>('idle')
+//     const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
+
+//     const [userTokenInfo, setInfo] = useState<T>({
+//         name: '',
+//         price: '0',
+//         value: '0',
+//         balance: '0',
+//         decimals: '18',
+//         supply: '0',
+//         mcap: '0',
+//         img:''
+//     })  
+//     useEffect(() => {
+//       const fetchData = async () => {
+//         setStatus('fetching')
+//         const response = await fetch(`${URL}/users/${userAddress}/${tokenAddress}`, {
+//           method: 'GET',
+//           headers: {
+//             'Content-Type': 'application/json',
+//             'Referrer-Policy': 'no-referrer',
+//           },
+//         })
+//         const json = await response.json()
 //         setInfo(json as T)
 //         setStatus('fetched')
 //       }
@@ -182,111 +288,5 @@ export function useTokenInfo(tokenAddress, chainId): { status: string; tokenInfo
 //       fetchData()
 //     }, [])
   
-//     return { status, userInfo }
+//     return { status, userTokenInfo }
 // }
-
-export function useUserInfo_FTM(account): { status: string; userInfo_FTM: T } {
-    const chainId = 250
-    const [status, setStatus] = useState<string>('idle')
-    // const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-    const URL = 'https://api.soulswap.finance'
-    const [dataFetched, setFetchedData] = useState(false)
-    const [userInfo_FTM, setInfo] = useState<T>({
-        address: '',
-        nativeBalance: '0',
-        votingPower: '0',
-        protocolOwnership: '0',
-        stakedBalance: '0'
-    })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/users/${account}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setFetchedData(true)
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.FANTOM].includes(chainId) && !dataFetched)
-      fetchData()
-    }, [])
-  
-    return { status, userInfo_FTM }
-}
-
-export function useUserInfo_AVAX(account): { status: string; userInfo_AVAX: T } {
-    const chainId = 43114
-    const [status, setStatus] = useState<string>('idle')
-    const [dataFetched, setFetchedData] = useState(false)
-
-    const URL = `https://avax-api.soulswap.finance`
-    const [userInfo_AVAX, setInfo] = useState<T>({
-        address: '',
-        nativeBalance: '0',
-        votingPower: '0',
-        protocolOwnership: '0',
-        stakedBalance: '0'
-    })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/users/${account}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setFetchedData(true)
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE].includes(chainId) && !dataFetched)
-      fetchData()
-    }, [])
-  
-    return { status, userInfo_AVAX }
-}
-
-// √ features/summoner, features/defarms, features/bonds, etc.
-export function useUserTokenInfo(userAddress, tokenAddress, chainId): { status: string; userTokenInfo: T } {
-    const [status, setStatus] = useState<string>('idle')
-    const URL = chainId == ChainId.FANTOM ? BASE_URL : `https://avax-api.soulswap.finance`
-
-    const [userTokenInfo, setInfo] = useState<T>({
-        name: '',
-        price: '0',
-        value: '0',
-        balance: '0',
-        decimals: '18',
-        supply: '0',
-        mcap: '0',
-        img:''
-    })  
-    useEffect(() => {
-      const fetchData = async () => {
-        setStatus('fetching')
-        const response = await fetch(`${URL}/users/${userAddress}/${tokenAddress}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Referrer-Policy': 'no-referrer',
-          },
-        })
-        const json = await response.json()
-        setInfo(json as T)
-        setStatus('fetched')
-      }
-      if ([ChainId.AVALANCHE, ChainId.FANTOM].includes(chainId)) 
-      fetchData()
-    }, [])
-  
-    return { status, userTokenInfo }
-}
