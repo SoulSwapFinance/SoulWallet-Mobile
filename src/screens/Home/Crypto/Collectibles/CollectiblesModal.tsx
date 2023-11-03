@@ -276,7 +276,7 @@ import { NftCollection } from '@soul-wallet/extension-base/src/background/KoniTy
 import { FlatListScreen } from 'components/FlatListScreen';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { ListRenderItemInfo, RefreshControl, SectionListData } from 'react-native';
-import NftCollectionItem from 'screens/Home/NFT/Collection/NftCollectionItem';
+import CollectibleItem from 'screens/Home/Crypto/Collectibles/CollectibleItem';
 import i18n from 'utils/i18n/i18n';
 import { Plus } from 'phosphor-react-native';
 import useFetchNftCollection from 'hooks/screen/Home/Nft/useFetchNftCollection';
@@ -329,7 +329,7 @@ export const CollectiblesModal = ({ modalVisible, setVisible }: Props) => {
         navigation.navigate('Collection', { collectionId: key });
       };
 
-      return <NftCollectionItem key={key} nftCollection={item} onPress={onPress} />;
+      return <CollectibleItem key={key} nftCollection={item} onPress={onPress} />;
     },
     [navigation],
   );

@@ -16,7 +16,7 @@ export function updateAuthUrls(authUrlMap: AuthUrlsSlice['details']): void {
   store.dispatch({ type: 'authUrls/update', payload: { details: authUrlMap || {} } });
 }
 
-// Background service
+// Background Service
 
 export function updateBackgroundServiceActiveState(payload: ActiveCronAndSubscriptionMap): void {
   store.dispatch({ type: 'backgroundService/updateActiveState', payload });
