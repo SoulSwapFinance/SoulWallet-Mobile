@@ -196,8 +196,8 @@ export const TokensLayout = ({
   const handledTokenListData = listActions ? [{ slug: null }, ...tokenListData] : tokenListData;
 
   // TODO: Move these codes to style folder in next refactor
-  const flex1 = { flex: 1 };
-  const listContainerStyle = { paddingHorizontal: 16 };
+  const flex1 = { flex: 1 }
+  const listContainerStyle = { paddingHorizontal: 12 }
   const stickyActionHeaderStyle = [
     {
       paddingHorizontal: 16,
@@ -237,6 +237,7 @@ export const TokensLayout = ({
         </Animated.View>
       )}
 
+    {/* UI NOTE: Shows the Layout for the Entire Accounts Screen */}
       <AnimatedFlatlist
         onScroll={onScrollHandler}
         showsVerticalScrollIndicator={false}
