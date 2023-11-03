@@ -1,10 +1,10 @@
-import React, { useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { FlatList, ListRenderItem, ScrollView, View } from 'react-native'
 import { predefinedDApps } from 'constants/predefined/dAppSites'
 import { CaretRight } from 'phosphor-react-native'
 import createStylesheet from './styles/BrowserHome'
 // import FastImage from 'react-native-fast-image'
-// import { Images } from 'assets/index'
+import { Images } from 'assets/index'
 import { Image } from 'components/Design'
 import { Icon, Typography } from 'components/Design'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -21,6 +21,9 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import i18n from 'utils/i18n/i18n'
 import isaac from 'isaac'
 import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight'
+import { useGetDAPPsQuery } from 'stores/API';
+import { SliderBox } from 'react-native-image-slider-box'
+import FastImage from 'react-native-fast-image'
 
 interface HeaderProps {
   title: string;
@@ -40,6 +43,27 @@ type SearchItemType = {
 const ICON_ITEM_HEIGHT = browserHomeItemIconOnly;
 const ITEM_HEIGHT = browserHomeItem;
 const ITEM_WIDTH = browserHomeItemWidth;
+const paginationBoxStyle = {
+  position: 'absolute',
+  bottom: -12,
+  right: 0,
+  left: 0,
+  padding: 0,
+  alignItems: 'center',
+  alignSelf: 'center',
+  justifyContent: 'center',
+  paddingVertical: 10,
+};
+const dotStyle = {
+  width: 6,
+  height: 6,
+  borderRadius: 3,
+  marginHorizontal: 0,
+  padding: 0,
+  margin: 0,
+  backgroundColor: 'rgba(128, 128, 128, 0.92)',
+};
+
 const SectionHeader: React.FC<HeaderProps> = ({ title, actionTitle, onPress }): JSX.Element => {
   const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet();
@@ -81,54 +105,69 @@ const ItemSeparator = () => {
 const BrowserHome = () => {
   const stylesheet = createStylesheet();
   const theme = useSoulWalletTheme().swThemes;
-  const [dApps] = useState<PredefinedDApps>(predefinedDApps);
+  // const [dApps] = useState<PredefinedDApps>(predefinedDApps);
+  const { data: dApps, isLoading } = useGetDAPPsQuery(undefined);
   const navigation = useNavigation<RootNavigationProps>();
   const historyItems = useSelector((state: RootState) => state.browser.history);
   const bookmarkItems = useSelector((state: RootState) => state.browser.bookmarks);
-  const recommendedList = useMemo((): RecommendedListType[] => {
+  const recommendedList = useMemo((): RecommendedListType[] | [] => {
+    if (!dApps) {
+      return [];
+    }
     const sectionData = [];
     for (let i = 0; i < 20; i += 5) {
       const section = {
-        data: dApps.dapps.slice(i, i + 5),
+        data: dApps.slice(i, i + 5),
       };
+      // @ts-ignore
       sectionData.push(section);
     }
     return sectionData;
-  }, [dApps.dapps]);
+  }, [dApps]);
 
-  const onPressSectionItem = (item: SearchItemType) => {
-    navigation.navigate('BrowserTabsManager', { url: item.url, name: item.name });
+  const bannerData = useMemo(() => {
+    if (!dApps) {
+      return undefined;
+    }
+
+    return dApps.filter(dApp => dApp.isFeatured);
+  }, [dApps])
+
+  const isBannerData = bannerData[0] != null
+
+  const getBannerImages = useMemo(() => {
+    if (!bannerData) {
+      // return [Images.browserBanner];
+      return [Images.backgroundImg];
+    }
+
+    return bannerData.map(dApp => dApp.previewImage);
+  }, [bannerData]);
+
+  const onPressSectionItem = (item: DAppInfo) => {
+    navigation.navigate('BrowserTabsManager', { url: item.url, name: item.title });
   };
 
-  // const renderRecentItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
-  //   const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
+  const renderRecentItem: ListRenderItem<StoredSiteInfo> = useCallback(
+    ({ item }) => {
+      return <IconItem isLoading={isLoading} data={dApps} itemData={item} />;
+    },
+    [dApps, isLoading],
+  );
+  const renderBookmarkItem: ListRenderItem<StoredSiteInfo> = useCallback(
+    ({ item }) => {
+      return <IconItem isLoading={isLoading} data={dApps} itemData={item} isWithText />;
+    },
+    [dApps, isLoading],
+  );
 
-  //   return (
-  //     <IconItem
-  //       data={data}
-  //       url={"https://soulswap.finance/favicon.png"} // item.url
-  //       onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: data?.name })}
-  //     />
-  //   );
-  // };
-  const renderBookmarkItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
-    const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
-    return (
-      <IconItem
-        data={data}
-        url={item.url}
-        defaultData={item}
-        onPress={() => navigation.navigate('BrowserTabsManager', { url: item.url, name: item.name })}
-        isWithText
-      />
-    );
-  };
   const renderSectionItem = (item: DAppInfo) => {
     return (
       <BrowserItem
+        isLoading={isLoading}
         key={item.id}
         style={stylesheet.browserItem}
-        title={item.name}
+        title={item.title}
         subtitle={getHostName(item.url)}
         url={item.url || "https://soulswap.finance/favicon.png"}
         logo={item.icon || "https://soulswap.finance/favicon.png"}
@@ -143,59 +182,80 @@ const BrowserHome = () => {
     offset: ITEM_WIDTH * index,
   });
 
+  // console.log('bannerData: %s', isBannerData)
+
   return (
-    <View style={stylesheet.container}>
-      <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
-        {/* <FastImage style={stylesheet.banner} resizeMode="cover" source={Images.browserBanner} /> */}
-        <Image style={stylesheet.banner} resizeMode="cover" src={"https://exchange.soulswap.finance/images/splash.png"} />
-        {/* {historyItems && historyItems.length > 0 && (
-          <>
-            <SectionHeader
-              title={i18n.browser.recent}
-              actionTitle={i18n.browser.seeAll}
-              onPress={() => navigation.navigate('BrowserSearch')}
-            />
-            <FlatList
-              showsVerticalScrollIndicator={false}
-              showsHorizontalScrollIndicator={false}
-              style={{ maxHeight: ICON_ITEM_HEIGHT, marginBottom: theme.marginSM }}
-              contentContainerStyle={stylesheet.flatListContentContainer}
-              data={historyItems}
-              renderItem={renderRecentItem}
-              ItemSeparatorComponent={ItemSeparator}
-              getItemLayout={getItemLayout}
-              horizontal
-            />
-          </>
-        )} */}
-        {bookmarkItems && bookmarkItems.length > 0 && (
-          <>
-            <SectionHeader
-              title={i18n.browser.favorite}
-              actionTitle={i18n.browser.seeAll}
-              onPress={() => navigation.navigate('BrowserListByTabview', { type: 'BOOKMARK' })}
-            />
-            <FlatList
-              showsVerticalScrollIndicator={false}
-              showsHorizontalScrollIndicator={false}
-              style={{ maxHeight: ITEM_HEIGHT, marginBottom: theme.marginSM }}
-              contentContainerStyle={stylesheet.flatListContentContainer}
-              data={bookmarkItems}
-              renderItem={renderBookmarkItem}
-              ItemSeparatorComponent={ItemSeparator}
-              getItemLayout={getItemLayout}
-              horizontal
-            />
-          </>
-        )}
-        <SectionHeader
-          title={i18n.browser.recommended}
-          actionTitle={i18n.browser.seeAll}
-          onPress={() => navigation.navigate('BrowserListByTabview', { type: 'RECOMMENDED' })}
-        />
-        <SectionList data={recommendedList} renderItem={renderSectionItem} />
-      </ScrollView>
-    </View>
-  );
-};
-export default BrowserHome;
+      <View style={stylesheet.container}>
+        <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+          { isBannerData &&
+            <SliderBox
+            ImageComponent={FastImage}
+            images={getBannerImages}
+            sliderBoxHeight={200}
+            onCurrentImagePressed={(index: number) => bannerData && onPressSectionItem(bannerData[index])}
+            dotColor="white"
+            inactiveDotColor="#90A4AE"
+            autoplay
+            resizeMethod={'resize'}
+            resizeMode={'cover'}
+            paginationBoxStyle={paginationBoxStyle}
+            dotStyle={dotStyle}
+            ImageComponentStyle={stylesheet.banner}
+            imageLoadingColor="#2196F3"
+          />
+          }
+          { !isBannerData &&
+            <Image style={stylesheet.banner} resizeMode="cover" src={"https://exchange.soulswap.finance/images/splash.png"} />
+          }
+          {historyItems && historyItems.length > 0 && (
+            <>
+              <SectionHeader
+                title={i18n.browser.recent}
+                actionTitle={i18n.browser.seeAll}
+                onPress={() => navigation.navigate('BrowserSearch')}
+              />
+              <FlatList
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+                style={{ maxHeight: ICON_ITEM_HEIGHT, marginBottom: theme.marginSM }}
+                contentContainerStyle={stylesheet.flatListContentContainer}
+                data={historyItems}
+                renderItem={renderRecentItem}
+                ItemSeparatorComponent={ItemSeparator}
+                getItemLayout={getItemLayout}
+                horizontal
+              />
+            </>
+          )}
+          {bookmarkItems && bookmarkItems.length > 0 && (
+            <>
+              <SectionHeader
+                title={i18n.browser.favorite}
+                actionTitle={i18n.browser.seeAll}
+                onPress={() => navigation.navigate('BrowserListByTabview', { type: 'BOOKMARK' })}
+              />
+              <FlatList
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+                style={{ maxHeight: ITEM_HEIGHT, marginBottom: theme.marginSM }}
+                contentContainerStyle={stylesheet.flatListContentContainer}
+                data={bookmarkItems}
+                renderItem={renderBookmarkItem}
+                ItemSeparatorComponent={ItemSeparator}
+                getItemLayout={getItemLayout}
+                horizontal
+              />
+            </>
+          )}
+          <SectionHeader
+            title={i18n.browser.recommended}
+            actionTitle={i18n.browser.seeAll}
+            onPress={() => navigation.navigate('BrowserListByTabview', { type: 'RECOMMENDED' })}
+          />
+          <SectionList data={recommendedList} renderItem={renderSectionItem} />
+        </ScrollView>
+      </View>
+    )
+}
+
+export default BrowserHome
