@@ -113,6 +113,41 @@ export const DAppTitleMap: Record<string, string> = {
   'verse.bitcoin.com': 'Verse DEX',
 };
 
+export const predefinedBanners: PredefinedDApps = {
+  categories: () => [
+    {
+      name: i18n.browser.defi,
+      id: 'defi',
+      theme: 'cyan',
+    }
+  ],
+  dapps: [
+    {
+      name: 'SoulSwap',
+      icon: 'https://soulswap.finance/favicon.png',
+      id: 'app.soulswap.finance',
+      url: 'https://app.soulswap.finance/',
+      categories: ['defi', 'soul'],
+      isFeatured: true,
+      previewImage: "https://exchange.soulswap.finance/images/splash.png",
+      isSupportSubstrateAccount: false,
+      isSupportEthereumAccount: true,
+    },
+    {
+      name: 'DeBank',
+      icon: 'https://debank.com/favicon.ico',
+      id: 'debank.com',
+      url: 'https://debank.com',
+      categories: ['utilities'],
+      isFeatured: true,
+      previewImage: "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/banners/debank-banner.png",
+      isSupportSubstrateAccount: true,
+      isSupportEthereumAccount: true,
+    },
+  ]
+}
+
+
 export const predefinedDApps: PredefinedDApps = {
   categories: () => [
     {
@@ -162,6 +197,8 @@ export const predefinedDApps: PredefinedDApps = {
       id: 'debank.com',
       url: 'https://debank.com',
       categories: ['utilities'],
+      isFeatured: true,
+      previewImage: "https://debank.com/favicon.ico",
       isSupportSubstrateAccount: true,
       isSupportEthereumAccount: true,
     },

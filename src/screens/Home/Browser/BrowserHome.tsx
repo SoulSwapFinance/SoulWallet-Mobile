@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react'
 import { FlatList, ListRenderItem, ScrollView, View } from 'react-native'
-import { predefinedDApps } from 'constants/predefined/dAppSites'
+import { predefinedBanners, predefinedDApps } from 'constants/predefined/dAppSites'
 import { CaretRight } from 'phosphor-react-native'
 import createStylesheet from './styles/BrowserHome'
-// import FastImage from 'react-native-fast-image'
-// import { Images } from 'assets/index'
+import FastImage from 'react-native-fast-image'
+import { Images } from 'assets/index'
 import { Image } from 'components/Design'
 import { Icon, Typography } from 'components/Design'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -21,6 +21,7 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import i18n from 'utils/i18n/i18n'
 import isaac from 'isaac'
 import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight'
+import { SliderBox } from 'react-native-image-slider-box'
 
 interface HeaderProps {
   title: string;
@@ -101,22 +102,24 @@ const ItemSeparator = () => {
   return <View style={stylesheet.flatListSeparator} />;
 };
 const BrowserHome = () => {
-  const stylesheet = createStylesheet();
-  const theme = useSoulWalletTheme().swThemes;
-  const [dApps] = useState<PredefinedDApps>(predefinedDApps);
-  const navigation = useNavigation<RootNavigationProps>();
-  const historyItems = useSelector((state: RootState) => state.browser.history);
-  const bookmarkItems = useSelector((state: RootState) => state.browser.bookmarks);
+  const stylesheet = createStylesheet()
+  const theme = useSoulWalletTheme().swThemes
+  const [dApps] = useState<PredefinedDApps>(predefinedDApps)
+  const [banners] = useState<PredefinedDApps>(predefinedBanners)
+  const navigation = useNavigation<RootNavigationProps>()
+  // const isBannerData = true
+  // const historyItems = useSelector((state: RootState) => state.browser.history)
+  const bookmarkItems = useSelector((state: RootState) => state.browser.bookmarks)
   const recommendedList = useMemo((): RecommendedListType[] | [] => {
-    const sectionData = [];
-    for (let i = 0; i < 20; i += 5) {
-      const section = {
-        data: dApps.dapps.slice(i, i + 5),
-      };
-      sectionData.push(section);
-    }
-    return sectionData;
-  }, [dApps.dapps]);
+  const sectionData = []
+  for (let i = 0; i < 20; i += 5) {
+    const section = {
+      data: dApps.dapps.slice(i, i + 5),
+    };
+    sectionData.push(section);
+  }
+  return sectionData
+  }, [dApps.dapps])
 
   // const bannerData = useMemo(() => {
   //   if (!dApps) {
@@ -125,8 +128,25 @@ const BrowserHome = () => {
 
   //   return dApps.filter(dApp => dApp.isFeatured);
   // }, [dApps])
+  const bannerData = useMemo(() => {
+    let totalBanners = predefinedBanners.dapps.length
 
-  // const isBannerData = bannerData[0] != null
+    // let banners = []
+    // if (!dApps) {
+    //   return undefined;
+    // }
+    // for (let i = 0; i < totalBanners; i++) {
+    //   if (dApps.dapps[i].isFeatured)
+    //     banners.push(dApps.dapps[i])
+    // }
+    console.log('totalBanners: %s', totalBanners)
+    console.log('banners: %s', banners)
+    // console.log('bannerData: %s', bannerData)
+    return banners
+    // return dApps.filter(dApp => dApp.isFeatured);
+  }, [banners])
+
+  const isBannerData = bannerData[0] != null
 
   // const getBannerImages = useMemo(() => {
   //   if (!bannerData) {
@@ -136,9 +156,51 @@ const BrowserHome = () => {
 
   //   return bannerData.map(dApp => dApp.previewImage);
   // }, [bannerData]);
+  const getBannerImages = useMemo(() => {
+    // const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
+
+    if (!bannerData) {
+      // return [Images.browserBanner];
+      return "https://exchange.soulswap.finance/images/splash.png";
+    }
+
+    // console.log('bannerData', bannerData);
+    return bannerData.dapps.map(dApp => dApp.previewImage)
+    // return bannerData.map(dApp => dApp.previewImage);
+  }, [bannerData]);
+  
+  const getBannerUrls = useMemo(() => {
+    // const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
+
+    if (!bannerData) {
+      // return [Images.browserBanner];
+      return "https://exchange.soulswap.finance";
+    }
+
+    // console.log('bannerUrls', bannerData.dapps.map(dApp => dApp.url));
+    return bannerData.dapps.map(dApp => dApp.url)
+    // return bannerData.map(dApp => dApp.previewImage);
+  }, [bannerData]);
+  
+  const getBannerNames = useMemo(() => {
+    // const data = dApps.dapps.find(dAppItem => item.url.includes(dAppItem.id));
+
+    if (!bannerData) {
+      // return [Images.browserBanner];
+      return "SoulSwap";
+    }
+
+    // console.log('bannerNames', bannerData.dapps.map(dApp => dApp.name));
+    return bannerData.dapps.map(dApp => dApp.name)
+    // return bannerData.map(dApp => dApp.previewImage);
+  }, [bannerData]);
 
   const onPressSectionItem = (item: SearchItemType) => {
     navigation.navigate('BrowserTabsManager', { url: item.url, name: item.name });
+  }
+  
+  const onPressBannerItem = (url, name) => {
+    navigation.navigate('BrowserTabsManager', { url: url, name: name });
   }
 
   // const renderRecentItem: ListRenderItem<StoredSiteInfo> = ({ item }) => {
@@ -178,6 +240,7 @@ const BrowserHome = () => {
       />
     );
   };
+
   const getItemLayout = (data: StoredSiteInfo[] | null | undefined, index: number) => ({
     index,
     length: ITEM_WIDTH,
@@ -187,12 +250,20 @@ const BrowserHome = () => {
   return (
     <View style={stylesheet.container}>
       <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
-      {/* { isBannerData &&
+      {/* { isBannerData && */}
             <SliderBox
             ImageComponent={FastImage}
             images={getBannerImages}
+            // items={[""]}
             sliderBoxHeight={200}
-            onCurrentImagePressed={(index: number) => bannerData && onPressSectionItem(bannerData[index])}
+            onCurrentImagePressed={(index: number) => bannerData && onPressBannerItem(getBannerUrls[index], getBannerNames[index])}
+            // onCurrentImagePressed={
+            //   // (index: number) => bannerData && 
+            //   (index: number) => 
+            //   // onPressSectionItem(bannerData[index])
+            //   // (items) =>
+            //   onPressBannerItem(banners[index].bannerData, banners[index].name)
+            // }
             dotColor="white"
             inactiveDotColor="#90A4AE"
             autoplay
@@ -203,8 +274,8 @@ const BrowserHome = () => {
             ImageComponentStyle={stylesheet.banner}
             imageLoadingColor="#2196F3"
           />
-          }
-          { !isBannerData &&
+          {/* } */}
+          {/* { !isBannerData &&
             <Image style={stylesheet.banner} resizeMode="cover" src={"https://exchange.soulswap.finance/images/splash.png"} />
           } */}
         {/* <FastImage style={stylesheet.banner} resizeMode="cover" source={Images.browserBanner} /> */}
