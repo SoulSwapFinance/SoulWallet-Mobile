@@ -8,7 +8,7 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
 import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
-import PriceChart from 'components/Chart/PriceChart';
+// import PriceChart from 'components/Chart/PriceChart';
 
 type ItemType = {
   symbol: string;

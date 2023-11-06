@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { BottomTabBarButtonProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import StakingScreen from './Staking/StakingScreen';
+// import StakingScreen from './Staking/StakingScreen';
 
 import { Linking, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -18,7 +18,7 @@ import { BrowserScreen } from 'screens/Home/Browser';
 // import BrowserMarkets from 'screens/Home/Browser/BrowserMarkets';
 import NewsScreen from 'screens/Home/Browser/BrowserNews';
 import { HomeStackParamList } from 'routes/home';
-import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
+// import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
 // import withPageWrapper from 'components/PageWrapper';
 import RequestCreateMasterPasswordModal from 'screens/MasterPassword/RequestCreateMasterPasswordModal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -162,7 +162,7 @@ const MainScreen = () => {
           tabBarIcon: tokenTabbarIcon,
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name={'NFTs'}
         component={NFTStackScreen}
         options={{
@@ -170,7 +170,7 @@ const MainScreen = () => {
           tabBarHideOnKeyboard: Platform.OS === 'android',
           tabBarIcon: nftTabbarIcon,
         }}
-      />
+      /> */}
       {/* <Tab.Screen
         name={'Crowdloans'}
         component={withPageWrapper(CrowdloansScreen, ['crowdloan', 'price', 'chainStore', 'logoMaps'])}

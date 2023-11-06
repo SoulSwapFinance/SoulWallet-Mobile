@@ -66,6 +66,9 @@ export type RootStackParamList = {
   ImportNft: { payload: ConfirmationsQueue['addTokenRequest'][0] } | undefined;
   TransferNft: NavigatorScreenParams<NftTransferActionStackParamList>;
   CustomTokenSetting: undefined;
+  // CollectionList: undefined;
+  CollectionList: { collectionId: string };
+  CollectionItem: { collectionId: string };
   ConfigureToken: { tokenDetail: string };
   ImportToken: { payload: ConfirmationsQueue['addTokenRequest'][0] } | undefined;
   TransactionDone: { chainType: string; chain: string; id: string; path: string };
@@ -113,6 +116,8 @@ export type BrowserSoulSwapProps = NativeStackScreenProps<RootStackParamList, 'B
 export type BrowserSearchProps = NativeStackScreenProps<RootStackParamList, 'BrowserSearch'>;
 export type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export type ConfigureTokenProps = NativeStackScreenProps<RootStackParamList, 'ConfigureToken'>;
+export type CollectionListProps = NativeStackScreenProps<RootStackParamList, 'CollectionList'>;
+// export type CollectionItemProps = NativeStackScreenProps<RootStackParamList, 'CollectionItem'>;
 export type ImportTokenProps = NativeStackScreenProps<RootStackParamList, 'ImportToken'>;
 export type ImportNftProps = NativeStackScreenProps<RootStackParamList, 'ImportNft'>;
 export type ConnectListProps = NativeStackScreenProps<RootStackParamList, 'ConnectList'>;

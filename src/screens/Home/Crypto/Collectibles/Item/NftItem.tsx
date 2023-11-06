@@ -1,12 +1,13 @@
-import React from 'react';
-import { StyleProp, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { NftCollection } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NftItem as _NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import React, { useMemo } from 'react';
+import { StyleProp, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import ImagePreview from 'components/ImagePreview';
 import { ColorMap } from 'styles/color';
-import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
+import { FontSemiBold } from 'styles/sharedStyles';
 
 interface Props {
-  nftCollection: NftCollection;
+  nftItem: _NftItem;
+  collectionImage?: string;
   onPress: () => void;
 }
 
@@ -23,53 +24,54 @@ const ContainerStyle: StyleProp<ViewStyle> = {
   backgroundColor: ColorMap.dark2,
 };
 
-const LogoStyle: StyleProp<ViewStyle> = {
+const LogoStyle: StyleProp<any> = {
   width: '100%',
   aspectRatio: 1,
 };
 
-const InfoStyle: StyleProp<ViewStyle> = {
+const InfoStyle: StyleProp<any> = {
   justifyContent: 'space-between',
   flexDirection: 'row',
-  alignItems: 'flex-end',
+  alignItems: 'center',
   width: '100%',
   marginTop: 5,
   paddingBottom: 16,
   paddingHorizontal: 12,
 };
 
-const NameStyle: StyleProp<TextStyle> = {
+const NameStyle: StyleProp<any> = {
   ...FontSemiBold,
   fontSize: 14,
   lineHeight: 22,
-  flex: 1,
-  marginRight: 2,
+  width: '100%',
   color: ColorMap.light,
 };
 
-const CountStyle: StyleProp<any> = {
-  ...FontMedium,
-  textAlign: 'right',
-  paddingLeft: 2,
-  color: ColorMap.disabled,
-};
+const NftItem = ({ nftItem, onPress, collectionImage }: Props) => {
+  const { name: _name, image, id } = nftItem;
 
-const CollectibleItem = ({ nftCollection, onPress }: Props) => {
-  const { itemCount, collectionName, image } = nftCollection;
+  const name = useMemo((): string => {
+    return _name ? _name : `#${id}`;
+  }, [_name, id]);
 
   return (
     <TouchableOpacity style={WrapperStyle} onPress={onPress} activeOpacity={0.8}>
       <View style={ContainerStyle}>
-        <ImagePreview style={LogoStyle} mainUrl={image} borderRadius={5} borderPlace={'top'} />
+        <ImagePreview
+          mainUrl={image}
+          backupUrl={collectionImage}
+          style={LogoStyle}
+          borderPlace={'top'}
+          borderRadius={5}
+        />
         <View style={InfoStyle}>
           <Text style={NameStyle} numberOfLines={1} ellipsizeMode={'tail'}>
-            {collectionName}
+            {name}
           </Text>
-          <Text style={CountStyle}>{itemCount}</Text>
         </View>
       </View>
     </TouchableOpacity>
   );
 };
 
-export default React.memo(CollectibleItem);
+export default React.memo(NftItem);

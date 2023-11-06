@@ -1,12 +1,18 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { NavigatorScreenParams } from '@react-navigation/native';
 import { StakingScreenStackParamList } from 'routes/staking/stakingScreen';
-import { NFTStackParamList } from 'screens/Home/NFT/NFTStackScreen';
+// import { NFTStackParamList } from 'screens/Home/NFT/NFTStackScreen';
 import { BrowserHomeProps, RootStackParamList } from 'routes/index';
+import { NFTStackParamList } from 'screens/Home/Crypto/Collectibles';
 
 export type CryptoStackParamList = {
   TokenGroups: undefined;
   TokenGroupsDetail: { slug: string };
+  Collectibles: { slug: string };
+  CollectionList: undefined
+  Collection: { collectionId: string }
+  NftDetail: { collectionId: string; nftId: string }
+
 };
 
 export type CryptoNavigationProps = NativeStackScreenProps<CryptoStackParamList & RootStackParamList>['navigation'];

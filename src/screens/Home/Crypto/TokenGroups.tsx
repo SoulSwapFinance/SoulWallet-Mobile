@@ -123,6 +123,8 @@ export const TokenGroups = () => {
   }, []);
 
   const onOpenCollectiblesModal = useCallback(() => {
+    // navigation.navigate('ImportNft')
+    // navigation.navigate('Home', { screen: 'NFTs', params: {screen: 'CollectionList'} })
     setCollectiblesModalVisible(true);
   }, []);
 
