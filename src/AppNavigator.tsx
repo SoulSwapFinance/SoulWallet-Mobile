@@ -32,7 +32,8 @@ import { ConfigureToken } from 'screens/Tokens/ConfigureToken';
 import { ImportToken } from 'screens/ImportToken/ImportToken';
 import ImportNft from 'screens/ImportToken/ImportNft';
 import NftCollectionList from 'screens/Home/Crypto/Collectibles/Collection/NftCollectionList'
-// import NftCollectionItem from 'screens/Home/Crypto/Collectibles/Collection/NftCollectionItem'
+import NftCollectionItem from 'screens/Home/Crypto/Collectibles/Collection/NftCollectionItem'
+import NftDetail from 'screens/Home/Crypto/Collectibles/Detail/NftDetail'
 import { WebViewDebugger } from 'screens/WebViewDebugger';
 import SigningScreen from 'screens/Signing/SigningScreen';
 import { LoadingScreen } from 'screens/LoadingScreen';
@@ -301,7 +302,8 @@ const AppNavigator = ({ isAppReady }: Props) => {
                 <Stack.Screen name="ImportNft" component={ImportNft} options={{ gestureEnabled: false }} />
                 {/* <Stack.Screen name="CollectionList" component={NftCollectionList} options={{ gestureEnabled: false }} /> */}
                 <Stack.Screen name="CollectionList" component={NftCollectionList} options={{ gestureEnabled: false }} />
-                <Stack.Screen name="CollectionItem" component={NftCollectionList} options={{ gestureEnabled: false }} />
+                <Stack.Screen name="CollectionItem" component={NftCollectionItem} options={{ gestureEnabled: false }} />
+                <Stack.Screen name="NftDetail" component={NftDetail} options={{ gestureEnabled: false }} />
                 <Stack.Screen name="WebViewDebugger" component={WebViewDebugger} />
                 <Stack.Screen name="SigningAction" component={SigningScreen} options={{ gestureEnabled: false }} />
                 <Stack.Screen name="TransactionDone" component={TransactionDone} options={{ gestureEnabled: false }} />

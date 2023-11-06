@@ -101,24 +101,12 @@ const NftItemList = ({
           return;
         }
 
-
-        // @ts-ignore
-        navigation.navigate('Home', {
-          // @ts-ignore
-          screen: 'Main',
-          params: {
-            // @ts-ignore
-            // screen: 'Tokens',
-            screen: 'Tokens',
-            params: {
-              // @ts-ignore
-              screen: 'NftDetail',
-              params: { collectionId, nftId: key },
-            },
-          },
-        });
+        navigation.navigate(
+          'NftDetail',
+          { collectionId, nftId: key },
+        )
       }
-      goHome()
+      // goHome()
 
       return <NftItem key={key} nftItem={item} collectionImage={collection?.image} onPress={onPress} />;
     },

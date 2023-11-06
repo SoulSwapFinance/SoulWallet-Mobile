@@ -66,8 +66,8 @@ export type RootStackParamList = {
   ImportNft: { payload: ConfirmationsQueue['addTokenRequest'][0] } | undefined;
   TransferNft: NavigatorScreenParams<NftTransferActionStackParamList>;
   CustomTokenSetting: undefined;
-  // CollectionList: undefined;
-  CollectionList: { collectionId: string };
+  CollectionList: undefined;
+  NftDetail: { collectionId: string, nftId: string };
   CollectionItem: { collectionId: string };
   ConfigureToken: { tokenDetail: string };
   ImportToken: { payload: ConfirmationsQueue['addTokenRequest'][0] } | undefined;
@@ -117,7 +117,8 @@ export type BrowserSearchProps = NativeStackScreenProps<RootStackParamList, 'Bro
 export type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export type ConfigureTokenProps = NativeStackScreenProps<RootStackParamList, 'ConfigureToken'>;
 export type CollectionListProps = NativeStackScreenProps<RootStackParamList, 'CollectionList'>;
-// export type CollectionItemProps = NativeStackScreenProps<RootStackParamList, 'CollectionItem'>;
+export type CollectionItemProps = NativeStackScreenProps<RootStackParamList, 'CollectionItem'>;
+export type NftDetailProps = NativeStackScreenProps<RootStackParamList, 'NftDetail'>;
 export type ImportTokenProps = NativeStackScreenProps<RootStackParamList, 'ImportToken'>;
 export type ImportNftProps = NativeStackScreenProps<RootStackParamList, 'ImportNft'>;
 export type ConnectListProps = NativeStackScreenProps<RootStackParamList, 'ConnectList'>;
