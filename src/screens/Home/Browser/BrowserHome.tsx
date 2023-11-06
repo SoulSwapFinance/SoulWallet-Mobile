@@ -139,8 +139,8 @@ const BrowserHome = () => {
     //   if (dApps.dapps[i].isFeatured)
     //     banners.push(dApps.dapps[i])
     // }
-    console.log('totalBanners: %s', totalBanners)
-    console.log('banners: %s', banners)
+    // console.log('totalBanners: %s', totalBanners)
+    // console.log('banners: %s', banners)
     // console.log('bannerData: %s', bannerData)
     return banners
     // return dApps.filter(dApp => dApp.isFeatured);
