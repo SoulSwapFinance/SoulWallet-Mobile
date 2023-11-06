@@ -140,7 +140,7 @@ export const predefinedBanners: PredefinedDApps = {
       url: 'https://debank.com',
       categories: ['utilities'],
       isFeatured: true,
-      previewImage: "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/banners/debank-banner.png",
+      previewImage: "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/banners/debank-banner-v2.png",
       isSupportSubstrateAccount: true,
       isSupportEthereumAccount: true,
     },
