@@ -15,8 +15,12 @@ import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 import { mmkvStore } from 'utils/storage';
 
 const WEB_SERVER_PORT = 9135;
-const LONG_TIMEOUT = 300000; //5*60*1000
-const ACCEPTABLE_RESPONSE_TIME = 30000;
+// const LONG_TIMEOUT = 300000; // 5 * 60*1000  // 30s
+// const LONG_TIMEOUT = 600000; // 10 * 60*1000  // 60s
+const LONG_TIMEOUT = 1200000; // 10 * 60*1000  // 120s
+// const ACCEPTABLE_RESPONSE_TIME = 30000; // 30s
+const ACCEPTABLE_RESPONSE_TIME = 60000; // 60s
+// const ACCEPTABLE_RESPONSE_TIME = 120000; // 2mins
 
 const getJsInjectContent = (showLog?: boolean) => {
   let injectedJS = `
@@ -128,7 +132,14 @@ class WebRunnerHandler {
     check();
   }
 
-  startPing(pingInterval: number = 30000, timeCheck: number = 3000, pingTimeout: number = 15000) {
+  startPing(
+    // pingInterval: number = 30000, // 30s
+    pingInterval: number = 60000, // 60s
+    timeCheck: number = 3000,
+    // pingTimeout: number = 15000, // 15s
+    pingTimeout: number = 30000, // 30s
+    // pingTimeout: number = 60000, // 60s
+  ) {
     this.stopPing();
     this.lastTimeResponse = undefined;
     this.pingInterval && clearInterval(this.pingInterval);
@@ -289,9 +300,11 @@ class WebRunnerHandler {
         } else {
           setTimeout(() => {
             this.ping();
+            // timecheck, timeout, maxRetry
             this.pingCheck(3000, 15000, 0);
             this.startPing();
-          }, 15000);
+          }, 60000); // every 60s
+          // }, 15000); // every 15s
         }
       } else {
         this.lastActiveTime = now;
