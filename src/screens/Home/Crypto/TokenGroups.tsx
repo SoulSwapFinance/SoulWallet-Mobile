@@ -217,7 +217,9 @@ export const TokenGroups = () => {
         onOpenReceive={onOpenReceive}
         totalChangePercent={totalBalanceInfo.change.percent}
         totalChangeValue={totalBalanceInfo.change.value}
-        totalValue={totalBalanceInfo.convertedValue}
+        totalValue={
+          totalBalanceInfo.convertedValue
+        }
         isPriceDecrease={isTotalBalanceDecrease}
         onOpenSendFund={_onOpenSendFund}
       />

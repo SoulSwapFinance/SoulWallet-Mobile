@@ -26,7 +26,7 @@ export const TokenBalanceItem = ({
 }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
   const _style = TokenBalanceItemStyles(theme);
-  // const isSoul = symbol === 'SOUL'
+
   const totalConvertedValue = 
     total.convertedValue == new BigN(0) 
       ? new BigN(getPrice(symbol)).times(total.value) 

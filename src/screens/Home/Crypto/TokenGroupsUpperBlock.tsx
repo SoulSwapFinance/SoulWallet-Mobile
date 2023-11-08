@@ -13,6 +13,7 @@ import { RootNavigationProps } from 'routes/index'
 import { ColorMap } from 'styles/color'
 // import { toggleBalancesVisibility } from 'messaging/index'
 // import { updateToggleBalance } from 'stores/base/Settings'
+import BigN from 'bignumber.js'
 
 interface Props {
   totalValue: SwNumberProps['value']
@@ -53,13 +54,17 @@ export const TokenGroupsUpperBlock = ({
   openSelectAccount,
   totalChangeValue,
   totalValue,
+  // customValue,
 }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
-  const navigation = useNavigation<RootNavigationProps>();
+  const navigation = useNavigation<RootNavigationProps>()
 
   return (
     <View style={containerStyle} pointerEvents="box-none">
-        <BalancesVisibility value={totalValue} startWithSymbol subFloatNumber />
+        <BalancesVisibility value={
+          totalValue
+          // new BigN(totalValue).plus(customValue)
+        } startWithSymbol subFloatNumber />
         <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 3, height: 40 }}>
             <Number
               size={theme.fontSize}

@@ -48,7 +48,6 @@ export const TokenGroupBalanceItem = ({
                   ? getPrice(symbol)
                     : priceValue
             }
-                  // symbol == 'SOUL'? getPrice('soul-swap') : priceValue}
             decimal={0}
             prefix={'$'}
             intColor={isTotalBalanceDecrease ? theme.colorError : theme.colorSuccess}
