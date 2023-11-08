@@ -18,17 +18,17 @@ import { ButtonIcon } from 'screens/Home/Crypto/shared/Button'
 import { useNavigation } from '@react-navigation/native'
 import { RootNavigationProps } from 'routes/index'
 import { ColorMap } from 'styles/color'
-import useTokenBalanceKeyPriceMap from 'hooks/screen/hooks/useTokenBalanceKeyPriceMap'
-import useTokenGroup from 'hooks/screen/hooks/useTokenGroup'
-import { useSelector } from 'react-redux'
-import useGetNetworkJson from 'hooks/screen/hooks/useGetNetworkJson'
-import useShowedNetworks from 'hooks/screen/hooks/useShowedNetworks'
-import { RootState } from 'stores/index'
+// import useTokenBalanceKeyPriceMap from 'hooks/screen/hooks/useTokenBalanceKeyPriceMap'
+// import useTokenGroup from 'hooks/screen/hooks/useTokenGroup'
+// import { useSelector } from 'react-redux'
+// import useGetNetworkJson from 'hooks/screen/hooks/useGetNetworkJson'
+// import useShowedNetworks from 'hooks/screen/hooks/useShowedNetworks'
+// import { RootState } from 'stores/index'
 // import WebView from 'react-native-webview'
 import BigN from 'bignumber.js'
 import Text from 'components/Text'
 import { _getAssetPriceId } from '@soul-wallet/extension-base/src/services/chain-service/utils'
-import { SOUL_PRICE } from 'constants/prices'
+import { getPrice } from 'constants/prices'
 
 interface Props {
   balanceValue: SwNumberProps['value'];
@@ -53,14 +53,21 @@ export const TokenGroupsDetailUpperBlock = ({
 }: Props) => {
   const navigation = useNavigation<RootNavigationProps>();
   const theme = useSoulWalletTheme().swThemes;
-  console.log('tokenSlug: %s', tokenGroupSlug);
-  const isSoul =
-    tokenGroupSlug == 'custom-fantom-ERC20-SOUL-0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07' ||
-    tokenGroupSlug == 'custom-custom-EVM-avalanchec-chain-43114-ERC20-SOUL-0x11d6DD25c1695764e64F439E32cc7746f3945543'
+  // console.log('tokenSlug: %s', tokenGroupSlug);
+  // console.log('groupSymbol: %s', groupSymbol);
+  // const isSoul =
+  //   tokenGroupSlug == 'custom-fantom-ERC20-SOUL-0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07' ||
+  //   tokenGroupSlug == 'custom-custom-EVM-avalanchec-chain-43114-ERC20-SOUL-0x11d6DD25c1695764e64F439E32cc7746f3945543'
   const _style = createStyleSheet(theme)
   const balance = new BigN(balanceValue)
-  const tokenPrice = isSoul ? new BigN(SOUL_PRICE) : new BigN(balanceUSD).div(balance)
-  const USDValue = isSoul ? tokenPrice.times(balance) : balanceUSD
+  const tokenPrice = 
+    balanceUSD.toString() == '0' ?
+    new BigN(getPrice(groupSymbol))
+      : new BigN(balanceUSD).div(balance)
+
+    // isSoul ? new BigN(getPrice('SOUL')) : new BigN(balanceUSD).div(balance)
+  const USDValue = balanceUSD.toString() == '0' ? tokenPrice.times(balance) : balanceUSD
+  // isSoul ? tokenPrice.times(balance) : balanceUSD
 
   return (
     <View style={_style.containerStyle} pointerEvents="box-none">

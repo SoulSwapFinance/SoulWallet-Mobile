@@ -8,7 +8,7 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import TokenBalanceItemStyles from './style'
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles'
 import BigN from 'bignumber.js'
-import { SOUL_PRICE } from 'constants/prices'
+import { getPrice } from 'constants/prices'
 
 interface Props extends TokenBalanceItemType, TouchableOpacityProps {
   isShowBalance?: boolean;
@@ -26,8 +26,11 @@ export const TokenBalanceItem = ({
 }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
   const _style = TokenBalanceItemStyles(theme);
-  const isSoul = symbol === 'SOUL'
-  const customValue = isSoul ? new BigN(SOUL_PRICE).times(total.value) : new BigN(0)
+  // const isSoul = symbol === 'SOUL'
+  const totalConvertedValue = 
+    total.convertedValue == new BigN(0) 
+      ? new BigN(getPrice(symbol)).times(total.value) 
+        : total.convertedValue
 
   return (
     <TouchableOpacity style={{ width: '100%' }} {...wrapperProps}>
@@ -65,10 +68,11 @@ export const TokenBalanceItem = ({
                 />
                 {/* UI NOTE: Total Value for given token (USD) */}
                 <Number
-                  value={isTestnet || !isReady ? BN_ZERO : 
-                    symbol == 'SOUL' ? customValue
-                    : total.convertedValue
-                    }
+                  value={
+                    isTestnet || !isReady 
+                      ? BN_ZERO
+                      : totalConvertedValue
+                  }
                   decimal={0}
                   intOpacity={0.45}
                   unitOpacity={0.45}

@@ -65,7 +65,6 @@ const PriceChart = ({ groupSymbol, networkId }) => {
         </Text>
       </Button>
       {viewChart &&
-
         <WebView
           // style={stylesheet.colorBlack}
           ref={webviewRef}
@@ -85,7 +84,8 @@ const PriceChart = ({ groupSymbol, networkId }) => {
           allowUniversalAccessFromFileURLs
           allowFileAccessFromFileURLs
           domStorageEnabled
-          javaScriptEnabled />
+          javaScriptEnabled 
+        />
       }
     </View>
 

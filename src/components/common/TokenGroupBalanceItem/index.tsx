@@ -1,16 +1,19 @@
-import React from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
-import { TokenBalanceItemType } from 'types/balance';
-import { Icon, Logo, Number, Typography } from 'components/Design';
-import { CaretRight } from 'phosphor-react-native';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import TokenGroupBalanceItemStyles from './style';
-import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
-import { SOUL_PRICE } from 'constants/prices';
+import React, { useCallback, useState } from 'react'
+import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native'
+import { TokenBalanceItemType } from 'types/balance'
+import { Icon, Logo, Number, Typography } from 'components/Design'
+import { CaretRight } from 'phosphor-react-native'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import TokenGroupBalanceItemStyles from './style'
+import { FontMedium, FontSemiBold } from 'styles/sharedStyles'
+import { getPrice } from 'constants/prices'
+// import { getInfo } from 'constants/tokenInfo'
 
 interface Props extends TokenBalanceItemType, TouchableOpacityProps {
   isShowBalance?: boolean;
 }
+
+
 
 // UI NOTE: Shows account balance.
 export const TokenGroupBalanceItem = ({
@@ -39,7 +42,13 @@ export const TokenGroupBalanceItem = ({
           </Text>
           {/* UI NOTE: display price on balances page. */}
           <Number
-            value={isTestnet ? 0 : symbol == 'SOUL'? SOUL_PRICE : priceValue}
+            value={
+                isTestnet ? 0 
+                : priceValue == 0
+                  ? getPrice(symbol)
+                    : priceValue
+            }
+                  // symbol == 'SOUL'? getPrice('soul-swap') : priceValue}
             decimal={0}
             prefix={'$'}
             intColor={isTotalBalanceDecrease ? theme.colorError : theme.colorSuccess}
@@ -66,7 +75,13 @@ export const TokenGroupBalanceItem = ({
                   {/* UI NOTE: Shows the Currency Total Value on Balances */}
                 <Number
                 // UI NOTE: Shows the Currency Total Value on Balances (manual override for SOUL)
-                  value={ symbol == 'SOUL' && total.value ? total.value.multipliedBy(SOUL_PRICE) : total.convertedValue }
+                  value={ 
+                    // symbol == 'SOUL' && total.value 
+                    total.value && total.convertedValue.eq(0)
+                      ? total.value.multipliedBy(
+                        getPrice(symbol)) 
+                          : total.convertedValue 
+                  }
                   decimal={0}
                   intOpacity={0.45}
                   unitOpacity={0.45}

@@ -2,7 +2,7 @@ import { AccountInfoItem, BalanceInfo, BalanceSubInfo } from 'types/index';
 import { NetworkJson, TokenInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import BigN from 'bignumber.js';
 import { getTokenBalanceKey, isEmptyArray } from 'utils/index';
-import { SOUL_PRICE } from 'constants/prices';
+import { getPrice } from 'constants/prices';
 
 export const BN_TEN = new BigN(10);
 export const BN_ZERO = new BigN(0);
@@ -44,10 +44,12 @@ export type BalanceValueType = {
 
 export const getBalances = ({ balance, decimals, price, symbol }: BalanceType): BalanceValueType => {
   const misc = 
-    price !== undefined ? price 
-      : symbol.toLowerCase().includes('usd') ? 1  // stablecoins (usd)
-        : symbol.toLowerCase().includes('soul') ? SOUL_PRICE // soul
-          : 0;
+    price !== undefined && price != 0 
+      ? price 
+        : symbol.toLowerCase().includes('usd') ? 1  // stablecoins (usd)
+          : price == 0 ? 
+            getPrice(symbol)
+              : 0
 
   const balanceValue = getBalanceWithDecimals({ balance, decimals });
 

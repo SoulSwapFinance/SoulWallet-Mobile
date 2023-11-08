@@ -1,7 +1,7 @@
 // Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { persistor, store, StoreName } from '../stores';
+import { persistor, store, StoreName } from '../stores'
 import {
   getLogoMaps,
   subscribeAccountsData,
@@ -32,35 +32,35 @@ import {
   subscribeXcmRefMap,
   subscribeConnectWCRequests,
   subscribeWalletConnectSessions,
-} from 'stores/utils';
-import React, { useContext, useEffect, useRef } from 'react';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { WebRunnerContext } from 'providers/contexts';
+} from 'stores/utils'
+import React, { useContext, useEffect, useRef } from 'react'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { WebRunnerContext } from 'providers/contexts'
 
 interface DataContextProviderProps {
-  children?: React.ReactElement;
+  children?: React.ReactElement
 }
 
-export type DataMap = Record<StoreName, boolean>;
+export type DataMap = Record<StoreName, boolean>
 
 export interface DataHandler {
-  name: string;
-  unsub?: () => void;
-  isSubscription?: boolean;
-  start: () => void;
-  isStarted?: boolean;
-  isStartImmediately?: boolean;
-  promise?: Promise<any>;
-  relatedStores: StoreName[];
+  name: string
+  unsub?: () => void
+  isSubscription?: boolean
+  start: () => void
+  isStarted?: boolean
+  isStartImmediately?: boolean
+  promise?: Promise<any>
+  relatedStores: StoreName[]
 }
 
 export interface DataContextType {
-  handlerMap: Record<string, DataHandler>;
-  storeDependencies: Partial<Record<StoreName, string[]>>;
-  readyStoreMap: DataMap;
+  handlerMap: Record<string, DataHandler>
+  storeDependencies: Partial<Record<StoreName, string[]>>
+  readyStoreMap: DataMap
 
-  addHandler: (item: DataHandler) => () => void;
+  addHandler: (item: DataHandler) => () => void
   removeHandler: (name: string) => void;
   awaitRequestsCache: Record<string, Promise<boolean>>;
   awaitStores: (storeNames: StoreName[], renew?: boolean) => Promise<boolean>;
