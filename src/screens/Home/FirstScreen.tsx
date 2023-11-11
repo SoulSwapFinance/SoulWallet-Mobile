@@ -22,7 +22,8 @@ const imageBackgroundStyle: StyleProp<any> = {
   justifyContent: 'flex-end',
   alignItems: 'center',
   paddingHorizontal: 16,
-  paddingBottom: Platform.OS === 'ios' ? 56 : 20,
+  paddingBottom: Platform.OS === 'ios' ? 0 : 20,
+  // paddingBottom: Platform.OS === 'ios' ? 56 : 20,
   position: 'relative',
 };
 
