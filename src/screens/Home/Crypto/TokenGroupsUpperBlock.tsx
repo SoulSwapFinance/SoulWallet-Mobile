@@ -13,7 +13,7 @@ import { RootNavigationProps } from 'routes/index'
 import { ColorMap } from 'styles/color'
 // import { toggleBalancesVisibility } from 'messaging/index'
 // import { updateToggleBalance } from 'stores/base/Settings'
-import BigN from 'bignumber.js'
+// import BigN from 'bignumber.js'
 
 interface Props {
   totalValue: SwNumberProps['value']
