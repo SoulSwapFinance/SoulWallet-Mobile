@@ -67,7 +67,7 @@ async function uploadBuild(filePath, uploadName) {
       discordHook.send('Upload success! Please download here:')
       discordHook.send(downloadLink)
     } else {
-      console.warn('Can not upload build to discord!')
+      console.warn('Can not upload build to discord.')
     }
   } catch (e) {
     console.warn('NEXTCLOUD_CONFIG WRONG', e)

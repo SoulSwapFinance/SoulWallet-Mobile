@@ -1,80 +1,80 @@
-import { NavigationState } from '@react-navigation/routers';
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
-import React, { ComponentType, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { LinkingOptions, NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
-import AttachReadOnly from 'screens/Account/AttachReadOnly';
-import ConnectKeystone from 'screens/Account/ConnectQrSigner/ConnectKeystone';
-import ConnectParitySigner from 'screens/Account/ConnectQrSigner/ConnectParitySigner';
-import ImportQrCode from 'screens/Account/ImportQrCode';
-import { NetworksSetting } from 'screens/NetworksSetting';
-import { GeneralSettings } from 'screens/Settings/General';
-import { SendFund } from 'screens/Transaction/SendFundV2';
-import { BrowserSearch } from 'screens/Home/Browser/BrowserSearch';
-import { BrowserTabsManager } from 'screens/Home/Browser/BrowserTabsManager';
-import { BrowserListByTabview } from 'screens/Home/Browser/BrowserListByTabview';
-import { AccountsScreen } from 'screens/Account/AccountsScreen';
-import CreateMasterPassword from 'screens/MasterPassword/CreateMasterPassword';
-import { CreateAccount } from 'screens/Account/CreateAccount';
-import { AccountDetail } from 'screens/Account/AccountDetail';
-import { RestoreJson } from 'screens/Account/RestoreJson';
-import { ImportSecretPhrase } from 'screens/Account/ImportSecretPhrase';
-import { ImportPrivateKey } from 'screens/Account/ImportPrivateKey';
-import { DAppAccessScreen } from 'screens/Settings/Security/DAppAccess';
-import { DAppAccessDetailScreen } from 'screens/Settings/Security/DAppAccess/DAppAccessDetailScreen';
-import { Languages } from 'screens/Settings/Languages';
-import { Security } from 'screens/Settings/Security';
-import { PinCodeScreen } from 'screens/Settings/Security/PinCodeScreen';
-import { AccountExport } from 'screens/Account/AccountExport';
-import { CustomTokenSetting } from 'screens/Tokens';
-import { NetworkConfig } from 'screens/Settings/NetworkConfig';
-import { NetworkConfigDetail } from 'screens/Settings/NetworkConfigDetail';
-import { ConfigureToken } from 'screens/Tokens/ConfigureToken';
-import { ImportToken } from 'screens/ImportToken/ImportToken';
-import ImportNft from 'screens/ImportToken/ImportNft';
+import { NavigationState } from '@react-navigation/routers'
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants'
+import React, { ComponentType, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { LinkingOptions, NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
+import AttachReadOnly from 'screens/Account/AttachReadOnly'
+import ConnectKeystone from 'screens/Account/ConnectQrSigner/ConnectKeystone'
+import ConnectParitySigner from 'screens/Account/ConnectQrSigner/ConnectParitySigner'
+import ImportQrCode from 'screens/Account/ImportQrCode'
+import { NetworksSetting } from 'screens/NetworksSetting'
+import { GeneralSettings } from 'screens/Settings/General'
+import { SendFund } from 'screens/Transaction/SendFundV2'
+import { BrowserSearch } from 'screens/Home/Browser/BrowserSearch'
+import { BrowserTabsManager } from 'screens/Home/Browser/BrowserTabsManager'
+import { BrowserListByTabview } from 'screens/Home/Browser/BrowserListByTabview'
+import { AccountsScreen } from 'screens/Account/AccountsScreen'
+import CreateMasterPassword from 'screens/MasterPassword/CreateMasterPassword'
+import { CreateAccount } from 'screens/Account/CreateAccount'
+import { AccountDetail } from 'screens/Account/AccountDetail'
+import { RestoreJson } from 'screens/Account/RestoreJson'
+import { ImportSecretPhrase } from 'screens/Account/ImportSecretPhrase'
+import { ImportPrivateKey } from 'screens/Account/ImportPrivateKey'
+import { DAppAccessScreen } from 'screens/Settings/Security/DAppAccess'
+import { DAppAccessDetailScreen } from 'screens/Settings/Security/DAppAccess/DAppAccessDetailScreen'
+import { Languages } from 'screens/Settings/Languages'
+import { Security } from 'screens/Settings/Security'
+import { PinCodeScreen } from 'screens/Settings/Security/PinCodeScreen'
+import { AccountExport } from 'screens/Account/AccountExport'
+import { CustomTokenSetting } from 'screens/Tokens'
+import { NetworkConfig } from 'screens/Settings/NetworkConfig'
+import { NetworkConfigDetail } from 'screens/Settings/NetworkConfigDetail'
+import { ConfigureToken } from 'screens/Tokens/ConfigureToken'
+import { ImportToken } from 'screens/ImportToken/ImportToken'
+import ImportNft from 'screens/ImportToken/ImportNft'
 import NftCollectionList from 'screens/Home/Crypto/Collectibles/Collection/NftCollectionList'
 import NftCollectionItem from 'screens/Home/Crypto/Collectibles/Collection/NftCollectionItem'
 import NftDetail from 'screens/Home/Crypto/Collectibles/Detail/NftDetail'
-import { WebViewDebugger } from 'screens/WebViewDebugger';
-import SigningScreen from 'screens/Signing/SigningScreen';
-import { LoadingScreen } from 'screens/LoadingScreen';
-import { RootRouteProps, RootStackParamList } from './routes';
-import { THEME_PRESET } from 'styles/themes';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { deeplinks, getValidURL } from 'utils/browser';
-import ErrorBoundary from 'react-native-error-boundary';
-import ApplyMasterPassword from 'screens/MasterPassword/ApplyMasterPassword';
-import { NetworkSettingDetail } from 'screens/NetworkSettingDetail';
-import { Confirmations } from 'screens/Confirmations';
-import { TransactionDone } from 'screens/Transaction';
-import ErrorFallback from 'components/Common/ErrorFallbackScreen';
-import ChangeMasterPassword from 'screens/MasterPassword/ChangeMasterPassword';
-import { ImportNetwork } from 'screens/ImportNetwork';
-import History from 'screens/Home/History';
-import withPageWrapper from 'components/PageWrapper';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import { AddProvider } from 'screens/AddProvider';
-import TransactionScreen from 'screens/Transaction/TransactionScreen';
-import SendNFT from 'screens/Transaction/NFT';
-import changeNavigationBarColor from 'react-native-navigation-bar-color';
-import { Keyboard, Platform, StatusBar } from 'react-native';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { Home } from 'screens/Home';
-import { deviceWidth } from 'constants/index';
-import { createDrawerNavigator, DrawerContentComponentProps } from '@react-navigation/drawer';
-import { Settings } from 'screens/Settings';
-import { WrapperParamList } from 'routes/wrapper';
-import { ManageAddressBook } from 'screens/Settings/AddressBook';
-import { BuyToken } from 'screens/Home/Crypto/BuyToken';
-import useCheckEmptyAccounts from 'hooks/useCheckEmptyAccounts';
-import { ConnectionList } from 'screens/Settings/WalletConnect/ConnectionList';
-import { ConnectWalletConnect } from 'screens/Settings/WalletConnect/ConnectWalletConnect';
-import { ConnectionDetail } from 'screens/Settings/WalletConnect/ConnectionDetail';
-import useAppLock from 'hooks/useAppLock';
-import { LockScreen } from 'screens/LockScreen';
-import { STATUS_BAR_LIGHT_CONTENT } from 'styles/sharedStyles';
-import { UnlockModal } from 'components/Common/Modal/UnlockModal';
-import { AppModalContext } from 'providers/AppModalContext';
+import { WebViewDebugger } from 'screens/WebViewDebugger'
+import SigningScreen from 'screens/Signing/SigningScreen'
+import { LoadingScreen } from 'screens/LoadingScreen'
+import { RootRouteProps, RootStackParamList } from './routes'
+import { THEME_PRESET } from 'styles/themes'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { deeplinks, getValidURL } from 'utils/browser'
+import ErrorBoundary from 'react-native-error-boundary'
+import ApplyMasterPassword from 'screens/MasterPassword/ApplyMasterPassword'
+import { NetworkSettingDetail } from 'screens/NetworkSettingDetail'
+import { Confirmations } from 'screens/Confirmations'
+import { TransactionDone } from 'screens/Transaction'
+import ErrorFallback from 'components/Common/ErrorFallbackScreen'
+import ChangeMasterPassword from 'screens/MasterPassword/ChangeMasterPassword'
+import { ImportNetwork } from 'screens/ImportNetwork'
+import History from 'screens/Home/History'
+import withPageWrapper from 'components/PageWrapper'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import { AddProvider } from 'screens/AddProvider'
+import TransactionScreen from 'screens/Transaction/TransactionScreen'
+import SendNFT from 'screens/Transaction/NFT'
+import changeNavigationBarColor from 'react-native-navigation-bar-color'
+import { Keyboard, Platform, StatusBar } from 'react-native'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { Home } from 'screens/Home'
+import { deviceWidth } from 'constants/index'
+import { createDrawerNavigator, DrawerContentComponentProps } from '@react-navigation/drawer'
+import { Settings } from 'screens/Settings'
+import { WrapperParamList } from 'routes/wrapper'
+import { ManageAddressBook } from 'screens/Settings/AddressBook'
+import { BuyToken } from 'screens/Home/Crypto/BuyToken'
+import useCheckEmptyAccounts from 'hooks/useCheckEmptyAccounts'
+import { ConnectionList } from 'screens/Settings/WalletConnect/ConnectionList'
+import { ConnectWalletConnect } from 'screens/Settings/WalletConnect/ConnectWalletConnect'
+import { ConnectionDetail } from 'screens/Settings/WalletConnect/ConnectionDetail'
+import useAppLock from 'hooks/useAppLock'
+import { LockScreen } from 'screens/LockScreen'
+import { STATUS_BAR_LIGHT_CONTENT } from 'styles/sharedStyles'
+import { UnlockModal } from 'components/Common/Modal/UnlockModal'
+import { AppModalContext } from 'providers/AppModalContext'
 
 interface Props {
   isAppReady: boolean;

@@ -218,7 +218,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
               setCurrentUrl(polyfillUrl.toString())
               toggleShowOptions()
             } catch (error) {
-              console.warn(error)
+              // console.warn(error)
             }
           }}
         >
@@ -260,7 +260,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[0].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -299,7 +299,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[1].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -338,7 +338,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[2].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -377,7 +377,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[3].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -416,7 +416,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[4].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -455,7 +455,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[5].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -494,7 +494,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[6].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -610,7 +610,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
               toggleMetaView('News', false)
               toggleShowOptions()
             } catch (error) {
-              console.warn(error)
+              // console.warn(error)
             }
           }}
         >
@@ -648,7 +648,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
               setCurrentUrl(polyfillUrl.toString())
               toggleShowOptions()
             } catch (error) {
-              console.warn(error)
+              // console.warn(error)
             }
           }}
         >
@@ -690,7 +690,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[0].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -729,7 +729,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[1].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -768,7 +768,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[2].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -807,7 +807,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[3].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -846,7 +846,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[4].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >

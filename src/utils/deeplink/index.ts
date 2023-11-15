@@ -54,5 +54,5 @@ export function handleDeeplinkOnFirstOpen(
         }
       }
     })
-    .catch(e => console.warn('e', e));
+    // .catch(e => console.warn('e', e));
 }

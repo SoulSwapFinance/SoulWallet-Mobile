@@ -197,7 +197,7 @@ export const NewsScreen = () => {
               setCurrentUrl(polyfillUrl.toString())
               toggleShowOptions()
             } catch (error) {
-              console.warn(error)
+              // console.warn(error)
             }
           }}
         >
@@ -239,7 +239,7 @@ export const NewsScreen = () => {
                   handleScreen(0)
                   setShowOptions(false)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -278,7 +278,7 @@ export const NewsScreen = () => {
                   handleScreen(1)
                   setShowOptions(false)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -317,7 +317,7 @@ export const NewsScreen = () => {
                   handleScreen(2)
                   setShowOptions(false)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -356,7 +356,7 @@ export const NewsScreen = () => {
                   handleScreen(3)
                   setShowOptions(false)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -395,7 +395,7 @@ export const NewsScreen = () => {
                   handleScreen(4)
                   setShowOptions(false)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -435,7 +435,7 @@ export const NewsScreen = () => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[5].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >

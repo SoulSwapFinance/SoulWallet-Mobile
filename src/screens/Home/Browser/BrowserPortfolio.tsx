@@ -161,7 +161,7 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
               setCurrentUrl(polyfillUrl.toString())
               toggleShowOptions()
             } catch (error) {
-              console.warn(error)
+              // console.warn(error)
             }
           }}
         >
@@ -203,7 +203,7 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[0].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -242,7 +242,7 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[1].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -281,7 +281,7 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[2].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -320,7 +320,7 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[3].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
@@ -359,7 +359,7 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
                   setShowOptions(false)
                   setCurrentName(supportedScreens[4].name)
                 } catch (error) {
-                  console.warn(error)
+                  // console.warn(error)
                 }
               }}
             >
