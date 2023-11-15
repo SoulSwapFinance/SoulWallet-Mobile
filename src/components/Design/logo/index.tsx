@@ -43,12 +43,19 @@ const Logo: React.FC<SWLogoProps> = ({
   const subLogoSize = size / 2.5;
   const avaxLogo = "https://raw.githubusercontent.com/SoulSwapFinance/SoulWallet-Chainlist/master/packages/chain-list-assets/public/assets/chains/avalanche.png"
   let srcLogo= "https://soulswap.finance/favicon.png"
-  let soulLogo= "https://soulswap.finance/favicon.png"
+  const soulLogo= "https://soulswap.finance/favicon.png"
+  const btcLogo= "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/btc.png"
+  const ethLogo= "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/eth.png"
+  const usdcLogo= "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/usdc.png"
   // UI NOTE: GETS TOKEN LOGO
   if (token) {
     token == "avax" ?  srcLogo = avaxLogo 
     // manually gets the token logo
       : token == "soul" ? srcLogo = soulLogo 
+      : token == "wavax" ? srcLogo = avaxLogo 
+      : (token == "btx" | token == "axlwbtc" | token == "wbtc.e" | token == "btc.b") ? srcLogo = btcLogo 
+      : (token == "axleth" | token == "lzeth" | token == "weth.e") ? srcLogo = ethLogo 
+      : (token == "axlusdc" | token == "lzusdc" | token == "usdc.e") ? srcLogo = usdcLogo
         : srcLogo = assetLogoMap[token]
           || assetLogoMap[defaultLogoKey];
   
@@ -71,6 +78,7 @@ const Logo: React.FC<SWLogoProps> = ({
     srcSubLogo = assetLogoMap[subToken] || assetLogoMap[defaultLogoKey];
   } else if (subNetwork) {
     subNetwork == 'avalanche' ? srcSubLogo = avaxLogo :
+    // subNetwork == 'base' ? srcSubLogo = baseLogo :
     srcSubLogo = chainLogoMap[subNetwork] || chainLogoMap[defaultLogoKey]
   }
 
