@@ -620,34 +620,6 @@
       "hasValue": true,
       "icon": "usdt.png"
     },
-    "shibuya-NATIVE-SBY": {
-      "originChain": "shibuya",
-      "slug": "shibuya-NATIVE-SBY",
-      "name": "Shibuya",
-      "symbol": "SBY",
-      "decimals": 18,
-      "priceId": null,
-      "minAmount": "1000000",
-      "assetType": "NATIVE",
-      "metadata": null,
-      "multiChainAsset": null,
-      "hasValue": false,
-      "icon": "astar-network.png"
-    },
-    "shibuyaEvm-NATIVE-SBY": {
-      "originChain": "shibuyaEvm",
-      "slug": "shibuyaEvm-NATIVE-SBY",
-      "name": "Shibuya",
-      "symbol": "SBY",
-      "decimals": 18,
-      "priceId": null,
-      "minAmount": "1000000",
-      "assetType": "NATIVE",
-      "metadata": null,
-      "multiChainAsset": null,
-      "hasValue": false,
-      "icon": "astar-network.png"
-    },
     "westend-NATIVE-WND": {
       "originChain": "westend",
       "slug": "westend-NATIVE-WND",
@@ -6499,6 +6471,20 @@
       "multiChainAsset": null,
       "hasValue": true,
       "icon": "lp-kbtc-usdt.png"
+    },
+    "avalanche-NATIVE-AVAX": {
+      "originChain": "avalanche",
+      "slug": "avalanche-NATIVE-AVAX",
+      "name": "Avalanche",
+      "symbol": "AVAX",
+      "decimals": 18,
+      "priceId": "avalanche-2",
+      "minAmount": "0",
+      "assetType": "NATIVE",
+      "metadata": null,
+      "multiChainAsset": "AVAX-Avalanche",
+      "hasValue": true,
+      "icon": "avalanche.png"
     },
     "fantom-NATIVE-FTM": {
       "originChain": "fantom",

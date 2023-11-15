@@ -22,6 +22,8 @@ import i18n from 'utils/i18n/i18n'
 import isaac from 'isaac'
 import { browserHomeItem, browserHomeItemIconOnly, browserHomeItemWidth } from 'constants/itemHeight'
 import { SliderBox } from 'react-native-image-slider-box'
+// import { useGetDAPPsQuery } from 'stores/API';
+// import { useGetTokensInfoQuery } from 'stores/API';
 
 interface HeaderProps {
   title: string;
@@ -119,7 +121,11 @@ const BrowserHome = () => {
     sectionData.push(section);
   }
   return sectionData
-  }, [dApps.dapps])
+}, [dApps.dapps])
+
+// const { data: tokensInfo, isLoading, refetch } = useGetTokensInfoQuery(undefined);
+// console.log('tokensInfo: %s', tokensInfo)
+// console.log('userInfo: %s', userInfo)
 
   // const bannerData = useMemo(() => {
   //   if (!dApps) {
@@ -129,7 +135,7 @@ const BrowserHome = () => {
   //   return dApps.filter(dApp => dApp.isFeatured);
   // }, [dApps])
   const bannerData = useMemo(() => {
-    let totalBanners = predefinedBanners.dapps.length
+    // let totalBanners = predefinedBanners.dapps.length
 
     // let banners = []
     // if (!dApps) {
@@ -146,7 +152,7 @@ const BrowserHome = () => {
     // return dApps.filter(dApp => dApp.isFeatured);
   }, [banners])
 
-  const isBannerData = bannerData[0] != null
+  // const isBannerData = bannerData[0] != null
 
   // const getBannerImages = useMemo(() => {
   //   if (!bannerData) {
@@ -163,8 +169,9 @@ const BrowserHome = () => {
       // return [Images.browserBanner];
       return "https://exchange.soulswap.finance/images/splash.png";
     }
-
+    
     // console.log('bannerData', bannerData);
+    // console.log('bannerData: %s', bannerData)
     return bannerData.dapps.map(dApp => dApp.previewImage)
     // return bannerData.map(dApp => dApp.previewImage);
   }, [bannerData]);

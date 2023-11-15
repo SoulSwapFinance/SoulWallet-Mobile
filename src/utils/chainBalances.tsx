@@ -48,7 +48,7 @@ export const getBalances = ({ balance, decimals, price, symbol }: BalanceType): 
       ? price 
         : symbol.toLowerCase().includes('usd') ? 1  // stablecoins (usd)
           : price == 0 ? 
-            getPrice(symbol)
+            Number(getPrice(symbol))
               : 0
 
   const balanceValue = getBalanceWithDecimals({ balance, decimals });
@@ -72,6 +72,8 @@ export const getBalances = ({ balance, decimals, price, symbol }: BalanceType): 
 //   return tokenPriceMap[token.toLowerCase()] || 0;
 // }
 
+
+
 export const parseBalancesInfo = (
   tokenBalanceKeyPriceMap: Record<string, number>,
   balanceInfo: AccountInfoItem,
@@ -87,10 +89,14 @@ export const parseBalancesInfo = (
   const tbKey = getTokenBalanceKey(networkKey, symbol, isTestnet);
 
   const {
+    // @ts-ignore
     children: balanceChildren,
+    // @ts-ignore
     feeFrozen: frozenFee,
     free: freeBalance,
+    // @ts-ignore
     miscFrozen: frozenMisc,
+    // @ts-ignore
     reserved: reservedBalance,
   } = balanceItem;
   const transferableBalance = new BigN(freeBalance || '0').minus(new BigN(frozenMisc || '0')).toString();

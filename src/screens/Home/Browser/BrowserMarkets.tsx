@@ -180,7 +180,7 @@ export const MarketsScreen = ({ }: NativeStackScreenProps<{}>) => {
               toggleMetaView('Portfolios', true)
               toggleShowOptions()
             } catch (error) {
-              console.warn(error)
+              // console.warn(error)
             }
           }}
         >

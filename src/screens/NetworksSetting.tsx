@@ -140,7 +140,7 @@ export const NetworksSetting = ({}: Props) => {
     setToggleItem(true);
     setPendingChainMap({ ...pendingChainMap, [item.slug]: !item.active });
     const reject = () => {
-      console.warn('Toggle network request failed!');
+      console.warn('Toggle network request failed');
       // @ts-ignore
       delete pendingNetworkMap[item.key];
       setPendingChainMap({ ...pendingChainMap });

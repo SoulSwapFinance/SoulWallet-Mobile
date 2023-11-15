@@ -24,6 +24,6 @@ export const getPrice = (symbol) => {
   )
 }
 
-export const SOUL_AVAX_SLUG = 'custom-custom-EVM-avalanchec-chain-43114-ERC20-SOUL-0x11d6DD25c1695764e64F439E32cc7746f3945543'
+export const SOUL_AVAX_SLUG = 'custom-avalanche-ERC20-SOUL-0x11d6DD25c1695764e64F439E32cc7746f3945543'
 export const SOUL_FTM_SLUG = 'custom-fantom-ERC20-SOUL-0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07'
 export const AURA_FTM_SLUG = 'custom-fantom-ERC20-AURA-0x91Dd51634f280DB77dA5D8c383a9de1e72224C4e'
