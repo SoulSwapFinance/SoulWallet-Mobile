@@ -48,7 +48,7 @@ export const getBalances = ({ balance, decimals, price, symbol }: BalanceType): 
       ? price 
         : symbol.toLowerCase().includes('usd') ? 1  // stablecoins (usd)
           : price == 0 ? 
-            Number(getPrice(symbol))
+            getPrice(symbol)
               : 0
 
   const balanceValue = getBalanceWithDecimals({ balance, decimals });

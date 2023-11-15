@@ -138,8 +138,8 @@ import {
   ValidatorInfo,
 } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { Message } from '@soul-wallet/extension-base/src/types';
-import type { KeyringPair$Json } from '@subwallet/keyring/types';
-import type { KeyringAddress, KeyringPairs$Json } from '@subwallet/ui-keyring/types';
+import type { KeyringAddress, KeyringPair$Json, KeyringPairs$Json } from 'sdk/keyring/types';
+
 import type { HexString } from '@polkadot/util/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
 import { MetadataDef } from '@soul-wallet/extension-inject/src/types';
@@ -470,30 +470,30 @@ export async function checkWebRunnerLives(): Promise<boolean> {
   return sendMessage('mobile(ping)', null);
 }
 
-// export async function initCronAndSubscription(
-//   request: RequestInitCronAndSubscription,
-// ): Promise<ActiveCronAndSubscriptionMap> {
-//   return sendMessage('mobile(cronAndSubscription.init)', request);
-// }
+export async function initCronAndSubscription(
+  request: RequestInitCronAndSubscription,
+): Promise<ActiveCronAndSubscriptionMap> {
+  return sendMessage('mobile(cronAndSubscription.init)', request);
+}
 
-// export async function subscribeActiveCronAndSubscriptionServiceMap(
-//   callback: (data: ActiveCronAndSubscriptionMap) => void,
-//   handlerId?: string,
-// ): Promise<ActiveCronAndSubscriptionMap> {
-//   return sendMessage('mobile(cronAndSubscription.activeService.subscribe)', null, callback, handlerId);
-// }
+export async function subscribeActiveCronAndSubscriptionServiceMap(
+  callback: (data: ActiveCronAndSubscriptionMap) => void,
+  handlerId?: string,
+): Promise<ActiveCronAndSubscriptionMap> {
+  return sendMessage('mobile(cronAndSubscription.activeService.subscribe)', null, callback, handlerId);
+}
 
-// export async function startCronAndSubscriptionServices(request: RequestCronAndSubscriptionAction): Promise<void> {
-//   return sendMessage('mobile(cronAndSubscription.start)', request);
-// }
+export async function startCronAndSubscriptionServices(request: RequestCronAndSubscriptionAction): Promise<void> {
+  return sendMessage('mobile(cronAndSubscription.start)', request);
+}
 
-// export async function stopCronAndSubscriptionServices(request: RequestCronAndSubscriptionAction): Promise<void> {
-//   return sendMessage('mobile(cronAndSubscription.stop)', request);
-// }
+export async function stopCronAndSubscriptionServices(request: RequestCronAndSubscriptionAction): Promise<void> {
+  return sendMessage('mobile(cronAndSubscription.stop)', request);
+}
 
-// export async function restartCronAndSubscriptionServices(request: RequestCronAndSubscriptionAction): Promise<void> {
-//   return sendMessage('mobile(cronAndSubscription.restart)', request);
-// }
+export async function restartCronAndSubscriptionServices(request: RequestCronAndSubscriptionAction): Promise<void> {
+  return sendMessage('mobile(cronAndSubscription.restart)', request);
+}
 
 export async function reloadCron(request: CronReloadRequest): Promise<boolean> {
   return sendMessage('pri(cron.reload)', request);
@@ -503,60 +503,58 @@ export async function startCronServices(request: CronServiceType[]): Promise<voi
   return sendMessage('mobile(cron.start)', request);
 }
 
-// export async function stopCronServices(request: CronServiceType[]): Promise<void> {
-//   return sendMessage('mobile(cron.stop)', request);
-// }
+export async function stopCronServices(request: CronServiceType[]): Promise<void> {
+  return sendMessage('mobile(cron.stop)', request);
+}
 
 export async function restartCronServices(request: CronServiceType[]): Promise<void> {
   return sendMessage('mobile(cron.restart)', request);
 }
 
-// export async function startSubscriptionServices(request: SubscriptionServiceType[]): Promise<void> {
-//   return sendMessage('mobile(subscription.start)', request);
-// }
+export async function startSubscriptionServices(request: SubscriptionServiceType[]): Promise<void> {
+  return sendMessage('mobile(subscription.start)', request);
+}
 
-// export async function stopSubscriptionServices(request: SubscriptionServiceType[]): Promise<void> {
-//   return sendMessage('mobile(subscription.stop)', request);
-// }
+export async function stopSubscriptionServices(request: SubscriptionServiceType[]): Promise<void> {
+  return sendMessage('mobile(subscription.stop)', request);
+}
 
-// export async function restartSubscriptionServices(request: SubscriptionServiceType[]): Promise<void> {
-//   return sendMessage('mobile(subscription.restart)', request);
-// }
+export async function restartSubscriptionServices(request: SubscriptionServiceType[]): Promise<void> {
+  return sendMessage('mobile(subscription.restart)', request);
+}
 
-// Logic Messages
+// Logic messages
 
-// screens/Account: /AccountsScreen, /AccountDetail, src/routes
 export async function editAccount(address: string, name: string): Promise<boolean> {
   return sendMessage('pri(accounts.edit)', { address, name });
 }
 
-// export async function showAccount(address: string, isShowing: boolean): Promise<boolean> {
-//   return sendMessage('pri(accounts.show)', { address, isShowing });
-// }
+export async function showAccount(address: string, isShowing: boolean): Promise<boolean> {
+  return sendMessage('pri(accounts.show)', { address, isShowing });
+}
 
-// screens/Account/AccountsScreen
 export async function saveCurrentAccountAddress(data: RequestCurrentAccountAddress): Promise<CurrentAccountInfo> {
   return sendMessage('pri(currentAccount.saveAddress)', data);
 }
 
-// export async function toggleBalancesVisibility(): Promise<boolean> {
-//   return sendMessage('pri(settings.changeBalancesVisibility)', null);
-// }
+export async function toggleBalancesVisibility(): Promise<boolean> {
+  return sendMessage('pri(settings.changeBalancesVisibility)', null);
+}
 
-// export async function saveAccountAllLogo(
-//   accountAllLogo: string,
-//   callback: (data: RequestSettingsType) => void,
-// ): Promise<boolean> {
-//   return sendMessage('pri(settings.saveAccountAllLogo)', accountAllLogo, callback);
-// }
+export async function saveAccountAllLogo(
+  accountAllLogo: string,
+  callback: (data: RequestSettingsType) => void,
+): Promise<boolean> {
+  return sendMessage('pri(settings.saveAccountAllLogo)', accountAllLogo, callback);
+}
 
-// export async function saveBrowserConfirmationType(
-//   type: BrowserConfirmationType,
-//   callback: (data: RequestSettingsType) => void,
-// ): Promise<boolean> {
-//   // @ts-ignore
-//   return sendMessage('pri(settings.saveBrowserConfirmationType)', type, callback);
-// }
+export async function saveBrowserConfirmationType(
+  type: BrowserConfirmationType,
+  callback: (data: RequestSettingsType) => void,
+): Promise<boolean> {
+  // @ts-ignore
+  return sendMessage('pri(settings.saveBrowserConfirmationType)', type, callback);
+}
 
 export async function saveTheme(theme: ThemeNames, callback: (data: UiSettings) => void): Promise<boolean> {
   // @ts-ignore
