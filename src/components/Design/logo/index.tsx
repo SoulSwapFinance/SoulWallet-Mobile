@@ -58,7 +58,7 @@ const Logo: React.FC<SWLogoProps> = ({
     // console.log(network)
     // console.log(chainLogoMap[network])
     // manually get the network logo
-    network == 'custom-EVM-avalanchec-chain-43114' ? srcLogo = avaxLogo 
+    network == 'avalanche' ? srcLogo = avaxLogo 
       : srcLogo = chainLogoMap[network] 
         || chainLogoMap[defaultLogoKey];
   }
@@ -67,10 +67,10 @@ const Logo: React.FC<SWLogoProps> = ({
   // network == 'custom-EVM-avalanchec-chain-43114' ? srcSubLogo = axaxLogo : srcSubLogo = chainLogoMap[network]
   
   if (subToken) {
-    subToken == 'custom-EVM-avalanchec-chain-43114' ? srcSubLogo = avaxLogo :
+    subToken == 'avalanche' ? srcSubLogo = avaxLogo :
     srcSubLogo = assetLogoMap[subToken] || assetLogoMap[defaultLogoKey];
   } else if (subNetwork) {
-    subNetwork == 'custom-EVM-avalanchec-chain-43114' ? srcSubLogo = avaxLogo :
+    subNetwork == 'avalanche' ? srcSubLogo = avaxLogo :
     srcSubLogo = chainLogoMap[subNetwork] || chainLogoMap[defaultLogoKey]
   }
 

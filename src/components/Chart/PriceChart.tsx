@@ -27,14 +27,6 @@ const PriceChart = ({ groupSymbol, networkId }) => {
     setViewChart(!viewChart)
   }
 
-  // if (chain == 'fantom') { 
-  //   address = ADDRESS_MAP_FANTOM[groupSymbol]
-  // } else if (chain == 'avalanche') {
-  //   address = ADDRESS_MAP_AVALANCHE[groupSymbol]
-  // } else {
-  //   address = ADDRESS_MAP_ETHEREUM[groupSymbol]
-  // }
-
   return (
     <View
       style={{

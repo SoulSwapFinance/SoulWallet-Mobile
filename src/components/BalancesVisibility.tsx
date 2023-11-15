@@ -14,7 +14,7 @@ import { formatNumber } from 'utils/number'
 // import { ChainId } from 'constants/chains'
 import BigN from 'bignumber.js'
 import { useGetBalance } from 'hooks/balance'
-import { SOUL_AVAX_SLUG, SOUL_FTM_SLUG, getPrice } from 'constants/prices'
+// import { SOUL_AVAX_SLUG, SOUL_FTM_SLUG, getPrice } from 'constants/prices'
 
 type Props = {
   value: SwNumberProps['value'];
@@ -56,110 +56,10 @@ const wrapperStyle: StyleProp<any> = {
 // }
 // }, [votingPower])
 
-const getCustomValue = (userAddress) => {
-  const [total, setTotal] = useState(new BigN(0))
-  
-  // const chain = ['fantom', 'avax']
-  const tokens = [
-    {
-      chain: 'fantom',
-      symbol: 'SOUL',
-      decimals: 18,
-      slug: SOUL_FTM_SLUG
-    },
-    {
-      chain: 'avalanche',
-      symbol: 'SOUL',
-      decimals: 18,
-      slug: SOUL_AVAX_SLUG
-    },
-  ]
-  // console.log('tokens: %s', tokens)
-
-// const getTotal = useCallback((userAddress) => {
-  let balancesValues = []
-  let _total = useRef(new BigN(0))
-  let totalValue = new BigN(0)
-
-  for (let i = 0; i < tokens.length; i++) {
-  // let totalValue = useRef(new BigN(0))
-  const { tokenBalance } = useGetBalance(tokens[i].chain, userAddress, tokens[i].slug)
-  const tokenPrice = getPrice(tokens[i].symbol)
-  const price = new BigN(tokenPrice)
-  const balance = new BigN(tokenBalance.value).div(10 ** tokens[i].decimals)
-  balancesValues.push(balance.times(price))
-  // console.log('balance: %s', balance.toString())
-  // console.log('price: %s', price)
-  // console.log('price: %s', price)
-  // customValue.current = customValue.current.plus(price.times(balance))
-  // new BigN(totalValue?.current.toString()).plus(price.times(balance))
-  // totalValue.plus(price.times(balance))
-  // console.log('ttlValue: %s', totalValue.toString())
-}
-for (let i = 0; i < balancesValues.length; i++) {
-  // totalValue = balancesValues[i].plus(totalValue)
-  // console.log('balVals: %s', balancesValues[i])
-  
-  // setTotal(new BigN())
-  //   getTotal(userAddress)
-  // _total.current.plus(balancesValues[i])
-  // totalValue = totalValue.plus(balancesValues[i])
-  _total.current = _total.current.plus(balancesValues[i])
-}
-setTimeout(() => {
-  // setTotal(totalValue.plus(balancesValues[0]))
-  // setInterval(
-    // () => {
-      totalValue = _total.current // .plus(balancesValues[i])
-      setTotal(totalValue)
-    // }
-  // )
-  // setTotal(totalValue)
-}, 15000) // 30s
-
-  return total
-}
-
 // UI NOTE: Shows your total balance.
 export const BalancesVisibility = ({ value, symbol, startWithSymbol = true, subFloatNumber = false }: Props) => {
-  const [customValue, setCustomValue] = useState(new BigN(0))
-  // let customValue = useRef(new BigN(0
-  // const [votingPower, setVotingPower] = useState('0')
-  // let votingPower = '0'
-  
-  // const refreshVotingPower = useCallback(async () => {
-  //     const BASE_API_URL = "https://api.soulswap.finance"
-  
-  //     const res = await fetch(`${BASE_API_URL}/users/${'0xFd63Bf84471Bc55DD9A83fdFA293CCBD27e1F4C8'}`, {
-  //           method: 'GET',
-  //           headers: {
-  //             'Content-Type': 'application/json',
-  //             'Referrer-Policy': 'no-referrer',
-  //           },
-  //         })
-  //         const json = await res.json()
-  //         const _votingPower = json.votingPower
-  //         console.log('votingPower: %s', _votingPower)
-        
-  //         setVotingPower(_votingPower.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
-  // }, [votingPower], );
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   
-  const totalValue = getCustomValue(currentAccount.address)
-  // console.log('totalValue: %s', totalValue?.toString())
-
-
-// setTimeout(async () => {
-//   // await getCustomValue()
-//   const value = await getCustomValue(currentAccount.address, tokens)
-//   setCustomValue(value)
-// }, 10_000) // 30s
-
-  // // const auraValue = useGetBalance(chain, currentAccount.address, tokenSlug).tokenBalance
-
-  // const auraValue = new BigN(tokenBalance.value).div(10**18).toFixed(0)
-  // // const votingPower = auraValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  // const isPremium = new BigN(auraValue).gte('1000000')
   return (
     <View 
       style={wrapperStyle}
@@ -167,7 +67,7 @@ export const BalancesVisibility = ({ value, symbol, startWithSymbol = true, subF
         <Number
           value={
             // value
-            new BigN(value).plus(new BigN(totalValue))
+            new BigN(value)
           }
           decimal={0}
           prefix={startWithSymbol ? (symbol ? symbol : '$') : undefined}

@@ -4,7 +4,7 @@ import ActionButton from 'components/ActionButton'
 // import i18n from 'utils/i18n/i18n'
 import { CaretLeft } from 'phosphor-react-native'
 import { SwNumberProps } from 'components/Design/Number'
-import Number from 'components/Design/Number'
+// import Number from 'components/Design/Number'
 import { BalancesVisibility } from 'components/BalancesVisibility'
 import { Button, Icon, Typography } from 'components/Design'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
@@ -55,9 +55,6 @@ export const TokenGroupsDetailUpperBlock = ({
   const theme = useSoulWalletTheme().swThemes;
   // console.log('tokenSlug: %s', tokenGroupSlug);
   // console.log('groupSymbol: %s', groupSymbol);
-  // const isSoul =
-  //   tokenGroupSlug == 'custom-fantom-ERC20-SOUL-0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07' ||
-  //   tokenGroupSlug == 'custom-custom-EVM-avalanchec-chain-43114-ERC20-SOUL-0x11d6DD25c1695764e64F439E32cc7746f3945543'
   const _style = createStyleSheet(theme)
   const balance = new BigN(balanceValue)
   const tokenPrice = 
