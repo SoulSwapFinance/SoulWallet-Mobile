@@ -25,6 +25,7 @@ module.exports = {
           types: './src/types',
           utils: './src/utils',
           reducers: './src/reducers',
+          sdk: './src/sdk',
           routes: './src/routes',
         },
         root: ['.'],
