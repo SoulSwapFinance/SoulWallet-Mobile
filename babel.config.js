@@ -24,7 +24,6 @@ module.exports = {
           styles: './src/styles',
           types: './src/types',
           utils: './src/utils',
-          sdk: './src/sdk',
           reducers: './src/reducers',
           routes: './src/routes',
         },

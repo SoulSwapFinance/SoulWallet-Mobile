@@ -5695,6 +5695,22 @@
       "hasValue": true,
       "icon": "mkr.png"
     },
+    "ethereum-ERC20-SOUL-0x34862060EFF6DA2AF04D382C209a433279377d16": {
+      "originChain": "ethereum",
+      "slug": "ethereum-ERC20-SOUL-0x34862060EFF6DA2AF04D382C209a433279377d16",
+      "name": "SoulPower",
+      "symbol": "SOUL",
+      "decimals": 18,
+      "priceId": "soul-swap",
+      "minAmount": null,
+      "assetType": "ERC20",
+      "metadata": {
+        "contractAddress": "0x34862060EFF6DA2AF04D382C209a433279377d16"
+      },
+      "multiChainAsset": null,
+      "hasValue": true,
+      "icon": "soul.png"
+    },
     "ethereum-ERC20-KNC-0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202": {
       "originChain": "ethereum",
       "slug": "ethereum-ERC20-KNC-0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202",

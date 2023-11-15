@@ -32,7 +32,6 @@ export const Images = {
   successStatusImg: require('./success-status.png'),
   failStatusImg: require('./fail-status.png'),
   backgroundImg: require('./bg-image.png'),
-  historyEmpty: require('./transaction-history-coming-soon.png'),
   squircleBorder: require('./squircleBorder.png'),
   avatarPlaceholder: require('./avatar-placeholder.png'),
   circleRobot: require('./circle-robot.png'),
