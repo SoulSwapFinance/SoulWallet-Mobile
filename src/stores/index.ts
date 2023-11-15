@@ -35,7 +35,7 @@ import LogoMap from 'stores/base/LogoMap';
 import { mmkvReduxStore } from 'utils/storage';
 import { PriceJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import { AssetRegistryStore, BalanceStore, BrowserSlice, ChainStore } from './types';
-// import { browserDAPPs, tokenConfig } from './API';
+import { browserDAPPs, tokensInfo, tokenConfig } from './API';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
 const persistRootConfig = {
@@ -89,14 +89,18 @@ const rootReducer = combineReducers({
   logoMaps: LogoMap,
 
   // API
-  // [browserDAPPs.reducerPath]: persistReducer(
-  //   { key: browserDAPPs.reducerPath, storage: mmkvReduxStore },
-  //   browserDAPPs.reducer,
-  // ),
-  // [tokenConfig.reducerPath]: persistReducer(
-  //   { key: tokenConfig.reducerPath, storage: mmkvReduxStore },
-  //   tokenConfig.reducer,
-  // ),
+  [browserDAPPs.reducerPath]: persistReducer(
+    { key: browserDAPPs.reducerPath, storage: mmkvReduxStore },
+    browserDAPPs.reducer,
+  ),
+  [tokensInfo.reducerPath]: persistReducer(
+    { key: tokensInfo.reducerPath, storage: mmkvReduxStore },
+    tokensInfo.reducer,
+  ),
+  [tokenConfig.reducerPath]: persistReducer(
+    { key: tokenConfig.reducerPath, storage: mmkvReduxStore },
+    tokenConfig.reducer,
+  ),
 });
 
 const persistedReducer = persistReducer(persistRootConfig, rootReducer);
@@ -109,8 +113,9 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     })
-      // .concat(browserDAPPs.middleware)
-      // .concat(tokenConfig.middleware),
+      .concat(browserDAPPs.middleware)
+      .concat(tokensInfo.middleware)
+      .concat(tokenConfig.middleware),
 });
 
 setupListeners(store.dispatch);
