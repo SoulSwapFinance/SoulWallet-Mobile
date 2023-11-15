@@ -146,7 +146,7 @@ export const BalancesVisibility = ({ value, symbol, startWithSymbol = true, subF
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   
   const totalValue = getCustomValue(currentAccount.address)
-  console.log('totalValue: %s', totalValue?.toString())
+  // console.log('totalValue: %s', totalValue?.toString())
 
 
 // setTimeout(async () => {
