@@ -126,6 +126,7 @@ const BrowserHome = () => {
   //     return undefined;
   //   }
 
+  
   //   return dApps.filter(dApp => dApp.isFeatured);
   // }, [dApps])
   const bannerData = useMemo(() => {
