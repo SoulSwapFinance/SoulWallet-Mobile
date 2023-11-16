@@ -49,13 +49,12 @@ const Logo: React.FC<SWLogoProps> = ({
   const usdcLogo= "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/usdc.png"
   // UI NOTE: GETS TOKEN LOGO
   if (token) {
-    token == "avax" ?  srcLogo = avaxLogo 
     // manually gets the token logo
-      : token == "soul" ? srcLogo = soulLogo 
-      : token == "wavax" ? srcLogo = avaxLogo 
-      : (token == "btx" | token == "axlwbtc" | token == "wbtc.e" | token == "btc.b") ? srcLogo = btcLogo 
-      : (token == "axleth" | token == "lzeth" | token == "weth.e") ? srcLogo = ethLogo 
-      : (token == "axlusdc" | token == "lzusdc" | token == "usdc.e") ? srcLogo = usdcLogo
+    token == "soul" ? srcLogo = soulLogo 
+      : (token == "avax" | token == "wavax") ? srcLogo = avaxLogo 
+      : (token == "btc" | token == "wbtc" | token == "axlwbtc" | token == "wbtc.e" | token == "btc.b") ? srcLogo = btcLogo 
+      : (token == "axleth" | token == "weth" | token == "lzeth" | token == "weth.e") ? srcLogo = ethLogo 
+      : (token == "axlusdc" | token == "lzusdc" | token == "usdc" | token == "usdc.e") ? srcLogo = usdcLogo
         : srcLogo = assetLogoMap[token]
           || assetLogoMap[defaultLogoKey];
   
@@ -65,7 +64,7 @@ const Logo: React.FC<SWLogoProps> = ({
     // console.log(network)
     // console.log(chainLogoMap[network])
     // manually get the network logo
-    network == 'avalanche' ? srcLogo = avaxLogo 
+    (network == 'avalanche' | network == 'custom-EVM-avalanchec-chain-43114')? srcLogo = avaxLogo 
       : srcLogo = chainLogoMap[network] 
         || chainLogoMap[defaultLogoKey];
   }
@@ -74,10 +73,10 @@ const Logo: React.FC<SWLogoProps> = ({
   // network == 'custom-EVM-avalanchec-chain-43114' ? srcSubLogo = axaxLogo : srcSubLogo = chainLogoMap[network]
   
   if (subToken) {
-    subToken == 'avalanche' ? srcSubLogo = avaxLogo :
+    (subToken == 'avalanche' | subToken == 'custom-EVM-avalanchec-chain-43114') ? srcSubLogo = avaxLogo :
     srcSubLogo = assetLogoMap[subToken] || assetLogoMap[defaultLogoKey];
   } else if (subNetwork) {
-    subNetwork == 'avalanche' ? srcSubLogo = avaxLogo :
+    (subNetwork == 'avalanche' | subNetwork == 'custom-EVM-avalanchec-chain-43114') ? srcSubLogo = avaxLogo :
     // subNetwork == 'base' ? srcSubLogo = baseLogo :
     srcSubLogo = chainLogoMap[subNetwork] || chainLogoMap[defaultLogoKey]
   }
