@@ -6,6 +6,7 @@ import { getBrand } from 'react-native-device-info';
 type DeviceInfo = {
   isIos: boolean;
   isAndroid: boolean;
+  isMac: boolean;
   width: number;
   height: number;
 };
@@ -37,6 +38,7 @@ export const CELL_COUNT = 6;
 export const DEVICE: DeviceInfo = {
   isIos: Platform.OS === 'ios',
   isAndroid: Platform.OS === 'android',
+  isMac: Platform.OS === 'macos',
   width: deviceWidth,
   height: deviceHeight,
 };

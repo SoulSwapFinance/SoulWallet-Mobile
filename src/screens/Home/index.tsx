@@ -44,10 +44,9 @@ import SvgMagicBall from 'assets/svg/MagicBall';
 import SvgPhoto from 'assets/svg/Photo';
 import SvgCauldron from 'assets/svg/Cauldron';
 import SvgMagicMarkets from 'assets/svg/Markets';
-import SvgNewspaper from 'assets/svg/Newspaper';
+// import SvgNewspaper from 'assets/svg/Newspaper';
 // import MarketsScreen from './Browser/BrowserMarkets';
-// import PortfolioScreen from './Browser/BrowserPortfolio';
-// import PortfolioScreen from './Browser/BrowserPortfolio';
+import PortfolioScreen from './Browser/BrowserPortfolio';
 
 interface tabbarIconColor {
   color: string;
@@ -55,15 +54,15 @@ interface tabbarIconColor {
 const tokenTabbarIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicHat width={32} height={32} color={color} />;
 };
-const nftTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <SvgPhoto width={32} height={32} color={color} />;
-};
+// const nftTabbarIcon = ({ color }: tabbarIconColor) => {
+//   return <SvgPhoto width={32} height={32} color={color} />;
+// };
 // const crowdloanTabbarIcon = ({ color }: tabbarIconColor) => {
 //   return <Rocket size={24} color={color} weight={'fill'} />;
 // };
-const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <SvgCauldron width={32} height={32} color={color} />;
-};
+// const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
+//   return <SvgCauldron width={32} height={32} color={color} />;
+// };
 const browserTabbarIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicBall width={32} height={32} color={color} />;
 };
@@ -72,13 +71,17 @@ const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
   return <SvgLogo width={36} height={36} color={color} />
 };
 
+const browserPortfolioIcon = ({ color }: tabbarIconColor) => {
+  return <SvgCauldron width={36} height={36} color={color} />
+};
+
 const browserMarketsIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicMarkets width={36} height={36} color={color} />
 };
 
-const browserNewsIcon = ({ color }: tabbarIconColor) => {
-  return <SvgNewspaper width={36} height={36} color={color} />
-};
+// const browserNewsIcon = ({ color }: tabbarIconColor) => {
+//   return <SvgNewspaper width={36} height={36} color={color} />
+// };
 
 // const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
 //   return (
@@ -197,14 +200,14 @@ const MainScreen = () => {
           tabBarIcon: browserMarketsIcon,
         }}
       /> */}
-      {/* <Tab.Screen
-        name={'Portfolio'}
+      <Tab.Screen
+        name={'Portfolios'}
         component={PortfolioScreen}
         options={{
-          tabBarLabel: 'Portfolio',
-          tabBarIcon: browserSoulSwapIcon,
+          tabBarLabel: 'Portfolios',
+          tabBarIcon: browserPortfolioIcon,
         }}
-      /> */}
+      />
       {/* <Tab.Screen
         name={'SoulSwap'}
         component={BrowserSoulSwap}
