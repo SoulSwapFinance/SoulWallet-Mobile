@@ -28,7 +28,7 @@ export const TokenTypeSelectField = ({ disabled, showIcon, outerStyle, value, la
               style={{ marginLeft: 12, marginRight: 8, justifyContent: 'center', alignItems: 'center' }}
               shape={'circle'}
               phosphorIcon={Coin}
-              backgroundColor={theme['orange-6']}
+              backgroundColor={theme['purple']}
               weight={'fill'}
             />
             <Typography.Text ellipsis style={styles.text}>

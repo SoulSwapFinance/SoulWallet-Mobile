@@ -227,12 +227,12 @@ const ImportNft = ({ route: { params: routeParams } }: ImportNftProps) => {
     let unamount = false;
     if (smartContract !== '') {
       const isValidEvmContract =
-        [_AssetType.ERC721].includes(selectedNftType as _AssetType) && isEthereumAddress(smartContract);
+        [_AssetType.ERC721].includes(selectedNftType as _AssetType) && isEthereumAddress(smartContract)
       const isValidWasmContract =
-        [_AssetType.PSP34].includes(selectedNftType as _AssetType) && isValidSubstrateAddress(smartContract);
+        [_AssetType.PSP34].includes(selectedNftType as _AssetType) && isValidSubstrateAddress(smartContract)
 
       if (!(isValidEvmContract || isValidWasmContract)) {
-        onUpdateErrors('smartContract')([i18n.errorMessage.invalidContractForSelectedChain]);
+        onUpdateErrors('smartContract')([i18n.errorMessage.invalidContractForSelectedChain])
       } else {
         setChecking(true);
         validateCustomToken({

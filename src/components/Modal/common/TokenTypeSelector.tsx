@@ -44,7 +44,7 @@ export const TokenTypeSelector = ({
           key={item.value}
           label={item.label}
           isSelected={selectedValueMap[item.value]}
-          backgroundColor={theme['orange-6']}
+          backgroundColor={theme['purple']}
         />
       )}
     />

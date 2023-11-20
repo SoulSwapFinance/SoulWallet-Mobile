@@ -37,20 +37,20 @@ const iconMap = {
   [ConnectionStatement.PARTIAL_CONNECTED]: { icon: PlugsConnected, themeKey: 'colorWarning' },
   [ConnectionStatement.DISCONNECTED]: { icon: Plugs, themeKey: 'gray-3' },
   [ConnectionStatement.BLOCKED]: { icon: Plugs, themeKey: 'colorError' },
-};
+}
 
 // todo: move to style.
 const viewContainerStyle: StyleProp<any> = {
   position: 'relative',
   flex: 1,
-};
+}
 
 const hidingStyle: StyleProp<any> = {
   flex: 0,
   width: 0,
   height: 0,
   display: 'none',
-};
+}
 
 function getBrowserTabsWrapperStyle(isTabsShowed: boolean): StyleProp<any> {
   if (isTabsShowed) {
@@ -60,7 +60,7 @@ function getBrowserTabsWrapperStyle(isTabsShowed: boolean): StyleProp<any> {
       left: 0,
       right: 0,
       bottom: 0,
-    };
+    }
   }
 
   return hidingStyle;
@@ -70,7 +70,7 @@ function getTabItemWrapperStyle(isTabActive: boolean): StyleProp<any> {
   if (isTabActive) {
     return {
       flex: 1,
-    };
+    }
   }
 
   return hidingStyle;
