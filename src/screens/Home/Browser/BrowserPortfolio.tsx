@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import type { FC } from 'react'
+// import type { FC } from 'react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 // import { useNavigation } from '@react-navigation/core'
 import { URL } from 'react-native-url-polyfill'
@@ -24,7 +24,7 @@ import Button from 'components/Design/Button'
 import { useSelector } from 'react-redux'
 import { RootState } from 'stores/index'
 import { isAccountAll } from '@soul-wallet/extension-base/src/utils'
-import { AccountSettingButton } from 'components/AccountSettingButton'
+// import { AccountSettingButton } from 'components/AccountSettingButton'
 import { useNavigation } from '@react-navigation/native'
 import { RootNavigationProps } from 'routes/index'
 // import Menu from 'components/Menu'
@@ -35,20 +35,21 @@ import { RootNavigationProps } from 'routes/index'
 export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount)
   const isAll = useMemo((): boolean => !!currentAccount && isAccountAll(currentAccount.address), [currentAccount]);
-  const accountAddress = currentAccount.address ?? ''
+  const accountAddress = isAll ? '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045' : currentAccount.address ?? '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
   const navigation = useNavigation<RootNavigationProps>();
 
   const modalMode = false
   // console.log('accountAddress: %s', accountAddress)
   // const url = `https://dexscreener.com/portfolio/${accountAddress ?? ''}`
   // const url = `https://debank.com/profile/${accountAddress ?? ''}?utm_source=soulswap`
-  const url = `https://app.zerion.io/${accountAddress ?? ''}/overview?utm_source=soulswap`
+  const url = isAll ? `https://app.zerion.io?utm_source=soulswap`
+  : `https://app.zerion.io/${accountAddress}/overview?utm_source=soulswap`
   //  `https://blockworks.co?utm_source=soulswap`
   // const imgURL = `https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/news/blockworks-logo.png`
   const [currentUrl, setCurrentUrl] = useState(url)
   // const [currentId, setCurrentId] = useState('Home')
   const [showHeader, setShowHeader] = useState(true)
-  const [currentName, setCurrentName] = useState('Zerion')
+  const [currentName, setCurrentName] = useState(isAll ? 'Select' : 'Zerion')
   const [currentScreen, setCurrentScreen] = useState(0)
 
   const [showOptions, setShowOptions] = useState(false)
@@ -86,23 +87,24 @@ export const PortfolioScreen = ({ }: NativeStackScreenProps<{}>) => {
 
     const zerion: Screen = {
       id: 'Zerion',
-      url: `https://app.zerion.io/${accountAddress ?? ''}/overview?utm_source=soulswap`,
+      url: isAll ? `https://app.zerion.io?utm_source=soulswap`
+       : `https://app.zerion.io/${accountAddress}/overview?utm_source=soulswap`,
       imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
-      name: 'Zerion'
+      name: isAll ? 'Select' : 'Zerion'
     }
 
     const debank: Screen = {
       id: 'DeBank',
-      url: `https://debank.com/profile/${accountAddress ?? ''}?utm_source=soulswap`,
+      url: `https://debank.com/profile/${accountAddress}?utm_source=soulswap`,
       imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
-      name: 'DeBank'
+      name: isAll ? 'An' : 'DeBank'
     }
 
     const soulswap: Screen = {
       id: 'SoulSwap',
-      url: `https://exchange.soulswap.finance/portfolio/${accountAddress ?? ''}?utm_source=soulswap`,
+      url: `https://exchange.soulswap.finance/portfolio/${accountAddress}?utm_source=soulswap`,
       imageURL: 'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/mobile/news/coindesk.png',
-      name: 'SoulSwap'
+      name: isAll ? 'Account' : 'SoulSwap'
     }
 
     // const metamask: Screen = {

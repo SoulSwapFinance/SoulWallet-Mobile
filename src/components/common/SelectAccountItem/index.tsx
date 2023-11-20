@@ -60,6 +60,7 @@ export const SelectAccountItem = ({
       }}
       onPress={() => onSelectAccount && onSelectAccount(address)}>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        {/* UI NOTE: If all accounts selected, then shows group of avatars. */}
         {isAllAccount ? (
           <AvatarGroup />
         ) : (
