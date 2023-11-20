@@ -114,14 +114,14 @@ export const TokenGroupsDetailUpperBlock = ({
           buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
         />
         {/* {Platform.OS !== 'ios' && ( */}
-        {/* <ActionButton
+        <ActionButton
           // label={i18n.cryptoScreen.buy}
           // image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
           // imageSize={30}  
           icon={ButtonIcon.Buy}
           onPress={() => navigation.navigate('Drawer', { screen: 'BuyToken', params: {} })}
           buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
-        /> */}
+        />
         <ActionButton
           // label={'Charts'}
           // image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/purchased.png'}
