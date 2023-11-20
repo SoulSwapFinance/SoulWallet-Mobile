@@ -398,7 +398,7 @@ export const en = {
     estimateFee: 'Estimated fee',
     nftDetails: 'NFT details',
     description: 'Description',
-    nftCollectionName: 'NFT collection name',
+    nftCollectionName: 'NFT Collection Name',
     ownedBy: 'Owned by',
     createdBy: 'Created by',
     network: 'Network',
