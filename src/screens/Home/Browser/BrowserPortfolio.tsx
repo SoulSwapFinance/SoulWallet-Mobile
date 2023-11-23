@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 // import type { FC } from 'react'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 // import { useNavigation } from '@react-navigation/core'
 import { URL } from 'react-native-url-polyfill'
 // import Image from 'components/Design/Image'
@@ -28,7 +28,6 @@ import { isAccountAll } from '@soul-wallet/extension-base/src/utils'
 import { useNavigation } from '@react-navigation/native'
 import { RootNavigationProps } from 'routes/index'
 // import Menu from 'components/Menu'
-
 // todo
 // import { CategorySelector } from '../Market/Components/CategorySelector/CategorySelector';
 
