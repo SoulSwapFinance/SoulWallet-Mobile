@@ -592,7 +592,7 @@ export const en = {
     changeMasterPasswordMessage2: 'Use this password to unlock your account.',
     forgotPasswordMessage:
       'We do not keep your password. If you forgot your password, you will need to reset your wallet using the Secret Recovery Phrase',
-    cannotGetBalance: 'Can not get balance',
+    cannotGetBalance: 'Cannot get balance',
     enableTokenOnChain: (tokenNames: string, chainName: string) => `Please enable ${tokenNames} on ${chainName}`,
     disconnectModalMessage:
       'Once you disconnect, you will no longer see this connection on SoulWallet and on your DApp.',
