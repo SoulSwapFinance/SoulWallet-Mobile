@@ -5279,6 +5279,122 @@
   resolved "https://registry.npmjs.org/@substrate/ss58-registry/-/ss58-registry-1.43.0.tgz"
   integrity sha512-USEkXA46P9sqClL7PZv0QFsit4S8Im97wchKG0/H/9q3AT/S76r40UHfCr4Un7eBJPE23f7fU9BZ0ITpP9MCsA==
 
+"@subwallet/chain-list@0.2.18-beta.2":
+  version "0.2.18-beta.2"
+  resolved "https://registry.yarnpkg.com/@subwallet/chain-list/-/chain-list-0.2.18-beta.2.tgz#d821e980d83f5783877282095ff9723eccfac110"
+  integrity sha512-C0bMLLgXJioU6j6bTYljS97MeLf4GtpkGNkuDdXLEuEpiG2dxFhFKc//9CuDrQC2mdqfacrlAlEO5DGbp3CTzg==
+  dependencies:
+    "@polkadot/dev" "0.67.167"
+    "@polkadot/util" "^12.5.1"
+    eventemitter3 "^5.0.1"
+
+"@subwallet/extension-base@^1.1.18-1":
+  version "1.1.18-1"
+  resolved "https://registry.yarnpkg.com/@subwallet/extension-base/-/extension-base-1.1.18-1.tgz#b1f44139631ed5c68b61bf0149d7c1a02a40ba3e"
+  integrity sha512-fugz4lN/i4tlxNEF1ODfVLoAHZ3CI1sGZosQhldGdREw1MRoBWU7TCyeBsyM+iEAWdKE9fbMOFpMblteMsQI6Q==
+  dependencies:
+    "@acala-network/api" "^5.0.2"
+    "@apollo/client" "^3.7.14"
+    "@azns/resolver-core" "^1.4.0"
+    "@equilab/api" "^1.14.25"
+    "@ethereumjs/common" "^2.6.5"
+    "@ethereumjs/tx" "^4.0.2"
+    "@ethersproject/abi" "^5.7.0"
+    "@json-rpc-tools/utils" "^1.7.6"
+    "@metamask/safe-event-emitter" "^2.0.0"
+    "@metaverse-network-sdk/type-definitions" "^0.0.1-13"
+    "@oak-foundation/types" "^0.0.23"
+    "@polkadot/api" "^10.9.1"
+    "@polkadot/api-contract" "^10.9.1"
+    "@polkadot/api-derive" "^10.9.1"
+    "@polkadot/apps-config" "^0.132.1"
+    "@polkadot/hw-ledger" "^12.3.2"
+    "@polkadot/networks" "^12.3.2"
+    "@polkadot/phishing" "^0.21.5"
+    "@polkadot/rpc-provider" "^10.9.1"
+    "@polkadot/types" "^10.9.1"
+    "@polkadot/types-augment" "^10.9.1"
+    "@polkadot/ui-settings" "^3.5.1"
+    "@polkadot/util" "^12.3.2"
+    "@polkadot/util-crypto" "^12.3.2"
+    "@reduxjs/toolkit" "^1.9.1"
+    "@sora-substrate/type-definitions" "^1.17.7"
+    "@substrate/connect" "^0.7.26"
+    "@subwallet/chain-list" "0.2.18-beta.2"
+    "@subwallet/extension-base" "^1.1.18-1"
+    "@subwallet/extension-chains" "^1.1.18-1"
+    "@subwallet/extension-dapp" "^1.1.18-1"
+    "@subwallet/extension-inject" "^1.1.18-1"
+    "@subwallet/keyring" "^0.1.1"
+    "@subwallet/ui-keyring" "^0.1.1"
+    "@walletconnect/sign-client" "^2.8.4"
+    "@walletconnect/types" "^2.8.4"
+    "@walletconnect/utils" "^2.8.4"
+    avail-js-sdk "^0.0.10"
+    axios "^1.2.1"
+    bignumber.js "^9.1.1"
+    bn.js "^5.2.1"
+    bowser "^2.11.0"
+    browser-passworder "^2.0.3"
+    buffer "^6.0.3"
+    cross-fetch "^3.1.5"
+    dexie "^3.2.2"
+    eth-simple-keyring "^4.2.0"
+    ethereumjs-tx "^2.1.2"
+    ethereumjs-util "^7.1.5"
+    ethers "^6.4.2"
+    eventemitter3 "^5.0.0"
+    graphql "^16.8.1"
+    i18next "^21.9.2"
+    is-buffer "^2.0.5"
+    json-rpc-engine "^6.1.0"
+    manta-extension-sdk "^1.1.0"
+    moment "^2.29.4"
+    protobufjs "^7.2.4"
+    rxjs "^7.8.1"
+    uuid "^9.0.0"
+    web3 "^1.10.0"
+    web3-core "^1.10.0"
+    web3-core-helpers "^1.10.0"
+    web3-core-subscriptions "1.10.0"
+    web3-eth "1.10.0"
+    web3-eth-contract "^1.10.0"
+    web3-utils "^1.10.0"
+
+"@subwallet/extension-chains@^1.1.18-1":
+  version "1.1.18-1"
+  resolved "https://registry.yarnpkg.com/@subwallet/extension-chains/-/extension-chains-1.1.18-1.tgz#44b3e30583c82c6f0fc1642b48f0609864c6c242"
+  integrity sha512-fM659CEF14XrAu81ulcsWI9gD8tCm+afVgGPqj+o+Ka0E5g0jLvQA6oc3Bfix35ygFeHuTXg+TsVI6dYsx7ogw==
+  dependencies:
+    "@babel/runtime" "^7.20.6"
+    "@polkadot/networks" "^12.3.2"
+    "@polkadot/util" "^12.3.2"
+    "@polkadot/util-crypto" "^12.3.2"
+    "@subwallet/extension-inject" "^1.1.18-1"
+
+"@subwallet/extension-dapp@^1.1.18-1":
+  version "1.1.18-1"
+  resolved "https://registry.yarnpkg.com/@subwallet/extension-dapp/-/extension-dapp-1.1.18-1.tgz#541c2cdee8db6f79eacbd92fe6c9721f6fc9fce6"
+  integrity sha512-bLUV1eL+DEF3gZnEsbpnizuK+Vyg6CIt2ibospfKO0yH45dVlq8ztefI9uUUhPtyVjihonxoJumVS857FeCcNQ==
+  dependencies:
+    "@babel/runtime" "^7.20.6"
+    "@polkadot/util" "^12.3.2"
+    "@polkadot/util-crypto" "^12.3.2"
+    "@subwallet/extension-inject" "^1.1.18-1"
+
+"@subwallet/extension-inject@^1.1.18-1":
+  version "1.1.18-1"
+  resolved "https://registry.yarnpkg.com/@subwallet/extension-inject/-/extension-inject-1.1.18-1.tgz#d571355ee4f96e7afe590d5e729d1df3f73086fd"
+  integrity sha512-A5zS5EK35vaKnLl9xJbeG23l7/wL63SPVmPnuG0KnDllBKZELm1fOdtSENqK7rSnrLvF7uhXnjNyStBR4F/wYw==
+  dependencies:
+    "@babel/runtime" "^7.20.6"
+    "@polkadot/rpc-provider" "^10.9.1"
+    "@polkadot/types" "^10.9.1"
+    "@polkadot/util" "^12.3.2"
+    "@polkadot/util-crypto" "^12.3.2"
+    "@polkadot/x-global" "^12.2.1"
+    web3-core "^1.10.0"
+
 "@subwallet/keyring@^0.1.1", "@subwallet/keyring@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@subwallet/keyring/-/keyring-0.1.2.tgz#7b68da1ae5bdebc8ad6800d2b341df886416f242"
@@ -7389,6 +7505,11 @@ boring-avatars@^1.7.0:
   version "1.10.1"
   resolved "https://registry.npmjs.org/boring-avatars/-/boring-avatars-1.10.1.tgz"
   integrity sha512-WcgHDeLrazCR03CDPEvCchLsUecZAZvs4F6FnMiGlTEjyQQf15Q5TRl4EUaAQ1dacvhPq7lC9EOTWkCojQ6few==
+
+bowser@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/bowser/-/bowser-2.11.0.tgz#5ca3c35757a7aa5771500c70a73a9f91ef420a8f"
+  integrity sha512-AlcaJBi/pqqJBIQ8U9Mcpc9i8Aqxn88Skv5d+xBX006BY5u8N3mGLHa5Lgppa7L/HfwgwLgZ6NYs+Ag6uUmJRA==
 
 boxen@^1.2.1:
   version "1.3.0"
