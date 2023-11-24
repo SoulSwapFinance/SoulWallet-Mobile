@@ -75,7 +75,8 @@ const autoLockParams: {
 
 let lockWhenActive = false;
 AppState.addEventListener('change', (state: string) => {
-  const { isUseBiometric, timeAutoLock, lock, isMasterPasswordLocked } = autoLockParams;
+  const { timeAutoLock, lock, isMasterPasswordLocked } = autoLockParams; // isUseBiometric
+  const isUseBiometric = false
 
   if (timeAutoLock === undefined) {
     return;
@@ -125,7 +126,7 @@ export const AppNew = () => {
   const theme = isDarkMode ? THEME_PRESET.dark : THEME_PRESET.light;
   StatusBar.setBarStyle(isDarkMode ? 'light-content' : 'dark-content');
 
-  const { isUseBiometric, timeAutoLock, isPreventLock } = useSelector((state: RootState) => state.mobileSettings);
+  const { timeAutoLock, isPreventLock } = useSelector((state: RootState) => state.mobileSettings); // isUseBiometric
   const { hasMasterPassword, isLocked } = useSelector((state: RootState) => state.accountState);
   const { lock, unlockApp } = useAppLock();
   const { buildNumber } = useSelector((state: RootState) => state.appVersion);
@@ -138,12 +139,12 @@ export const AppNew = () => {
   // Enable lock screen on the start app
   useEffect(() => {
     // TODO FIXME
-    if (!firstTimeCheckPincode && isLocked) {
-      lock();
-    }
-    if (!isLocked) {
+    // if (!firstTimeCheckPincode && isLocked) {
+      // lock();
+    // }
+    // if (!isLocked) {
       unlockApp();
-    }
+    // }
     firstTimeCheckPincode = true;
     autoLockParams.isMasterPasswordLocked = isLocked;
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -153,9 +154,9 @@ export const AppNew = () => {
     autoLockParams.lock = lock;
     autoLockParams.timeAutoLock = timeAutoLock;
     autoLockParams.hasMasterPassword = hasMasterPassword;
-    autoLockParams.isUseBiometric = isUseBiometric;
+    // autoLockParams.isUseBiometric = isUseBiometric;
     autoLockParams.isPreventLock = isPreventLock;
-  }, [timeAutoLock, isUseBiometric, isPreventLock, lock, hasMasterPassword]);
+  }, [timeAutoLock, isPreventLock, lock, hasMasterPassword]); // isUseBiometric
 
   const isRequiredStoresReady = true;
 
@@ -175,7 +176,7 @@ export const AppNew = () => {
     if (buildNumber === 1) {
     // Set default value on the first time install
     const buildNumberInt = parseInt(getBuildNumber(), 10);
-    dispatch(setBuildNumber(buildNumberInt));
+    // dispatch(setBuildNumber(buildNumberInt));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
