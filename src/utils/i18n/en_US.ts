@@ -957,7 +957,7 @@ export const en = {
     aboutSoulWallet: 'About SoulWallet',
     pinCode: 'PIN Code',
     faceId: 'Face ID / Touch ID',
-    changeYourPinCode: 'Change your PIN code',
+    changeYourPinCode: 'Change PIN Code',
     changePassword: 'Change Password',
     manageWebsiteAccess: 'Manage Website Access',
     manageWalletConnectDapp: 'Manage WalletConnect',
