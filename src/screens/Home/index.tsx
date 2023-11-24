@@ -41,7 +41,7 @@ import { useToast } from 'react-native-toast-notifications';
 import SvgLogo from 'assets/svg/Logo';
 import SvgMagicHat from 'assets/svg/MagicHat';
 import SvgMagicBall from 'assets/svg/MagicBall';
-import SvgPhoto from 'assets/svg/Photo';
+// import SvgPhoto from 'assets/svg/Photo';
 import SvgCauldron from 'assets/svg/Cauldron';
 import SvgMagicMarkets from 'assets/svg/Markets';
 // import SvgNewspaper from 'assets/svg/Newspaper';
@@ -67,9 +67,9 @@ const browserTabbarIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicBall width={32} height={32} color={color} />;
 };
 
-const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
-  return <SvgLogo width={36} height={36} color={color} />
-};
+// const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
+//   return <SvgLogo width={36} height={36} color={color} />
+// };
 
 const browserPortfolioIcon = ({ color }: tabbarIconColor) => {
   return <SvgCauldron width={36} height={36} color={color} />
@@ -260,8 +260,9 @@ const Wrapper = () => {
       {isEmptyAccounts && <Drawer.Screen name="FirstScreen" component={FirstScreen} options={{ headerShown: false }} />}
       <Drawer.Screen name="Main" component={MainScreen} options={{ headerShown: false }} />
     </Drawer.Navigator>
-  );
+  )
 };
+
 interface Props {
   navigation: NativeStackNavigationProp<RootStackParamList>;
 }

@@ -37,7 +37,7 @@ import {
   WEBSITE_URL,
   WIKI_URL,
 } from 'constants/index';
-import VersionNumber from 'react-native-version-number';
+// import VersionNumber from 'react-native-version-number';
 import useAppLock from 'hooks/useAppLock';
 import { BackgroundIcon, Button, Icon, SelectItem } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
@@ -53,13 +53,13 @@ const settingTitleStyle: StyleProp<any> = {
   paddingBottom: 8,
 };
 
-const versionAppStyle: StyleProp<any> = {
-  textAlign: 'center',
-  color: ColorMap.light,
-  ...FontMedium,
-  ...sharedStyles.mainText,
-  paddingBottom: 16,
-};
+// const versionAppStyle: StyleProp<any> = {
+//   textAlign: 'center',
+//   color: ColorMap.light,
+//   ...FontMedium,
+//   ...sharedStyles.mainText,
+//   paddingBottom: 16,
+// };
 
 type settingItemType = {
   icon: React.ElementType<IconProps>;

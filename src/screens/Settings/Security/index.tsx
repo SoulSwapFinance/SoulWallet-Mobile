@@ -149,7 +149,7 @@ export const Security = () => {
             }}
             rightIcon={<Icon phosphorIcon={CaretRight} size={'sm'} />}
           />
-          <SelectItem
+          {/* <SelectItem
             icon={ShieldCheck}
             backgroundColor={theme.colorTextDarkPurple}
             label={i18n.settings.appLock}
@@ -162,7 +162,7 @@ export const Security = () => {
               />
             }
             disabled={!pinCode}
-          />
+          /> */}
         </View>
 
         <SwModal
