@@ -40,7 +40,7 @@ const layerScreenStyle: StyleProp<any> = {
   position: 'absolute',
   backgroundColor: ColorMap.dark1,
   zIndex: 10,
-};
+}
 
 AutoLockState.isPreventAutoLock = false;
 const autoLockParams: {
@@ -55,7 +55,7 @@ const autoLockParams: {
   isPreventLock: false,
   autoLockTime: undefined,
   lock: () => {},
-};
+}
 let timeout: NodeJS.Timeout | undefined;
 let lockWhenActive = false;
 AppState.addEventListener('change', (state: string) => {
