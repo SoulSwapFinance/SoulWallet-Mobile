@@ -1,16 +1,19 @@
 import { decodeAddress, encodeAddress, isAddress, isEthereumAddress } from '@polkadot/util-crypto';
-import { AbstractAddressJson, AccountJson, AccountWithChildren } from '@soul-wallet/extension-base/src/background/types';
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
+import { AbstractAddressJson, AccountJson, AccountWithChildren } from '@subwallet/extension-base/background/types';
+import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
 import {
   _getChainSubstrateAddressPrefix,
   _isChainEvmCompatible,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
-import { isAccountAll, reformatAddress } from '@soul-wallet/extension-base/src/utils';
+} from '@subwallet/extension-base/services/chain-service/utils';
+import { isAccountAll, reformatAddress } from '@subwallet/extension-base/utils';
 import { MODE_CAN_SIGN } from 'constants/signer';
 import { AccountSignMode } from 'types/signer';
 import { AccountAddressType } from 'types/index';
-import { _ChainInfo } from '@soul-wallet/chain-list/types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
 import { Recoded } from 'types/ui-types';
+import SInfo, { RNSensitiveInfoOptions } from 'react-native-sensitive-info';
+import { Alert } from 'react-native';
+import i18n from './i18n/i18n';
 
 export const findAccountByAddress = (accounts: AccountJson[], address?: string): AccountJson | null => {
   try {
@@ -190,6 +193,73 @@ export const findContactByAddress = (contacts: AbstractAddressJson[], address?: 
   } catch (e) {
     console.error('Fail to detect address', e);
 
+    return null;
+  }
+};
+
+// Keychain configuration
+const keychainConfig: RNSensitiveInfoOptions = {
+  touchID: true,
+  showModal: true,
+  kSecAccessControl: 'kSecAccessControlBiometryCurrentSet',
+  sharedPreferencesName: 'swSharedPrefs',
+  keychainService: 'swKeychain',
+  kSecAttrAccessible: 'kSecAttrAccessibleWhenUnlocked',
+  kSecUseOperationPrompt: 'Unlock app using biometric',
+};
+const maxAttempsData = ['Biometry is locked out', 'Quá nhiều lần thử', 'Too many attempts'];
+function alertFailedAttempts(e: any) {
+  let isFailedAttemps = false;
+  maxAttempsData.map(item => {
+    if (JSON.stringify(e).includes(item)) {
+      isFailedAttemps = true;
+    }
+  });
+  if (isFailedAttemps) {
+    Alert.alert('Biometric Unlock', 'Too Many Attempts'
+      // i18n.buttonTitles.unlockWithBiometric, i18n.common.tooManyAttemps
+      );
+  }
+}
+const username = 'sw-user';
+export const createKeychainPassword = async (password: string) => {
+  try {
+    await SInfo.setItem(username, password, keychainConfig);
+    return true;
+  } catch (e) {
+    alertFailedAttempts(e);
+    console.warn('set keychain failed', e);
+    return false;
+  }
+};
+
+export const getKeychainPassword = async () => {
+  try {
+    const password = await SInfo.getItem(username, keychainConfig);
+    return password;
+  } catch (e) {
+    alertFailedAttempts(e);
+    throw e;
+  }
+};
+
+export const resetKeychainPassword = async () => {
+  try {
+    // return await Keychain.resetGenericPassword();
+    SInfo.deleteItem(username, keychainConfig);
+    return true;
+  } catch (e) {
+    console.warn('reset keychain failed:', e);
+    return false;
+  }
+};
+
+export const getSupportedBiometryType = async () => {
+  try {
+    const result = await SInfo.isSensorAvailable();
+    return result;
+  } catch (e) {
+    console.warn('Get failed!');
     return null;
   }
 };

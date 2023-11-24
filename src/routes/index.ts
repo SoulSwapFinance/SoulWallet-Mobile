@@ -25,7 +25,7 @@ export type RootStackParamList = {
       | 'AttachReadOnly';
     state?: string[];
   };
-  UnlockModal: undefined;
+  UnlockModal: { isUpdateBiometric?: boolean };
   ChangePassword: undefined;
   ConnectList: { isDelete?: boolean };
   ConnectDetail: { topic: string };
@@ -50,7 +50,6 @@ export type RootStackParamList = {
   Drawer: NavigatorScreenParams<WrapperParamList>;
   Languages: undefined;
   Security: undefined;
-  PinCode: { screen: 'NewPinCode' | 'ChangePinCode' | 'TurnoffPinCode' };
   AccountExport: { address: string };
   ExportJson: { address: string };
   BrowserHome?: NavigatorScreenParams<undefined> | undefined;
@@ -99,7 +98,6 @@ export type RootRouteProps = NavigationProps['route'];
 export type CreateAccountProps = NativeStackScreenProps<RootStackParamList, 'CreateAccount'>;
 export type CreatePasswordProps = NativeStackScreenProps<RootStackParamList, 'CreatePassword'>;
 export type ImportSecretPhraseProps = NativeStackScreenProps<RootStackParamList, 'ImportSecretPhrase'>;
-export type PinCodeProps = NativeStackScreenProps<RootStackParamList, 'PinCode'>;
 export type AccountsScreenProps = NativeStackScreenProps<RootStackParamList, 'AccountsScreen'>;
 export type SendFundProps = NativeStackScreenProps<RootStackParamList, 'SendFund'>;
 export type EditAccountProps = NativeStackScreenProps<RootStackParamList, 'EditAccount'>;
@@ -121,6 +119,7 @@ export type CollectionItemProps = NativeStackScreenProps<RootStackParamList, 'Co
 export type NftDetailProps = NativeStackScreenProps<RootStackParamList, 'NftDetail'>;
 export type ImportTokenProps = NativeStackScreenProps<RootStackParamList, 'ImportToken'>;
 export type ImportNftProps = NativeStackScreenProps<RootStackParamList, 'ImportNft'>;
+export type UnlockModalProps = NativeStackScreenProps<RootStackParamList, 'UnlockModal'>;
 export type ConnectListProps = NativeStackScreenProps<RootStackParamList, 'ConnectList'>;
 export type ConnectDetailProps = NativeStackScreenProps<RootStackParamList, 'ConnectDetail'>;
 export type NetworkConfigDetailProps = NativeStackScreenProps<RootStackParamList, 'NetworkConfigDetail'>;

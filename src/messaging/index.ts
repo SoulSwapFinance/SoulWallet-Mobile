@@ -45,6 +45,7 @@ import {
   CrowdloanJson,
   CurrentAccountInfo,
   KeyringState,
+  LanguageType,
   NftCollection,
   NftJson,
   NftTransactionRequest,
@@ -62,6 +63,7 @@ import {
   RequestAuthorizationBlock,
   RequestAuthorizationPerSite,
   RequestBondingSubmit,
+  RequestCampaignBannerComplete,
   RequestChangeMasterPassword,
   RequestConnectWalletConnect,
   RequestCronAndSubscriptionAction,
@@ -105,6 +107,8 @@ import {
   RequestTuringStakeCompound,
   RequestUnbondingSubmit,
   RequestUnlockKeyring,
+  ResolveAddressToDomainRequest,
+  ResolveDomainRequest,
   ResponseAccountCreateSuriV2,
   ResponseAccountCreateWithSecretKey,
   ResponseAccountExportPrivateKey,
@@ -136,16 +140,32 @@ import {
   UiSettings,
   ValidateNetworkResponse,
   ValidatorInfo,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { Message } from '@soul-wallet/extension-base/src/types';
+} from '@subwallet/extension-base/background/KoniTypes';
+import { Message } from '@subwallet/extension-base/types';
+// import type { KeyringPair$Json } from '@subwallet/keyring/types';
+// import type { KeyringAddress, KeyringPairs$Json } from '@subwallet/ui-keyring/types';
 import type { KeyringAddress, KeyringPair$Json, KeyringPairs$Json } from 'sdk/keyring/types';
 import type { HexString } from '@polkadot/util/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
+// import { MetadataDef } from '@subwallet/extension-inject/types';
 import { MetadataDef } from '@soul-wallet/extension-inject/src/types';
+
+// import {
+//   SWTransactionResponse,
+//   SWTransactionResult,
+// } from '@subwallet/extension-base/services/transaction-service/types';
 import {
   SWTransactionResponse,
   SWTransactionResult,
 } from '@soul-wallet/extension-base/src/services/transaction-service/types';
+// import {
+//   _ChainState,
+//   _NetworkUpsertParams,
+//   _ValidateCustomAssetRequest,
+//   _ValidateCustomAssetResponse,
+// } from '@subwallet/extension-base/services/chain-service/types';
+// import { _ChainAsset, _ChainInfo } from '@subwallet/chain-list/types';
+// import { AuthUrls } from '@subwallet/extension-base/services/request-service/types';
 import {
   _ChainState,
   _NetworkUpsertParams,
@@ -479,6 +499,7 @@ export async function subscribeActiveCronAndSubscriptionServiceMap(
   callback: (data: ActiveCronAndSubscriptionMap) => void,
   handlerId?: string,
 ): Promise<ActiveCronAndSubscriptionMap> {
+  // @ts-ignore
   return sendMessage('mobile(cronAndSubscription.activeService.subscribe)', null, callback, handlerId);
 }
 
@@ -544,6 +565,7 @@ export async function saveAccountAllLogo(
   accountAllLogo: string,
   callback: (data: RequestSettingsType) => void,
 ): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(settings.saveAccountAllLogo)', accountAllLogo, callback);
 }
 
@@ -560,10 +582,15 @@ export async function saveTheme(theme: ThemeNames, callback: (data: UiSettings) 
   return sendMessage('pri(settings.saveTheme)', theme, callback);
 }
 
+export async function saveLanguage(lang: LanguageType): Promise<boolean> {
+  return sendMessage('pri(settings.saveLanguage)', { language: lang });
+}
+
 export async function subscribeSettings(
   data: RequestSubscribeBalancesVisibility,
   callback: (data: UiSettings) => void,
 ): Promise<UiSettings> {
+  // @ts-ignore
   return sendMessage('pri(settings.subscribe)', data, callback);
 }
 
@@ -600,8 +627,8 @@ export async function validateAccount(address: string, password: string): Promis
   return sendMessage('pri(accounts.validate)', { address, password });
 }
 
-export async function forgotAccount(address: string): Promise<boolean> {
-  return sendMessage('pri(accounts.forget)', { address });
+export async function forgetAccount(address: string, lockAfter = false): Promise<boolean> {
+  return sendMessage('pri(accounts.forget)', { address, lockAfter });
 }
 
 export async function approveAuthRequest(id: string): Promise<boolean> {
@@ -630,6 +657,10 @@ export async function approveSignPassword(id: string, savePass: boolean, passwor
 
 export async function approveSignPasswordV2(request: RequestSigningApprovePasswordV2): Promise<boolean> {
   return sendMessage('pri(signing.approve.passwordV2)', request);
+}
+
+export async function saveAutoLockTime(value: number): Promise<boolean> {
+  return sendMessage('pri(settings.saveAutoLockTime)', { autoLockTime: value });
 }
 
 export async function approveSignSignature(id: string, signature: HexString): Promise<boolean> {
@@ -813,10 +844,12 @@ export async function subscribeAccounts(cb: (accounts: AccountJson[]) => void): 
 export async function subscribeAccountsWithCurrentAddress(
   cb: (data: AccountsWithCurrentAddress) => void,
 ): Promise<AccountsWithCurrentAddress> {
+  // @ts-ignore
   return sendMessage('pri(accounts.subscribeWithCurrentAddress)', {}, cb);
 }
 
 export async function subscribeAccountsInputAddress(cb: (data: OptionInputAddress) => void): Promise<string> {
+  // @ts-ignore
   return sendMessage('pri(accounts.subscribeAccountsInputAddress)', {}, cb);
 }
 
@@ -837,6 +870,7 @@ export async function subscribeAuthorizeRequests(cb: (accounts: AuthorizeRequest
 }
 
 export async function subscribeAuthorizeRequestsV2(cb: (accounts: AuthorizeRequest[]) => void): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(authorize.requestsV2)', null, cb);
 }
 
@@ -845,6 +879,7 @@ export async function getAuthList(): Promise<ResponseAuthorizeList> {
 }
 
 export async function getAuthListV2(): Promise<ResponseAuthorizeList> {
+  // @ts-ignore
   return sendMessage('pri(authorize.listV2)');
 }
 
@@ -856,6 +891,7 @@ export async function changeAuthorizationAll(
   connectValue: boolean,
   callback: (data: AuthUrls) => void,
 ): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(authorize.changeSiteAll)', { connectValue }, callback);
 }
 
@@ -864,6 +900,7 @@ export async function changeAuthorization(
   url: string,
   callback: (data: AuthUrls) => void,
 ): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(authorize.changeSite)', { url, connectValue }, callback);
 }
 
@@ -873,6 +910,7 @@ export async function changeAuthorizationPerAccount(
   url: string,
   callback: (data: AuthUrls) => void,
 ): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(authorize.changeSitePerAccount)', { address, url, connectValue }, callback);
 }
 
@@ -988,6 +1026,7 @@ export async function subscribePrice(
   request: RequestSubscribePrice,
   callback: (priceData: PriceJson) => void,
 ): Promise<PriceJson> {
+  // @ts-ignore
   return sendMessage('pri(price.getSubscription)', request, callback);
 }
 
@@ -999,6 +1038,7 @@ export async function subscribeBalance(
   request: RequestSubscribeBalance,
   callback: (balanceData: BalanceJson) => void,
 ): Promise<BalanceJson> {
+  // @ts-ignore
   return sendMessage('pri(balance.getSubscription)', request, callback);
 }
 
@@ -1010,6 +1050,7 @@ export async function subscribeCrowdloan(
   request: RequestSubscribeCrowdloan,
   callback: (crowdloanData: CrowdloanJson) => void,
 ): Promise<CrowdloanJson> {
+  // @ts-ignore
   return sendMessage('pri(crowdloan.getSubscription)', request, callback);
 }
 
@@ -1017,12 +1058,14 @@ export async function subscribeCrowdloan(
 export async function subscribeAssetRegistry(
   callback: (map: Record<string, _ChainAsset>) => void,
 ): Promise<Record<string, _ChainAsset>> {
+  // @ts-ignore
   return sendMessage('pri(chainService.subscribeAssetRegistry)', null, callback);
 }
 
 export async function subscribeHistory(
   callback: (historyMap: TransactionHistoryItem[]) => void,
 ): Promise<TransactionHistoryItem[]> {
+  // @ts-ignore
   return sendMessage('pri(transaction.history.getSubscription)', null, callback);
 }
 
@@ -1035,10 +1078,12 @@ export async function subscribeNft(
   request: RequestSubscribeNft,
   callback: (nftData: NftJson) => void,
 ): Promise<NftJson> {
+  // @ts-ignore
   return sendMessage('pri(nft.getSubscription)', request, callback);
 }
 
 export async function subscribeNftCollection(callback: (data: NftCollection[]) => void): Promise<NftCollection[]> {
+  // @ts-ignore
   return sendMessage('pri(nftCollection.getSubscription)', null, callback);
 }
 
@@ -1051,10 +1096,12 @@ export async function subscribeStaking(
   request: RequestSubscribeStaking,
   callback: (stakingData: StakingJson) => void,
 ): Promise<StakingJson> {
+  // @ts-ignore
   return sendMessage('pri(staking.getSubscription)', request, callback);
 }
 
 export async function getStakingReward(): Promise<StakingRewardJson> {
+  // @ts-ignore
   return sendMessage('pri(stakingReward.getStakingReward)');
 }
 
@@ -1062,6 +1109,7 @@ export async function subscribeStakingReward(
   request: RequestSubscribeStakingReward,
   callback: (stakingRewardData: StakingRewardJson) => void,
 ): Promise<StakingRewardJson> {
+  // @ts-ignore
   return sendMessage('pri(stakingReward.getSubscription)', request, callback);
 }
 
@@ -1082,12 +1130,14 @@ export async function evmNftSubmitTransaction(request: NftTransactionRequest): P
 export async function subscribeChainInfoMap(
   callback: (data: Record<string, _ChainInfo>) => void,
 ): Promise<Record<string, _ChainInfo>> {
+  // @ts-ignore
   return sendMessage('pri(chainService.subscribeChainInfoMap)', null, callback);
 }
 
 export async function subscribeChainStateMap(
   callback: (data: Record<string, _ChainState>) => void,
 ): Promise<Record<string, _ChainState>> {
+  // @ts-ignore
   return sendMessage('pri(chainService.subscribeChainStateMap)', null, callback);
 }
 
@@ -1190,6 +1240,7 @@ export async function subscribeFreeBalance(
   request: RequestFreeBalance,
   callback: (balance: AmountData) => void,
 ): Promise<AmountData> {
+  // @ts-ignore
   return sendMessage('pri(freeBalance.subscribe)', request, callback);
 }
 
@@ -1232,6 +1283,7 @@ export async function getAccountMeta(request: RequestAccountMeta): Promise<Respo
 export async function subscribeConfirmations(
   callback: (data: ConfirmationsQueue) => void,
 ): Promise<ConfirmationsQueue> {
+  // @ts-ignore
   return sendMessage('pri(confirmations.subscribe)', null, callback);
 }
 
@@ -1253,12 +1305,14 @@ export async function getNominationPoolOptions(chain: string): Promise<Nominatio
 export async function subscribeChainStakingMetadata(
   callback: (data: ChainStakingMetadata[]) => void,
 ): Promise<ChainStakingMetadata[]> {
+  // @ts-ignore
   return sendMessage('pri(bonding.subscribeChainStakingMetadata)', null, callback);
 }
 
 export async function subscribeStakingNominatorMetadata(
   callback: (data: NominatorMetadata[]) => void,
 ): Promise<NominatorMetadata[]> {
+  // @ts-ignore
   return sendMessage('pri(bonding.subscribeNominatorMetadata)', null, callback);
 }
 
@@ -1299,6 +1353,7 @@ export async function parseEVMTransactionInput(
 }
 
 export async function subscribeAuthUrl(callback: (data: AuthUrls) => void): Promise<AuthUrls> {
+  // @ts-ignore
   return sendMessage('pri(authorize.subscribe)', null, callback);
 }
 
@@ -1316,6 +1371,7 @@ export async function submitTuringCancelStakeCompounding(
 
 // Keyring state
 export async function keyringStateSubscribe(cb: (value: KeyringState) => void): Promise<KeyringState> {
+  // @ts-ignore
   return sendMessage('pri(keyring.subscribe)', null, cb);
 }
 
@@ -1386,9 +1442,18 @@ export async function disconnectWalletConnectConnection(topic: string): Promise<
   return sendMessage('pri(walletConnect.session.disconnect)', { topic });
 }
 
+export async function resolveDomainToAddress(request: ResolveDomainRequest) {
+  return sendMessage('pri(accounts.resolveDomainToAddress)', request);
+}
+
+export async function resolveAddressToDomain(request: ResolveAddressToDomainRequest) {
+  return sendMessage('pri(accounts.resolveAddressToDomain)', request);
+}
+
 export async function subscribeTransactions(
   callback: (rs: Record<string, SWTransactionResult>) => void,
 ): Promise<Record<string, SWTransactionResult>> {
+  // @ts-ignore
   return sendMessage('pri(transactions.subscribe)', null, callback);
 }
 
@@ -1412,6 +1477,7 @@ export async function getMetadata(genesisHash?: string | null, isPartial = false
   if (def) {
     return metadataExpand(def, isPartial);
   } else if (isPartial) {
+    // @ts-ignore
     const chain = parsedChains.find(_chain => _chain.genesisHash === genesisHash);
 
     if (chain) {
@@ -1429,4 +1495,8 @@ export async function getMetadata(genesisHash?: string | null, isPartial = false
   }
 
   return null;
+}
+
+export async function completeBannerCampaign(request: RequestCampaignBannerComplete): Promise<boolean> {
+  return sendMessage('pri(campaign.banner.complete)', request);
 }
