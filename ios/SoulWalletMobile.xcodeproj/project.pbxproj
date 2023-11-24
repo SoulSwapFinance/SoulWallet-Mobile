@@ -587,8 +587,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-
-					frequent replace bag glue erupt dove dilemma actor scrub genuine attend slender
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.soulswap.finance;
 				PRODUCT_NAME = SoulWalletMobile;

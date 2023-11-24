@@ -39,7 +39,6 @@ import SvgMagicMarkets from 'assets/svg/Markets';
 // import SvgNewspaper from 'assets/svg/Newspaper';
 // import MarketsScreen from './Browser/BrowserMarkets';
 import PortfolioScreen from './Browser/BrowserPortfolio';
-
 // import CampaignBannerModal from 'screens/Home/Crowdloans/CampaignBannerModal';
 // import useGetBannerByScreen from 'hooks/campaign/useGetBannerByScreen';
 // import { CampaignBanner } from '@subwallet/extension-base/background/KoniTypes';
