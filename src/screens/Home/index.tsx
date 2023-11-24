@@ -30,7 +30,7 @@ import i18n from 'utils/i18n/i18n';
 import { RootStackParamList } from 'routes/index';
 import { handleTriggerDeeplinkAfterLogin } from 'utils/deeplink';
 import { isFirstOpen, setIsFirstOpen } from '../../AppNew';
-import SvgLogo from 'assets/svg/Logo';
+// import SvgLogo from 'assets/svg/Logo';
 import SvgMagicHat from 'assets/svg/MagicHat';
 import SvgMagicBall from 'assets/svg/MagicBall';
 // import SvgPhoto from 'assets/svg/Photo';

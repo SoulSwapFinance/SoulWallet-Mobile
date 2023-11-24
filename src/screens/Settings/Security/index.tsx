@@ -120,14 +120,14 @@ export const Security = () => {
         navigation.goBack();
       }}>
       <View style={{ ...sharedStyles.layoutContainer, paddingTop: 16 }}>
-        <ToggleItem
+        {/* <ToggleItem
           backgroundIcon={Scan}
           backgroundIconColor={theme['magenta-7']}
           style={{ marginBottom: 16 }}
           label={i18n.settings.faceId}
           isEnabled={isUseBiometric}
           onValueChange={onValueChangeFaceId}
-        />
+        /> */}
 
         <View style={{ gap: theme.paddingXS }}>
           <SelectItem
@@ -145,16 +145,16 @@ export const Security = () => {
             onPress={() => navigation.navigate('DAppAccess')}
             rightIcon={<Icon phosphorIcon={CaretRight} size={'sm'} />}
           />
-          <SelectItem
+          {/* <SelectItem
             icon={ShieldCheck}
             backgroundColor={theme['green-6']}
             label={i18n.settings.appLock}
             onPress={() => setIsShowAutoLockModal(true)}
             rightIcon={<Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorWhite} />}
-          />
+          /> */}
         </View>
 
-        <SwModal
+        {/* <SwModal
           isUseModalV2
           modalBaseV2Ref={modalRef}
           setVisible={setIsShowAutoLockModal}
@@ -171,7 +171,7 @@ export const Security = () => {
               />
             ))}
           </View>
-        </SwModal>
+        </SwModal> */}
       </View>
     </SubScreenContainer>
   );
