@@ -1,12 +1,12 @@
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
-import { metadataExpand } from '@soul-wallet/extension-chains';
-import { Chain } from '@soul-wallet/extension-chains/src/types';
-import { RefObject } from 'react';
-import WebView from 'react-native-webview';
-import { WebRunnerStatus } from 'providers/contexts';
-import { getSavedMeta, setSavedMeta } from 'utils/MetadataCache';
-import { WebviewError, WebviewNotReadyError, WebviewResponseError } from '../errors/WebViewErrors';
-import EventEmitter from 'eventemitter3';
+import { getId } from '@soul-wallet/extension-base/src/utils/getId'
+import { metadataExpand } from '@soul-wallet/extension-chains'
+import { Chain } from '@soul-wallet/extension-chains/src/types'
+import { RefObject } from 'react'
+import WebView from 'react-native-webview'
+import { WebRunnerStatus } from 'providers/contexts'
+import { getSavedMeta, setSavedMeta } from 'utils/MetadataCache'
+import { WebviewError, WebviewNotReadyError, WebviewResponseError } from '../errors/WebViewErrors'
+import EventEmitter from 'eventemitter3'
 import type {
   AccountJson,
   AllowedPath,
@@ -27,7 +27,7 @@ import type {
   SeedLengths,
   SigningRequest,
   SubscriptionMessageTypes,
-} from '@soul-wallet/extension-base/src/background/types';
+} from '@soul-wallet/extension-base/src/background/types'
 import {
   AccountExternalError,
   AccountsWithCurrentAddress,
@@ -63,7 +63,6 @@ import {
   RequestAuthorizationBlock,
   RequestAuthorizationPerSite,
   RequestBondingSubmit,
-  RequestCampaignBannerComplete,
   RequestChangeMasterPassword,
   RequestConnectWalletConnect,
   RequestCronAndSubscriptionAction,
@@ -140,31 +139,18 @@ import {
   UiSettings,
   ValidateNetworkResponse,
   ValidatorInfo,
-} from '@subwallet/extension-base/background/KoniTypes';
-import { Message } from '@subwallet/extension-base/types';
-// import type { KeyringPair$Json } from '@subwallet/keyring/types';
-// import type { KeyringAddress, KeyringPairs$Json } from '@subwallet/ui-keyring/types';
-import type { KeyringAddress, KeyringPair$Json, KeyringPairs$Json } from 'sdk/keyring/types';
-import type { HexString } from '@polkadot/util/types';
-import type { KeypairType } from '@polkadot/util-crypto/types';
-// import { MetadataDef } from '@subwallet/extension-inject/types';
-import { MetadataDef } from '@soul-wallet/extension-inject/src/types';
+} from '@soul-wallet/extension-base/src/background/KoniTypes'
+// import { RequestCampaignBannerComplete } from '@subwallet/extension-base/background/KoniTypes'
+import { Message } from '@soul-wallet/extension-base/src/types'
+import type { KeyringAddress, KeyringPair$Json, KeyringPairs$Json } from 'sdk/keyring/types'
+import type { HexString } from '@polkadot/util/types'
+import type { KeypairType } from '@polkadot/util-crypto/types'
+import { MetadataDef } from '@soul-wallet/extension-inject/src/types'
 
-// import {
-//   SWTransactionResponse,
-//   SWTransactionResult,
-// } from '@subwallet/extension-base/services/transaction-service/types';
 import {
   SWTransactionResponse,
   SWTransactionResult,
 } from '@soul-wallet/extension-base/src/services/transaction-service/types';
-// import {
-//   _ChainState,
-//   _NetworkUpsertParams,
-//   _ValidateCustomAssetRequest,
-//   _ValidateCustomAssetResponse,
-// } from '@subwallet/extension-base/services/chain-service/types';
-// import { _ChainAsset, _ChainInfo } from '@subwallet/chain-list/types';
 // import { AuthUrls } from '@subwallet/extension-base/services/request-service/types';
 import {
   _ChainState,
@@ -492,6 +478,7 @@ export async function checkWebRunnerLives(): Promise<boolean> {
 export async function initCronAndSubscription(
   request: RequestInitCronAndSubscription,
 ): Promise<ActiveCronAndSubscriptionMap> {
+  // @ts-ignore
   return sendMessage('mobile(cronAndSubscription.init)', request);
 }
 
@@ -504,42 +491,52 @@ export async function subscribeActiveCronAndSubscriptionServiceMap(
 }
 
 export async function startCronAndSubscriptionServices(request: RequestCronAndSubscriptionAction): Promise<void> {
+    // @ts-ignore
   return sendMessage('mobile(cronAndSubscription.start)', request);
 }
 
 export async function stopCronAndSubscriptionServices(request: RequestCronAndSubscriptionAction): Promise<void> {
+    // @ts-ignore
   return sendMessage('mobile(cronAndSubscription.stop)', request);
 }
 
 export async function restartCronAndSubscriptionServices(request: RequestCronAndSubscriptionAction): Promise<void> {
+    // @ts-ignore
   return sendMessage('mobile(cronAndSubscription.restart)', request);
 }
 
 export async function reloadCron(request: CronReloadRequest): Promise<boolean> {
+    // @ts-ignore
   return sendMessage('pri(cron.reload)', request);
 }
 
 export async function startCronServices(request: CronServiceType[]): Promise<void> {
+    // @ts-ignore
   return sendMessage('mobile(cron.start)', request);
 }
 
 export async function stopCronServices(request: CronServiceType[]): Promise<void> {
+    // @ts-ignore
   return sendMessage('mobile(cron.stop)', request);
 }
 
 export async function restartCronServices(request: CronServiceType[]): Promise<void> {
+    // @ts-ignore
   return sendMessage('mobile(cron.restart)', request);
 }
 
 export async function startSubscriptionServices(request: SubscriptionServiceType[]): Promise<void> {
+    // @ts-ignore
   return sendMessage('mobile(subscription.start)', request);
 }
 
 export async function stopSubscriptionServices(request: SubscriptionServiceType[]): Promise<void> {
+  // @ts-ignore
   return sendMessage('mobile(subscription.stop)', request);
 }
 
 export async function restartSubscriptionServices(request: SubscriptionServiceType[]): Promise<void> {
+    // @ts-ignore
   return sendMessage('mobile(subscription.restart)', request);
 }
 
@@ -554,10 +551,12 @@ export async function showAccount(address: string, isShowing: boolean): Promise<
 }
 
 export async function saveCurrentAccountAddress(data: RequestCurrentAccountAddress): Promise<CurrentAccountInfo> {
+    // @ts-ignore
   return sendMessage('pri(currentAccount.saveAddress)', data);
 }
 
 export async function toggleBalancesVisibility(): Promise<boolean> {
+    // @ts-ignore
   return sendMessage('pri(settings.changeBalancesVisibility)', null);
 }
 
@@ -583,6 +582,7 @@ export async function saveTheme(theme: ThemeNames, callback: (data: UiSettings) 
 }
 
 export async function saveLanguage(lang: LanguageType): Promise<boolean> {
+    // @ts-ignore
   return sendMessage('pri(settings.saveLanguage)', { language: lang });
 }
 
@@ -606,6 +606,7 @@ export async function exportAccountPrivateKey(
   address: string,
   password: string,
 ): Promise<ResponseAccountExportPrivateKey> {
+  // @ts-ignore
   return sendMessage('pri(accounts.exportPrivateKey)', { address, password });
 }
 
@@ -620,6 +621,7 @@ export async function checkPublicAndPrivateKey(
   publicKey: string,
   secretKey: string,
 ): Promise<ResponseCheckPublicAndSecretKey> {
+  // @ts-ignore
   return sendMessage('pri(accounts.checkPublicAndSecretKey)', { publicKey, secretKey });
 }
 
@@ -640,6 +642,7 @@ export async function approveAuthRequest(id: string): Promise<boolean> {
 }
 
 export async function approveAuthRequestV2(id: string, accounts: string[]): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(authorize.approveV2)', { id, accounts });
 }
 
@@ -660,14 +663,17 @@ export async function approveSignPassword(id: string, savePass: boolean, passwor
 }
 
 export async function approveSignPasswordV2(request: RequestSigningApprovePasswordV2): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(signing.approve.passwordV2)', request);
 }
 
 export async function saveAutoLockTime(value: number): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(settings.saveAutoLockTime)', { autoLockTime: value });
 }
 
 export async function approveSignSignature(id: string, signature: HexString): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(signing.approve.signature)', { id, signature });
 }
 
@@ -678,6 +684,7 @@ export async function createAccountExternal(name: string, address: string, genes
 export async function createAccountExternalV2(
   request: RequestAccountCreateExternalV2,
 ): Promise<AccountExternalError[]> {
+  // @ts-ignore
   return sendMessage('pri(accounts.create.externalV2)', request);
 }
 
@@ -700,10 +707,12 @@ export async function createAccountHardware(
 }
 
 export async function createAccountHardwareV2(request: RequestAccountCreateHardwareV2): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(accounts.create.hardwareV2)', request);
 }
 
 export async function createAccountHardwareMultiple(request: RequestAccountCreateHardwareMultiple): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(accounts.create.hardwareMultiple)', request);
 }
 
@@ -718,6 +727,7 @@ export async function createAccountSuri(
 }
 
 export async function createAccountSuriV2(request: RequestAccountCreateSuriV2): Promise<ResponseAccountCreateSuriV2> {
+  // @ts-ignore
   return sendMessage('pri(accounts.create.suriV2)', request);
 }
 
@@ -734,12 +744,14 @@ export async function createSeedV2(
   seed?: string,
   types?: Array<KeypairType>,
 ): Promise<ResponseSeedCreateV2> {
+  // @ts-ignore
   return sendMessage('pri(seed.createV2)', { length, seed, types });
 }
 
 export async function createAccountWithSecret(
   request: RequestAccountCreateWithSecretKey,
 ): Promise<ResponseAccountCreateWithSecretKey> {
+  // @ts-ignore
   return sendMessage('pri(accounts.create.withSecret)', request);
 }
 
@@ -830,10 +842,12 @@ export async function rejectAuthRequest(id: string): Promise<boolean> {
 }
 
 export async function rejectAuthRequestV2(id: string): Promise<boolean> {
+    // @ts-ignore
   return sendMessage('pri(authorize.rejectV2)', { id });
 }
 
 export async function cancelAuthRequestV2(id: string): Promise<boolean> {
+    // @ts-ignore
   return sendMessage('pri(authorize.cancelV2)', { id });
 }
 
@@ -858,14 +872,17 @@ export async function subscribeAccountsInputAddress(cb: (data: OptionInputAddres
 }
 
 export async function saveRecentAccountId(accountId: string): Promise<KeyringAddress> {
+  // @ts-ignore
   return sendMessage('pri(accounts.saveRecent)', { accountId });
 }
 
 export async function editContactAddress(address: string, name: string): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(accounts.editContact)', { address: address, meta: { name: name } });
 }
 
 export async function removeContactAddress(address: string): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(accounts.deleteContact)', { address: address });
 }
 
@@ -919,26 +936,32 @@ export async function changeAuthorizationPerAccount(
 }
 
 export async function changeAuthorizationPerSite(request: RequestAuthorizationPerSite): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(authorize.changeSitePerSite)', request);
 }
 
 export async function changeAuthorizationBlock(request: RequestAuthorizationBlock): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(authorize.changeSiteBlock)', request);
 }
 
 export async function forgetSite(url: string, callback: (data: AuthUrls) => void): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(authorize.forgetSite)', { url }, callback);
 }
 
 export async function forgetAllSite(callback: (data: AuthUrls) => void): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(authorize.forgetAllSite)', null, callback);
 }
 
 export async function subscribeMetadataRequests(cb: (accounts: MetadataRequest[]) => void): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(metadata.requests)', null, cb);
 }
 
 export async function subscribeSigningRequests(cb: (accounts: SigningRequest[]) => void): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(signing.requests)', null, cb);
 }
 
@@ -947,6 +970,7 @@ export async function validateSeed(suri: string, type?: KeypairType): Promise<{ 
 }
 
 export async function validateSeedV2(suri: string, types: Array<KeypairType>): Promise<ResponseSeedValidateV2> {
+  // @ts-ignore
   return sendMessage('pri(seed.validateV2)', { suri, types });
 }
 
@@ -954,6 +978,7 @@ export async function validateMetamaskPrivateKeyV2(
   suri: string,
   types: Array<KeypairType>,
 ): Promise<ResponsePrivateKeyValidateV2> {
+  // @ts-ignore
   return sendMessage('pri(privateKey.validateV2)', { suri, types });
 }
 
@@ -985,6 +1010,7 @@ export async function deriveAccountV2(
   genesisHash: string | null,
   isAllowed: boolean,
 ): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(derivation.createV2)', { genesisHash, name, parentAddress, suri, isAllowed });
 }
 
@@ -1006,6 +1032,7 @@ export async function batchRestore(file: KeyringPairs$Json, password: string, ad
 }
 
 export async function jsonRestoreV2(request: RequestJsonRestoreV2): Promise<void> {
+  // @ts-ignore
   return sendMessage('pri(json.restoreV2)', request);
 }
 
@@ -1015,6 +1042,7 @@ export async function batchRestoreV2(
   accountsInfo: ResponseJsonGetAccountInfo[],
   isAllowed: boolean,
 ): Promise<void> {
+  // @ts-ignore
   return sendMessage('pri(json.batchRestoreV2)', { file, password, accountsInfo, isAllowed });
 }
 
@@ -1023,6 +1051,7 @@ export async function setNotification(notification: string): Promise<boolean> {
 }
 
 export async function getPrice(): Promise<PriceJson> {
+  // @ts-ignore
   return sendMessage('pri(price.getPrice)', null);
 }
 
@@ -1035,6 +1064,7 @@ export async function subscribePrice(
 }
 
 export async function getBalance(): Promise<BalanceJson> {
+  // @ts-ignore
   return sendMessage('pri(balance.getBalance)', null);
 }
 
@@ -1047,6 +1077,7 @@ export async function subscribeBalance(
 }
 
 export async function getCrowdloan(): Promise<CrowdloanJson> {
+  // @ts-ignore
   return sendMessage('pri(crowdloan.getCrowdloan)', null);
 }
 
@@ -1118,14 +1149,17 @@ export async function subscribeStakingReward(
 }
 
 export async function makeTransfer(request: RequestTransfer): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(accounts.transfer)', request);
 }
 
 export async function makeCrossChainTransfer(request: RequestCrossChainTransfer): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(accounts.crossChainTransfer)', request);
 }
 
 export async function evmNftSubmitTransaction(request: NftTransactionRequest): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(evmNft.submitTransaction)', request);
 }
 
@@ -1146,6 +1180,7 @@ export async function subscribeChainStateMap(
 }
 
 export async function removeChain(networkKey: string): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.removeChain)', networkKey);
 }
 
@@ -1158,46 +1193,57 @@ export async function updateChainActiveState(chain: string, active: boolean): Pr
 }
 
 export async function disableChain(networkKey: string): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.disableChain)', networkKey);
 }
 
 export async function enableChain(chainSlug: string, enableTokens = true): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.enableChain)', { chainSlug, enableTokens });
 }
 
 export async function enableChains(chainSlugs: string[], enableTokens = true): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.enableChains)', { chainSlugs, enableTokens });
 }
 
 export async function disableChains(targetKeys: string[]): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.disableChains)', targetKeys);
 }
 
 export async function upsertChain(data: _NetworkUpsertParams): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.upsertChain)', data);
 }
 
 export async function getSupportedContractTypes(): Promise<string[]> {
+  // @ts-ignore
   return sendMessage('pri(chainService.getSupportedContractTypes)', null);
 }
 
 export async function upsertCustomToken(data: _ChainAsset): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.upsertCustomAsset)', data);
 }
 
 export async function deleteCustomAssets(assetSlug: string): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.deleteCustomAsset)', assetSlug);
 }
 
 export async function validateCustomToken(data: _ValidateCustomAssetRequest): Promise<_ValidateCustomAssetResponse> {
+  // @ts-ignore
   return sendMessage('pri(chainService.validateCustomAsset)', data);
 }
 
 export async function resetDefaultNetwork(): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.resetDefaultChains)', null);
 }
 
 export async function updateAssetSetting(data: AssetSettingUpdateReq): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(assetSetting.update)', data);
 }
 
@@ -1207,36 +1253,44 @@ export async function validateCustomChain(
   provider: string,
   existedChainSlug?: string,
 ): Promise<ValidateNetworkResponse> {
+  // @ts-ignore
   return sendMessage('pri(chainService.validateCustomChain)', { provider, existedChainSlug });
 }
 
 export async function disableAllNetwork(): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.disableAllChains)', null);
 }
 
 export async function transferCheckReferenceCount(request: RequestTransferCheckReferenceCount): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(transfer.checkReferenceCount)', request);
 }
 
 export async function transferCheckSupporting(
   request: RequestTransferCheckSupporting,
 ): Promise<SupportTransferResponse> {
+  // @ts-ignore
   return sendMessage('pri(transfer.checkSupporting)', request);
 }
 
 export async function transferGetExistentialDeposit(request: RequestTransferExistentialDeposit): Promise<string> {
+  // @ts-ignore
   return sendMessage('pri(transfer.getExistentialDeposit)', request);
 }
 
 export async function cancelSubscription(request: string): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(subscription.cancel)', request);
 }
 
 export async function getFreeBalance(request: RequestFreeBalance): Promise<AmountData> {
+  // @ts-ignore
   return sendMessage('pri(freeBalance.get)', request);
 }
 
 export async function getMaxTransfer(request: RequestMaxTransferable): Promise<AmountData> {
+  // @ts-ignore
   return sendMessage('pri(transfer.getMaxTransferable)', request);
 }
 
@@ -1249,38 +1303,46 @@ export async function subscribeFreeBalance(
 }
 
 export async function substrateNftSubmitTransaction(request: NftTransactionRequest): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(substrateNft.submitTransaction)', request);
 }
 
 export async function recoverDotSamaApi(request: string): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(chainService.recoverSubstrateApi)', request);
 }
 
 // Sign Qr
 
 export async function accountIsLocked(address: string): Promise<ResponseAccountIsLocked> {
+  // @ts-ignore
   return sendMessage('pri(account.isLocked)', { address });
 }
 
 export async function qrSignSubstrate(request: RequestQrSignSubstrate): Promise<ResponseQrSignSubstrate> {
+  // @ts-ignore
   return sendMessage('pri(qr.sign.substrate)', request);
 }
 
 export async function qrSignEvm(request: RequestQrSignEvm): Promise<ResponseQrSignEvm> {
+  // @ts-ignore
   return sendMessage('pri(qr.sign.evm)', request);
 }
 
 export async function parseSubstrateTransaction(
   request: RequestParseTransactionSubstrate,
 ): Promise<ResponseParseTransactionSubstrate> {
+  // @ts-ignore
   return sendMessage('pri(qr.transaction.parse.substrate)', request);
 }
 
 export async function parseEVMTransaction(data: string): Promise<ResponseQrParseRLP> {
+  // @ts-ignore
   return sendMessage('pri(qr.transaction.parse.evm)', { data });
 }
 
 export async function getAccountMeta(request: RequestAccountMeta): Promise<ResponseAccountMeta> {
+  // @ts-ignore
   return sendMessage('pri(accounts.get.meta)', request);
 }
 
@@ -1295,14 +1357,17 @@ export async function completeConfirmation<CT extends ConfirmationType>(
   type: CT,
   payload: ConfirmationDefinitions[CT][1],
 ): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(confirmations.complete)', { [type]: payload });
 }
 
 export async function getBondingOptions(networkKey: string, type: StakingType): Promise<ValidatorInfo[]> {
+  // @ts-ignore
   return sendMessage('pri(bonding.getBondingOptions)', { chain: networkKey, type });
 }
 
 export async function getNominationPoolOptions(chain: string): Promise<NominationPoolInfo[]> {
+  // @ts-ignore
   return sendMessage('pri(bonding.getNominationPoolOptions)', chain);
 }
 
@@ -1321,38 +1386,46 @@ export async function subscribeStakingNominatorMetadata(
 }
 
 export async function submitPoolUnbonding(request: RequestStakePoolingUnbonding): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(bonding.nominationPool.submitUnbonding)', request);
 }
 
 export async function submitBonding(request: RequestBondingSubmit): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(bonding.submitBondingTransaction)', request);
 }
 
 export async function submitPoolBonding(request: RequestStakePoolingBonding): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(bonding.nominationPool.submitBonding)', request);
 }
 
 export async function submitUnbonding(request: RequestUnbondingSubmit): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(unbonding.submitTransaction)', request);
 }
 
 export async function submitStakeWithdrawal(params: RequestStakeWithdrawal): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(unbonding.submitWithdrawal)', params);
 }
 
 export async function submitStakeClaimReward(request: RequestStakeClaimReward): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(staking.submitClaimReward)', request);
 }
 
 export async function submitStakeCancelWithdrawal(
   request: RequestStakeCancelWithdrawal,
 ): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(staking.submitCancelWithdrawal)', request);
 }
 
 export async function parseEVMTransactionInput(
   request: RequestParseEvmContractInput,
 ): Promise<ResponseParseEvmContractInput> {
+  // @ts-ignore
   return sendMessage('pri(evm.transaction.parse.input)', request);
 }
 
@@ -1364,12 +1437,14 @@ export async function subscribeAuthUrl(callback: (data: AuthUrls) => void): Prom
 export async function submitTuringStakeCompounding(
   request: RequestTuringStakeCompound,
 ): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(staking.submitTuringCompound)', request);
 }
 
 export async function submitTuringCancelStakeCompounding(
   request: RequestTuringCancelStakeCompound,
 ): Promise<SWTransactionResponse> {
+  // @ts-ignore
   return sendMessage('pri(staking.submitTuringCancelCompound)', request);
 }
 
@@ -1382,75 +1457,92 @@ export async function keyringStateSubscribe(cb: (value: KeyringState) => void): 
 export async function keyringChangeMasterPassword(
   request: RequestChangeMasterPassword,
 ): Promise<ResponseChangeMasterPassword> {
+  // @ts-ignore
   return sendMessage('pri(keyring.change)', request);
 }
 
 export async function keyringMigrateMasterPassword(request: RequestMigratePassword): Promise<ResponseMigratePassword> {
+  // @ts-ignore
   return sendMessage('pri(keyring.migrate)', request);
 }
 
 export async function keyringUnlock(request: RequestUnlockKeyring): Promise<ResponseUnlockKeyring> {
+  // @ts-ignore
   return sendMessage('pri(keyring.unlock)', request);
 }
 
 export async function keyringLock(): Promise<void> {
+  // @ts-ignore
   return sendMessage('pri(keyring.lock)', null);
 }
 
 export async function keyringExportMnemonic(
   request: RequestKeyringExportMnemonic,
 ): Promise<ResponseKeyringExportMnemonic> {
+  // @ts-ignore
   return sendMessage('pri(keyring.export.mnemonic)', request);
 }
 
 export async function resetWallet(request: RequestResetWallet): Promise<ResponseResetWallet> {
+  // @ts-ignore
   return sendMessage('pri(keyring.reset)', request);
 }
 
 /// Derive
 export async function validateDerivePathV2(request: RequestDeriveValidateV2): Promise<ResponseDeriveValidateV2> {
+  // @ts-ignore
   return sendMessage('pri(derivation.validateV2)', request);
 }
 
 export async function getListDeriveAccounts(request: RequestGetDeriveAccounts): Promise<ResponseGetDeriveAccounts> {
+  // @ts-ignore
   return sendMessage('pri(derivation.getList)', request);
 }
 
 export async function deriveMultiple(request: RequestDeriveCreateMultiple): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(derivation.create.multiple)', request);
 }
 
 export async function deriveAccountV3(request: RequestDeriveCreateV3): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(derivation.createV3)', request);
 }
 
 export async function getTransaction(request: RequestGetTransaction): Promise<SWTransactionResult> {
+  // @ts-ignore
   return sendMessage('pri(transactions.getOne)', request);
 }
 
 // Wallet Connect
 
 export async function addConnection(request: RequestConnectWalletConnect): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(walletConnect.connect)', request);
 }
 
 export async function approveWalletConnectSession(request: RequestApproveConnectWalletSession): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(walletConnect.session.approve)', request);
 }
 
 export async function rejectWalletConnectSession(request: RequestRejectConnectWalletSession): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(walletConnect.session.reject)', request);
 }
 
 export async function disconnectWalletConnectConnection(topic: string): Promise<boolean> {
+  // @ts-ignore
   return sendMessage('pri(walletConnect.session.disconnect)', { topic });
 }
 
 export async function resolveDomainToAddress(request: ResolveDomainRequest) {
+  // @ts-ignore
   return sendMessage('pri(accounts.resolveDomainToAddress)', request);
 }
 
 export async function resolveAddressToDomain(request: ResolveAddressToDomainRequest) {
+  // @ts-ignore
   return sendMessage('pri(accounts.resolveAddressToDomain)', request);
 }
 
@@ -1501,6 +1593,6 @@ export async function getMetadata(genesisHash?: string | null, isPartial = false
   return null;
 }
 
-export async function completeBannerCampaign(request: RequestCampaignBannerComplete): Promise<boolean> {
-  return sendMessage('pri(campaign.banner.complete)', request);
-}
+// export async function completeBannerCampaign(request: RequestCampaignBannerComplete): Promise<boolean> {
+//   return sendMessage('pri(campaign.banner.complete)', request);
+// }
