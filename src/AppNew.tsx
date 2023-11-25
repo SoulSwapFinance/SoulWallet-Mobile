@@ -1,40 +1,40 @@
 // Copyright 2019-2022 @soul-wallet/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
-import { ExternalRequestContextProvider } from 'providers/ExternalRequestContext';
-import { QrSignerContextProvider } from 'providers/QrSignerContext';
-import { ScannerContextProvider } from 'providers/ScannerContext';
-import { SigningContextProvider } from 'providers/SigningContext';
-import React, { useEffect } from 'react';
-import { AppState, StatusBar, StyleProp, View } from 'react-native';
-import { ThemeContext } from 'providers/contexts';
-import { THEME_PRESET } from 'styles/themes';
-import { ToastProvider } from 'react-native-toast-notifications';
-import { FontMedium, STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import useAppLock from 'hooks/useAppLock';
-import useCryptoReady from 'hooks/init/useCryptoReady';
-import useSetupI18n from 'hooks/init/useSetupI18n';
-import SplashScreen from 'react-native-splash-screen';
-import { LoadingScreen } from 'screens/LoadingScreen';
-import { ColorMap } from 'styles/color';
-import { AutoLockState } from 'utils/autoLock';
-import useStoreBackgroundService from 'hooks/store/useStoreBackgroundService';
-import { TOAST_DURATION } from 'constants/index';
-import AppNavigator from './AppNavigator';
-import { updateShowZeroBalanceState } from 'stores/utils';
-import { setBuildNumber } from './stores/AppVersion';
-import { getBuildNumber } from 'react-native-device-info';
+import { ExternalRequestContextProvider } from 'providers/ExternalRequestContext'
+import { QrSignerContextProvider } from 'providers/QrSignerContext'
+import { ScannerContextProvider } from 'providers/ScannerContext'
+import { SigningContextProvider } from 'providers/SigningContext'
+import React, { useEffect } from 'react'
+import { AppState, StatusBar, StyleProp, View } from 'react-native'
+import { ThemeContext } from 'providers/contexts'
+import { THEME_PRESET } from 'styles/themes'
+import { ToastProvider } from 'react-native-toast-notifications'
+import { FontMedium, STATUS_BAR_HEIGHT } from 'styles/sharedStyles'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import useAppLock from 'hooks/useAppLock'
+import useCryptoReady from 'hooks/init/useCryptoReady'
+import useSetupI18n from 'hooks/init/useSetupI18n'
+import SplashScreen from 'react-native-splash-screen'
+import { LoadingScreen } from 'screens/LoadingScreen'
+import { ColorMap } from 'styles/color'
+import { AutoLockState } from 'utils/autoLock'
+import useStoreBackgroundService from 'hooks/store/useStoreBackgroundService'
+import { TOAST_DURATION } from 'constants/index'
+import AppNavigator from './AppNavigator'
+// import { updateShowZeroBalanceState } from 'stores/utils'
+// import { setBuildNumber } from './stores/AppVersion'
+import { getBuildNumber } from 'react-native-device-info'
 
-import { AppModalContextProvider } from './providers/AppModalContext';
+import { AppModalContextProvider } from './providers/AppModalContext'
 import { CustomToast } from 'components/Design/Toast'
-import { PortalProvider } from '@gorhom/portal';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { LockTimeout } from 'stores/types';
-import { keyringLock } from './messaging';
-import { updateAutoLockTime } from 'stores/MobileSettings';
-import { useGetTokenConfigQuery } from 'stores/API';
+import { PortalProvider } from '@gorhom/portal'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { LockTimeout } from 'stores/types'
+import { keyringLock } from './messaging'
+import { updateAutoLockTime } from 'stores/MobileSettings'
+import { useGetTokenConfigQuery } from 'stores/API'
 
 const layerScreenStyle: StyleProp<any> = {
   top: 0,

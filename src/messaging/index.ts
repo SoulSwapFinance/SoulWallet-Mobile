@@ -631,6 +631,10 @@ export async function forgetAccount(address: string, lockAfter = false): Promise
   return sendMessage('pri(accounts.forget)', { address, lockAfter });
 }
 
+export async function forgotAccount(address: string, lockAfter = false): Promise<boolean> {
+  return sendMessage('pri(accounts.forget)', { address, lockAfter });
+}
+
 export async function approveAuthRequest(id: string): Promise<boolean> {
   return sendMessage('pri(authorize.approve)', { id });
 }

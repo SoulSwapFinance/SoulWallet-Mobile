@@ -1,32 +1,32 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'
 import {
   ChainStakingMetadata,
   NominatorMetadata,
   StakingItem,
   StakingRewardItem,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { ALL_KEY, deviceHeight, TOAST_DURATION } from 'constants/index';
-import { ArrowArcLeft, ArrowCircleDown, IconProps, MinusCircle, PlusCircle, Wallet } from 'phosphor-react-native';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { TouchableOpacity } from 'react-native';
-import Toast from 'react-native-toast-notifications';
-import ToastContainer from 'react-native-toast-notifications';
-import { ColorMap } from 'styles/color';
-import { FontSemiBold, STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
+} from '@soul-wallet/extension-base/src/background/KoniTypes'
+import { ALL_KEY, deviceHeight, TOAST_DURATION } from 'constants/index'
+import { ArrowArcLeft, ArrowCircleDown, IconProps, MinusCircle, PlusCircle, Wallet } from 'phosphor-react-native'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
+import { TouchableOpacity } from 'react-native'
+import Toast from 'react-native-toast-notifications'
+import ToastContainer from 'react-native-toast-notifications'
+import { ColorMap } from 'styles/color'
+import { FontSemiBold, STATUS_BAR_HEIGHT } from 'styles/sharedStyles'
 import {
   getStakingAvailableActionsByChain,
   getStakingAvailableActionsByNominator,
   StakingAction,
-} from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils';
-import { RootNavigationProps } from 'routes/index';
-import { ActivityIndicator, BackgroundIcon, SwModal, Typography } from 'components/Design';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import i18n from 'utils/i18n/i18n';
-import { CustomToast } from 'components/Design/Toast';
-import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
+} from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils'
+import { RootNavigationProps } from 'routes/index'
+import { ActivityIndicator, BackgroundIcon, SwModal, Typography } from 'components/Design'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import i18n from 'utils/i18n/i18n'
+import { CustomToast } from 'components/Design/Toast'
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2'
 
 interface Props {
   visible: boolean;

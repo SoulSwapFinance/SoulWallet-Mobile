@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react'
 import {
   APIItemState,
   ChainStakingMetadata,
@@ -10,40 +10,40 @@ import {
   StakingType,
   UnstakingInfo,
   UnstakingStatus,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { isShowNominationByValidator } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils';
-import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
-import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
-import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
+} from '@soul-wallet/extension-base/src/background/KoniTypes'
+import { isShowNominationByValidator } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils'
+import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants'
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
+import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly'
+import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo'
 import {
   _getChainNativeTokenBasicInfo,
   _getChainSubstrateAddressPrefix,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
-import { ALL_KEY, deviceHeight, TOAST_DURATION } from 'constants/index';
-import { useNavigation } from '@react-navigation/native';
-import { StakingStatusUi } from 'constants/stakingStatusUi';
-import MetaInfo from 'components/MetaInfo';
-import { toShort } from 'utils/index';
-import { getUnstakingPeriod, getWaitingTime } from 'screens/Transaction/helper/staking';
-import { ScrollView, TouchableHighlight, View } from 'react-native';
-import { Avatar, Button, Icon, Number, SwModal, Typography } from 'components/Design';
-import { ArrowCircleUpRight, DotsThree } from 'phosphor-react-native';
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
-import { FontMedium, STATUS_BAR_HEIGHT } from 'styles/sharedStyles';
-import { ThemeTypes } from 'styles/themes';
-import { isAccountAll } from 'utils/accountAll';
-import { RootNavigationProps } from 'routes/index';
-import ToastContainer from 'react-native-toast-notifications';
-import Toast from 'react-native-toast-notifications';
-import { ColorMap } from 'styles/color';
-import i18n from 'utils/i18n/i18n';
-import { CustomToast } from 'components/Design/Toast';
-import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
-import StakingActionModal from 'screens/Home/Staking/StakingDetail/StakingActionModal';
+} from '@soul-wallet/extension-base/src/services/chain-service/utils'
+import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress'
+import { ALL_KEY, deviceHeight, TOAST_DURATION } from 'constants/index'
+import { useNavigation } from '@react-navigation/native'
+import { StakingStatusUi } from 'constants/stakingStatusUi'
+import MetaInfo from 'components/MetaInfo'
+import { toShort } from 'utils/index'
+import { getUnstakingPeriod, getWaitingTime } from 'screens/Transaction/helper/staking'
+import { ScrollView, TouchableHighlight, View } from 'react-native'
+import { Avatar, Button, Icon, Number, SwModal, Typography } from 'components/Design'
+import { ArrowCircleUpRight, DotsThree } from 'phosphor-react-native'
+import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants'
+import { FontMedium, STATUS_BAR_HEIGHT } from 'styles/sharedStyles'
+import { ThemeTypes } from 'styles/themes'
+import { isAccountAll } from 'utils/accountAll'
+import { RootNavigationProps } from 'routes/index'
+import ToastContainer from 'react-native-toast-notifications'
+import Toast from 'react-native-toast-notifications'
+import { ColorMap } from 'styles/color'
+import i18n from 'utils/i18n/i18n'
+import { CustomToast } from 'components/Design/Toast'
+import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2'
+import StakingActionModal from 'screens/Home/Staking/StakingDetail/StakingActionModal'
 
 interface Props {
   nominatorMetadata?: NominatorMetadata;
