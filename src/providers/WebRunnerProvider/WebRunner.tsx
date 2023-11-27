@@ -382,7 +382,7 @@ export const WebRunner = React.memo(({ webRunnerRef, webRunnerStateRef, webRunne
         if (webData?.backupStorage && Object.keys(webData?.backupStorage || {})?.length > 0) {
           // console.log('eventData.nativeEvent.data', eventData.nativeEvent.data);
           const isAccount = Object.keys(webData.backupStorage).find((item: string) => item.startsWith('account:'));
-          if (isAccount && webData.backupStorage['keyring:subwallet']) {
+          if (isAccount && (webData.backupStorage['keyring:subwallet'] || webData.backupStorage['keyring:soulwallet'])) {
             mmkvStore.set('backupStorage', JSON.stringify(webData.backupStorage));
           }
           return;
@@ -412,6 +412,7 @@ export const WebRunner = React.memo(({ webRunnerRef, webRunnerStateRef, webRunne
               if (webRunnerRef.current && !!data && Object.keys(newData).length > 0) {
                 const keys = Object.keys(newData);
                 keys.forEach(key => {
+                  // @ts-ignore
                   webRunnerRef.current.injectJavaScript(`window.localStorage.setItem('${key}', '${newData[key]}');`);
                 });
               }
@@ -422,18 +423,19 @@ export const WebRunner = React.memo(({ webRunnerRef, webRunnerStateRef, webRunne
               if (webRunnerRef.current) {
                 webRunnerRef.current.injectJavaScript(
                   'window.ReactNativeWebView.postMessage(JSON.stringify({backupStorage: window.localStorage}));',
-                );
+                  );
+                }
               }
-            }
-          }}
-          onLoadEnd={() => {
-            if (osVersion.startsWith('17') && isIOS) {
-              const data = mmkvStore.getString('backupStorage');
-              // console.log('start  =================', data);
-              const newData = data ? JSON.parse(data) : {};
-              if (webRunnerRef.current && !!data && Object.keys(newData).length > 0) {
-                const keys = Object.keys(newData);
-                keys.forEach(key => {
+            }}
+            onLoadEnd={() => {
+              if (osVersion.startsWith('17') && isIOS) {
+                const data = mmkvStore.getString('backupStorage');
+                // console.log('start  =================', data);
+                const newData = data ? JSON.parse(data) : {};
+                if (webRunnerRef.current && !!data && Object.keys(newData).length > 0) {
+                  const keys = Object.keys(newData);
+                  keys.forEach(key => {
+                  // @ts-ignore
                   webRunnerRef.current.injectJavaScript(`window.localStorage.setItem('${key}', '${newData[key]}');`);
                 });
               }
