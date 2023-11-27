@@ -13,14 +13,11 @@ import i18n from 'utils/i18n/i18n';
 import VersionNumber from 'react-native-version-number';
 import { getId } from '@soul-wallet/extension-base/src/utils/getId';
 import { mmkvStore } from 'utils/storage';
+import { getSystemVersion } from 'react-native-device-info';
 
 const WEB_SERVER_PORT = 9135;
-// const LONG_TIMEOUT = 300000; // 5 * 60*1000  // 30s
-// const LONG_TIMEOUT = 600000; // 10 * 60*1000  // 60s
-const LONG_TIMEOUT = 1200000; // 10 * 60*1000  // 120s
-// const ACCEPTABLE_RESPONSE_TIME = 30000; // 30s
-const ACCEPTABLE_RESPONSE_TIME = 60000; // 60s
-// const ACCEPTABLE_RESPONSE_TIME = 120000; // 2mins
+const LONG_TIMEOUT = 300000; //5*60*1000
+const ACCEPTABLE_RESPONSE_TIME = 30000;
 
 const getJsInjectContent = (showLog?: boolean) => {
   let injectedJS = `
@@ -132,14 +129,7 @@ class WebRunnerHandler {
     check();
   }
 
-  startPing(
-    // pingInterval: number = 30000, // 30s
-    pingInterval: number = 60000, // 60s
-    timeCheck: number = 3000,
-    // pingTimeout: number = 15000, // 15s
-    pingTimeout: number = 30000, // 30s
-    // pingTimeout: number = 60000, // 60s
-  ) {
+  startPing(pingInterval: number = 30000, timeCheck: number = 3000, pingTimeout: number = 15000) {
     this.stopPing();
     this.lastTimeResponse = undefined;
     this.pingInterval && clearInterval(this.pingInterval);
@@ -300,11 +290,9 @@ class WebRunnerHandler {
         } else {
           setTimeout(() => {
             this.ping();
-            // timecheck, timeout, maxRetry
             this.pingCheck(3000, 15000, 0);
             this.startPing();
-          }, 60000); // every 60s
-          // }, 15000); // every 15s
+          }, 15000);
         }
       } else {
         this.lastActiveTime = now;
@@ -382,10 +370,27 @@ export const WebRunner = React.memo(({ webRunnerRef, webRunnerStateRef, webRunne
     eventEmitter: webRunnerEventEmitter,
   });
 
+  const osVersion = getSystemVersion();
+  const isIOS = Platform.OS === 'ios';
   webRunnerHandler.update(runnerGlobalState, dispatchRunnerGlobalState);
   webRunnerHandler.active();
 
   const onMessage = (eventData: NativeSyntheticEvent<WebViewMessage>) => {
+      if (osVersion.startsWith('17') && isIOS) {
+      try {
+        const webData = JSON.parse(eventData.nativeEvent.data);
+        if (webData?.backupStorage && Object.keys(webData?.backupStorage || {})?.length > 0) {
+          // console.log('eventData.nativeEvent.data', eventData.nativeEvent.data);
+          const isAccount = Object.keys(webData.backupStorage).find((item: string) => item.startsWith('account:'));
+          if (isAccount && webData.backupStorage['keyring:subwallet']) {
+            mmkvStore.set('backupStorage', JSON.stringify(webData.backupStorage));
+          }
+          return;
+        }
+      } catch (e) {
+        console.log('parse json failed', e);
+      }
+    }
     webRunnerHandler.onRunnerMessage(eventData);
   };
 
@@ -398,6 +403,42 @@ export const WebRunner = React.memo(({ webRunnerRef, webRunnerStateRef, webRunne
           onMessage={onMessage}
           originWhitelist={['*']}
           injectedJavaScript={runnerGlobalState.injectScript}
+          webviewDebuggingEnabled
+          onLoadStart={() => {
+            if (osVersion.startsWith('17') && isIOS) {
+              const data = mmkvStore.getString('backupStorage');
+              // console.log('start  =================', data);
+              const newData = data ? JSON.parse(data) : {};
+              if (webRunnerRef.current && !!data && Object.keys(newData).length > 0) {
+                const keys = Object.keys(newData);
+                keys.forEach(key => {
+                  webRunnerRef.current.injectJavaScript(`window.localStorage.setItem('${key}', '${newData[key]}');`);
+                });
+              }
+            }
+          }}
+          onLoadProgress={() => {
+            if (osVersion.startsWith('17') && isIOS) {
+              if (webRunnerRef.current) {
+                webRunnerRef.current.injectJavaScript(
+                  'window.ReactNativeWebView.postMessage(JSON.stringify({backupStorage: window.localStorage}));',
+                );
+              }
+            }
+          }}
+          onLoadEnd={() => {
+            if (osVersion.startsWith('17') && isIOS) {
+              const data = mmkvStore.getString('backupStorage');
+              // console.log('start  =================', data);
+              const newData = data ? JSON.parse(data) : {};
+              if (webRunnerRef.current && !!data && Object.keys(newData).length > 0) {
+                const keys = Object.keys(newData);
+                keys.forEach(key => {
+                  webRunnerRef.current.injectJavaScript(`window.localStorage.setItem('${key}', '${newData[key]}');`);
+                });
+              }
+            }
+          }}
           onError={e => console.debug('### WebRunner error', e)}
           onHttpError={e => console.debug('### WebRunner HttpError', e)}
           javaScriptEnabled={true}
