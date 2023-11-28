@@ -28,6 +28,8 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>soulwallet</string>
+				<string>subwallet</string>
+				<string>metamask</string>
 			</array>
 		</dict>
 	</array>
