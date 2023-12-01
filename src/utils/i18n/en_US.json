@@ -53,7 +53,7 @@
     "status": "status: ",
     "url": "URL: ",
     "version": "Version: ",
-    "allAccounts": "All accounts",
+    "allAccounts": "All Accounts",
     "message": "Message",
     "input": "Input",
     "max": "Max",
@@ -345,7 +345,7 @@
     "copyToClipboard": "Copy to clipboard",
     "finish": "Finish",
     "remove": "Remove",
-    "saveItSomeWhereSafe": "I have kept it somewhere safe",
+    "saveItSomeWhereSafe": "Stored Safely",
     "importAccount": "Import account",
     "importByJsonFile": "Import by JSON file",
     "scanQrCode": "Scan QR code",
@@ -595,9 +595,9 @@
   "warning": {
     "warningAccTitle": "Warning: Never disclose this key",
     "warningAccMessage": "Anyone with your key can use any assets held in your account",
-    "warningPasswordTitle": "Always choose a strong password!",
-    "warningPasswordMessage": "6 characters at least. Uppercase, numbers, and special characters are recommended",
-    "warningCreatePasswordTitle": "Always choose a strong password!"
+    "warningPasswordTitle": "Password Requirements",
+    "warningPasswordMessage": "6 characters at least. Uppercase, numbers, and special characters are recommended.",
+    "warningCreatePasswordTitle": "Password Requirements"
   },
   "message": {
     "claimRewardMessage1": "Your rewards will be bonded back into the pool after claiming",
