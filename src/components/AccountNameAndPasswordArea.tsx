@@ -1,7 +1,7 @@
 import React from 'react';
 import { EditAccountInputText } from 'components/EditAccountInputText';
 import { PasswordField } from 'components/Field/Password';
-import { FormState } from 'hooks/screen/hooks/useFormControl';
+import { FormState } from 'hooks/screen/useFormControl';
 
 interface Props {
   formState: FormState;

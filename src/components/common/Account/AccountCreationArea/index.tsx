@@ -20,10 +20,10 @@ import { RootNavigationProps, RootStackParamList } from 'routes/index';
 import ToastContainer from 'react-native-toast-notifications';
 import { SelectAccountTypeModal } from 'components/Modal/SelectAccountTypeModal';
 import { KeypairType } from '@polkadot/util-crypto/types';
-import { canDerive } from '@soul-wallet/extension-base/src/utils';
+import { canDerive } from '@subwallet/extension-base/utils';
 import { AccountActionSelectModal, ActionItemType } from 'components/Modal/AccountActionSelectModal';
 import { ModalRef } from 'types/modalRef';
-import useGoHome from 'hooks/screen/hooks/useGoHome';
+import useGoHome from 'hooks/screen/useGoHome';
 import { ColorMap } from 'styles/color';
 
 interface Props {
@@ -47,7 +47,7 @@ export const AccountCreationArea = ({
   const importAccountActions = [
     {
       key: 'secretPhrase',
-      backgroundColor: ColorMap.lightPurple,
+      backgroundColor:  ColorMap.lightPurple,
       icon: Leaf,
       label: i18n.importAccount.importFromSeedPhrase,
     },
@@ -228,7 +228,11 @@ export const AccountCreationArea = ({
         modalTitle={i18n.header.createNewAcc}
         items={createAccountAction}
         onSelectItem={createAccountFunc}>
-        <DeriveAccountModal deriveAccModalRef={deriveAccModalRef} goHome={goHome} navigation={navigation} />
+        <DeriveAccountModal 
+          deriveAccModalRef={deriveAccModalRef} 
+          // goHome={goHome} 
+          navigation={navigation} 
+        />
       </AccountActionSelectModal>
 
       <SelectAccountTypeModal selectTypeRef={selectTypeRef} onConfirm={onSelectAccountTypes} />

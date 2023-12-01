@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { Avatar, Icon, Typography } from 'components/Design';
-import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
+import { isAccountAll } from '@subwallet/extension-base/utils';
 import AvatarGroup from '../../AvatarGroup';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

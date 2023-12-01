@@ -16,14 +16,15 @@ import { RootNavigationProps } from 'routes/index';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { ModalRef } from 'types/modalRef';
+import { PRIVACY_AND_POLICY_URL, TERMS_OF_SERVICE_URL } from 'constants/index';
 
 const imageBackgroundStyle: StyleProp<any> = {
   flex: 1,
   justifyContent: 'flex-end',
   alignItems: 'center',
   paddingHorizontal: 16,
-  paddingBottom: Platform.OS === 'ios' ? 0 : 20,
-  // paddingBottom: Platform.OS === 'ios' ? 56 : 20,
+  // paddingBottom: Platform.OS === 'ios' ? 0 : 20,
+  paddingBottom: Platform.OS === 'ios' ? 56 : 20,
   position: 'relative',
 };
 
@@ -40,7 +41,7 @@ const logoTextStyle: StyleProp<any> = {
   fontSize: 38,
   lineHeight: 46,
   ...FontSemiBold,
-  color: ColorMap.lightPurple, // ColorMap.light,
+  color: ColorMap.light,
   paddingTop: 9,
 };
 
@@ -48,8 +49,6 @@ const logoSubTextStyle: StyleProp<any> = {
   fontSize: 16,
   fontStyle: 'italic',
   lineHeight: 24,
-  // ...FontMediumItalic,
-  // subtitle
   color: 'rgba(255, 255, 255, 0.65)',
   paddingTop: 12,
 };
@@ -58,14 +57,15 @@ const firstScreenNotificationStyle: StyleProp<any> = {
   ...sharedStyles.smallText,
   color: 'rgba(255, 255, 255, 0.45)',
   textAlign: 'center',
-  paddingHorizontal: 4,
+  // paddingHorizontal: 4,
+  paddingHorizontal: 16,
   paddingTop: 0,
-  // backgroundColor: '#100C08',
   ...FontMedium,
 };
 
 export const FirstScreen = () => {
   const navigation = useNavigation<RootNavigationProps>();
+  // @ts-ignore
   const hasMasterPassword = useSelector((state: RootState) => state.accountState.hasMasterPassword);
   const createAccountRef = useRef<ModalRef>();
   const importAccountRef = useRef<ModalRef>();
@@ -89,11 +89,11 @@ export const FirstScreen = () => {
   }, []);
 
   const onPressTermsCondition = () => {
-    Linking.openURL('https://docs.soulswap.finance/docs/faq/user-agreement');
+    Linking.openURL(TERMS_OF_SERVICE_URL);
   };
 
   const onPressPolicy = () => {
-    Linking.openURL('https://docs.soulswap.finance/docs/faq/privacy-policy');
+    Linking.openURL(PRIVACY_AND_POLICY_URL);
   };
 
   const onCreate = useCallback(() => {
@@ -138,8 +138,10 @@ export const FirstScreen = () => {
             style={{
               flex: 1,
               justifyContent: 'center',
-              marginBottom: 4,
-              paddingTop: 0,
+              // marginBottom: 4,
+              // paddingTop: 0,
+              marginBottom: 16,
+              paddingTop: 40,
               alignItems: 'center',
             }}>
             <Suspense>
@@ -149,16 +151,20 @@ export const FirstScreen = () => {
             <Text style={logoSubTextStyle}>{i18n.title.slogan}</Text>
           </View>
 
-          <View style={{ width: '100%', marginBottom: 200, }}>
+          <View 
+            style={{ width: '100%'
+            // , marginBottom: 200,
+            }}
+          >
             {actionList.map(item => (
               <AccountActionButton key={item.key} item={item} />
             ))}
           </View>
         </View>
 
-        <Text 
-          style={firstScreenNotificationStyle}>
-            {i18n.common.firstScreenMessagePart1}
+        {/*// TODO: add hyperlink for T&C and Privacy Policy*/}
+        <Text style={firstScreenNotificationStyle}>
+          {i18n.common.firstScreenMessagePart1}
         </Text>
         <Text style={firstScreenNotificationStyle}>
           <Text onPress={onPressTermsCondition} style={{ color: theme.colorTextLight1 }}>

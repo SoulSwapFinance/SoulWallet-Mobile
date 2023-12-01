@@ -2,13 +2,15 @@ import { ADDRESS_CHAIN_MAP } from "constants/addresses";
 import React, { useRef, useState } from "react";
 import { View } from "react-native"
 import WebView from "react-native-webview"
-import Button from 'components/Design/Button'
+// import Button from 'components/Design/Button'
 import Text from 'components/Text'
+import { Button } from "components/Design";
 const isMapped = (symbol: string) => {
   return ADDRESS_CHAIN_MAP[symbol] != undefined
 }
 
-const PriceChart = ({ groupSymbol, networkId }) => {
+// @ts-ignore
+const PriceChart = ({ groupSymbol }) => {
   const webviewRef = useRef<WebView>(null)
   const [viewChart, setViewChart] = useState(false)
   // const [tokenInfo, setTokenInfo] = useState(['ethereum', '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'])
