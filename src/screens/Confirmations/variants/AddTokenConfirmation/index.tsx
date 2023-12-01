@@ -1,4 +1,4 @@
-import { ConfirmationDefinitions, ConfirmationResult } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ConfirmationDefinitions, ConfirmationResult } from '@subwallet/extension-base/background/KoniTypes';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import ConfirmationFooter from 'components/Common/Confirmation/ConfirmationFooter';
 import { Button, Icon } from 'components/Design';

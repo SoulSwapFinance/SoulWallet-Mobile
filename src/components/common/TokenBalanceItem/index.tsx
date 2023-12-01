@@ -21,6 +21,7 @@ export const TokenBalanceItem = ({
   isReady,
   total,
   chain,
+  slug,
   isShowBalance,
   ...wrapperProps
 }: Props) => {
@@ -28,18 +29,17 @@ export const TokenBalanceItem = ({
   const _style = TokenBalanceItemStyles(theme);
 
   const totalConvertedValue = 
-    total.convertedValue == new BigN(0) 
-      ? new BigN(getPrice(symbol)).times(total.value) 
-        : total.convertedValue
-
+  total.convertedValue == new BigN(0) 
+    ? new BigN(getPrice(symbol)).times(total.value) 
+      : total.convertedValue
   return (
     <TouchableOpacity style={{ width: '100%' }} {...wrapperProps}>
       <View style={_style.chainBalanceMainArea}>
         <View style={_style.chainBalancePart1}>
           <Logo 
-            size={40} token={symbol.toLowerCase()} 
-            isShowSoulLogo
-            subNetwork={chain} 
+            size={40} 
+            token={slug.toLowerCase()} 
+            isShowSoulLogo subNetwork={chain} 
           />
         </View>
 
@@ -50,14 +50,10 @@ export const TokenBalanceItem = ({
           <Text style={_style.chainNameStyle} numberOfLines={1}>
             {chainDisplayName?.replace(' Relay Chain', '')}
           </Text>
-          {/* <Text style={_style.chainNameStyle} numberOfLines={1}>
-            {balanceUSD}
-          </Text> */}
         </View>
 
         <View style={_style.chainBalancePart2Wrapper}>
           <View style={_style.chainBalancePart2}>
-              <>
                 <Number
                   style={{ paddingBottom: 4 }}
                   value={!isReady ? BN_ZERO : total.value}
@@ -70,8 +66,8 @@ export const TokenBalanceItem = ({
                 <Number
                   value={
                     isTestnet || !isReady 
-                      ? BN_ZERO
-                      : totalConvertedValue
+                      ? BN_ZERO 
+                      : totalConvertedValue // total.convertedValue
                   }
                   decimal={0}
                   intOpacity={0.45}
@@ -81,7 +77,6 @@ export const TokenBalanceItem = ({
                   size={theme.fontSizeSM}
                   textStyle={{ ...FontMedium, lineHeight: theme.lineHeightSM * theme.fontSizeSM }}
                 />
-              </>
           </View>
           <View style={_style.iconWrapper}>
             <Icon

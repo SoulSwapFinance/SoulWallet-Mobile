@@ -20,10 +20,10 @@ export function ChainSelectItem<T>({ item, selectedValueMap, onSelectItem, onClo
         onSelectItem && onSelectItem(item);
         onCloseModal && onCloseModal();
       }}
-      showSeparator={true}
+      showSeparator={false}
       iconSize={28}
       isSelected={!!selectedValueMap[slug]}
-      defaultItemKey={'avalanche_c'}
+      // defaultItemKey={'avalanche_c'}
     />
   );
 }

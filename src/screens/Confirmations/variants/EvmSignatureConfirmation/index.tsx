@@ -1,4 +1,4 @@
-import { ConfirmationsQueueItem, EvmSignatureRequest } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ConfirmationsQueueItem, EvmSignatureRequest } from '@subwallet/extension-base/background/KoniTypes';
 import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
@@ -8,14 +8,17 @@ import { BaseDetailModal, EvmMessageDetail, EvmSignArea } from 'screens/Confirma
 import { EvmSignatureSupportType } from 'types/confirmation';
 import i18n from 'utils/i18n/i18n';
 import createStyle from './styles';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from 'routes/index';
 
 interface Props {
   type: EvmSignatureSupportType;
   request: ConfirmationsQueueItem<EvmSignatureRequest>;
+  navigation: NativeStackNavigationProp<RootStackParamList>;
 }
 
 const EvmSignatureConfirmation: React.FC<Props> = (props: Props) => {
-  const { request, type } = props;
+  const { request, type, navigation } = props;
   const { id, payload } = request;
   const { account } = payload;
   const theme = useSoulWalletTheme().swThemes;
@@ -33,7 +36,7 @@ const EvmSignatureConfirmation: React.FC<Props> = (props: Props) => {
           <EvmMessageDetail payload={payload} />
         </BaseDetailModal>
       </ConfirmationContent>
-      <EvmSignArea id={id} type={type} payload={request} />
+      <EvmSignArea id={id} type={type} payload={request} navigation={navigation} />
     </React.Fragment>
   );
 };

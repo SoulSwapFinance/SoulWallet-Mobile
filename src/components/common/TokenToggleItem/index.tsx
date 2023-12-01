@@ -3,7 +3,7 @@ import { Switch, Text, View } from 'react-native';
 import { PencilSimpleLine } from 'phosphor-react-native';
 import { ColorMap } from 'styles/color';
 import { Divider } from 'components/Divider';
-import { _ChainAsset } from '@soul-wallet/chain-list/types';
+import { _ChainAsset } from '@subwallet/chain-list/types';
 import { Button, Icon, Logo as SWLogo } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import TokenToggleItemStyles from './style';
@@ -25,7 +25,7 @@ export const TokenToggleItem = ({ item, onPress, isEnabled, onValueChange, isDis
       <View style={_style.container}>
         <View style={_style.leftContentWrapperStyle}>
           <SWLogo
-            token={item.symbol.toLowerCase()}
+            token={item.slug.toLowerCase()}
             subNetwork={item.originChain}
             defaultLogoKey={'soul'}
             size={36}

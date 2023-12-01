@@ -1,6 +1,6 @@
 import { ConfirmationContent } from 'components/Common/Confirmation';
 import React from 'react';
-import { SWTransactionResult } from '@soul-wallet/extension-base/src/services/transaction-service/types';
+import { SWTransactionResult } from '@subwallet/extension-base/services/transaction-service/types';
 import { Text } from 'react-native';
 
 export interface BaseTransactionConfirmationProps {

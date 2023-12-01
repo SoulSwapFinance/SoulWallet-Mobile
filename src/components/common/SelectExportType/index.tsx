@@ -1,5 +1,5 @@
 import { isEthereumAddress } from '@polkadot/util-crypto';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import { BackgroundIcon } from 'components/Design';
 import React, { useCallback, useMemo } from 'react';
 import { Text, View, ViewStyle } from 'react-native';

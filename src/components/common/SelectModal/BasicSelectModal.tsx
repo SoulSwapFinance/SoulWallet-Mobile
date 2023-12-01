@@ -2,13 +2,14 @@ import React, { ForwardedRef, forwardRef, useCallback, useImperativeHandle, useR
 import { Button, Icon, SwModal } from 'components/Design';
 import { IconProps } from 'phosphor-react-native';
 import { SelectModalField } from 'components/Common/SelectModal/parts/SelectModalField';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import { ActionSelectItem } from 'components/Common/SelectModal/parts/ActionSelectItem';
 import { FilterSelectItem } from 'components/Common/SelectModal/parts/FilterSelectItem';
 import { ActionItemType } from 'components/Modal/AccountActionSelectModal';
 import { OptionType } from 'components/Common/FilterModal';
 import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface Props<T> {
   title: string;
@@ -150,7 +151,15 @@ function _BasicSelectModal<T>(selectModalProps: Props<T>, ref: ForwardedRef<any>
           isUseForceHidden={isUseForceHidden}
           setVisible={setOpen}
           isUseModalV2={isUseModalV2}
-          onChangeModalVisible={() => {
+          onChangeModalVisible={
+            isUseModalV2
+              ? () => {
+                  !isUseModalV2 && onCloseModal();
+                  onChangeModalVisible && onChangeModalVisible();
+                }
+              : undefined
+          }
+          onBackdropPress={() => {
             !isUseModalV2 && onCloseModal();
             onChangeModalVisible && onChangeModalVisible();
           }}>

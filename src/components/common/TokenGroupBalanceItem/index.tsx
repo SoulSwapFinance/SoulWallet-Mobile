@@ -1,21 +1,19 @@
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native'
 import { TokenBalanceItemType } from 'types/balance'
-import { Icon, Logo, Number, Typography } from 'components/Design'
+import { Icon, Logo, Number } from 'components/Design'
 import { CaretRight } from 'phosphor-react-native'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import TokenGroupBalanceItemStyles from './style'
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles'
 import { getPrice } from 'constants/prices'
-// import { getInfo } from 'constants/tokenInfo'
+// import { HideBalanceItem } from 'components/HideBalanceItem'
 
 interface Props extends TokenBalanceItemType, TouchableOpacityProps {
   isShowBalance?: boolean;
 }
 
-
-
-// UI NOTE: Shows account balance.
+// UI NOTE: Shows Account Balance
 export const TokenGroupBalanceItem = ({
   symbol,
   isTestnet,
@@ -23,6 +21,7 @@ export const TokenGroupBalanceItem = ({
   total,
   priceChangeStatus,
   isShowBalance,
+  slug,
   ...wrapperProps
 }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
@@ -33,7 +32,7 @@ export const TokenGroupBalanceItem = ({
     <TouchableOpacity style={{ width: '100%' }} {...wrapperProps}>
       <View style={_style.chainBalanceMainArea}>
         <View style={_style.chainBalancePart1}>
-          <Logo size={40} token={symbol.toLowerCase()} />
+          <Logo size={40} token={slug.toLowerCase()} />
         </View>
 
         <View style={_style.chainBalanceMetaWrapper}>
@@ -58,29 +57,25 @@ export const TokenGroupBalanceItem = ({
           />
         </View>
 
-      {/* UI-NOTE: Shows balances (top: currency, bottom: usd) */}
         <View style={_style.chainBalancePart2Wrapper}>
           <View style={_style.chainBalancePart2}>
-              <>
               {/* UI NOTE: Shows the Currency Amount on Balances */}
                 <Number
                   value={total.value}
                   decimal={0}
-                  decimalOpacity={0.666}
+                  decimalOpacity={0.45}
                   size={theme.fontSizeLG}
                   textStyle={{ ...FontSemiBold, lineHeight: theme.lineHeightLG * theme.fontSizeLG }}
-                  suffix={symbol}
-                  />
-                  {/* UI NOTE: Shows the Currency Total Value on Balances */}
+                />
                 <Number
                 // UI NOTE: Shows the Currency Total Value on Balances (manual override for SOUL)
-                  value={ 
-                    // symbol == 'SOUL' && total.value 
-                    total.value && total.convertedValue.eq(0)
-                      ? total.value.multipliedBy(
-                        getPrice(symbol)) 
-                          : total.convertedValue 
-                  }
+                value={ 
+                  // symbol == 'SOUL' && total.value 
+                  total.value && total.convertedValue.eq(0)
+                    ? total.value.multipliedBy(
+                      getPrice(symbol)) 
+                        : total.convertedValue 
+                }
                   decimal={0}
                   intOpacity={0.45}
                   unitOpacity={0.45}
@@ -89,7 +84,6 @@ export const TokenGroupBalanceItem = ({
                   size={theme.fontSizeSM}
                   textStyle={{ ...FontMedium, lineHeight: theme.lineHeightSM * theme.fontSizeSM }}
                 />
-              </>
           </View>
           <View style={_style.iconWrapper}>
             <Icon type="phosphor" phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />

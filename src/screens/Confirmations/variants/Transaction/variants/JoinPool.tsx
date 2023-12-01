@@ -2,7 +2,7 @@ import { ConfirmationContent } from 'components/Common/Confirmation';
 import React from 'react';
 import { CommonTransactionInfo } from 'components/Common/Confirmation/CommonTransactionInfo';
 import { BaseTransactionConfirmationProps } from 'screens/Confirmations/variants/Transaction/variants/Base';
-import { RequestStakePoolingBonding } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { RequestStakePoolingBonding } from '@subwallet/extension-base/background/KoniTypes';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
 import MetaInfo from 'components/MetaInfo';
 import i18n from 'utils/i18n/i18n';

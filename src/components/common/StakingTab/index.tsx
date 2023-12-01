@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import StakingTabStyle from './style';
-import { StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
@@ -14,9 +14,10 @@ interface Props {
   selectedType: StakingType;
   onSelectType: (type: StakingType) => void;
   from: string;
+  disabled?: boolean;
 }
 
-export const StakingTab = ({ selectedType, onSelectType, from }: Props) => {
+export const StakingTab = ({ selectedType, onSelectType, from, disabled }: Props) => {
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   const theme = useSoulWalletTheme().swThemes;
   const _style = StakingTabStyle(theme);
@@ -28,8 +29,8 @@ export const StakingTab = ({ selectedType, onSelectType, from }: Props) => {
   };
 
   const isDisabled = useMemo(
-    () => isEthereumAddress(currentAccount?.address) && isEthereumAddress(from),
-    [currentAccount?.address, from],
+    () => (isEthereumAddress(currentAccount?.address) && isEthereumAddress(from)) || disabled,
+    [currentAccount?.address, disabled, from],
   );
 
   return (

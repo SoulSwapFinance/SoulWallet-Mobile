@@ -1,9 +1,9 @@
-import { ConfirmationsQueueItem, EvmSendTransactionRequest } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ConfirmationsQueueItem, EvmSendTransactionRequest } from '@subwallet/extension-base/background/KoniTypes';
 import BigN from 'bignumber.js';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainInfoByChainId from 'hooks/chain/useGetChainInfoByChainId';
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import React, { useMemo } from 'react';
 import { Text } from 'react-native';
@@ -11,10 +11,13 @@ import { BaseDetailModal, EvmSignArea, EvmTransactionDetail } from 'screens/Conf
 import { EvmSignatureSupportType } from 'types/confirmation';
 import i18n from 'utils/i18n/i18n';
 import createStyle from './styles';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from 'routes/index';
 
 interface Props {
   type: EvmSignatureSupportType;
   request: ConfirmationsQueueItem<EvmSendTransactionRequest>;
+  navigation: NativeStackNavigationProp<RootStackParamList>;
 }
 
 const convertToBigN = (num: EvmSendTransactionRequest['value']): string | number | undefined => {
@@ -26,7 +29,7 @@ const convertToBigN = (num: EvmSendTransactionRequest['value']): string | number
 };
 
 const EvmTransactionConfirmation: React.FC<Props> = (props: Props) => {
-  const { request, type } = props;
+  const { request, type, navigation } = props;
   const {
     id,
     payload: { account, chainId, to },
@@ -75,7 +78,7 @@ const EvmTransactionConfirmation: React.FC<Props> = (props: Props) => {
           <EvmTransactionDetail account={account} request={request.payload} />
         </BaseDetailModal>
       </ConfirmationContent>
-      <EvmSignArea id={id} type={type} payload={request} />
+      <EvmSignArea id={id} type={type} payload={request} navigation={navigation} />
     </React.Fragment>
   );
 };

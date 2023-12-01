@@ -4,16 +4,18 @@ import { TransactionHistoryDisplayItem } from 'types/history';
 import { CaretRight } from 'phosphor-react-native';
 import { Icon, Logo, Typography } from 'components/Design';
 import { Number } from 'components/Design';
-import { ExtrinsicStatus, TransactionDirection } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ExtrinsicStatus, TransactionDirection } from '@subwallet/extension-base/background/KoniTypes';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import HistoryItemStyles from './style';
 import { ThemeTypes } from 'styles/themes';
 import { HistoryStatusMap } from 'screens/Home/History/shared';
+// import { HideBalanceItem } from 'components/HideBalanceItem';
 
 interface Props {
   item: TransactionHistoryDisplayItem;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
+  isShowBalance?: boolean;
 }
 
 function getIconColor(status: ExtrinsicStatus, theme: ThemeTypes): string | undefined {
@@ -23,7 +25,7 @@ function getIconColor(status: ExtrinsicStatus, theme: ThemeTypes): string | unde
   return theme[color || ''];
 }
 
-export const HistoryItem = ({ item, onPress, style }: Props) => {
+export const HistoryItem = ({ item, onPress, style, isShowBalance }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
   const displayData = item.displayData;
   const _style = HistoryItemStyles(theme);

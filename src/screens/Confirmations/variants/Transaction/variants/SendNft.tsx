@@ -1,7 +1,7 @@
 import { ConfirmationContent } from 'components/Common/Confirmation';
 import React from 'react';
 import { BaseTransactionConfirmationProps } from 'screens/Confirmations/variants/Transaction/variants/Base';
-import { ExtrinsicDataTypeMap, ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ExtrinsicDataTypeMap, ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainPrefixBySlug from 'hooks/chain/useGetChainPrefixBySlug';

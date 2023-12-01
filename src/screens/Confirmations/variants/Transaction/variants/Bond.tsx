@@ -2,7 +2,7 @@ import { ConfirmationContent } from 'components/Common/Confirmation';
 import React from 'react';
 import { CommonTransactionInfo } from 'components/Common/Confirmation/CommonTransactionInfo';
 import { BaseTransactionConfirmationProps } from 'screens/Confirmations/variants/Transaction/variants/Base';
-import { RequestBondingSubmit, StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { RequestBondingSubmit, StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo';
 import MetaInfo from 'components/MetaInfo';
 import i18n from 'utils/i18n/i18n';
@@ -21,7 +21,7 @@ const BondTransactionConfirmation = ({ transaction }: Props) => {
       <MetaInfo style={{ marginTop: 12 }} hasBackgroundWrapper>
         <MetaInfo.AccountGroup
           addresses={addressList}
-          content={i18n.common.selectedValidators(data.selectedValidators.length)}
+          content={i18n.formatString(i18n.common.selectedValidators, data.selectedValidators.length)}
           label={data.type === StakingType.POOLED ? i18n.inputLabel.pool : i18n.inputLabel.validators}
         />
 

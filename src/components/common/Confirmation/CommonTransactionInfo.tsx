@@ -1,6 +1,6 @@
 import React from 'react';
 import MetaInfo from 'components/MetaInfo';
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
 import useGetChainPrefixBySlug from 'hooks/chain/useGetChainPrefixBySlug';
 import { toShort } from 'utils/index';
 import i18n from 'utils/i18n/i18n';

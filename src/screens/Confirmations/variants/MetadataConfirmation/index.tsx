@@ -1,4 +1,4 @@
-import { MetadataRequest } from '@soul-wallet/extension-base/src/background/types';
+import { MetadataRequest } from '@subwallet/extension-base/background/types';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import ConfirmationFooter from 'components/Common/Confirmation/ConfirmationFooter';
 import { Button, Icon } from 'components/Design';
@@ -48,7 +48,9 @@ const MetadataConfirmation: React.FC<Props> = (props: Props) => {
       <ConfirmationContent>
         <ConfirmationGeneralInfo request={request} />
         <Text style={styles.text}>{i18n.confirmation.yourMetadataIsOutOfDate}</Text>
-        <Text style={styles.description}>{i18n.confirmation.metadataDescription(chain, request.url)}</Text>
+        <Text style={styles.description}>
+          {i18n.formatString(i18n.confirmation.metadataDescription, chain, request.url)}
+        </Text>
         <View style={{ paddingBottom: 8 }}>
           <View style={styles.detailContainer}>
             <Text style={styles.detailName}>{i18n.common.symbol}</Text>

@@ -1,17 +1,16 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { WalletConnectSessionRequest } from '@soul-wallet/extension-base/src/services/wallet-connect-service/types';
+import { WalletConnectSessionRequest } from '@subwallet/extension-base/services/wallet-connect-service/types';
 import { approveWalletConnectSession, rejectWalletConnectSession } from 'messaging/index';
 import { isAccountAll } from 'utils/accountAll';
 import {
   WALLET_CONNECT_EIP155_NAMESPACE,
   WALLET_CONNECT_POLKADOT_NAMESPACE,
-} from '@soul-wallet/extension-base/src/services/wallet-connect-service/constants';
+} from '@subwallet/extension-base/services/wallet-connect-service/constants';
 import useSelectWalletConnectAccount from 'hooks/wallet-connect/useSelectWalletConnectAccount';
 import { VoidFunction } from 'types/index';
 import { useToast } from 'react-native-toast-notifications';
-import { useNavigation } from '@react-navigation/native';
 import { convertKeyTypes } from 'utils/index';
-import { RootNavigationProps } from 'routes/index';
+import { RootStackParamList } from 'routes/index';
 import ConfirmationContent from '../../../../components/Common/Confirmation/ConfirmationContent';
 import ConfirmationGeneralInfo from '../../../../components/Common/Confirmation/ConfirmationGeneralInfo';
 import AlertBox from 'components/Design/AlertBox';
@@ -29,9 +28,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { Minimizer } from '../../../../NativeModules';
 import { updateIsDeepLinkConnect } from 'stores/base/Settings';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 interface Props {
   request: WalletConnectSessionRequest;
+  navigation: NativeStackNavigationProp<RootStackParamList>;
 }
 
 const handleConfirm = async ({ id }: WalletConnectSessionRequest, selectedAccounts: string[]) => {
@@ -47,16 +48,15 @@ const handleCancel = async ({ id }: WalletConnectSessionRequest) => {
   });
 };
 
-export const ConnectWalletConnectConfirmation = ({ request }: Props) => {
-  const navigation = useNavigation<RootNavigationProps>();
+export const ConnectWalletConnectConfirmation = ({ request, navigation }: Props) => {
   const { params } = request.request;
   const toast = useToast();
   const { hasMasterPassword } = useSelector((state: RootState) => state.accountState);
   const { isDeepLinkConnect } = useSelector((state: RootState) => state.settings);
   const nameSpaceNameMap = useMemo(
     (): Record<string, string> => ({
-      [WALLET_CONNECT_EIP155_NAMESPACE]: 'EVM networks',
-      [WALLET_CONNECT_POLKADOT_NAMESPACE]: 'Substrate networks',
+      [WALLET_CONNECT_EIP155_NAMESPACE]: i18n.common.evmNetworks,
+      [WALLET_CONNECT_POLKADOT_NAMESPACE]: i18n.common.substrateNetworks,
     }),
     [],
   );
@@ -110,7 +110,7 @@ export const ConnectWalletConnectConfirmation = ({ request }: Props) => {
 
     handleConfirm(request, selectedAccounts)
       .then(() => {
-        toast.show('Connect successfully', { type: 'success' });
+        toast.show('Connect Successfully', { type: 'success' });
         isDeepLinkConnect && Minimizer.goBack();
       })
       .catch(e => {
@@ -177,7 +177,7 @@ export const ConnectWalletConnectConfirmation = ({ request }: Props) => {
           </>
         )}
         {isSupportCase && (
-          <View>
+          <View style={{ gap: theme.padding }}>
             {Object.entries(namespaceAccounts).map(([namespace, value]) => {
               const { appliedAccounts, availableAccounts, networks, selectedAccounts } = value;
 
@@ -203,6 +203,7 @@ export const ConnectWalletConnectConfirmation = ({ request }: Props) => {
                     onApply={onApplyModal(namespace)}
                     onCancel={onCancelModal(namespace)}
                     onSelectAccount={_onSelectAccount(namespace)}
+                    namespace={namespace}
                   />
                 </View>
               );

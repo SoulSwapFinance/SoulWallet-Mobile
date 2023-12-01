@@ -1,8 +1,7 @@
 import { KeypairType } from '@polkadot/util-crypto/types';
-import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { AccountAuthType, AccountJson, AuthorizeRequest } from '@soul-wallet/extension-base/src/background/types';
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
+import { AccountAuthType, AccountJson, AuthorizeRequest } from '@subwallet/extension-base/background/types';
+import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
 import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import { ConfirmationContent, ConfirmationGeneralInfo } from 'components/Common/Confirmation';
 import ConfirmationFooter from 'components/Common/Confirmation/ConfirmationFooter';
@@ -12,7 +11,7 @@ import useUnlockModal from 'hooks/modal/useUnlockModal';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { PlusCircle, ShieldSlash, XCircle } from 'phosphor-react-native';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Text, View } from 'react-native';
+import { DeviceEventEmitter, Platform, Text, View } from 'react-native';
 import { approveAuthRequestV2, cancelAuthRequestV2, rejectAuthRequestV2 } from 'messaging/index';
 import { useSelector } from 'react-redux';
 import { RootStackParamList } from 'routes/index';
@@ -22,9 +21,11 @@ import { isAccountAll } from 'utils/accountAll';
 import i18n from 'utils/i18n/i18n';
 
 import createStyle from './styles';
+import { OPEN_UNLOCK_FROM_MODAL } from 'components/Common/Modal/UnlockModal';
 
 interface Props {
   request: AuthorizeRequest;
+  navigation: NativeStackNavigationProp<RootStackParamList>;
 }
 
 async function handleConfirm({ id }: AuthorizeRequest, selectedAccounts: string[]) {
@@ -61,9 +62,8 @@ export const filterAuthorizeAccounts = (accounts: AccountJson[], accountAuthType
 };
 
 const AuthorizeConfirmation: React.FC<Props> = (props: Props) => {
-  const { request } = props;
+  const { request, navigation } = props;
   const { accountAuthType, allowedAccounts } = request.request;
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const theme = useSoulWalletTheme().swThemes;
   const { accounts } = useSelector((state: RootState) => state.accountState);
   const styles = useMemo(() => createStyle(theme), [theme]);
@@ -174,8 +174,12 @@ const AuthorizeConfirmation: React.FC<Props> = (props: Props) => {
           <Text style={styles.text}>{i18n.common.chooseAccount}</Text>
         ) : (
           <>
-            <Text style={styles.noAccountTextStyle}>{i18n.common.noAvailableAccount}</Text>
-            <Text style={styles.textCenter}>{i18n.common.youDonotHaveAnyAcc(accountTypeMessage || '')}</Text>
+            <Text style={styles.noAccountTextStyle}>
+              {i18n.formatString(i18n.common.noAvailableAccount, accountTypeMessage || '')}
+            </Text>
+            <Text style={styles.textCenter}>
+              {i18n.formatString(i18n.common.youDonotHaveAnyAcc, accountTypeMessage || '')}
+            </Text>
           </>
         )}
         <View style={styles.contentContainer}>
@@ -231,9 +235,12 @@ const AuthorizeConfirmation: React.FC<Props> = (props: Props) => {
             </Button>
             <Button
               block={true}
-              onPress={onPressCreateOne(onAddAccount)}
+              onPress={() => {
+                Platform.OS === 'android' && setTimeout(() => DeviceEventEmitter.emit(OPEN_UNLOCK_FROM_MODAL), 250);
+                onPressCreateOne(onAddAccount)();
+              }}
               icon={<Icon phosphorIcon={PlusCircle} weight="fill" />}>
-              Create one
+              {i18n.buttonTitles.createOne}
             </Button>
           </>
         )}
