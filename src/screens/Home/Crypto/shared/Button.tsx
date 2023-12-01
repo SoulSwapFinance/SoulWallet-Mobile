@@ -1,7 +1,7 @@
-import { ArrowFatLinesDown, PaperPlaneTilt, ShoppingCartSimple } from 'phosphor-react-native';
-import MagicBall from 'assets/svg/MagicBall';
-import { getButtonIcon } from 'utils/button';
+// import { ArrowFatLinesDown, PaperPlaneTilt, ShoppingCartSimple } from 'phosphor-react-native';
+// import MagicBall from 'assets/svg/MagicBall';
 import React from 'react';
+import { getButtonIcon } from 'utils/button';
 
 const ReceiveIcon = React.lazy(() => import('assets/icons/receive.svg'));
 const BuyIcon = React.lazy(() => import('assets/icons/buy.svg'));

@@ -1,8 +1,9 @@
-import { BasicTxResponse } from '@soul-wallet/extension-base/src/background/KoniTypes';
+// import { BasicTxResponse } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { TransactionResponse } from '@subwallet/extension-base/background/KoniTypes';
 import i18n from 'utils/i18n/i18n';
 
 export const handleBasicTxResponse = (
-  data: BasicTxResponse,
+  data: TransactionResponse | any,
   balanceError: boolean,
   setError: (val: string[] | undefined) => void,
   setLoading: (val: boolean) => void,

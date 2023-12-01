@@ -1,5 +1,5 @@
 import { AccountInfoItem, BalanceInfo, BalanceSubInfo } from 'types/index';
-import { NetworkJson, TokenInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes'; // TokenInfo
 import BigN from 'bignumber.js';
 import { getTokenBalanceKey, isEmptyArray } from 'utils/index';
 import { getPrice } from 'constants/prices';
@@ -75,7 +75,8 @@ export const getBalances = ({ balance, decimals, price, symbol }: BalanceType): 
 export const parseBalancesInfo = (
   tokenBalanceKeyPriceMap: Record<string, number>,
   balanceInfo: AccountInfoItem,
-  tokenMap: Record<string, TokenInfo>,
+  // tokenMap: Record<string, TokenInfo>,
+  tokenMap: Record<string, any>,
   networkJson: NetworkJson,
   isReady: boolean,
 ): BalanceInfo => {
@@ -87,10 +88,14 @@ export const parseBalancesInfo = (
   const tbKey = getTokenBalanceKey(networkKey, symbol, isTestnet);
 
   const {
+    // @ts-ignore
     children: balanceChildren,
+    // @ts-ignore
     feeFrozen: frozenFee,
     free: freeBalance,
+    // @ts-ignore
     miscFrozen: frozenMisc,
+    // @ts-ignore
     reserved: reservedBalance,
   } = balanceItem;
   const transferableBalance = new BigN(freeBalance || '0').minus(new BigN(frozenMisc || '0')).toString();

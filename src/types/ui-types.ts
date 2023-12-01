@@ -1,4 +1,4 @@
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import React from 'react';
 import { Icon, IconProps } from 'phosphor-react-native';
 import BigN from 'bignumber.js';

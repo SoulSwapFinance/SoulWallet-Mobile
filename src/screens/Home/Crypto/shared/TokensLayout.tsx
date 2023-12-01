@@ -12,7 +12,7 @@ import {
 import { ColorMap } from 'styles/color';
 import { Coins } from 'phosphor-react-native';
 import { EmptyList } from 'components/EmptyList';
-import { ActivityIndicator, AnimatedFlatlist } from 'components/Design';
+import { ActivityIndicator } from 'components/Design';
 import Animated, {
   Extrapolate,
   interpolate,
@@ -21,7 +21,7 @@ import Animated, {
   useSharedValue,
   withTiming,
   AnimatedStyleProp,
-  AnimateStyle,
+  AnimatedStyle,
 } from 'react-native-reanimated';
 import { TokenBalanceItemType } from 'types/balance';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
@@ -176,7 +176,7 @@ export const TokensLayout = ({
               <EmptyList
                 icon={Coins}
                 title={i18n.emptyScreen.tokenEmptyTitle}
-                message={i18n.emptyScreen.tokenEmptyMessage}
+                message={i18n.emptyScreen.tokenEmptyMessageV2}
               />
               {layoutFooter}
             </>
@@ -196,8 +196,8 @@ export const TokensLayout = ({
   const handledTokenListData = listActions ? [{ slug: null }, ...tokenListData] : tokenListData;
 
   // TODO: Move these codes to style folder in next refactor
-  const flex1 = { flex: 1 }
-  const listContainerStyle = { paddingHorizontal: 12 }
+  const flex1 = { flex: 1 };
+  const listContainerStyle = { paddingHorizontal: 16 };
   const stickyActionHeaderStyle = [
     {
       paddingHorizontal: 16,
@@ -209,7 +209,7 @@ export const TokensLayout = ({
       overflow: 'hidden',
     },
     stickyHeaderInvisibleStyles,
-  ] as StyleProp<AnimateStyle<StyleProp<ViewStyle>>>;
+  ] as StyleProp<AnimatedStyle<StyleProp<ViewStyle>>>;
   const stickyHeaderFakingGradientStyle = {
     flex: 1,
     marginTop: -(STATUS_BAR_HEIGHT * 2 + 40),
@@ -237,8 +237,7 @@ export const TokensLayout = ({
         </Animated.View>
       )}
 
-    {/* UI NOTE: Shows the Layout for the Entire Accounts Screen */}
-      <AnimatedFlatlist
+      <Animated.FlatList
         onScroll={onScrollHandler}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}

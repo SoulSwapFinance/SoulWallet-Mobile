@@ -1,14 +1,15 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@soul-wallet/chain-list/types';
-import { AuthUrls } from '@soul-wallet/extension-base/src/background/handlers/State';
+import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@subwallet/chain-list/types';
+import { AuthUrls } from '@subwallet/extension-base/background/handlers/State';
 import {
   AccountsWithCurrentAddress,
   AddressBookInfo,
   AllLogoMap,
   AssetSetting,
   BalanceJson,
+  CampaignBanner,
   ChainStakingMetadata,
   ConfirmationsQueue,
   CrowdloanJson,
@@ -22,7 +23,7 @@ import {
   ThemeNames,
   TransactionHistoryItem,
   UiSettings,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
+} from '@subwallet/extension-base/background/KoniTypes';
 import {
   AccountJson,
   AccountsContext,
@@ -30,16 +31,18 @@ import {
   ConfirmationRequestBase,
   MetadataRequest,
   SigningRequest,
-} from '@soul-wallet/extension-base/src/background/types';
-import { _ChainState } from '@soul-wallet/extension-base/src/services/chain-service/types';
-import { SWTransactionResult } from '@soul-wallet/extension-base/src/services/transaction-service/types';
-import { addLazy, canDerive } from '@soul-wallet/extension-base/src/utils';
+} from '@subwallet/extension-base/background/types';
+import { _ChainState } from '@subwallet/extension-base/services/chain-service/types';
+import { SWTransactionResult } from '@subwallet/extension-base/services/transaction-service/types';
+import { addLazy, canDerive } from '@subwallet/extension-base/utils';
 import { lazySendMessage, lazySubscribeMessage } from 'messaging/index';
 import { AppSettings } from 'stores/types';
 import { store } from '..';
 import { buildHierarchy } from 'utils/buildHierarchy';
-import { WalletConnectSessionRequest } from '@soul-wallet/extension-base/src/services/wallet-connect-service/types';
+import { WalletConnectSessionRequest } from '@subwallet/extension-base/services/wallet-connect-service/types';
 import { SessionTypes } from '@walletconnect/types';
+import { MissionInfo } from 'types/missionPool';
+import { BuyServiceInfo, BuyTokenInfo } from 'types/buy';
 // Setup redux stores
 
 function voidFn() {
@@ -447,6 +450,88 @@ export const subscribeWalletConnectSessions = lazySubscribeMessage(
   null,
   updateWalletConnectSessions,
   updateWalletConnectSessions,
+);
+
+/* Campaign */
+export const updateBanner = (data: CampaignBanner[]) => {
+  const filtered = data.filter(item => !item.isDone);
+
+  store.dispatch({ type: 'campaign/updateBanner', payload: filtered });
+};
+
+export const subscribeProcessingCampaign = lazySubscribeMessage(
+  'pri(campaign.banner.subscribe)',
+  null,
+  updateBanner,
+  updateBanner,
+);
+/* Campaign */
+
+export const updateMissionPoolStore = (missions: MissionInfo[]) => {
+  store.dispatch({
+    type: 'missionPool/update',
+    payload: {
+      missions,
+    },
+  });
+};
+
+export const getMissionPoolData = (() => {
+  const handler: {
+    resolve?: (value: unknown[]) => void;
+    reject?: (reason?: any) => void;
+  } = {};
+
+  const promise = new Promise<any[]>((resolve, reject) => {
+    handler.resolve = resolve;
+    handler.reject = reject;
+  });
+
+  const rs = {
+    promise,
+    start: () => {
+      (async () => {
+        // const res = await fetch('https://static-data.subwallet.app/airdrop-campaigns/list.json');
+        const res = await fetch('https://raw.githubusercontent.com/SoulSwapFinance/SoulWallet-Static-Content/main/data/airdrop-campaigns/list.json');
+
+        return (await res.json()) as [];
+      })()
+        .then(data => {
+          handler.resolve?.(data);
+        })
+        .catch(handler.reject);
+    },
+  };
+
+  rs.promise
+    .then(data => {
+      updateMissionPoolStore(data as MissionInfo[]);
+    })
+    .catch(console.error);
+
+  return rs;
+})();
+
+export const updateBuyTokens = (data: Record<string, BuyTokenInfo>) => {
+  store.dispatch({ type: 'buyService/updateBuyTokens', payload: data });
+};
+
+export const subscribeBuyTokens = lazySubscribeMessage(
+  'pri(buyService.tokens.subscribe)',
+  null,
+  updateBuyTokens,
+  updateBuyTokens,
+);
+
+export const updateBuyServices = (data: Record<string, BuyServiceInfo>) => {
+  store.dispatch({ type: 'buyService/updateBuyServices', payload: data });
+};
+
+export const subscribeBuyServices = lazySubscribeMessage(
+  'pri(buyService.services.subscribe)',
+  null,
+  updateBuyServices,
+  updateBuyServices,
 );
 
 // export const updateChainValidators = (data: ChainValidatorParams) => {

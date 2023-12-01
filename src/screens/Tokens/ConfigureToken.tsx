@@ -6,22 +6,22 @@ import { AddressField } from 'components/Field/Address';
 import { NetworkField } from 'components/Field/Network';
 import InputText from 'components/Input/InputText';
 import { TextField } from 'components/Field/Text';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { Platform, ScrollView, StyleSheet, View } from 'react-native';
 import {
   _getContractAddressOfToken,
   _isCustomAsset,
   _isSmartContractToken,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+} from '@subwallet/extension-base/services/chain-service/utils';
 import { ContainerHorizontalPadding, FontSemiBold, MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import { CopySimple, Pencil, Sun, Trash } from 'phosphor-react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import i18n from 'utils/i18n/i18n';
 import { useToast } from 'react-native-toast-notifications';
-import useFormControl, { FormState } from 'hooks/screen/hooks/useFormControl';
+import useFormControl, { FormState } from 'hooks/screen/useFormControl';
 import { deleteCustomAssets, upsertCustomToken } from '../../messaging';
 import { Warning } from 'components/Warning';
 import { WebRunnerContext } from 'providers/contexts';
-import { _ChainAsset } from '@soul-wallet/chain-list/types';
+import { _ChainAsset } from '@subwallet/chain-list/types';
 import { Button, Icon, Typography } from 'components/Design';
 import { TokenSelectField } from 'components/Field/TokenSelect';
 import { ThemeTypes } from 'styles/themes';
@@ -108,7 +108,7 @@ export const ConfigureToken = ({
   const copyToClipboard = (text: string) => {
     Clipboard.setString(text);
     toast.hideAll();
-    toast.show(i18n.common.copiedToClipboard);
+    Platform.OS === 'ios' && toast.show(i18n.common.copiedToClipboard);
   };
 
   const tagNode = useMemo(() => {
@@ -165,9 +165,7 @@ export const ConfigureToken = ({
       disableRightButton={!tokenInfo || !(_isCustomAsset(tokenInfo?.slug || '') && _isSmartContractToken(tokenInfo))}>
       <View style={{ flex: 1, ...ContainerHorizontalPadding }}>
         <ScrollView style={{ width: '100%', flex: 1 }}>
-          <View style={styles.logoWrapper}>{
-          getTokenLogo(tokenInfo?.symbol || '', undefined, 112)
-          }</View>
+          <View style={styles.logoWrapper}>{getTokenLogo(tokenInfo?.slug || '', undefined, 112)}</View>
           {!!tokenInfo?.symbol && <Typography.Text style={styles.symbol}>{tokenInfo.symbol}</Typography.Text>}
           {tagNode}
           <View style={{ height: theme.sizeLG }} />
@@ -203,17 +201,25 @@ export const ConfigureToken = ({
               <TokenSelectField
                 disabled
                 value={tokenInfo.symbol}
-                logoKey={tokenInfo.symbol}
+                logoKey={tokenInfo.slug}
                 outerStyle={{ flex: 1, marginBottom: 0 }}
               />
+            )}
+
+            {tokenInfo && tokenInfo.name && (
+              <TextField disabled text={tokenInfo.name.toString()} outerStyle={{ flex: 1, marginBottom: 0 }} />
+            )}
+          </View>
+
+          <View style={styles.row}>
+            {!!tokenInfo?.priceId && (
+              <TextField outerStyle={{ flex: 1, marginBottom: 0 }} disabled text={tokenInfo.priceId} />
             )}
 
             {tokenInfo && tokenInfo.decimals && (
               <TextField disabled text={tokenInfo.decimals.toString()} outerStyle={{ flex: 1, marginBottom: 0 }} />
             )}
           </View>
-
-          {!!tokenInfo?.priceId && <TextField disabled text={tokenInfo.priceId} />}
 
           {!isNetConnected && (
             <Warning style={{ marginBottom: 8 }} isDanger message={i18n.warningMessage.noInternetMessage} />

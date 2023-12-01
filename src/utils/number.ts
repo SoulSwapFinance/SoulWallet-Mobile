@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import BigN from 'bignumber.js';
-import { AmountData } from '@soul-wallet/extension-base/src/background/KoniTypes';
 import isaac from 'isaac';
+import { AmountData } from '@subwallet/extension-base/background/KoniTypes';
 
 // 1000.12345 -> 1,000; 1000,654321 -> 1,001
 export const formatLocaleNumber = (number: number, digits?: number): string => {
@@ -40,7 +40,7 @@ export function randomIntFromInterval(min: number, max: number) {
   return Math.floor(isaac.random() * (max - min + 1) + min);
 }
 
-// Number from @soul-wallet-react-ui
+// Number from @subwallet-react-ui
 export const BN_TEN = new BigNumber(10);
 export interface NumberFormatter {
   (input: string, metadata?: Record<string, number>): string;

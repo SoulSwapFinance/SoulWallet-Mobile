@@ -34,9 +34,9 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+		<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
+		<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -60,7 +60,7 @@
 		<string>fbshareextension</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
+		<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -74,18 +74,18 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Access Apple Music from library</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera is used to capture QR code</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>Microphone is used to record audio</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Enabling Face ID allows you quick and secure access to your account.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Access location from library</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Microphone is used to record audio</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access photos from library</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Access Apple Music from library</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>fonts/PlusJakartaSans-Light.ttf</string>

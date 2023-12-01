@@ -1,7 +1,7 @@
 import React, { Ref } from 'react';
 import { ImageSourcePropType, View } from 'react-native';
 import { ActivityIndicator, Typography } from '..';
-import QRCodeStyles from './style';
+import QRCodeStyles from './style/index';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import QRCodeStyled, { GradientProps, QRCodeMessage } from 'react-native-qrcode-styled';
 import Svg from 'react-native-svg';

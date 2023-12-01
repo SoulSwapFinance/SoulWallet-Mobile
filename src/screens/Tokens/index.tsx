@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FlatListScreen } from 'components/FlatListScreen';
 import { EmptyList } from 'components/EmptyList';
 import { Coins, Plus } from 'phosphor-react-native';
@@ -6,12 +6,13 @@ import { ListRenderItemInfo, SafeAreaView } from 'react-native';
 import i18n from 'utils/i18n/i18n';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
-import { _ChainAsset } from '@soul-wallet/chain-list/types';
+import { _ChainAsset } from '@subwallet/chain-list/types';
 import { TokenToggleItem } from 'components/Common/TokenToggleItem';
 import { updateAssetSetting } from '../../messaging';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { _isAssetFungibleToken, _isCustomAsset } from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { _isCustomAsset } from '@subwallet/extension-base/services/chain-service/utils';
+import useChainAssets from 'hooks/chain/useChainAssets';
 
 const searchFunction = (items: _ChainAsset[], searchString: string) => {
   return items.filter(item => item?.symbol.toLowerCase().includes(searchString.toLowerCase()));
@@ -27,19 +28,8 @@ enum FilterValue {
 let cachePendingAssetMap: Record<string, boolean> = {};
 
 export const CustomTokenSetting = () => {
-  const assetRegistry = useSelector((state: RootState) => state.assetRegistry.assetRegistry);
+  const assetItems = useChainAssets({ isFungible: true }).chainAssets;
   const assetSettingMap = useSelector((state: RootState) => state.assetRegistry.assetSettingMap);
-  const assetItems = useMemo(() => {
-    const allFungibleTokens: _ChainAsset[] = [];
-
-    Object.values(assetRegistry).forEach(asset => {
-      if (_isAssetFungibleToken(asset)) {
-        allFungibleTokens.push(asset);
-      }
-    });
-
-    return allFungibleTokens;
-  }, [assetRegistry]);
   const navigation = useNavigation<RootNavigationProps>();
   const [pendingAssetMap, setPendingAssetMap] = useState<Record<string, boolean>>(cachePendingAssetMap);
   const FILTER_OPTIONS = [
@@ -160,6 +150,8 @@ export const CustomTokenSetting = () => {
             icon={Coins}
             title={i18n.emptyScreen.tokenEmptyTitle}
             message={i18n.emptyScreen.tokenEmptyMessage}
+            addBtnLabel={i18n.header.importToken}
+            onPressAddBtn={() => navigation.navigate('ImportToken')}
           />
         )}
         isShowListWrapper

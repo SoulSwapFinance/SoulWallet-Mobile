@@ -1,4 +1,4 @@
-import { NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NftItem } from '@subwallet/extension-base/background/KoniTypes';
 
 export interface Web3TransferParams {
   rawTx: Record<string, any>;

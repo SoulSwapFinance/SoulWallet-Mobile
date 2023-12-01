@@ -2,7 +2,7 @@ import {
   ArgInfo,
   ResponseParseTransactionSubstrate,
   ResponseQrParseRLP,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
+} from '@subwallet/extension-base/background/KoniTypes';
 import { ActivityLoading } from 'components/ActivityLoading';
 import { ScannerContext } from 'providers/ScannerContext';
 import React, { useCallback, useContext, useMemo } from 'react';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { TokenItemType, TokenSelector } from 'components/Modal/common/TokenSelector';
@@ -43,6 +43,7 @@ export const SelectAccAndTokenModal = ({
           tokenSelectorRef={tokenRef}
           closeModalAfterSelect={false}
           isShowInput={false}
+          onCloseAccountSelector={() => accountRef.current?.onCloseModal()}
         />
       </AccountSelector>
     </>

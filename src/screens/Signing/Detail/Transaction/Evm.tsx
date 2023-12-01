@@ -1,9 +1,9 @@
 import {
-  EVMTransactionArg,
-  ParseEVMTransactionData,
+  EvmTransactionArg,
+  ParseEvmTransactionData,
   ResponseParseTransactionSubstrate,
   ResponseQrParseRLP,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
+} from '@subwallet/extension-base/background/KoniTypes';
 import { ActivityLoading } from 'components/ActivityLoading';
 import useGetAccountAndNetworkScanned from 'hooks/screen/Signing/useGetAccountAndNetworkScanned';
 import { ScannerContext } from 'providers/ScannerContext';
@@ -34,7 +34,7 @@ const EvmTransactionDetail = () => {
     [network?.decimals, network?.nativeToken],
   );
 
-  const handlerRenderArg = useCallback((_data: EVMTransactionArg, parentName: string): JSX.Element => {
+  const handlerRenderArg = useCallback((_data: EvmTransactionArg, parentName: string): JSX.Element => {
     const { children, name, value } = _data;
     const _name = (parentName ? `${parentName}.` : '') + name;
 
@@ -53,7 +53,7 @@ const EvmTransactionDetail = () => {
   }, []);
 
   const handlerRenderInputInfo = useCallback(
-    (info: string | ParseEVMTransactionData): JSX.Element => {
+    (info: string | ParseEvmTransactionData): JSX.Element => {
       if (typeof info === 'string') {
         return <></>;
       }

@@ -1,5 +1,5 @@
 import BigN from 'bignumber.js';
-import { BalanceItem, CrowdloanParaState } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { BalanceItem, CrowdloanParaState } from '@subwallet/extension-base/background/KoniTypes';
 
 export interface WebViewMessageBase<T> {
   id: string;

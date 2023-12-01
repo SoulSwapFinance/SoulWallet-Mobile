@@ -20,7 +20,7 @@
                                 <rect key="frame" x="-2" y="0.0" width="376" height="666"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Agreement &amp; Privacy Policy " textAlignment="center" lineBreakMode="clip" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fm-Bb-h9X">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Conditions and Privacy Policy " textAlignment="center" lineBreakMode="clip" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fm-Bb-h9X">
                                 <rect key="frame" x="0.0" y="630" width="375" height="27"/>
                                 <fontDescription key="fontDescription" name="SpaceGrotesk-Medium" family="Space Grotesk" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
