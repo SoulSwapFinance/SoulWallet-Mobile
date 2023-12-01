@@ -1,23 +1,23 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StakingScreenNavigationProps } from 'routes/staking/stakingScreen';
-import { useTransaction } from 'hooks/screen/Transaction/useTransaction';
+import { TransactionFormValues, useTransaction } from 'hooks/screen/Transaction/useTransactionV2';
 import { ScrollView, View } from 'react-native';
 import { AccountSelectField } from 'components/Field/AccountSelect';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
-import { isSameAddress } from '@soul-wallet/extension-base/src/utils';
+import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import { AccountJson } from '@subwallet/extension-base/background/types';
+import { isSameAddress } from '@subwallet/extension-base/utils';
 import {
   NominatorMetadata,
   RequestStakeWithdrawal,
   StakingType,
   UnstakingInfo,
   UnstakingStatus,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
+} from '@subwallet/extension-base/background/KoniTypes';
 import { accountFilterFunc } from 'screens/Transaction/helper/staking';
-import { _ChainInfo } from '@soul-wallet/chain-list/types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
 import useGetNominatorInfo from 'hooks/screen/Staking/useGetNominatorInfo';
 import { FreeBalance } from 'screens/Transaction/parts/FreeBalance';
 import MetaInfo from 'components/MetaInfo';
@@ -28,7 +28,7 @@ import { ArrowCircleRight, XCircle } from 'phosphor-react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly';
 import useHandleSubmitTransaction from 'hooks/transaction/useHandleSubmitTransaction';
-import { isActionFromValidator } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils';
+import { isActionFromValidator } from '@subwallet/extension-base/koni/api/staking/bonding/utils';
 import { submitStakeWithdrawal } from 'messaging/index';
 import { TransactionLayout } from 'screens/Transaction/parts/TransactionLayout';
 import { WithdrawProps } from 'routes/transaction/transactionAction';
@@ -36,8 +36,10 @@ import { MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
 import { ModalRef } from 'types/modalRef';
 import { AccountSelector } from 'components/Modal/common/AccountSelector';
-import { getAstarWithdrawable } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/astar';
-import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
+import { getAstarWithdrawable } from '@subwallet/extension-base/koni/api/staking/bonding/astar';
+import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
+import { useWatch } from 'react-hook-form';
+import { TransactionDone } from 'screens/Transaction/TransactionDone';
 
 const filterAccount = (
   chainInfoMap: Record<string, _ChainInfo>,
@@ -68,35 +70,52 @@ export const Withdraw = ({
   const { chainInfoMap } = useSelector((state: RootState) => state.chainStore);
   const [loading, setLoading] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
-  const withDrawFormConfig = {};
-  const { title, formState, onDone, onChangeFromValue, onChangeValue } = useTransaction('withdraw', withDrawFormConfig);
-  const { from, chain } = formState.data;
+  const [isTransactionDone, setTransactionDone] = useState(false);
+  const {
+    title,
+    onTransactionDone: onDone,
+    onChangeFromValue: setFrom,
+    onChangeChainValue: setChain,
+    form: {
+      control,
+      getValues,
+      formState: { errors },
+    },
+    transactionDoneInfo,
+  } = useTransaction('withdraw', {
+    mode: 'onChange',
+    reValidateMode: 'onChange',
+  });
+  const { chain: chainValue, from: fromValue } = {
+    ...useWatch<TransactionFormValues>({ control }),
+    ...getValues(),
+  };
   const allNominatorInfo = useGetNominatorInfo(stakingChain, stakingType);
-  const nominatorInfo = useGetNominatorInfo(stakingChain, stakingType, from);
+  const nominatorInfo = useGetNominatorInfo(stakingChain, stakingType, fromValue);
   const nominatorMetadata = nominatorInfo[0];
-  const accountInfo = useGetAccountByAddress(from);
-  const { onError, onSuccess } = useHandleSubmitTransaction(onDone);
+  const accountInfo = useGetAccountByAddress(fromValue);
+  const { onError, onSuccess } = useHandleSubmitTransaction(onDone, setTransactionDone);
   const accountSelectorRef = useRef<ModalRef>();
 
   useEffect(() => {
     // Trick to trigger validate when case single account
     setTimeout(() => {
-      if (from || !formState.errors.from) {
+      if (fromValue || !errors.from) {
         setIsDisabled(false);
       }
     }, 500);
-  }, [formState.errors.from, from]);
+  }, [errors.from, fromValue]);
 
   useEffect(() => {
-    onChangeValue('chain')(stakingChain || '');
-  }, [onChangeValue, stakingChain]);
+    setChain(stakingChain || '');
+  }, [setChain, stakingChain]);
 
   const accountList = useMemo(() => {
     return accounts.filter(filterAccount(chainInfoMap, allNominatorInfo, stakingType));
   }, [accounts, allNominatorInfo, chainInfoMap, stakingType]);
 
   const unstakingInfo = useMemo((): UnstakingInfo | undefined => {
-    if (from && !isAccountAll(from) && !!nominatorMetadata) {
+    if (fromValue && !isAccountAll(fromValue) && !!nominatorMetadata) {
       if (_STAKING_CHAIN_GROUP.astar.includes(nominatorMetadata.chain)) {
         return getAstarWithdrawable(nominatorMetadata);
       }
@@ -104,11 +123,11 @@ export const Withdraw = ({
     }
 
     return undefined;
-  }, [from, nominatorMetadata]);
+  }, [fromValue, nominatorMetadata]);
 
-  const { decimals, symbol } = useGetNativeTokenBasicInfo(chain);
+  const { decimals, symbol } = useGetNativeTokenBasicInfo(chainValue);
 
-  const onPreCheckReadOnly = usePreCheckReadOnly(undefined, from);
+  const onPreCheckReadOnly = usePreCheckReadOnly(undefined, fromValue);
 
   const onSubmit = useCallback(() => {
     setLoading(true);
@@ -125,7 +144,7 @@ export const Withdraw = ({
       nominatorMetadata,
     };
 
-    if (isActionFromValidator(stakingType, chain)) {
+    if (isActionFromValidator(stakingType, chainValue)) {
       params.validatorAddress = unstakingInfo.validatorAddress;
     }
 
@@ -137,75 +156,84 @@ export const Withdraw = ({
           setLoading(false);
         });
     }, 300);
-  }, [chain, nominatorMetadata, onError, onSuccess, stakingType, unstakingInfo]);
+  }, [chainValue, nominatorMetadata, onError, onSuccess, stakingType, unstakingInfo]);
 
   return (
-    <TransactionLayout title={title} disableLeftButton={loading} disableMainHeader={loading}>
-      <>
-        <ScrollView style={{ flex: 1, paddingHorizontal: 16, paddingTop: 16 }}>
-          {isAllAccount && (
-            <AccountSelector
-              items={accountList}
-              selectedValueMap={{ [from]: true }}
-              renderSelected={() => <AccountSelectField accountName={accountInfo?.name || ''} value={from} showIcon />}
-              onSelectItem={item => {
-                onChangeFromValue(item.address);
-                accountSelectorRef && accountSelectorRef.current?.onCloseModal();
-              }}
-              accountSelectorRef={accountSelectorRef}
-              disabled={loading}
-            />
-          )}
+    <>
+      {!isTransactionDone ? (
+        <TransactionLayout title={title} disableLeftButton={loading} disableMainHeader={loading}>
+          <>
+            <ScrollView style={{ flex: 1, paddingHorizontal: 16, paddingTop: 16 }}>
+              {isAllAccount && (
+                <AccountSelector
+                  items={accountList}
+                  selectedValueMap={{ [fromValue]: true }}
+                  renderSelected={() => (
+                    <AccountSelectField accountName={accountInfo?.name || ''} value={fromValue} showIcon />
+                  )}
+                  onSelectItem={item => {
+                    setFrom(item.address);
+                    accountSelectorRef && accountSelectorRef.current?.onCloseModal();
+                  }}
+                  accountSelectorRef={accountSelectorRef}
+                  disabled={loading}
+                />
+              )}
 
-          <FreeBalance label={`${i18n.inputLabel.availableBalance}:`} address={from} chain={chain} />
+              <FreeBalance label={`${i18n.inputLabel.availableBalance}:`} address={fromValue} chain={chainValue} />
 
-          <MetaInfo hasBackgroundWrapper>
-            <MetaInfo.Chain chain={chain} label={i18n.inputLabel.network} />
+              <MetaInfo hasBackgroundWrapper>
+                <MetaInfo.Chain chain={chainValue} label={i18n.inputLabel.network} />
 
-            {unstakingInfo && (
-              <MetaInfo.Number
-                decimals={decimals}
-                label={i18n.inputLabel.amount}
-                suffix={symbol}
-                value={unstakingInfo.claimable}
-              />
-            )}
-          </MetaInfo>
-        </ScrollView>
+                {unstakingInfo && (
+                  <MetaInfo.Number
+                    decimals={decimals}
+                    label={i18n.inputLabel.amount}
+                    suffix={symbol}
+                    value={unstakingInfo.claimable}
+                  />
+                )}
+              </MetaInfo>
+            </ScrollView>
 
-        <View style={{ paddingHorizontal: 16, paddingTop: 16, flexDirection: 'row', ...MarginBottomForSubmitButton }}>
-          <Button
-            disabled={loading}
-            style={{ flex: 1, marginRight: 4 }}
-            type={'secondary'}
-            onPress={() => navigation.goBack()}
-            icon={
-              <Icon
-                phosphorIcon={XCircle}
-                weight={'fill'}
-                size={'lg'}
-                iconColor={loading ? theme.colorTextLight5 : theme.colorWhite}
-              />
-            }>
-            {i18n.buttonTitles.cancel}
-          </Button>
-          <Button
-            style={{ flex: 1, marginLeft: 4 }}
-            disabled={isDisabled || loading}
-            loading={loading}
-            icon={
-              <Icon
-                phosphorIcon={ArrowCircleRight}
-                weight={'fill'}
-                size={'lg'}
-                iconColor={isDisabled ? theme.colorTextLight5 : theme.colorWhite}
-              />
-            }
-            onPress={onPreCheckReadOnly(onSubmit)}>
-            {i18n.buttonTitles.continue}
-          </Button>
-        </View>
-      </>
-    </TransactionLayout>
+            <View
+              style={{ paddingHorizontal: 16, paddingTop: 16, flexDirection: 'row', ...MarginBottomForSubmitButton }}>
+              <Button
+                disabled={loading}
+                style={{ flex: 1, marginRight: 4 }}
+                type={'secondary'}
+                onPress={() => navigation.goBack()}
+                icon={
+                  <Icon
+                    phosphorIcon={XCircle}
+                    weight={'fill'}
+                    size={'lg'}
+                    iconColor={loading ? theme.colorTextLight5 : theme.colorWhite}
+                  />
+                }>
+                {i18n.buttonTitles.cancel}
+              </Button>
+              <Button
+                style={{ flex: 1, marginLeft: 4 }}
+                disabled={isDisabled || loading}
+                loading={loading}
+                icon={
+                  <Icon
+                    phosphorIcon={ArrowCircleRight}
+                    weight={'fill'}
+                    size={'lg'}
+                    iconColor={isDisabled ? theme.colorTextLight5 : theme.colorWhite}
+                  />
+                }
+                onPress={onPreCheckReadOnly(onSubmit)}>
+                {i18n.buttonTitles.continue}
+              </Button>
+            </View>
+          </>
+        </TransactionLayout>
+      ) : (
+        <TransactionDone transactionDoneInfo={transactionDoneInfo} />
+      )}
+    </>
   );
 };

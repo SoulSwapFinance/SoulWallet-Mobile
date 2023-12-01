@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import AccountItemBase from 'components/Common/Account/Item/AccountItemBase';
 import AvatarGroup from 'components/Common/AvatarGroup';
 import { Icon, Typography } from 'components/Design';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
-import { isSameAddress } from '@soul-wallet/extension-base/src/utils';
+import { AccountJson } from '@subwallet/extension-base/background/types';
+import { isSameAddress } from '@subwallet/extension-base/utils';
 import { DotsThree } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
@@ -30,7 +30,7 @@ export const WCAccountInput = ({ accounts, selected }: Props) => {
       leftItem={<AvatarGroup addresses={selectedAccounts.map(acc => acc.address)} />}
       middleItem={
         <Typography.Text style={{ color: theme.colorWhite, ...FontMedium }}>
-          {countSelected ? i18n.message.connectedAccounts(countSelected) : i18n.inputLabel.selectAcc}
+          {countSelected ? i18n.formatString(i18n.message.connectedAccounts, countSelected) : i18n.inputLabel.selectAcc}
         </Typography.Text>
       }
       rightItem={<Icon phosphorIcon={DotsThree} weight={'fill'} />}

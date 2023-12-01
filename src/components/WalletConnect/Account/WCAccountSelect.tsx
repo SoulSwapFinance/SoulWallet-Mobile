@@ -1,15 +1,15 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import { View } from 'react-native';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import { VoidFunction } from 'types/index';
 import AlertBox from 'components/Design/AlertBox';
 import i18n from 'utils/i18n/i18n';
 import { BasicSelectModal } from 'components/Common/SelectModal/BasicSelectModal';
 import { Button, Icon } from 'components/Design';
 import { WCAccountInput } from 'components/WalletConnect/Account/WCAccountInput';
-import { isSameAddress } from '@soul-wallet/extension-base/src/utils';
+import { isSameAddress } from '@subwallet/extension-base/utils';
 import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
+import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
 import { CheckCircle } from 'phosphor-react-native';
 import { ModalRef } from 'types/modalRef';
 
@@ -21,6 +21,7 @@ interface Props {
   useModal: boolean;
   onApply: () => void;
   onCancel: () => void;
+  namespace: string;
 }
 
 const renderButtonIcon = (color: string) => <Icon phosphorIcon={CheckCircle} weight={'fill'} iconColor={color} />;
@@ -33,6 +34,7 @@ export const WCAccountSelect = ({
   onSelectAccount,
   selectedAccounts,
   useModal,
+  namespace,
 }: Props) => {
   const modalRef = useRef<ModalRef>();
 
@@ -68,14 +70,32 @@ export const WCAccountSelect = ({
     [onSelectAccount, selectedAccounts],
   );
 
+  const noAccountTitle = useMemo(() => {
+    switch (namespace) {
+      case 'polkadot':
+        return i18n.formatString(i18n.common.noAvailableAccount, 'Substrate') as string;
+      case 'eip155':
+        return i18n.formatString(i18n.common.noAvailableAccount, 'EVM') as string;
+      default:
+        return i18n.formatString(i18n.common.noAvailableAccount, '') as string;
+    }
+  }, [namespace]);
+
+  const noAccountDescription = useMemo(() => {
+    switch (namespace) {
+      case 'polkadot':
+        return i18n.formatString(i18n.common.youDonotHaveAnyAcc, 'Substrate') as string;
+      case 'eip155':
+        return i18n.formatString(i18n.common.youDonotHaveAnyAcc, 'EVM') as string;
+      default:
+        return i18n.formatString(i18n.common.youDonotHaveAnyAcc, '') as string;
+    }
+  }, [namespace]);
+
   return (
     <View style={{ width: '100%' }}>
       {!availableAccounts.length ? (
-        <AlertBox
-          title={i18n.common.noAvailableAccount}
-          description={i18n.common.youDonotHaveAnyAcc('')}
-          type={'warning'}
-        />
+        <AlertBox title={noAccountTitle} description={noAccountDescription} type={'warning'} />
       ) : useModal ? (
         <BasicSelectModal
           isUseModalV2={false}
@@ -93,7 +113,7 @@ export const WCAccountSelect = ({
             disabled={!selectedAccounts.length}
             icon={renderButtonIcon}
             onPress={_onApply}>
-            {i18n.buttonTitles.applyAccounts(selectedAccounts.length)}
+            {i18n.formatString(i18n.buttonTitles.applyAccounts, selectedAccounts.length)}
           </Button>
         </BasicSelectModal>
       ) : (

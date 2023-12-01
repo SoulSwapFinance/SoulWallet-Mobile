@@ -4,7 +4,7 @@ import { ScrollView, View } from 'react-native';
 import { CheckCircle, Info } from 'phosphor-react-native';
 import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl';
+import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
 import { PasswordField } from 'components/Field/Password';
 import { validatePassword, validatePasswordMatched } from 'screens/Shared/AccountNamePasswordCreation';
 import { keyringChangeMasterPassword } from 'messaging/index';
@@ -12,9 +12,12 @@ import { useNavigation } from '@react-navigation/native';
 import { CreatePasswordProps, RootNavigationProps } from 'routes/index';
 import CreateMasterPasswordStyle from './style';
 import { KeypairType } from '@polkadot/util-crypto/types';
-import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
+import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import AlertBox from 'components/Design/AlertBox';
 import i18n from 'utils/i18n/i18n';
+import { RootState } from 'stores/index';
+import { useSelector } from 'react-redux';
+import { createKeychainPassword } from 'utils/account';
 
 function checkValidateForm(isValidated: Record<string, boolean>) {
   return isValidated.password && isValidated.repeatPassword;
@@ -26,6 +29,7 @@ const CreateMasterPassword = ({
   },
 }: CreatePasswordProps) => {
   const navigation = useNavigation<RootNavigationProps>();
+  const { isUseBiometric } = useSelector(({ mobileSettings }: RootState) => mobileSettings);
   const theme = useSoulWalletTheme().swThemes;
   const _style = CreateMasterPasswordStyle(theme);
   const [isBusy, setIsBusy] = useState(false);
@@ -79,6 +83,9 @@ const CreateMasterPassword = ({
             } else {
               onComplete();
               // TODO: complete
+              if (isUseBiometric) {
+                createKeychainPassword(password);
+              }
             }
           })
           .catch(e => {

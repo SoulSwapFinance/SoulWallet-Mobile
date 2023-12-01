@@ -1,6 +1,6 @@
 import useConfirmModal from 'hooks/modal/useConfirmModal';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { ScrollView, View } from 'react-native';
 import { Avatar, Button, Icon } from 'components/Design';
@@ -9,23 +9,23 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import ApplyMasterPasswordStyle from './style';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
+import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
 import { AddressField } from 'components/Field/Address';
 import { TextField } from 'components/Field/Text';
-import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/hooks/useFormControl';
+import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/useFormControl';
 import { validatePassword } from 'screens/Shared/AccountNamePasswordCreation';
 import { PasswordField } from 'components/Field/Password';
-import { forgotAccount, keyringMigrateMasterPassword } from 'messaging/index';
+import { forgetAccount, keyringMigrateMasterPassword } from 'messaging/index';
 import { Introduction } from 'screens/MasterPassword/ApplyMasterPassword/Introduction';
 import { ApplyDone } from 'screens/MasterPassword/ApplyMasterPassword/ApplyDone';
-import useGoHome from 'hooks/screen/hooks/useGoHome';
+import useGoHome from 'hooks/screen/useGoHome';
 import i18n from 'utils/i18n/i18n';
 import DeleteModal from 'components/Common/Modal/DeleteModal';
-import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
+import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import { SelectedActionType } from 'stores/types';
 import { noop } from 'utils/function';
-import { useIsFocused, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 
 type PageStep = 'Introduction' | 'Migrate' | 'Done';
@@ -62,14 +62,7 @@ const ApplyMasterPassword = () => {
       validateFunc: validatePassword,
     },
   };
-  const isFocused = useIsFocused();
-  const { onPress, onHideModal } = useUnlockModal(navigation);
-
-  useEffect(() => {
-    if (isFocused) {
-      onHideModal();
-    }
-  }, [isFocused, onHideModal]);
+  const { onPress } = useUnlockModal(navigation);
 
   const migratedRef = useRef<AccountJson[]>(
     accounts.filter(acc => acc.address !== ALL_ACCOUNT_KEY && !acc.isExternal && acc.isMasterPassword),
@@ -140,10 +133,10 @@ const ApplyMasterPassword = () => {
   }, [migrateAccount?.address]);
 
   useEffect(() => {
-    if (isLocked) {
+    if (isLocked && needMigrate.length) {
       setStep('Introduction');
     }
-  }, [isLocked]);
+  }, [isLocked, needMigrate.length]);
 
   useEffect(() => {
     onUpdateErrors('password')(undefined);
@@ -198,7 +191,7 @@ const ApplyMasterPassword = () => {
     if (migrateAccount?.address) {
       setDeleting(true);
       setTimeout(() => {
-        forgotAccount(migrateAccount.address)
+        forgetAccount(migrateAccount.address, true)
           .then(() => {
             setIsError(false);
           })

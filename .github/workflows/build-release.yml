@@ -74,15 +74,15 @@ jobs:
     - name: iOS Build Action
       uses: yukiarrr/ios-build-action@v1.11.0
       with:
-        project-path: ios/SubWalletMobile.xcodeproj
+        project-path: ios/SoulWalletMobile.xcodeproj
         export-method: 'app-store'
         p12-base64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
         certificate-password: ${{ secrets.P12_PASSWORD }}
         mobileprovision-base64: ${{ secrets.BUILD_APPSTORE_PROVISION_PROFILE_BASE64 }}
         code-signing-identity: 'Apple Distribution: CDM SOFTWARE DEVELOPMENT COMPANY LIMITED (ZUZ7T3GQMT)'
         team-id: ${{ secrets.APPLE_TEAM_ID }}
-        workspace-path: ios/SubWalletMobile.xcworkspace
-        scheme: SubWalletMobile-Production
+        workspace-path: ios/SoulWalletMobile.xcworkspace
+        scheme: SoulWalletMobile-Production
 
     - name: 'Upload app to TestFlight'
       uses: apple-actions/upload-testflight-build@v1

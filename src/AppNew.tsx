@@ -1,4 +1,4 @@
-// Copyright 2019-2022 @soul-wallet/extension authors & contributors
+// Copyright 2019-2022 @subwallet/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 import { ExternalRequestContextProvider } from 'providers/ExternalRequestContext'
 import { QrSignerContextProvider } from 'providers/QrSignerContext'
@@ -22,10 +22,6 @@ import { AutoLockState } from 'utils/autoLock'
 import useStoreBackgroundService from 'hooks/store/useStoreBackgroundService'
 import { TOAST_DURATION } from 'constants/index'
 import AppNavigator from './AppNavigator'
-// import { updateShowZeroBalanceState } from 'stores/utils'
-// import { setBuildNumber } from './stores/AppVersion'
-import { getBuildNumber } from 'react-native-device-info'
-
 import { AppModalContextProvider } from './providers/AppModalContext'
 import { CustomToast } from 'components/Design/Toast'
 import { PortalProvider } from '@gorhom/portal'
@@ -35,6 +31,8 @@ import { LockTimeout } from 'stores/types'
 import { keyringLock } from './messaging'
 import { updateAutoLockTime } from 'stores/MobileSettings'
 import { useGetTokenConfigQuery } from 'stores/API'
+import { useShowBuyToken } from 'hooks/static-content/useShowBuyToken'
+import { useGetDAppList } from 'hooks/static-content/useGetDAppList'
 
 const layerScreenStyle: StyleProp<any> = {
   top: 0,
@@ -75,8 +73,7 @@ const autoLockParams: {
 
 let lockWhenActive = false;
 AppState.addEventListener('change', (state: string) => {
-  const { timeAutoLock, lock, isMasterPasswordLocked } = autoLockParams; // isUseBiometric
-  const isUseBiometric = false
+  const { isUseBiometric, timeAutoLock, lock, isMasterPasswordLocked } = autoLockParams;
 
   if (timeAutoLock === undefined) {
     return;
@@ -126,37 +123,40 @@ export const AppNew = () => {
   const theme = isDarkMode ? THEME_PRESET.dark : THEME_PRESET.light;
   StatusBar.setBarStyle(isDarkMode ? 'light-content' : 'dark-content');
 
-  const { timeAutoLock, isPreventLock } = useSelector((state: RootState) => state.mobileSettings); // isUseBiometric
+  const { isUseBiometric, timeAutoLock, isPreventLock } = useSelector((state: RootState) => state.mobileSettings);
   const { hasMasterPassword, isLocked } = useSelector((state: RootState) => state.accountState);
   const { lock, unlockApp } = useAppLock();
-  const { buildNumber } = useSelector((state: RootState) => state.appVersion);
   const dispatch = useDispatch();
   const isCryptoReady = useCryptoReady();
   const isI18nReady = useSetupI18n().isI18nReady;
   useStoreBackgroundService();
-  const { refetch } = useGetTokenConfigQuery(undefined, { pollingInterval: 300000 });
+  const { checkIsShowBuyToken } = useShowBuyToken();
+  const { getDAppsData } = useGetDAppList();
 
   // Enable lock screen on the start app
   useEffect(() => {
-    // TODO FIXME
-    // if (!firstTimeCheckPincode && isLocked) {
-      // lock();
-    // }
-    // if (!isLocked) {
+    if (!firstTimeCheckPincode && isLocked) {
+      lock();
+    }
+    if (!isLocked) {
       unlockApp();
-    // }
+    }
     firstTimeCheckPincode = true;
     autoLockParams.isMasterPasswordLocked = isLocked;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLocked]);
 
   useEffect(() => {
+    checkIsShowBuyToken();
+  }, [checkIsShowBuyToken]);
+
+  useEffect(() => {
     autoLockParams.lock = lock;
     autoLockParams.timeAutoLock = timeAutoLock;
     autoLockParams.hasMasterPassword = hasMasterPassword;
-    // autoLockParams.isUseBiometric = isUseBiometric;
+    autoLockParams.isUseBiometric = isUseBiometric;
     autoLockParams.isPreventLock = isPreventLock;
-  }, [timeAutoLock, isPreventLock, lock, hasMasterPassword]); // isUseBiometric
+  }, [timeAutoLock, isUseBiometric, isPreventLock, lock, hasMasterPassword]);
 
   const isRequiredStoresReady = true;
 
@@ -172,12 +172,14 @@ export const AppNew = () => {
       SplashScreen.hide();
     }, 100);
 
-    refetch();
-    if (buildNumber === 1) {
+    checkIsShowBuyToken();
+    getDAppsData();
+
+    // if (buildNumber === 1) {
     // Set default value on the first time install
-    const buildNumberInt = parseInt(getBuildNumber(), 10);
+    // const buildNumberInt = parseInt(getBuildNumber(), 10);
     // dispatch(setBuildNumber(buildNumberInt));
-    }
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

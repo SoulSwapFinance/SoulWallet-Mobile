@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { SwModal, Number } from 'components/Design';
 import { Text, View } from 'react-native';
 import MetaInfo from 'components/MetaInfo';
-import { AmountData, ChainStakingMetadata, StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { AmountData, ChainStakingMetadata, StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import { getUnstakingPeriod } from 'screens/Transaction/helper/staking';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium } from 'styles/sharedStyles';

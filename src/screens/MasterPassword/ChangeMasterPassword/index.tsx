@@ -1,23 +1,24 @@
 import { Warning } from 'components/Warning';
-import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
+import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import React, { useCallback, useMemo, useState } from 'react';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { ScrollView, View } from 'react-native';
 import { ArrowCircleRight, CheckCircle, Info } from 'phosphor-react-native';
 import { Button, Icon, Typography } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import useFormControl from 'hooks/screen/hooks/useFormControl';
+import useFormControl from 'hooks/screen/useFormControl';
 import { PasswordField } from 'components/Field/Password';
 import { validatePassword, validatePasswordMatched } from 'screens/Shared/AccountNamePasswordCreation';
 import { keyringChangeMasterPassword, keyringUnlock } from 'messaging/index';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import ChangeMasterPasswordStyle from './style';
-import { backToHome } from 'utils/navigation';
-import useGoHome from 'hooks/screen/hooks/useGoHome';
 import i18n from 'utils/i18n/i18n';
 import AlertBox from 'components/Design/AlertBox';
 import { FontSemiBold } from 'styles/sharedStyles';
+import { useSelector } from 'react-redux';
+import { RootState } from 'stores/index';
+import { createKeychainPassword } from 'utils/account';
 
 function checkValidateForm(isValidated: Record<string, boolean>) {
   return isValidated.password && isValidated.repeatPassword;
@@ -27,8 +28,8 @@ type PageStep = 'OldPassword' | 'NewPassword';
 
 const ChangeMasterPassword = () => {
   const navigation = useNavigation<RootNavigationProps>();
+  const { isUseBiometric } = useSelector((state: RootState) => state.mobileSettings);
   const theme = useSoulWalletTheme().swThemes;
-  const goHome = useGoHome();
   const _style = ChangeMasterPasswordStyle(theme);
   const [isBusy, setIsBusy] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
@@ -59,8 +60,11 @@ const ChangeMasterPassword = () => {
   useHandlerHardwareBackPress(isBusy);
 
   const _backToHome = useCallback(() => {
-    backToHome(goHome);
-  }, [goHome]);
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+    });
+  }, [navigation]);
 
   const onSubmit = () => {
     if (checkValidateForm(formState.isValidated)) {
@@ -69,27 +73,49 @@ const ChangeMasterPassword = () => {
 
       if (password && oldPassword) {
         setIsBusy(true);
-        keyringChangeMasterPassword({
-          createNew: false,
-          newPassword: password,
-          oldPassword: oldPassword,
-        })
-          .then(res => {
-            if (!res.status) {
-              setErrors(res.errors);
-            } else {
-              _backToHome();
+        if (isUseBiometric) {
+          (async () => {
+            try {
+              const res = await createKeychainPassword(password);
+              if (!res) {
+                setIsBusy(false);
+                return;
+              }
+              handleUnlock(password, oldPassword);
+            } catch (e) {
+              setIsBusy(false);
             }
-          })
-          .catch(e => {
-            setErrors([e.message]);
-          })
-          .finally(() => {
-            setIsBusy(false);
-          });
+          })();
+        } else {
+          handleUnlock(password, oldPassword);
+        }
       }
     }
   };
+
+  function handleUnlock(password: string, oldPassword: string) {
+    keyringChangeMasterPassword({
+      createNew: false,
+      newPassword: password,
+      oldPassword: oldPassword,
+    })
+      .then(res => {
+        if (!res.status) {
+          setErrors(res.errors);
+          isUseBiometric && createKeychainPassword(password);
+          return;
+        }
+        _backToHome();
+      })
+      .catch(e => {
+        isUseBiometric && createKeychainPassword(password);
+        setErrors([e.message]);
+      })
+      .finally(() => {
+        setIsBusy(false);
+      });
+  }
+
   const { formState, onChangeValue, onUpdateErrors, onSubmitField } = useFormControl(formConfig, {
     onSubmitForm: onSubmit,
   });

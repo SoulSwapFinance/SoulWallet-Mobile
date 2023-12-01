@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { useToast } from 'react-native-toast-notifications';
-import { stripUrl } from '@soul-wallet/extension-base/src/utils';
+import { stripUrl } from '@subwallet/extension-base/utils';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import MetaInfo from 'components/MetaInfo';
 import { Button, Icon, Image, SwModal, Typography } from 'components/Design';
@@ -14,7 +14,7 @@ import { ConnectDetailProps, RootNavigationProps } from 'routes/index';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium } from 'styles/sharedStyles';
-import { AbstractAddressJson } from '@soul-wallet/extension-base/src/background/types';
+import { AbstractAddressJson } from '@subwallet/extension-base/background/types';
 import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import i18n from 'utils/i18n/i18n';
 import { Globe, Info, Plugs } from 'phosphor-react-native';
@@ -82,7 +82,7 @@ export const ConnectionDetail = ({
     setLoading(true);
     disconnectWalletConnectConnection(topic)
       .catch(() => {
-        toast.show('Fail to disconnect', { type: 'danger' });
+        toast.show(i18n.message.failToDisconnect, { type: 'danger' });
       })
       .finally(() => {
         setLoading(false);
@@ -124,7 +124,7 @@ export const ConnectionDetail = ({
                         ...FontMedium,
                         color: theme.colorTextTertiary,
                       }}>
-                      {i18n.message.connectedNetworks(chains.length)}
+                      {i18n.formatString(i18n.message.connectedNetworks, chains.length)}
                     </Typography.Text>
                     <Icon phosphorIcon={Info} weight={'fill'} size={'sm'} iconColor={theme.colorTextTertiary} />
                   </TouchableOpacity>
@@ -138,7 +138,7 @@ export const ConnectionDetail = ({
                   paddingTop: theme.padding,
                   paddingBottom: theme.paddingXXS,
                 }}>
-                {i18n.message.connectedAccounts(accountItems.length)}
+                {i18n.formatString(i18n.message.connectedAccounts, accountItems.length)}
               </Typography.Text>
 
               <View style={{ gap: theme.paddingXS }}>

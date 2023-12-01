@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { SubmitButton } from 'components/SubmitButton';
-import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
+import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import { CaretRight } from 'phosphor-react-native';
 import { ScannerContext } from 'providers/ScannerContext';
 import React, { useCallback, useContext, useState } from 'react';
@@ -102,7 +102,10 @@ const SigningResult = () => {
 
   const goHome = useCallback(() => {
     cleanup();
-    navigation.replace('Home');
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+    });
   }, [cleanup, navigation]);
 
   return (

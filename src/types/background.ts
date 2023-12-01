@@ -1,4 +1,4 @@
-import { CronServiceType, SubscriptionServiceType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { CronServiceType, SubscriptionServiceType } from '@subwallet/extension-base/background/KoniTypes';
 
 export type DelayBackgroundService = 'crowdloan' | 'staking' | 'nft';
 

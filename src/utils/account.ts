@@ -216,9 +216,7 @@ function alertFailedAttempts(e: any) {
     }
   });
   if (isFailedAttemps) {
-    Alert.alert('Biometric Unlock', 'Too Many Attempts'
-      // i18n.buttonTitles.unlockWithBiometric, i18n.common.tooManyAttemps
-      );
+    Alert.alert(i18n.buttonTitles.unlockWithBiometric, i18n.common.tooManyAttemps);
   }
 }
 const username = 'sw-user';

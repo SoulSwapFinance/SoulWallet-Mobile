@@ -1,9 +1,9 @@
-// Copyright 2023 @soul-wallet/extension-koni authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { _AssetType } from '@soul-wallet/chain-list/types';
-import { NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { _NFT_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
+import { _AssetType } from '@subwallet/chain-list/types';
+import { NftItem } from '@subwallet/extension-base/background/KoniTypes';
+import { _NFT_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
 
 const RMRK_PREFIX = 'RMRK';
 const RMRK_OP_TYPE = 'SEND';
@@ -43,17 +43,6 @@ function uniqueParser(nftItem: NftItem) {
   };
 }
 
-function varaParser(nftItem: NftItem) {
-  const contractAddress = nftItem.collectionId;
-  const tokenId = nftItem.id;
-
-  return {
-    contractAddress,
-    tokenId,
-    networkKey: nftItem.chain,
-  };
-}
-
 function statemineParser(nftItem: NftItem) {
   const collectionId = parseInt(nftItem.collectionId);
   const itemId = parseInt(nftItem.id);
@@ -87,6 +76,17 @@ function psp34Parser(nftItem: NftItem) {
   };
 }
 
+function varaParser(nftItem: NftItem) {
+  const contractAddress = nftItem.collectionId;
+  const tokenId = nftItem.id;
+
+  return {
+    contractAddress,
+    tokenId,
+    networkKey: nftItem.chain,
+  };
+}
+
 export default function nftParamsHandler(nftItem: NftItem, chain: string) {
   if (nftItem.type === _AssetType.ERC721) {
     return web3Parser(nftItem);
@@ -101,7 +101,7 @@ export default function nftParamsHandler(nftItem: NftItem, chain: string) {
       return acalaParser(nftItem);
     } else if (_NFT_CHAIN_GROUP.rmrk.includes(chain)) {
       return rmrkParser(nftItem);
-    } else if (_NFT_CHAIN_GROUP.statemine.includes(chain)) {
+    } else if (_NFT_CHAIN_GROUP.statemine.includes(chain) || _NFT_CHAIN_GROUP.statemint.includes(chain)) {
       return statemineParser(nftItem);
     } else if (_NFT_CHAIN_GROUP.unique_network.includes(chain)) {
       return uniqueParser(nftItem);

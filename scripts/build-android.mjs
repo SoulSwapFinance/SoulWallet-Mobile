@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Copyright 2017-2022 SoulWallet
+// Copyright 2017-2023 SoulWallet
 // SPDX-License-Identifier: Apache-2.0
 import {
   commitMessage,
@@ -22,8 +22,12 @@ async function runCleanAndroid() {
   return execSync('./gradlew clean', 'Clean build');
 }
 
+// async function setENV() {
+//   return execSync('export ENVFILE=.env.production', 'Set ENV');
+// }
+
 async function runBuildAndroid() {
-  return execSync('./gradlew assembleRelease', 'Build APK');
+  return execSync('export ENVFILE=.env.production && ./gradlew assembleRelease', 'Build APK');
 }
 
 async function runUploadAndroid() {
@@ -34,6 +38,7 @@ async function runUploadAndroid() {
 
 // await notifyStart();
 await runCleanAndroid()
+// await setENV();
 await runBuildAndroid();
 await runUploadAndroid();
 // await notifyFinish();

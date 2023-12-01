@@ -24,8 +24,6 @@ import {
 } from 'phosphor-react-native';
 import { FontMedium, FontSemiBold, sharedStyles } from 'styles/sharedStyles';
 import { ColorMap } from 'styles/color';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stores/index';
 import { RootNavigationProps } from 'routes/index';
 import i18n from 'utils/i18n/i18n';
 import {
@@ -37,7 +35,7 @@ import {
   WEBSITE_URL,
   WIKI_URL,
 } from 'constants/index';
-// import VersionNumber from 'react-native-version-number';
+import VersionNumber from 'react-native-version-number';
 import useAppLock from 'hooks/useAppLock';
 import { BackgroundIcon, Button, Icon, SelectItem } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
@@ -53,13 +51,13 @@ const settingTitleStyle: StyleProp<any> = {
   paddingBottom: 8,
 };
 
-// const versionAppStyle: StyleProp<any> = {
-//   textAlign: 'center',
-//   color: ColorMap.light,
-//   ...FontMedium,
-//   ...sharedStyles.mainText,
-//   paddingBottom: 16,
-// };
+const versionAppStyle: StyleProp<any> = {
+  textAlign: 'center',
+  color: ColorMap.light,
+  ...FontMedium,
+  ...sharedStyles.mainText,
+  paddingBottom: 16,
+};
 
 type settingItemType = {
   icon: React.ElementType<IconProps>;
@@ -73,13 +71,26 @@ type settingItemType = {
 export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponentProps) => {
   const navigation = useNavigation<RootNavigationProps>();
   const theme = useSoulWalletTheme().swThemes;
-  const pinCodeEnabled = useSelector((state: RootState) => state.mobileSettings.pinCodeEnabled);
   const { lock } = useAppLock();
   const [hiddenCount, setHiddenCount] = useState(0);
 
   const settingList: settingItemType[][] = useMemo(
     () => [
       [
+        {
+          icon: GlobeHemisphereWest,
+          title: i18n.settings.generalSettings,
+          rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
+          onPress: () => navigation.navigate('GeneralSettings'),
+          backgroundColor: '#6A00FF',
+        },
+        {
+          icon: ShieldCheck,
+          title: i18n.settings.securitySettings,
+          rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
+          onPress: () => navigation.navigate('Security'),
+          backgroundColor: '#6A00FF',
+        },
         {
           icon: BookBookmark,
           title: i18n.settings.manageAddressBook,
@@ -92,21 +103,6 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
           title: i18n.title.history,
           rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
           onPress: () => navigation.navigate('History', {}),
-          backgroundColor: '#6A00FF',
-        },
-        {
-          icon: GlobeHemisphereWest,
-          title: i18n.settings.language,
-          rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
-          // onPress: () => navigation.navigate('GeneralSettings'),
-          onPress: () => navigation.navigate('Languages'),
-          backgroundColor: '#6A00FF',
-        },
-        {
-          icon: ShieldCheck,
-          title: i18n.settings.securitySettings,
-          rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
-          onPress: () => navigation.navigate('Security'),
           backgroundColor: '#6A00FF',
         },
         {
@@ -213,6 +209,7 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
       onPressRightIcon={() => (drawerNavigation ? drawerNavigation.closeDrawer() : navigation.goBack())}>
       <>
         <ScrollView
+          showsVerticalScrollIndicator={false}
           style={{ paddingHorizontal: 16, flex: 1, marginBottom: 16 }}
           contentContainerStyle={{ paddingTop: 16 }}>
           <View style={{ gap: theme.paddingXS }}>
@@ -221,6 +218,15 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
                 rightIcon={setting.rightIcon}
                 key={setting.title}
                 label={setting.title}
+                leftItemIcon={
+                  setting.title === i18n.header.walletConnect ? (
+                    <BackgroundIcon
+                      shape={'circle'}
+                      backgroundColor={setting.backgroundColor}
+                      customIcon={<SVGImages.WalletConnect width={16} height={16} color={theme.colorWhite} />}
+                    />
+                  ) : undefined
+                }
                 icon={setting.icon}
                 backgroundColor={setting.backgroundColor}
                 onPress={setting.onPress}
@@ -236,15 +242,6 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
                 rightIcon={setting.rightIcon}
                 key={setting.title}
                 label={setting.title}
-                leftItemIcon={
-                  setting.title === i18n.header.walletConnect ? (
-                    <BackgroundIcon
-                      shape={'circle'}
-                      backgroundColor={setting.backgroundColor}
-                      customIcon={<SVGImages.WalletConnect width={16} height={16} color={theme.colorWhite} />}
-                    />
-                  ) : undefined
-                }
                 icon={setting.icon}
                 backgroundColor={setting.backgroundColor}
                 onPress={setting.onPress}
@@ -267,7 +264,7 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
             ))}
           </View>
 
-          {/* <Text style={settingTitleStyle}>{i18n.settings.aboutSoulWallet.toUpperCase()}</Text>
+          <Text style={settingTitleStyle}>{i18n.settings.aboutSoulWallet.toUpperCase()}</Text>
 
           <View style={{ gap: theme.paddingXS }}>
             {settingList[3].map(setting => (
@@ -280,29 +277,20 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
                 onPress={setting.onPress}
               />
             ))}
-          </View> */}
+          </View>
 
           <Button
             style={{ marginTop: 16 }}
             onPress={lock}
-            disabled={!pinCodeEnabled}
             type={'secondary'}
             block
-            icon={
-              <Icon
-                phosphorIcon={Lock}
-                size={'lg'}
-                weight={'fill'}
-                iconColor={!pinCodeEnabled ? theme.colorTextLight5 : theme.colorWhite}
-              />
-            }>
+            icon={<Icon phosphorIcon={Lock} size={'lg'} weight={'fill'} iconColor={theme.colorWhite} />}>
             {i18n.settings.lock}
           </Button>
         </ScrollView>
-        {/* <Text
+        <Text
           onPress={onPressVersionNumber}
-          style={versionAppStyle}>{`SoulWallet v${VersionNumber.appVersion} (${VersionNumber.buildVersion})`}
-        </Text> */}
+          style={versionAppStyle}>{`SoulWallet v${VersionNumber.appVersion} (${VersionNumber.buildVersion})`}</Text>
       </>
     </SoulScreenContainer>
   );

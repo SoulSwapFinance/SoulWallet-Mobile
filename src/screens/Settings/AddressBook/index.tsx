@@ -1,7 +1,7 @@
 import { FlatListScreen } from 'components/FlatListScreen';
 import i18n from 'utils/i18n/i18n';
 import React, { useCallback, useMemo, useState } from 'react';
-import { AddressJson } from '@soul-wallet/extension-base/src/background/types';
+import { AddressJson } from '@subwallet/extension-base/background/types';
 import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
 import { Keyboard, ListRenderItemInfo, View } from 'react-native';
 import Typography from '../../../components/Design/Typography';

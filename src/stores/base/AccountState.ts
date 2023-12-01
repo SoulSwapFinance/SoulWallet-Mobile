@@ -1,11 +1,11 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AddressBookInfo, KeyringState } from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { AccountJson, AccountsContext } from '@soul-wallet/extension-base/src/background/types';
+import { AddressBookInfo, KeyringState } from '@subwallet/extension-base/background/KoniTypes';
+import { AccountJson, AccountsContext } from '@subwallet/extension-base/background/types';
 import { AccountState, ReduxStatus } from 'stores/types';
-import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
+import { isAccountAll } from '@subwallet/extension-base/utils';
 
 const initialState: AccountState = {
   // CurrentAccount
