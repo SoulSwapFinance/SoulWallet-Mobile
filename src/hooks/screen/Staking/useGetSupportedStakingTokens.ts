@@ -1,19 +1,20 @@
-import { _ChainAsset, _ChainInfo } from '@soul-wallet/chain-list/types';
-import { StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
-import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants';
+import { _ChainAsset, _ChainInfo } from '@subwallet/chain-list/types';
+import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
+import { AccountJson } from '@subwallet/extension-base/background/types';
+import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants';
 import {
   _getChainNativeTokenSlug,
   _getSubstrateGenesisHash,
   _isChainEvmCompatible,
   _isChainSupportSubstrateStaking,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+} from '@subwallet/extension-base/services/chain-service/utils';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { ALL_KEY } from 'constants/index';
 import { AccountAddressType } from 'types/index';
 import { findAccountByAddress, getAccountAddressType } from 'utils/account';
+import useChainAssets from 'hooks/chain/useChainAssets';
 
 const isChainTypeValid = (chainInfo: _ChainInfo, accounts: AccountJson[], address?: string): boolean => {
   const addressType = getAccountAddressType(address);
@@ -43,7 +44,7 @@ export default function useGetSupportedStakingTokens(
   chain?: string,
 ): _ChainAsset[] {
   const chainInfoMap = useSelector((state: RootState) => state.chainStore.chainInfoMap);
-  const assetRegistryMap = useSelector((state: RootState) => state.assetRegistry.assetRegistry);
+  const assetRegistryMap = useChainAssets().chainAssetRegistry;
   const accounts = useSelector((state: RootState) => state.accountState.accounts);
 
   return useMemo(() => {

@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 
-export const getPrice = (symbol) => {
+export const getPrice = (symbol: string) => {
     const [delay, setDelay] = useState(1_000)
     const [price, setTokenPrice] = useState('0.001')
     const setPrice = useCallback(async() => { 

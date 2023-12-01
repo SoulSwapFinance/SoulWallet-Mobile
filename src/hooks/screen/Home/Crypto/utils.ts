@@ -1,10 +1,10 @@
-import { _ChainAsset, _ChainInfo } from '@soul-wallet/chain-list/types';
+import { _ChainAsset, _ChainInfo } from '@subwallet/chain-list/types';
 import { AccountType } from 'types/ui-types';
 import {
   _getMultiChainAsset,
   _isAssetFungibleToken,
   _isChainEvmCompatible,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+} from '@subwallet/extension-base/services/chain-service/utils';
 
 export function getAccountTypeByTokenGroup(
   tokenGroupSlug: string,

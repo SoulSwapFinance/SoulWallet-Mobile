@@ -4,7 +4,7 @@ import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { View } from 'react-native';
 import { sharedStyles } from 'styles/sharedStyles';
-import { CaretRight, GlobeHemisphereWest, Image, BellSimpleRinging } from 'phosphor-react-native';
+import { CaretRight, GlobeHemisphereWest } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { Icon, SelectItem } from 'components/Design';
@@ -15,11 +15,6 @@ export const GeneralSettings = () => {
   const theme = useSoulWalletTheme().swThemes;
   const toast = useToast();
   const navigation = useNavigation<RootNavigationProps>();
-
-  // const showComingSoon = () => {
-  //   toast.hideAll();
-  //   toast.show(i18n.notificationMessage.comingSoon);
-  // };
 
   const openLanguageModal = () => {
     navigation.navigate('Languages');

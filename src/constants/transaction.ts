@@ -1,7 +1,7 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
 import { ConfirmationType } from 'stores/base/RequestState';
 import { ExtraExtrinsicType, ExtrinsicTypeMobile } from 'types/transaction';
 import i18n from 'utils/i18n/i18n';
@@ -20,6 +20,7 @@ export const TRANSACTION_TITLE_MAP = (): Record<ExtrinsicTypeMobile, string> => 
   [ExtrinsicType.STAKING_UNBOND]: i18n.header.unbond,
   [ExtrinsicType.STAKING_WITHDRAW]: i18n.header.withDraw,
   [ExtrinsicType.STAKING_POOL_WITHDRAW]: i18n.header.withDraw,
+  [ExtrinsicType.STAKING_LEAVE_POOL]: i18n.header.unbond,
   [ExtrinsicType.STAKING_CANCEL_UNSTAKE]: i18n.header.cancelUnstake,
   [ExtrinsicType.STAKING_CLAIM_REWARD]: i18n.header.claimRewards,
   [ExtrinsicType.STAKING_COMPOUNDING]: 'Compound',

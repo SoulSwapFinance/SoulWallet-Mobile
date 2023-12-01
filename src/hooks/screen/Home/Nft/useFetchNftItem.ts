@@ -1,4 +1,4 @@
-import { NftCollection, NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NftCollection, NftItem } from '@subwallet/extension-base/background/KoniTypes';
 import { NftItemType } from 'hooks/types';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';

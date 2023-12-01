@@ -9,7 +9,7 @@ import {
   NominatorMetadata,
   StakingItem,
   StakingRewardItem,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
+} from '@subwallet/extension-base/background/KoniTypes';
 import { BalanceValueType } from 'utils/chainBalances';
 import { ConfirmationSlice } from 'stores/types';
 

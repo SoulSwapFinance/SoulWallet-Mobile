@@ -1,9 +1,10 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import useGetAccountSignModeByAddress from 'hooks/screen/hooks/useGetAccountSignModeByAddress';
+import useGetAccountSignModeByAddress from 'hooks/screen/useGetAccountSignModeByAddress';
 import { useMemo } from 'react';
 import { AccountSignMode } from 'types/signer';
+import i18n from 'utils/i18n/i18n';
 
 const useGetAccountTitleByAddress = (address?: string): string => {
   const signMode = useGetAccountSignModeByAddress(address);

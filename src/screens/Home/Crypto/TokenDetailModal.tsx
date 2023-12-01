@@ -8,7 +8,6 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import i18n from 'utils/i18n/i18n';
 import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2';
-// import PriceChart from 'components/Chart/PriceChart';
 
 type ItemType = {
   symbol: string;
@@ -32,8 +31,8 @@ export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceM
   const _style = createStyleSheet(theme);
   const modalBaseV2Ref = useRef<SWModalRefProps>(null);
   const items: ItemType[] = useMemo(() => {
-    const symbol = currentTokenInfo?.symbol || ''
-    const balanceInfo = currentTokenInfo ? tokenBalanceMap[currentTokenInfo.slug] : undefined
+    const symbol = currentTokenInfo?.symbol || '';
+    const balanceInfo = currentTokenInfo ? tokenBalanceMap[currentTokenInfo.slug] : undefined;
 
     return [
       {
@@ -49,11 +48,11 @@ export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceM
         value: balanceInfo ? balanceInfo.locked.value : new BigN(0),
       },
     ];
-  }, [currentTokenInfo, tokenBalanceMap])
-  const onChangeModalVisible = () => modalBaseV2Ref?.current?.close()
+  }, [currentTokenInfo, tokenBalanceMap]);
+  const onChangeModalVisible = () => modalBaseV2Ref?.current?.close();
 
   return (
-    <><SwModal
+    <SwModal
       isUseModalV2
       setVisible={setVisible}
       modalBaseV2Ref={modalBaseV2Ref}
@@ -64,6 +63,7 @@ export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceM
         {items.map(item => (
           <View key={item.key} style={_style.row}>
             <Typography.Text style={{ ...FontSemiBold, color: theme.colorTextLight1 }}>{item.label}</Typography.Text>
+
             <Number
               style={_style.value}
               textStyle={{ ...FontMedium }}
@@ -73,20 +73,12 @@ export const TokenDetailModal = ({ modalVisible, currentTokenInfo, tokenBalanceM
               size={14}
               suffix={item.symbol}
               unitOpacity={0.85}
-              value={item.value} />
+              value={item.value}
+            />
           </View>
         ))}
       </View>
     </SwModal>
-    {/* <PriceChart
-        // tokenSlug={tokenSlug}
-        tokenChain={'ethereum'}
-        tokenAddress={tokenBalanceMap.tokenAddress} 
-    />
-        {console.log('address: %s', currentTokenInfo?.slug)}
-
-    </> */}
-    </>
   );
 };
 

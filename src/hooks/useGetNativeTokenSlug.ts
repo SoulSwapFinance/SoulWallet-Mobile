@@ -1,4 +1,4 @@
-import { _getChainNativeTokenSlug } from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { _getChainNativeTokenSlug } from '@subwallet/extension-base/services/chain-service/utils';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';

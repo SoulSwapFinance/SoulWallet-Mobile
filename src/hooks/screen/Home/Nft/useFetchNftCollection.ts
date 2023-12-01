@@ -1,10 +1,10 @@
-import { NftCollection } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NftCollection } from '@subwallet/extension-base/background/KoniTypes';
 import { NftCollectionType } from 'hooks/types';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import reformatAddress from 'utils/index';
-import { isAccountAll } from '@soul-wallet/extension-base/src/utils';
+import { isAccountAll } from '@subwallet/extension-base/utils';
 import { findNetworkJsonByGenesisHash } from 'utils/getNetworkJsonByGenesisHash';
 
 export default function useFetchNftCollection(): NftCollectionType {
@@ -52,6 +52,9 @@ export default function useFetchNftCollection(): NftCollectionType {
         continue;
       }
       const collection: NftCollection = { ...nftCollection };
+      if (!collection.image) {
+        collection.image = nftItems.find(item => item.collectionId === collection.collectionId)?.image;
+      }
       const key = `${collection.chain}-${collection.collectionId}`;
       if (countMap[key] && countMap[key] > 0) {
         collection.itemCount = countMap[key];

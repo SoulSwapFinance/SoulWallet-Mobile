@@ -1,6 +1,6 @@
-import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { AmountData } from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { _getChainNativeTokenSlug } from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { _ChainInfo } from '@subwallet/chain-list/types';
+import { AmountData } from '@subwallet/extension-base/background/KoniTypes';
+import { _getChainNativeTokenSlug } from '@subwallet/extension-base/services/chain-service/utils';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
@@ -106,7 +106,8 @@ const useGetBalance = (chain = '', address = '', tokenSlug = '') => {
         !cancel && setNativeTokenBalance(DEFAULT_BALANCE);
         !cancel && setTokenBalance(DEFAULT_BALANCE);
         !cancel && setIsLoading(false);
-        !cancel && setError(i18n.message.enableTokenOnChain(tokenNames.join(', '), chainInfo?.name || ''));
+        !cancel &&
+          setError(`${i18n.formatString(i18n.message.enableTokenOnChain, tokenNames.join(', '), chainInfo?.name || '')}`);
       }
     }
 

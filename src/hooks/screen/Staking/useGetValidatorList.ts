@@ -1,9 +1,9 @@
-import { NominationPoolInfo, StakingType, ValidatorInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { _getChainNativeTokenBasicInfo } from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { NominationPoolInfo, StakingType, ValidatorInfo } from '@subwallet/extension-base/background/KoniTypes';
+import { _getChainNativeTokenBasicInfo } from '@subwallet/extension-base/services/chain-service/utils';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
+import useFetchChainInfo from 'hooks/screen/useFetchChainInfo';
 
 export type NominationPoolDataType = NominationPoolInfo & {
   symbol: string;

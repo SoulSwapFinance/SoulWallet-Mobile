@@ -2,10 +2,10 @@ import React from 'react';
 import WebView from 'react-native-webview';
 import EventEmitter from 'eventemitter3';
 import { clearWebRunnerHandler, postMessage } from 'messaging/index';
-import { MESSAGE_ORIGIN_CONTENT } from '@soul-wallet/extension-base/src/defaults';
-import { TransportRequestMessage } from '@soul-wallet/extension-base/src/background/types';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
-import { Message } from '@soul-wallet/extension-base/src/types';
+import { MESSAGE_ORIGIN_CONTENT } from '@subwallet/extension-base/defaults';
+import { TransportRequestMessage } from '@subwallet/extension-base/background/types';
+import { getId } from '@subwallet/extension-base/utils/getId';
+import { Message } from '@subwallet/extension-base/types';
 
 export type BrowserServiceArgs = {
   browserWebviewRef: React.RefObject<WebView<{}>>;

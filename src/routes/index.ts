@@ -1,8 +1,7 @@
 import { NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { KeypairType } from '@polkadot/util-crypto/types';
-import { HomeStackParamList } from 'routes/home';
-import { ConfirmationsQueue } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ConfirmationsQueue } from '@subwallet/extension-base/background/KoniTypes';
 import { NftTransferActionStackParamList } from 'routes/nft/transferAction';
 import { SigningActionStackParamList } from 'routes/signing';
 import { TransactionActionStackParamList } from 'routes/transaction/transactionAction';
@@ -11,7 +10,7 @@ import { WrapperParamList } from 'routes/wrapper';
 export type RootStackParamList = {
   LockScreen: undefined;
   LoadingScreen: undefined;
-  Home: NavigatorScreenParams<HomeStackParamList> | undefined;
+  Home: NavigatorScreenParams<WrapperParamList> | undefined;
   CreatePassword: {
     pathName:
       | 'CreateAccount'
@@ -57,6 +56,7 @@ export type RootStackParamList = {
   BrowserSearch: { isOpenNewTab: boolean } | undefined;
   BrowserTabsManager: { url?: string; name?: string; isOpenTabs?: boolean };
   BrowserListByTabview: { type: string };
+  MissionPoolsByTabview: { type: string };
   ConfirmationPopup: undefined;
   Confirmations: undefined;
   DAppAccess: undefined;
@@ -109,6 +109,7 @@ export type TransferNftProps = NativeStackScreenProps<RootStackParamList, 'Trans
 export type DAppAccessDetailProps = NativeStackScreenProps<RootStackParamList, 'DAppAccessDetail'>;
 export type BrowserTabsManagerProps = NativeStackScreenProps<RootStackParamList, 'BrowserTabsManager'>;
 export type BrowserListByTabviewProps = NativeStackScreenProps<RootStackParamList, 'BrowserListByTabview'>;
+export type MissionPoolsByTabviewProps = NativeStackScreenProps<RootStackParamList, 'MissionPoolsByTabview'>;
 export type BrowserHomeProps = NativeStackScreenProps<RootStackParamList, 'BrowserHome'>;
 export type BrowserSoulSwapProps = NativeStackScreenProps<RootStackParamList, 'BrowserSoulSwap'>;
 export type BrowserSearchProps = NativeStackScreenProps<RootStackParamList, 'BrowserSearch'>;

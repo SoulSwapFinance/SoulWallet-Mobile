@@ -1,5 +1,5 @@
-import useScanExplorerTxUrl from 'hooks/screen/hooks/useScanExplorerTxUrl';
-import useSupportScanExplorer from 'hooks/screen/hooks/useSupportScanExplorerUrl';
+import useScanExplorerTxUrl from 'hooks/screen/useScanExplorerTxUrl';
+import useSupportScanExplorer from 'hooks/screen/useSupportScanExplorerUrl';
 import React, { useCallback, useMemo } from 'react';
 import { Image, ImageStyle, Linking, ScrollView, StyleProp, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { ColorMap } from 'styles/color';

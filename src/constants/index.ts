@@ -6,18 +6,20 @@ import { getBrand } from 'react-native-device-info';
 type DeviceInfo = {
   isIos: boolean;
   isAndroid: boolean;
-  isMac: boolean;
+  isMacOS: boolean;
   width: number;
   height: number;
 };
 
-export const WIKI_URL = 'https://docs.soulswap.wallet/';
+export const WIKI_URL = 'https://docs.soulswap.finance';
 export const PRIVACY_AND_POLICY_URL = 'https://docs.soulswap.finance/docs/faq/privacy-policy';
 export const TERMS_OF_SERVICE_URL = 'https://docs.soulswap.finance/docs/faq/user-agreement';
-export const WEBSITE_URL = 'https://app.soulswap.finance/';
+export const WEBSITE_URL = 'https://app.soulswap.finance';
 export const TELEGRAM_URL = 'https://t.me/SoulSwapDeFi';
 export const TWITTER_URL = 'https://twitter.com/SoulSwapFinance';
-export const DISCORD_URL = 'https://discord.gg/soulswap';
+export const DISCORD_URL = 'https://discord.gg/SoulSwap';
+// export const TOKEN_CONFIG_URL = 'https://static-data.subwallet.app/tokens/config.json';
+export const TOKEN_CONFIG_URL = 'https://raw.githubusercontent.com/SoulSwapFinance/SoulWallet-Static-Content/main/data/tokens/config.json';
 export const BUTTON_ACTIVE_OPACITY = 0.5;
 export const ALLOW_FONT_SCALING = false;
 export const HIDE_MODAL_DURATION = 1000;
@@ -38,7 +40,7 @@ export const CELL_COUNT = 6;
 export const DEVICE: DeviceInfo = {
   isIos: Platform.OS === 'ios',
   isAndroid: Platform.OS === 'android',
-  isMac: Platform.OS === 'macos',
+  isMacOS: Platform.OS === 'macos',
   width: deviceWidth,
   height: deviceHeight,
 };

@@ -1,13 +1,13 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import { useCallback } from 'react';
 
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { VoidFunction } from 'types/index';
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
 import { getSignMode } from 'utils/account';
 import { AccountSignMode } from 'types/signer';
 import { ALL_STAKING_ACTIONS } from 'constants/transaction';
@@ -30,15 +30,15 @@ const usePreCheckAction = (
 
     switch (signMode) {
       case AccountSignMode.LEDGER:
-        return 'Ledger Account';
+        return 'Ledger account';
       case AccountSignMode.ALL_ACCOUNT:
-        return 'All Account';
+        return 'All account';
       case AccountSignMode.PASSWORD:
-        return 'Normal Account';
+        return 'Normal account';
       case AccountSignMode.QR:
-        return 'QR Signer Account';
+        return 'QR signer account';
       case AccountSignMode.READ_ONLY:
-        return 'Watch-Only Account';
+        return 'Watch-only account';
       case AccountSignMode.UNKNOWN:
       default:
         return 'Unknown account';

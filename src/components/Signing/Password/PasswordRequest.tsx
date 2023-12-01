@@ -2,7 +2,7 @@ import { WebRunnerContext } from 'providers/contexts';
 import { SigningContext } from 'providers/SigningContext';
 import { PasswordField } from 'components/Field/Password';
 import { SubmitButton } from 'components/SubmitButton';
-import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/hooks/useFormControl';
+import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/useFormControl';
 import React, { useCallback, useContext } from 'react';
 import { StyleProp, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { validatePassword } from 'screens/Shared/AccountNamePasswordCreation';

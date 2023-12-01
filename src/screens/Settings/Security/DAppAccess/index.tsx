@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { FlatListScreen } from 'components/FlatListScreen';
-import { AuthUrlInfo } from '@soul-wallet/extension-base/src/background/handlers/State';
+import { AuthUrlInfo } from '@subwallet/extension-base/background/handlers/State';
 import { DotsThree, GlobeSimple, Plugs, PlugsConnected, X } from 'phosphor-react-native';
 import { MoreOptionModal } from 'screens/Settings/Security/DAppAccess/MoreOptionModal';
 import { useSelector } from 'react-redux';

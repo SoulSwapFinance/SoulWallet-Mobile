@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { ChainStakingMetadata } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ChainStakingMetadata } from '@subwallet/extension-base/background/KoniTypes';
 
 export default function useGetChainStakingMetadata(chain?: string) {
   const chainStakingMetadataList = useSelector((state: RootState) => state.staking.chainStakingMetadataList);
