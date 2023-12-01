@@ -1,4 +1,4 @@
-import { ValidatorInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ValidatorInfo } from '@subwallet/extension-base/background/KoniTypes';
 import { NetworkValidatorsInfo } from 'types/staking';
 import i18n from 'utils/i18n/i18n';
 

@@ -1,5 +1,5 @@
-import { MESSAGE_ORIGIN_PAGE } from '@soul-wallet/extension-base/src/defaults'
-import { getId } from '@soul-wallet/extension-base/src/utils/getId'
+import { MESSAGE_ORIGIN_PAGE } from '@subwallet/extension-base/defaults'
+import { getId } from '@subwallet/extension-base/utils/getId'
 import { predefinedDApps } from 'constants/predefined/dAppSites'
 import { getHostName } from 'utils/browser'
 
@@ -79,11 +79,11 @@ const autoTriggerSubstrateHosts: string[] = [];
 const autoTriggerEthereumHosts: string[] = [];
 
 predefinedDApps.dapps.forEach(s => {
-  if (s.isSupportSubstrateAccount) {
+  if (s.is_substrate) {
     autoTriggerSubstrateHosts.push(getHostName(s.url));
   }
 
-  if (s.isSupportEthereumAccount) {
+  if (s.is_evm) {
     autoTriggerEthereumHosts.push(getHostName(s.url));
   }
 });
@@ -130,6 +130,14 @@ export const DAppScript = `(function () {
       JSON.stringify({
         isMetaMask: false,
         isSoulWallet: true,
+      }),
+    );
+  } else if (hostName === 'meta.soulswap.finance') {
+    localStorage.setItem(
+      'walletConnected',
+      JSON.stringify({
+        isMetaMask: true,
+        isSoulWallet: false,
       }),
     );
   } else if (hostName === 'app.beamswap.io') {

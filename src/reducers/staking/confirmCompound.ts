@@ -1,4 +1,4 @@
-import { DelegationItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { DelegationItem } from '@subwallet/extension-base/background/KoniTypes';
 import i18n from 'utils/i18n/i18n';
 
 // Existing request state

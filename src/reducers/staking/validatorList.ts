@@ -1,4 +1,4 @@
-import { ValidatorInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ValidatorInfo } from '@subwallet/extension-base/background/KoniTypes';
 import { NetworkValidatorsInfo, ValidatorSortBy } from 'types/staking';
 import { SortFunctionInterface } from 'types/ui-types';
 
