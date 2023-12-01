@@ -3,22 +3,27 @@ import { TagPropsType } from 'components/Design/Tag/PropsType';
 export type DAPPCategory = {
   name: string;
   id: string;
-  color?: string;
-  theme?: TagPropsType['color'];
-  slug?: string
+  slug?: string; // todo: make requirement
+  color?: TagPropsType['color']; // todo: make requirement
+  theme?: string;
 };
 
 export type DAppInfo = {
-  name: string;
   id: string;
+  title: string;
+  subtitle: string;
   url: string;
-  icon: string;
+  description: string;
   categories: string[];
-  title?: string
-  isFeatured?: boolean
-  previewImage?: string
-  isSupportSubstrateAccount?: boolean;
-  isSupportEthereumAccount?: boolean;
+  chain: string[];
+  is_featured: boolean;
+  is_evm: boolean;
+  is_substrate: boolean;
+  icon: string;
+  preview_image: string;
+  // V1
+  name?: string;
+  previewImage?: string;
 };
 
 export type PredefinedDApps = {

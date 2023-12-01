@@ -8,35 +8,41 @@ const getCameraPermission = () => {
 };
 
 export const requestCameraPermission = async (onPressCancel?: () => void) => {
-  AutoLockState.isPreventAutoLock = true;
-  const result = await check(getCameraPermission());
-  AutoLockState.isPreventAutoLock = false;
+  try {
+    AutoLockState.isPreventAutoLock = true;
+    const result =
+      Platform.OS === 'android' ? await request(getCameraPermission()) : await check(getCameraPermission());
+    AutoLockState.isPreventAutoLock = false;
 
-  switch (result) {
-    case RESULTS.UNAVAILABLE:
-      console.log('Images: This feature is not available (on this device / in this context)');
-      break;
-    case RESULTS.DENIED:
-      request(getCameraPermission()).then(() => onPressCancel && onPressCancel());
-      console.log('Images: The permission has not been requested / is denied but requestable');
-      break;
-    case RESULTS.GRANTED:
-      console.log('Images: The permission is granted');
-      return result;
-    case RESULTS.BLOCKED:
-      Alert.alert(i18n.common.notify, i18n.common.cannotScanQRCodeWithoutPermission, [
-        {
-          text: i18n.buttonTitles.cancel,
-          onPress: onPressCancel,
-        },
-        {
-          text: i18n.common.goToSetting,
-          onPress: () => {
-            onPressCancel && onPressCancel();
-            Linking.openSettings();
+    switch (result) {
+      case RESULTS.UNAVAILABLE:
+        // Images: This feature is not available (on this device / in this context)
+        break;
+      case RESULTS.DENIED:
+        request(getCameraPermission()).then(() => onPressCancel && onPressCancel());
+        // Images: The permission has not been requested / is denied but requestable
+        break;
+      case RESULTS.GRANTED:
+        // Images: The permission is granted
+        return result;
+      case RESULTS.BLOCKED:
+        Alert.alert(i18n.common.notify, i18n.common.cannotScanQRCodeWithoutPermission, [
+          {
+            text: i18n.buttonTitles.cancel,
+            onPress: onPressCancel,
           },
-        },
-      ]);
-      return;
+          {
+            text: i18n.common.goToSetting,
+            onPress: () => {
+              onPressCancel && onPressCancel();
+              Linking.openSettings();
+            },
+          },
+        ]);
+        return null;
+    }
+  } catch (e) {
+    console.log(e);
+    return null;
   }
 };

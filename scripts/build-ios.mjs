@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Copyright 2017-2022 SoulWallet
+// Copyright 2017-2023 SoulWallet
 // SPDX-License-Identifier: Apache-2.0
 import {
   commitMessage,
@@ -23,7 +23,7 @@ async function runCleanIOS() {
 }
 
 async function runBuildIOS() {
-  return execSync('xcodebuild -workspace ./SoulWalletMobile.xcworkspace -scheme SoulWalletMobile -sdk iphoneos -configuration Release -quiet -archivePath $PWD/dist/SoulWallet.xcarchive clean archive', 'Build Archive');
+  return execSync('xcodebuild -workspace ./SoulWalletMobile.xcworkspace -scheme SoulWalletMobile-Production -sdk iphoneos -configuration Release -quiet -archivePath $PWD/dist/SoulWallet.xcarchive clean archive', 'Build Archive');
 }
 
 async function runExportIOS() {

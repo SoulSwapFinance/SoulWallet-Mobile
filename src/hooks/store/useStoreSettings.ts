@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { clearWebRunnerHandler, subscribeSettings } from 'messaging/index';
 import { updateSettings } from 'stores/updater';
-import { UiSettings } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { UiSettings } from '@subwallet/extension-base/background/KoniTypes';
 import { WebRunnerContext } from 'providers/contexts';
 import { StoreStatus } from 'stores/types';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
+import { getId } from '@subwallet/extension-base/utils/getId';
 
 export default function useStoreSettings(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;
+  // @ts-ignore
   const isCached = !!useSelector((state: RootState) => state.settings.isReady);
   const [storeStatus, setStoreStatus] = useState<StoreStatus>(isCached ? 'CACHED' : 'INIT');
 
@@ -29,6 +30,7 @@ export default function useStoreSettings(): StoreStatus {
         updateSettings(payload);
         setStoreStatus('SYNCED');
       };
+      // @ts-ignore
       subscribeSettings(null, _update, handlerId)
         .then(_update)
         .catch(e => {

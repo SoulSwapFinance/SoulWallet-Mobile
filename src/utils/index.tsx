@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { SVGImages } from 'assets/index';
 import { AccountType, Recoded } from 'types/ui-types';
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
+import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
 import isaac from 'isaac';
 import {
   ContractType,
@@ -9,12 +9,12 @@ import {
   NetWorkGroup,
   NetworkJson,
   TransakNetwork,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
+} from '@subwallet/extension-base/background/KoniTypes';
+import { KeypairType } from '@polkadot/util-crypto/types';
 import Clipboard from '@react-native-clipboard/clipboard';
 import { useToast } from 'react-native-toast-notifications';
-import { KeypairType } from '@polkadot/util-crypto/types';
-import { AccountAuthType, AccountJson, AccountWithChildren } from '@soul-wallet/extension-base/src/background/types';
-import { isAccountAll, uniqueStringArray } from '@soul-wallet/extension-base/src/utils';
+import { AccountAuthType, AccountJson, AccountWithChildren } from '@subwallet/extension-base/background/types';
+import { isAccountAll, uniqueStringArray } from '@subwallet/extension-base/utils';
 import { decodeAddress, encodeAddress, ethereumEncode, isAddress, isEthereumAddress } from '@polkadot/util-crypto';
 import { StyleProp, View } from 'react-native';
 import { ColorMap } from 'styles/color';
@@ -25,10 +25,11 @@ import { BN_ZERO } from 'utils/chainBalances';
 import { IconProps } from 'phosphor-react-native';
 import { isValidURL } from 'utils/browser';
 import { SUPPORTED_TRANSFER_SUBSTRATE_CHAIN } from 'types/nft';
-import { _ChainInfo } from '@soul-wallet/chain-list/types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
 import { Logo as SWLogo } from 'components/Design';
 import { DEFAULT_ACCOUNT_TYPES, EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import i18n from './i18n/i18n';
+
 export const PREDEFINED_TRANSAK_NETWORK: Record<string, TransakNetwork> = {
   polkadot: {
     networks: ['mainnet'],
@@ -62,10 +63,10 @@ export const PREDEFINED_TRANSAK_NETWORK: Record<string, TransakNetwork> = {
     networks: ['bsc'],
     tokens: ['BNB'],
   },
-  avalanche: {
-    networks: ['avalanche'],
-    tokens: ['AVAX'],
-  },
+  // avalanche: {
+  //   networks: ['avalanche'],
+  //   tokens: ['AVAX'],
+  // },
 };
 export const defaultRecoded: Recoded = { account: null, formatted: null, prefix: 42, isEthereum: false };
 export const accountAllRecoded: Recoded = {

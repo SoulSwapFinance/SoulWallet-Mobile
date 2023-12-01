@@ -1,7 +1,7 @@
-// Copyright 2023 @soul-wallet/extension-koni authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { NftItem } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NftItem } from '@subwallet/extension-base/background/KoniTypes';
 import { evmNftGetTransaction, substrateNftGetTransaction, wasmNftGetTransaction } from 'messaging/index';
 import { SUPPORTED_TRANSFER_CHAIN_NAME, TransferResponse } from 'types/nft';
 

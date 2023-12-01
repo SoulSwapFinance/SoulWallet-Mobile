@@ -1,13 +1,13 @@
-import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@soul-wallet/chain-list/types';
+import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@subwallet/chain-list/types';
 import {
   _getAssetDecimals,
   _getOriginChainOfAsset,
   _isAssetFungibleToken,
   _isChainEvmCompatible,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
-import { _ChainConnectionStatus, _ChainState } from '@soul-wallet/extension-base/src/services/chain-service/types';
-import { AssetSetting } from '@soul-wallet/extension-base/src/background/KoniTypes';
+} from '@subwallet/extension-base/services/chain-service/utils';
+import { AccountJson } from '@subwallet/extension-base/background/types';
+import { _ChainConnectionStatus, _ChainState } from '@subwallet/extension-base/services/chain-service/types';
+import { AssetSetting } from '@subwallet/extension-base/background/KoniTypes';
 import { TokenItemType, TokenSelector } from 'components/Modal/common/TokenSelector';
 import { findAccountByAddress } from 'utils/index';
 import { findNetworkJsonByGenesisHash } from 'utils/getNetworkJsonByGenesisHash';
@@ -24,13 +24,13 @@ import { AccountSelectField } from 'components/Field/AccountSelect';
 import { TokenSelectField } from 'components/Field/TokenSelect';
 import { InputAmount } from 'components/Input/InputAmount';
 import { ChainInfo } from 'types/index';
-import { addLazy, isSameAddress } from '@soul-wallet/extension-base/src/utils';
+import { addLazy, isSameAddress } from '@subwallet/extension-base/utils';
 import BigN from 'bignumber.js';
 import { getMaxTransfer, makeCrossChainTransfer, makeTransfer, saveRecentAccountId } from 'messaging/index';
 import { Button, Icon } from 'components/Design';
 import { PaperPlaneTilt } from 'phosphor-react-native';
 import { FreeBalance } from 'screens/Transaction/parts/FreeBalance';
-import { SWTransactionResponse } from '@soul-wallet/extension-base/src/services/transaction-service/types';
+import { SWTransactionResponse } from '@subwallet/extension-base/services/transaction-service/types';
 import { Warning } from 'components/Warning';
 import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles';
 import { RootStackParamList } from 'routes/index';
@@ -337,7 +337,10 @@ export const SendFund = ({
 
         if (isDestChainEvmCompatible !== isEthereumAddress(_recipientAddress)) {
           onUpdateErrors('to')([
-            i18n.errorMessage.recipientAddressMustBeType(isDestChainEvmCompatible ? 'EVM' : 'substrate'),
+            i18n.formatString(
+              i18n.errorMessage.recipientAddressMustBeType,
+              isDestChainEvmCompatible ? 'EVM' : 'substrate',
+            ).toString(),
           ]);
           return false;
         }
@@ -398,7 +401,7 @@ export const SendFund = ({
 
       if (new BigN(_amount).gt(new BigN(_maxTransfer))) {
         const maxString = formatBalance(_maxTransfer, decimals);
-        onUpdateErrors('value')([i18n.errorMessage.amountMustBeEqualOrLessThan(maxString)]);
+        onUpdateErrors('value')([i18n.formatString(i18n.errorMessage.amountMustBeEqualOrLessThan, maxString).toString()]);
 
         return false;
       }

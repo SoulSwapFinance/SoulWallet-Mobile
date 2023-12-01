@@ -1,13 +1,13 @@
-import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { AbstractAddressJson, AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { _ChainInfo } from '@subwallet/chain-list/types';
+import { AbstractAddressJson, AccountJson } from '@subwallet/extension-base/background/types';
 import {
   findChainInfoByChainId,
   findChainInfoByHalfGenesisHash,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+} from '@subwallet/extension-base/services/chain-service/utils';
 import {
   WALLET_CONNECT_EIP155_NAMESPACE,
   WALLET_CONNECT_POLKADOT_NAMESPACE,
-} from '@soul-wallet/extension-base/src/services/wallet-connect-service/constants';
+} from '@subwallet/extension-base/services/wallet-connect-service/constants';
 import { SessionTypes } from '@walletconnect/types';
 
 import { findAccountByAddress } from '../account';
@@ -100,7 +100,6 @@ export const connectWalletConnect = (wcUrl: string, toast?: ToastType) => {
       runned[wcUrl] = true;
       addConnection({ uri: wcUrl }).catch(e => {
         const errMessage = (e as Error).message;
-        console.log('e----------', errMessage);
         const message = errMessage.includes('Pairing already exists')
           ? i18n.errorMessage.connectionAlreadyExist
           : i18n.errorMessage.failToAddConnection;

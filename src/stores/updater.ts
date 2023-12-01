@@ -1,4 +1,4 @@
-import { ActiveCronAndSubscriptionMap, PriceJson, UiSettings } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ActiveCronAndSubscriptionMap, PriceJson, UiSettings } from '@subwallet/extension-base/background/KoniTypes';
 import { store } from 'stores/index';
 import { AuthUrlsSlice, BrowserSlice, BrowserSliceTab, SiteInfo } from 'stores/types';
 
@@ -16,7 +16,7 @@ export function updateAuthUrls(authUrlMap: AuthUrlsSlice['details']): void {
   store.dispatch({ type: 'authUrls/update', payload: { details: authUrlMap || {} } });
 }
 
-// Background Service
+// Background service
 
 export function updateBackgroundServiceActiveState(payload: ActiveCronAndSubscriptionMap): void {
   store.dispatch({ type: 'backgroundService/updateActiveState', payload });

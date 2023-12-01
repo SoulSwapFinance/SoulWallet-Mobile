@@ -3,6 +3,7 @@ import {
   AddressBookState,
   AssetSetting,
   BalanceItem,
+  CampaignBanner,
   ChainStakingMetadata,
   ConfirmationDefinitions,
   ConfirmationsQueue,
@@ -20,21 +21,24 @@ import {
   TransactionHistoryItem,
   UiSettings,
   ValidatorInfo,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
+} from '@subwallet/extension-base/background/KoniTypes';
 import {
   AccountJson,
   AccountsContext,
   AuthorizeRequest,
   MetadataRequest,
   SigningRequest,
-} from '@soul-wallet/extension-base/src/background/types';
-import { AuthUrlInfo } from '@soul-wallet/extension-base/src/background/handlers/State';
+} from '@subwallet/extension-base/background/types';
+import { AuthUrlInfo } from '@subwallet/extension-base/background/handlers/State';
 import { SettingsStruct } from '@polkadot/ui-settings/types';
-import { SWTransactionResult } from '@soul-wallet/extension-base/src/services/transaction-service/types';
-import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@soul-wallet/chain-list/types';
-import { _ChainState } from '@soul-wallet/extension-base/src/services/chain-service/types';
+import { SWTransactionResult } from '@subwallet/extension-base/services/transaction-service/types';
+import { _AssetRef, _ChainAsset, _ChainInfo, _MultiChainAsset } from '@subwallet/chain-list/types';
+import { _ChainState } from '@subwallet/extension-base/services/chain-service/types';
 import { SessionTypes } from '@walletconnect/types';
-import { WalletConnectSessionRequest } from '@soul-wallet/extension-base/src/services/wallet-connect-service/types';
+import { WalletConnectSessionRequest } from '@subwallet/extension-base/services/wallet-connect-service/types';
+import { MissionInfo } from 'types/missionPool';
+import { DAPPCategory, DAppInfo } from 'types/browser';
+import { BuyServiceInfo, BuyTokenInfo } from '@subwallet/extension-base/types';
 
 export type StoreStatus = 'INIT' | 'CACHED' | 'SYNCED' | 'WAITING';
 
@@ -149,6 +153,11 @@ export interface AppSettings
   authUrls: Record<string, AuthUrlInfo>;
   mediaAllowed: boolean;
   isDeepLinkConnect: boolean;
+  isShowBuyToken: boolean;
+  browserDApps: {
+    dApps: DAppInfo[] | undefined;
+    dAppCategories: DAPPCategory[] | undefined;
+  };
 }
 
 export interface AccountState extends AccountsContext, KeyringState, AddressBookState, BaseReduxStore {
@@ -187,6 +196,10 @@ export interface ChainStore extends BaseReduxStore {
 
 export interface BalanceStore extends BaseReduxStore {
   balanceMap: Record<string, BalanceItem>;
+}
+
+export interface CampaignStore extends BaseReduxStore {
+  banners: CampaignBanner[];
 }
 
 export type PriceStore = PriceJson;
@@ -228,4 +241,13 @@ export type TransactionHistoryReducerType = {
 
 export interface WalletConnectStore extends BaseReduxStore {
   sessions: Record<string, SessionTypes.Struct>;
+}
+
+export interface MissionPoolStore extends BaseReduxStore {
+  missions: MissionInfo[];
+}
+
+export interface BuyServiceStore extends BaseReduxStore {
+  tokens: Record<string, BuyTokenInfo>;
+  services: Record<string, BuyServiceInfo>;
 }

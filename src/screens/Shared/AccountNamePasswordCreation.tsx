@@ -5,7 +5,7 @@ import { ColorMap } from 'styles/color';
 import { FontMedium, MarginBottomForSubmitButton, ScrollViewStyle, sharedStyles } from 'styles/sharedStyles';
 import { AccountNameAndPasswordArea } from 'components/AccountNameAndPasswordArea';
 import i18n from 'utils/i18n/i18n';
-import useFormControl, { FormState } from 'hooks/screen/hooks/useFormControl';
+import useFormControl, { FormState } from 'hooks/screen/useFormControl';
 import { Button } from 'components/Design';
 
 const bodyAreaStyle: StyleProp<any> = {

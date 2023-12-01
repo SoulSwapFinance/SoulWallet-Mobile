@@ -1,10 +1,10 @@
-import { _ChainInfo } from '@soul-wallet/chain-list/types';
-import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
+import { _ChainInfo } from '@subwallet/chain-list/types';
+import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
 import {
   _getEvmChainId,
   _getSubstrateGenesisHash,
   _isChainEvmCompatible,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+} from '@subwallet/extension-base/services/chain-service/utils';
 
 export const getNetworkJsonByGenesisHash = (
   networkMap: Record<string, NetworkJson>,

@@ -6,8 +6,8 @@ import {
   HandleTxResponse,
   NetworkJson,
   PasswordRequestSign,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+} from '@subwallet/extension-base/background/KoniTypes';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import PasswordRequest from 'components/Signing/Password/PasswordRequest';
 import QrRequest from 'components/Signing/QR/QrRequest';
 import UnknownRequest from 'components/Signing/Unknown/UnknownRequest';
@@ -18,7 +18,7 @@ import { ExternalRequestContext } from 'providers/ExternalRequestContext';
 import { QrContextState, QrSignerContext, QrStep } from 'providers/QrSignerContext';
 import { SigningContext } from 'providers/SigningContext';
 
-import useGetAccountSignModeByAddress from 'hooks/screen/hooks/useGetAccountSignModeByAddress';
+import useGetAccountSignModeByAddress from 'hooks/screen/useGetAccountSignModeByAddress';
 import React, { useCallback, useContext, useEffect } from 'react';
 import { noop } from 'utils/function';
 import i18n from 'utils/i18n/i18n';
