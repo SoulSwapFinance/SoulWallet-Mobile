@@ -4,7 +4,7 @@ import { PredefinedDApps } from 'types/browser';
 import i18n from 'utils/i18n/i18n';
 
 export const DAppIconMap: Record<string, string> = {
-  'app.soulswap.finance': 'https://soulswap.finance/favicon.png', // √
+  'exchange.soulswap.finance': 'https://soulswap.finance/favicon.png', // √
   'links.soulswap.finance': 'https://soulswap.finance/favicon.png', // √
   'cross.soulswap.finance': 'https://soulswap.finance/favicon.png', // √
   'home.soulswap.finance': 'https://soulswap.finance/favicon.png', // √
@@ -25,7 +25,7 @@ export const DAppIconMap: Record<string, string> = {
 };
 
 export const DAppTitleMap: Record<string, string> = {
-  'app.soulswap.finance': 'SoulSwap DeFi', // √
+  'exchange.soulswap.finance': 'SoulSwap DeFi', // √
   'app.uniswap.org': 'Uniswap DEX', // √
   'curve.fi': 'Curve Finance', // √
   'app.aave.com': 'Aave Protocol', // √
@@ -124,10 +124,10 @@ export const predefinedBanners: PredefinedDApps = {
   dapps: [
     {
       name: 'SoulSwap',
-      title: 'SoulSwap',
+      // title: 'SoulSwap',
       icon: 'https://soulswap.finance/favicon.png',
-      id: 'app.soulswap.finance',
-      url: 'https://app.soulswap.finance/',
+      id: 'exchange.soulswap.finance',
+      url: 'https://exchange.soulswap.finance/',
       categories: ['defi', 'soul'],
       is_featured: true,
       preview_image: "https://exchange.soulswap.finance/images/splash.png",
@@ -208,12 +208,21 @@ export const predefinedDApps: PredefinedDApps = {
     {
       name: 'SoulSwap',
       icon: 'https://soulswap.finance/favicon.png',
-      id: 'app.soulswap.finance',
-      url: 'https://app.soulswap.finance/',
+      id: 'exchange.soulswap.finance',
+      url: 'https://exchange.soulswap.finance/',
       categories: ['defi', 'soul'],
-      is_featured: false,
+      is_featured: true,
       preview_image: '',
-      chain: [],
+      chain: [
+        "ethereum",
+        "binance",
+        "avalanche_c",
+        "polygon",
+        "arbitrum_one",
+        "fantom",
+        "ethereum",
+        "base_mainnet"
+      ],
       is_substrate: false,
       is_evm: true,
     },

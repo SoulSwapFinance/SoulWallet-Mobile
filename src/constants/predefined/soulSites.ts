@@ -31,8 +31,8 @@ export const soulSites: PredefinedDApps = {
     {
       name: 'SoulSwap',
       icon: 'https://soulswap.finance/favicon.png',
-      id: 'app.soulswap.finance',
-      url: 'https://app.soulswap.finance/',
+      id: 'exchange.soulswap.finance',
+      url: 'https://exchange.soulswap.finance/',
       title: 'SoulSwap',
       subtitle: "Swap crosschain and earn rewards", 
       description: '', 
