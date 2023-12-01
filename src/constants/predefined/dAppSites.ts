@@ -141,8 +141,8 @@ export const predefinedBanners: PredefinedDApps = {
         "ethereum",
         "base_mainnet"
       ],
-      is_evm: true,
       is_substrate: false,
+      is_evm: true,
     },
     {
       name: 'DeBank',
@@ -164,7 +164,7 @@ export const predefinedBanners: PredefinedDApps = {
         "moonriver",
         "base_mainnet"
       ],
-      is_substrate: true,
+      is_substrate: false,
       is_evm: true,
     },
   ]
@@ -211,7 +211,7 @@ export const predefinedDApps: PredefinedDApps = {
       id: 'exchange.soulswap.finance',
       url: 'https://exchange.soulswap.finance/',
       categories: ['defi', 'soul'],
-      is_featured: true,
+      is_featured: false,
       preview_image: '',
       chain: [
         "ethereum",
@@ -232,7 +232,7 @@ export const predefinedDApps: PredefinedDApps = {
       id: 'debank.com',
       url: 'https://debank.com',
       categories: ['utilities'],
-      is_featured: true,
+      is_featured: false,
       preview_image: "https://debank.com/favicon.ico",
       chain: [
         "ethereum",
@@ -246,7 +246,7 @@ export const predefinedDApps: PredefinedDApps = {
         "moonriver",
         "base_mainnet"
       ],
-      is_substrate: true,
+      is_substrate: false,
       is_evm: true,
     },
     {
@@ -259,7 +259,7 @@ export const predefinedDApps: PredefinedDApps = {
       preview_image: '',
       chain: [],
       is_substrate: false,
-      is_evm: false,
+      is_evm: true,
     },
     {
       name: 'Aave Protocol',
