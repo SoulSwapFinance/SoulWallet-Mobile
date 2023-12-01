@@ -1,4 +1,4 @@
-import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
+import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
 import { AccountInfoByNetwork } from 'types/ui-types';
 import reformatAddress from 'utils/index';
 import { useMemo } from 'react';

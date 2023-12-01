@@ -1,37 +1,42 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader'
 import { Globe, Info, WifiHigh, WifiSlash } from 'phosphor-react-native'
-import { Keyboard, TouchableWithoutFeedback, View } from 'react-native'
-import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl'
+import { DeviceEventEmitter, Keyboard, StyleProp, ScrollView, View, ViewStyle } from 'react-native'
+import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl'
 import InputText from 'components/Input/InputText'
 import { AddProviderProps, RootNavigationProps } from 'routes/index'
-import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo'
+import useFetchChainInfo from 'hooks/screen/useFetchChainInfo'
 import {
   _generateCustomProviderKey,
   _isChainEvmCompatible,
   _isCustomProvider,
   _isSubstrateChain,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils'
-import { _NetworkUpsertParams } from '@soul-wallet/extension-base/src/services/chain-service/types'
+} from '@subwallet/extension-base/services/chain-service/utils'
+import { ValidateStatus } from '@subwallet/react-ui/es/form/FormItem'
+import { _NetworkUpsertParams } from '@subwallet/extension-base/services/chain-service/types'
 import { upsertChain, validateCustomChain } from 'messaging/index'
 import { useToast } from 'react-native-toast-notifications'
 import { useNavigation } from '@react-navigation/native'
-import { _CHAIN_VALIDATION_ERROR } from '@soul-wallet/extension-base/src/services/chain-service/handler/types'
+import { _CHAIN_VALIDATION_ERROR } from '@subwallet/extension-base/services/chain-service/handler/types'
 import { ActivityIndicator, Button, Icon } from 'components/Design'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import { isUrl } from 'utils/index'
-import { ContainerHorizontalPadding, MarginBottomForSubmitButton } from 'styles/sharedStyles'
+import { MarginBottomForSubmitButton, sharedStyles } from 'styles/sharedStyles'
 import i18n from 'utils/i18n/i18n'
 import useGetNativeTokenBasicInfo from 'hooks/useGetNativeTokenBasicInfo'
-import { HIDE_MODAL_DURATION } from 'constants/index'
-
-declare const ValidateStatuses: readonly ["success", "warning", "error", "validating", ""]
-export type ValidateStatus = typeof ValidateStatuses[number]
+import { deviceHeight, HIDE_MODAL_DURATION } from 'constants/index'
+import { setAdjustPan } from 'rn-android-keyboard-adjust'
+import { CHANGE_RPC_SELECTOR } from 'screens/NetworkSettingDetail'
 
 interface ValidationInfo {
   status: ValidateStatus;
   message?: string[];
 }
+
+const ContainerStyle: StyleProp<ViewStyle> = {
+  ...sharedStyles.layoutContainer,
+  height: deviceHeight,
+};
 
 function parseProviders(newProvider: string, existingProviders: Record<string, string>) {
   let count = 0;
@@ -128,6 +133,8 @@ export const AddProvider = ({
       },
     };
 
+    DeviceEventEmitter.emit(CHANGE_RPC_SELECTOR, newProviderKey);
+
     upsertChain(params)
       .then(result => {
         setLoading(false);
@@ -150,6 +157,10 @@ export const AddProvider = ({
   });
 
   useEffect(() => {
+    setAdjustPan();
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => {
       focus('provider')();
     }, HIDE_MODAL_DURATION);
@@ -166,9 +177,9 @@ export const AddProvider = ({
       case _CHAIN_VALIDATION_ERROR.CONNECTION_FAILURE:
         return [i18n.errorMessage.cannotConnectToThisProvider];
       case _CHAIN_VALIDATION_ERROR.EXISTED_PROVIDER:
-        return [i18n.errorMessage.thisChainHasAlreadyBeenAdded];
+        return [i18n.errorMessage.thisProviderHasAlreadyBeenAdded];
       case _CHAIN_VALIDATION_ERROR.PROVIDER_NOT_SAME_CHAIN:
-        return [i18n.errorMessage.thisChainHasAlreadyBeenAdded];
+        return [i18n.errorMessage.thisProviderIsNotForThisNetwork];
       default:
         return [i18n.errorMessage.validateProviderError];
     }
@@ -243,9 +254,9 @@ export const AddProvider = ({
       onPressBack={() => navigation.goBack()}
       rightIcon={Info}
       title={i18n.header.addNewProvider}>
-      <>
-        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-          <View style={{ ...ContainerHorizontalPadding, paddingTop: 16, flex: 1 }}>
+      <View style={ContainerStyle}>
+        <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps={'handled'}>
+          <View style={{ flex: 1 }}>
             <InputText
               ref={formState.refs.provider}
               value={formState.data.provider}
@@ -256,7 +267,6 @@ export const AddProvider = ({
               onSubmitField={Keyboard.dismiss}
               onBlur={() => providerValidator(formState.data.provider)}
             />
-
             <View style={{ flexDirection: 'row' }}>
               <InputText
                 containerStyle={{ flex: 2, marginRight: 6 }}
@@ -286,9 +296,9 @@ export const AddProvider = ({
               isBusy={true}
             />
           </View>
-        </TouchableWithoutFeedback>
+        </ScrollView>
 
-        <View style={{ ...ContainerHorizontalPadding, ...MarginBottomForSubmitButton, flexDirection: 'row' }}>
+        <View style={{ ...MarginBottomForSubmitButton, flexDirection: 'row' }}>
           <Button type={'secondary'} style={{ flex: 1, marginRight: 6 }} onPress={() => navigation.goBack()}>
             {i18n.common.cancel}
           </Button>
@@ -296,7 +306,7 @@ export const AddProvider = ({
             {i18n.common.save}
           </Button>
         </View>
-      </>
+      </View>
     </ContainerWithSubHeader>
   );
 };

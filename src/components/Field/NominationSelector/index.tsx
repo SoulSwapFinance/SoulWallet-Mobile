@@ -5,7 +5,7 @@ import { FontSemiBold } from 'styles/sharedStyles';
 import { CaretDown } from 'phosphor-react-native';
 import { ActivityIndicator, Avatar, Icon } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { NominationInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NominationInfo } from '@subwallet/extension-base/background/KoniTypes';
 import { toShort } from 'utils/index';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import i18n from 'utils/i18n/i18n';

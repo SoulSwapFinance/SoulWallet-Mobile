@@ -1,15 +1,15 @@
-import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native'
-import React, { useCallback, useState } from 'react'
-import { Button, Icon, Image, Tag, Typography } from 'components/Design'
-import { Star } from 'phosphor-react-native'
-import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
-import { useSelector } from 'react-redux'
-import { RootState } from 'stores/index'
-import { StoredSiteInfo } from 'stores/types'
-import { addBookmark, removeBookmark } from 'stores/updater'
-import createStylesheet from './styles/BrowserItem'
-import { predefinedDApps } from 'constants/predefined/dAppSites'
-import { getHostName, searchDomain } from 'utils/browser'
+import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Button, Icon, Image, Tag, Typography } from 'components/Design';
+import { Star } from 'phosphor-react-native';
+import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
+import { useSelector } from 'react-redux';
+import { RootState } from 'stores/index';
+import { StoredSiteInfo } from 'stores/types';
+import { addBookmark, removeBookmark } from 'stores/updater';
+import createStylesheet from './styles/BrowserItem';
+import { getHostName, searchDomain } from 'utils/browser';
+import { useGetDAppList } from 'hooks/static-content/useGetDAppList';
 
 interface Props {
   logo?: string;
@@ -19,20 +19,34 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   subtitle?: string;
   onPress?: () => void;
+  isLoading?: boolean;
 }
 
 function isSiteBookmark(url: string, bookmarks: StoredSiteInfo[]) {
   return bookmarks.some(i => i.url === url);
 }
 
-export const BrowserItem = ({ logo, title, url, style, onPress, subtitle, tags }: Props) => {
-  const [image, setImage] = useState(logo || `https://${getHostName(url)}/favicon.ico`);
+export const BrowserItem = ({ logo, title, url, style, onPress, subtitle, tags, isLoading }: Props) => {
+  const {
+    browserDApps: { dAppCategories },
+  } = useGetDAppList();
+  const assetLogoMap = useSelector((state: RootState) => state.logoMaps.assetLogoMap);
+  const [image, setImage] = useState<string>(assetLogoMap.default);
   const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
-
   const bookmarks = useSelector((state: RootState) => state.browser.bookmarks);
-
   const _isSiteBookmark = isSiteBookmark(url, bookmarks);
+
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+    if (logo) {
+      setImage(logo);
+    } else {
+      setImage(`https://${getHostName(url)}/favicon.ico`);
+    }
+  }, [logo, url, isLoading]);
 
   const onPressStar = () => {
     if (_isSiteBookmark) {
@@ -46,10 +60,10 @@ export const BrowserItem = ({ logo, title, url, style, onPress, subtitle, tags }
   };
 
   const renderTag = (tagId: string) => {
-    const tagInfo = predefinedDApps.categories().find(c => c.id === tagId);
+    const tagInfo = dAppCategories?.find(category => category.slug === tagId);
 
     return (
-      <Tag key={tagId} bgType={tagInfo ? 'default' : 'gray'} color={tagInfo?.theme || 'default'}>
+      <Tag key={tagId} bgType={tagInfo ? 'default' : 'gray'} color={tagInfo?.color || 'default'}>
         {tagInfo?.name || tagId}
       </Tag>
     );
@@ -60,8 +74,8 @@ export const BrowserItem = ({ logo, title, url, style, onPress, subtitle, tags }
       setImage(`https://${getHostName(url)}/favicon.png`);
       return;
     }
-    setImage("https://soulswap.finance/favicon.png");
-  }, [image, url])
+    setImage(assetLogoMap.default);
+  }, [assetLogoMap.default, image, url]);
 
   return (
     <View style={[stylesheet.container, style]}>
@@ -100,5 +114,5 @@ export const BrowserItem = ({ logo, title, url, style, onPress, subtitle, tags }
         />
       )}
     </View>
-  )
-}
+  );
+};

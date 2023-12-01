@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { SignData } from 'screens/Home/Browser/ConfirmationPopup/SubstrateSignConfirmation';
 import { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
-import { RequestSign } from '@soul-wallet/extension-base/src/background/types';
+import { RequestSign } from '@subwallet/extension-base/background/types';
 import { TypeRegistry } from '@polkadot/types';
 
 function isRawPayload(payload: SignerPayloadJSON | SignerPayloadRaw): payload is SignerPayloadRaw {

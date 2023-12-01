@@ -6,9 +6,9 @@ import { Button, Icon, Typography } from 'components/Design';
 import { Textarea } from 'components/Textarea';
 import { EVM_ACCOUNT_TYPE, SUBSTRATE_ACCOUNT_TYPE } from 'constants/index';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
-import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl';
-import useGoHome from 'hooks/screen/hooks/useGoHome';
-import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
+import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
+import useGoHome from 'hooks/screen/useGoHome';
+import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { createAccountSuriV2, validateSeedV2 } from 'messaging/index';
@@ -17,7 +17,6 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { ScrollView, View } from 'react-native';
 import { RootNavigationProps } from 'routes/index';
 import i18n from 'utils/i18n/i18n';
-import { backToHome } from 'utils/navigation';
 import createStyle from './styles';
 
 const ViewStep = {
@@ -60,7 +59,10 @@ export const ImportSecretPhrase = () => {
       types: keyTypes,
     })
       .then(() => {
-        backToHome(goHome);
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Home' }],
+        });
       })
       .catch(() => {
         setBusy(false);
@@ -75,7 +77,7 @@ export const ImportSecretPhrase = () => {
     let amount = true;
 
     if (timeOutRef.current) {
-      clearTimeout(timeOutRef.current);
+      clearTimeout(Number(timeOutRef.current));
     }
 
     if (amount) {

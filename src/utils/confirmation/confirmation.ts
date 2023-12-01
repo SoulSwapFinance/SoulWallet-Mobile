@@ -1,4 +1,4 @@
-import { ConfirmationDefinitions } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ConfirmationDefinitions } from '@subwallet/extension-base/background/KoniTypes';
 
 import { ExtrinsicPayload } from '@polkadot/types/interfaces';
 import { EvmSignatureSupportType } from 'types/confirmation';

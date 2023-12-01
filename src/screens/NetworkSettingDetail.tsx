@@ -2,13 +2,13 @@ import useConfirmModal from 'hooks/modal/useConfirmModal';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { CaretDown, FloppyDiskBack, Plus, Trash } from 'phosphor-react-native';
-import { ScrollView, StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { DeviceEventEmitter, ScrollView, StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
 import { RpcSelectField } from 'components/Field/RpcSelect';
 import { ProviderItemType, RpcSelectorModal } from 'components/Common/RpcSelectorModal';
-import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo';
+import useFetchChainInfo from 'hooks/screen/useFetchChainInfo';
 import { NetworkSettingDetailProps, RootNavigationProps } from 'routes/index';
-import useFetchChainState from 'hooks/screen/hooks/useFetchChainState';
+import useFetchChainState from 'hooks/screen/useFetchChainState';
 import { MarginBottomForSubmitButton, sharedStyles } from 'styles/sharedStyles';
 import { NetworkNameField } from 'components/Field/NetworkName';
 import { TextField } from 'components/Field/Text';
@@ -23,13 +23,13 @@ import {
   _isCustomChain,
   _isPureEvmChain,
   _isSubstrateChain,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+} from '@subwallet/extension-base/services/chain-service/utils';
 import InputText from 'components/Input/InputText';
 import { Button, Icon } from 'components/Design';
-import { _NetworkUpsertParams } from '@soul-wallet/extension-base/src/services/chain-service/types';
+import { _NetworkUpsertParams } from '@subwallet/extension-base/services/chain-service/types';
 import { removeChain, upsertChain } from 'messaging/index';
 import { useToast } from 'react-native-toast-notifications';
-import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl';
+import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
 import { isUrl } from 'utils/index';
 import { useNavigation } from '@react-navigation/native';
 import DeleteModal from 'components/Common/Modal/DeleteModal';
@@ -56,6 +56,8 @@ const validateBlockExplorer = (value: string): string[] => {
     return [];
   }
 };
+
+export const CHANGE_RPC_SELECTOR = 'CHANGE_RPC_SELECTOR';
 
 export const NetworkSettingDetail = ({
   route: {
@@ -274,6 +276,15 @@ export const NetworkSettingDetail = ({
     }
   }, [_chainInfo]);
 
+  useEffect(() => {
+    const unsubscribe = DeviceEventEmitter.addListener(CHANGE_RPC_SELECTOR, (data: string) => {
+      onChangeValue('currentProvider')(data);
+    });
+
+    return () => unsubscribe.remove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <ContainerWithSubHeader
       showLeftBtn={true}
@@ -346,7 +357,7 @@ export const NetworkSettingDetail = ({
             placeholder={formState.labels.blockExplorer}
           />
 
-          {!isPureEvmChain &&
+        {!isPureEvmChain &&
           <InputText
             ref={formState.refs.crowdloanUrl}
             value={formState.data.crowdloanUrl}
@@ -355,8 +366,7 @@ export const NetworkSettingDetail = ({
             errorMessages={formState.errors.crowdloanUrl}
             placeholder={formState.labels.crowdloanUrl}
           />
-          }
-
+        }
         </ScrollView>
 
         <View style={{ ...MarginBottomForSubmitButton }}>

@@ -1,20 +1,13 @@
-import React, { useCallback, useContext, useRef, useState } from 'react'
+import React from 'react'
 import { StyleProp, View } from 'react-native'
-// import Text from 'components/Text'
+// import Text from '../components/Text'
 import { FontSemiBold } from 'styles/sharedStyles'
-import { Button, Number } from 'components/Design'
+import { Number } from 'components/Design'
 import { SwNumberProps } from 'components/Design/Number'
-import { useSelector } from 'react-redux'
-import { RootState } from 'stores/index'
+// import { useSelector } from 'react-redux'
+// import { RootState } from 'stores/index'
 // import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import { ColorMap } from 'styles/color'
-// import { useUserInfo_FTM, useUserInfo_AVAX } from 'hooks/useAPI'
-// import { AURA_ADDRESS } from 'constants/addresses'
-import { formatNumber } from 'utils/number'
-// import { ChainId } from 'constants/chains'
-import BigN from 'bignumber.js'
-import { useGetBalance } from 'hooks/balance'
-// import { SOUL_AVAX_SLUG, SOUL_FTM_SLUG, getPrice } from 'constants/prices'
 
 type Props = {
   value: SwNumberProps['value'];
@@ -58,17 +51,13 @@ const wrapperStyle: StyleProp<any> = {
 
 // UI NOTE: Shows your total balance.
 export const BalancesVisibility = ({ value, symbol, startWithSymbol = true, subFloatNumber = false }: Props) => {
-  const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
-  
+  // const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
+  // const isShowBalance = true // useSelector((state: RootState) => state.settings.isShowBalance);
+  // const theme = useSoulWalletTheme().swThemes;
   return (
-    <View 
-      style={wrapperStyle}
-    >
+    <View style={wrapperStyle}>
         <Number
-          value={
-            // value
-            new BigN(value)
-          }
+          value={value}
           decimal={0}
           prefix={startWithSymbol ? (symbol ? symbol : '$') : undefined}
           suffix={!startWithSymbol ? (symbol ? symbol : '$') : undefined}

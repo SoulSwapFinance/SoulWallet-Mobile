@@ -13,9 +13,11 @@ export interface SWModalProps {
   footer?: React.ReactNode;
   modalVisible: boolean;
   onChangeModalVisible?: () => void;
+  onBackdropPress?: () => void;
   modalStyle?: StyleProp<ViewStyle>;
   onModalHide?: () => void; // Auto trigger when close modal
   isFullHeight?: boolean;
+  isAllowSwipeDown?: boolean;
   modalTitle?: string;
   titleTextAlign?: 'left' | 'center';
   contentContainerStyle?: StyleProp<ViewStyle>;
@@ -27,6 +29,8 @@ export interface SWModalProps {
   modalBaseV2Ref?: React.RefObject<SWModalRefProps>;
   level?: number;
   isUseSafeAreaView?: boolean;
+  disabledOnPressBackDrop?: boolean;
+  renderHeader?: React.ReactNode;
 }
 
 const getSoulWalletModalContainerStyle = (isFullHeight: boolean): StyleProp<any> => {
@@ -63,6 +67,8 @@ const SwModal = React.forwardRef<ModalRefProps, SWModalProps>(
       footer,
       modalVisible,
       onChangeModalVisible,
+      onBackdropPress,
+      isAllowSwipeDown,
       modalStyle,
       modalTitle,
       onModalHide,
@@ -77,6 +83,8 @@ const SwModal = React.forwardRef<ModalRefProps, SWModalProps>(
       modalBaseV2Ref,
       level,
       isUseSafeAreaView = true,
+      renderHeader,
+      disabledOnPressBackDrop,
     },
     ref,
   ) => {
@@ -124,14 +132,16 @@ const SwModal = React.forwardRef<ModalRefProps, SWModalProps>(
     return (
       <>
         {isUseModalV2 ? (
-          <Portal>
+          <Portal hostName="SimpleModalHost">
             <ModalBaseV2
               isVisible={modalVisible}
               setVisible={setVisible}
               height={childrenHeight}
               ref={modalBaseV2Ref}
+              disabledOnPressBackDrop={disabledOnPressBackDrop}
               isUseForceHidden={Platform.OS === 'android'}
               onChangeModalVisible={onChangeModalVisible}
+              isAllowSwipeDown={isAllowSwipeDown}
               level={level}>
               <View
                 style={{ paddingHorizontal: 16, paddingTop: 22 }}
@@ -156,7 +166,7 @@ const SwModal = React.forwardRef<ModalRefProps, SWModalProps>(
             backdropColor={'#1A1A1A'}
             backdropOpacity={0.8}
             onSwipeComplete={onChangeModalVisible}
-            onBackdropPress={onChangeModalVisible}
+            onBackdropPress={onBackdropPress || onChangeModalVisible}
             animationIn={'slideInUp'}
             animationOut={'slideOutDown'}
             avoidKeyboard={true}
@@ -178,7 +188,7 @@ const SwModal = React.forwardRef<ModalRefProps, SWModalProps>(
                   contentContainerStyle,
                 ]}>
                 <View style={soulWalletModalSeparator} />
-                {renderTitle()}
+                {renderHeader ? renderHeader : renderTitle()}
 
                 {children}
               </View>

@@ -1,13 +1,13 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import {
   _getMultiChainAsset,
   _isAssetFungibleToken,
   _isChainEvmCompatible,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
-import { isAccountAll as checkIsAccountAll } from '@soul-wallet/extension-base/src/utils';
+} from '@subwallet/extension-base/services/chain-service/utils';
+import { isAccountAll as checkIsAccountAll } from '@subwallet/extension-base/utils';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -19,6 +19,7 @@ import { TokenItemType } from 'components/Modal/common/TokenSelector';
 import { getAccountTypeByTokenGroup } from 'hooks/screen/Home/Crypto/utils';
 import { findAccountByAddress } from 'utils/account';
 import { ModalRef } from 'types/modalRef';
+import useChainAssets from 'hooks/chain/useChainAssets';
 
 type ReceiveSelectedResult = {
   selectedAccount?: string;
@@ -28,7 +29,7 @@ type ReceiveSelectedResult = {
 export default function useReceiveQR(tokenGroupSlug?: string) {
   const accounts = useSelector((state: RootState) => state.accountState.accounts);
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
-  const assetRegistryMap = useSelector((root: RootState) => root.assetRegistry.assetRegistry);
+  const assetRegistryMap = useChainAssets().chainAssetRegistry;
   const chainInfoMap = useSelector((state: RootState) => state.chainStore.chainInfoMap);
   const isAllAccount = useSelector((state: RootState) => state.accountState.isAllAccount);
   const [tokenSelectorItems, setTokenSelectorItems] = useState<TokenItemType[]>([]);

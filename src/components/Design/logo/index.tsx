@@ -6,7 +6,7 @@ import Image from '../Image';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { RootState } from 'stores/index';
 import { useSelector } from 'react-redux';
-// import { ImageLogosMap } from 'assets/logo';
+import { ImageLogosMap } from 'assets/logo';
 
 type IconShapeType = 'default' | 'circle' | 'squircle';
 
@@ -59,7 +59,9 @@ const Logo: React.FC<SWLogoProps> = ({
           || assetLogoMap[defaultLogoKey];
   
   // UI NOTE: GETS NETWORK LOGO
+    // srcLogo = assetLogoMap[token] || assetLogoMap[defaultLogoKey];
   } else if (network) {
+
     // note: use this to identify chain name
     // console.log(network)
     // console.log(chainLogoMap[network])
@@ -70,8 +72,6 @@ const Logo: React.FC<SWLogoProps> = ({
   }
 
   let srcSubLogo = "https://soulswap.finance/favicon.png"
-  // network == 'custom-EVM-avalanchec-chain-43114' ? srcSubLogo = axaxLogo : srcSubLogo = chainLogoMap[network]
-  
   if (subToken) {
     (subToken == 'avalanche' | subToken == 'custom-EVM-avalanchec-chain-43114') ? srcSubLogo = avaxLogo :
     srcSubLogo = assetLogoMap[subToken] || assetLogoMap[defaultLogoKey];

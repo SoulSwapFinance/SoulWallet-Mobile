@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GestureResponderEvent, ImageRequireSource, StyleProp, View, ViewStyle } from 'react-native';
+import { ImageRequireSource, StyleProp, View, ViewStyle } from 'react-native';
 import FastImage, { FastImageProps, Source } from 'react-native-fast-image';
 import { ActivityIndicator, Squircle } from '..';
 import ImageStyles from './style';

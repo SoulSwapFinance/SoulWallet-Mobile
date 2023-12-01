@@ -1,4 +1,4 @@
-import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
+import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
 
 export const getNetworkJsonByGenesisHash = (
   networkMap: Record<string, NetworkJson>,

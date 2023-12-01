@@ -24,10 +24,7 @@ export const requestFaceIDPermission = async (onPressCancel?: () => void) => {
         // Images: The permission is granted
         return result;
       case RESULTS.BLOCKED:
-        Alert.alert(i18n.common.notify, 
-            'No FaceID Permission',
-            // i18n.common.noFaceIdPermission, 
-            [
+        Alert.alert(i18n.common.notify, i18n.common.noFaceIdPermission, [
           {
             text: i18n.buttonTitles.cancel,
             onPress: onPressCancel,

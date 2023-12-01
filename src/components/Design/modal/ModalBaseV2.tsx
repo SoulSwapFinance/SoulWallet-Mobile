@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useImperativeHandle, useState } from 'react';
-import { Dimensions, StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { DeviceEventEmitter, Dimensions, StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import ModalStyles from './styleV2';
@@ -16,9 +16,11 @@ export interface SWModalProps {
   children?: React.ReactNode;
   wrapperStyle?: StyleProp<ViewStyle>;
   isFullHeight?: boolean;
+  isAllowSwipeDown?: boolean;
   level?: number;
   onChangeModalVisible?: () => void;
   isUseForceHidden?: boolean;
+  disabledOnPressBackDrop?: boolean;
 }
 
 export type SWModalRefProps = {
@@ -26,6 +28,8 @@ export type SWModalRefProps = {
   isActive: () => boolean;
   close: () => void;
 };
+
+export const FORCE_HIDDEN_EVENT = 'modalV2ForceHidden';
 
 const ModalBaseV2 = React.forwardRef<SWModalRefProps, SWModalProps>(
   (
@@ -39,6 +43,8 @@ const ModalBaseV2 = React.forwardRef<SWModalRefProps, SWModalProps>(
       level = 1,
       onChangeModalVisible,
       isUseForceHidden,
+      isAllowSwipeDown = true,
+      disabledOnPressBackDrop = false,
     },
     ref,
   ) => {
@@ -48,6 +54,16 @@ const ModalBaseV2 = React.forwardRef<SWModalRefProps, SWModalProps>(
     const _styles = ModalStyles(theme, level);
     const { numberOfConfirmations } = useConfirmationsInfo();
     const [isForcedHidden, setForcedHidden] = useState<boolean>(false);
+
+    useEffect(() => {
+      const hiddenEvent = DeviceEventEmitter.addListener(FORCE_HIDDEN_EVENT, (isHidden: boolean) => {
+        setForcedHidden(isHidden);
+      });
+      return () => {
+        hiddenEvent.remove();
+      };
+    }, []);
+
     useEffect(() => {
       if (isUseForceHidden && !!numberOfConfirmations) {
         setForcedHidden(true);
@@ -102,7 +118,7 @@ const ModalBaseV2 = React.forwardRef<SWModalRefProps, SWModalProps>(
 
     const context = useSharedValue({ y: 0 });
     const gesture = Gesture.Pan()
-      .enabled(!isFullHeight)
+      .enabled(!isFullHeight && !!isAllowSwipeDown)
       .onStart(() => {
         context.value = { y: translateY.value };
       })
@@ -132,7 +148,12 @@ const ModalBaseV2 = React.forwardRef<SWModalRefProps, SWModalProps>(
       <>
         {!isForcedHidden && isVisible && (
           <>
-            <TouchableOpacity activeOpacity={0.8} style={_styles.backDropButton} onPress={onClose} />
+            <TouchableOpacity
+              activeOpacity={0.8}
+              style={_styles.backDropButton}
+              onPress={onClose}
+              disabled={disabledOnPressBackDrop}
+            />
             <GestureDetector gesture={gesture}>
               {
                 // @ts-ignore

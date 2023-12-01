@@ -8,7 +8,7 @@ import { Divider } from 'components/Divider';
 interface Props {
   logo: React.ReactNode;
   serviceName: string;
-  url: string;
+  disabled?: boolean;
   onPressItem: () => void;
 }
 
@@ -24,11 +24,11 @@ const itemTextStyle: StyleProp<any> = {
   ...FontSemiBold,
 };
 
-export const ServiceSelectItem = ({ logo, serviceName, onPressItem, url }: Props) => {
+export const ServiceSelectItem = ({ logo, serviceName, onPressItem, disabled }: Props) => {
   return (
-    <TouchableOpacity style={{ opacity: url ? 1 : 0.5 }} onPress={onPressItem} disabled={!url}>
+    <TouchableOpacity style={{ opacity: !disabled ? 1 : 0.5 }} onPress={onPressItem} disabled={disabled}>
       <View style={{ flexDirection: 'row', paddingHorizontal: 16, paddingVertical: 12, alignItems: 'center' }}>
-        <View style={logoWrapperStyle}>{logo}</View>
+        {logo}
         <Text style={itemTextStyle}>{serviceName}</Text>
       </View>
 

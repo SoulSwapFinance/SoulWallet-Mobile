@@ -1,4 +1,4 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import { useNavigation } from '@react-navigation/native';
@@ -12,7 +12,6 @@ import QrAddressScanner from 'components/Scanner/QrAddressScanner';
 import { SCAN_TYPE } from 'constants/qr';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import useModalScanner from 'hooks/qr/useModalScanner';
-import useGoHome from 'hooks/screen/hooks/useGoHome';
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { checkPublicAndPrivateKey, createAccountWithSecret } from 'messaging/index';
@@ -22,7 +21,6 @@ import { Text, View } from 'react-native';
 import { useToast } from 'react-native-toast-notifications';
 import { RootStackParamList } from 'routes/index';
 import { QrAccount } from 'types/qr/attach';
-import { backToHome } from 'utils/navigation';
 import createStyle from './styles';
 import i18n from 'utils/i18n/i18n';
 
@@ -52,7 +50,6 @@ const imageProps: Omit<SWImageProps, 'src'> = {
 
 const ImportQrCode: React.FC<Props> = (props: Props) => {
   const {} = props;
-  const goHome = useGoHome();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const theme = useSoulWalletTheme().swThemes;
   const toast = useToast();
@@ -62,8 +59,11 @@ const ImportQrCode: React.FC<Props> = (props: Props) => {
   const styles = useMemo(() => createStyle(theme), [theme]);
 
   const onComplete = useCallback(() => {
-    backToHome(goHome);
-  }, [goHome]);
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+    });
+  }, [navigation]);
 
   const onBack = navigation.goBack;
 
@@ -106,7 +106,7 @@ const ImportQrCode: React.FC<Props> = (props: Props) => {
     [accountName, onComplete, toast],
   );
 
-  const { onOpenModal, onScan, isScanning, onHideModal } = useModalScanner(onSubmit);
+  const { onOpenModal, onScan, isScanning, onHideModal, setIsScanning } = useModalScanner(onSubmit);
   const { onPress: onPressSubmit } = useUnlockModal(navigation);
 
   return (
@@ -133,7 +133,13 @@ const ImportQrCode: React.FC<Props> = (props: Props) => {
           {loading ? i18n.buttonTitles.creating : i18n.buttonTitles.scanQrCode}
         </Button>
       </View>
-      <QrAddressScanner visible={isScanning} onHideModal={onHideModal} onSuccess={onScan} type={SCAN_TYPE.SECRET} />
+      <QrAddressScanner
+        visible={isScanning}
+        onHideModal={onHideModal}
+        onSuccess={onScan}
+        type={SCAN_TYPE.SECRET}
+        setQrModalVisible={setIsScanning}
+      />
     </ContainerWithSubHeader>
   );
 };

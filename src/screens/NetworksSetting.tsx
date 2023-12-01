@@ -11,7 +11,7 @@ import {
   _isChainEvmCompatible,
   _isCustomChain,
   _isSubstrateChain,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils';
+} from '@subwallet/extension-base/services/chain-service/utils';
 import { EmptyList } from 'components/EmptyList';
 import i18n from 'utils/i18n/i18n';
 
@@ -187,6 +187,10 @@ export const NetworksSetting = ({}: Props) => {
         icon={ListChecks}
         title={i18n.emptyScreen.networkSettingsTitle}
         message={i18n.emptyScreen.networkSettingsMessage}
+        addBtnLabel={i18n.header.importNetwork}
+        onPressAddBtn={() => {
+          navigation.navigate('ImportNetwork');
+        }}
       />
     );
   };

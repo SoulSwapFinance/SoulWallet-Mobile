@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BottomTabBarButtonProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import StakingScreen from './Staking/StakingScreen';
+// import StakingScreen from './Staking/StakingScreen';
 
 import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Aperture, Database, Globe, Rocket, Wallet } from 'phosphor-react-native';
+import { Aperture } from 'phosphor-react-native';
 import { CryptoScreen } from 'screens/Home/Crypto';
 import { FontMedium } from 'styles/sharedStyles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -14,12 +14,12 @@ import useCheckEmptyAccounts from 'hooks/useCheckEmptyAccounts';
 import { FirstScreen } from 'screens/Home/FirstScreen';
 // import { CrowdloansScreen } from 'screens/Home/Crowdloans';
 import { BrowserScreen } from 'screens/Home/Browser';
-import NewsScreen from 'screens/Home/Browser/BrowserNews'
 import { HomeStackParamList } from 'routes/home';
-// import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
-// import withPageWrapper from 'components/PageWrapper';
+import NewsScreen from 'screens/Home/Browser/BrowserNews'
+import NFTStackScreen from 'screens/Home/NFT/NFTStackScreen';
+// import withPageWrapper from 'components/pageWrapper';
 import RequestCreateMasterPasswordModal from 'screens/MasterPassword/RequestCreateMasterPasswordModal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { ActivityIndicator } from 'components/Design';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
@@ -42,6 +42,7 @@ import PortfolioScreen from './Browser/BrowserPortfolio';
 // import CampaignBannerModal from 'screens/Home/Crowdloans/CampaignBannerModal';
 // import useGetBannerByScreen from 'hooks/campaign/useGetBannerByScreen';
 // import { CampaignBanner } from '@subwallet/extension-base/background/KoniTypes';
+// import { useShowBuyToken } from 'hooks/static-content/useShowBuyToken';
 
 interface tabbarIconColor {
   color: string;
@@ -49,38 +50,21 @@ interface tabbarIconColor {
 // const tokenTabbarIcon = ({ color }: tabbarIconColor) => {
 //   return <Wallet size={24} color={color} weight={'fill'} />;
 // };
-// const nftTabbarIcon = ({ color }: tabbarIconColor) => {
-//   return <Aperture size={24} color={color} weight={'fill'} />;
-// };
+const tokenTabbarIcon = ({ color }: tabbarIconColor) => {
+  return <SvgMagicHat width={32} height={32} color={color} />;
+};
+const nftTabbarIcon = ({ color }: tabbarIconColor) => {
+  return <Aperture size={24} color={color} weight={'fill'} />;
+};
+const browserTabbarIcon = ({ color }: tabbarIconColor) => {
+  return <SvgMagicBall width={32} height={32} color={color} />;
+};
 // const crowdloanTabbarIcon = ({ color }: tabbarIconColor) => {
 //   return <Rocket size={24} color={color} weight={'fill'} />;
 // };
 // const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
 //   return <Database size={24} color={color} weight={'fill'} />;
 // };
-// const browserTabbarIcon = ({ color }: tabbarIconColor) => {
-//   return <Globe size={24} color={color} weight={'fill'} />;
-// };
-const tokenTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <SvgMagicHat width={32} height={32} color={color} />;
-};
-// const nftTabbarIcon = ({ color }: tabbarIconColor) => {
-//   return <SvgPhoto width={32} height={32} color={color} />;
-// };
-// const crowdloanTabbarIcon = ({ color }: tabbarIconColor) => {
-//   return <Rocket size={24} color={color} weight={'fill'} />;
-// };
-// const stakingTabbarIcon = ({ color }: tabbarIconColor) => {
-//   return <SvgCauldron width={32} height={32} color={color} />;
-// };
-const browserTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <SvgMagicBall width={32} height={32} color={color} />;
-};
-
-// const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
-//   return <SvgLogo width={36} height={36} color={color} />
-// };
-
 const browserPortfolioIcon = ({ color }: tabbarIconColor) => {
   return <SvgCauldron width={36} height={36} color={color} />
 };
@@ -88,19 +72,8 @@ const browserPortfolioIcon = ({ color }: tabbarIconColor) => {
 const browserMarketsIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicMarkets width={36} height={36} color={color} />
 };
-
-// const browserNewsIcon = ({ color }: tabbarIconColor) => {
-//   return <SvgNewspaper width={36} height={36} color={color} />
-// };
-
-// const browserSoulSwapIcon = ({ color }: tabbarIconColor) => {
-//   return (
-//     <Image 
-//       src={'https://raw.githubusercontent.com/SoulSwapFinance/assets/prod/soul.png'}
-//       style={{ width: 28, height: 28 }}
-//       // color={color} weight={'fill'} 
-//     />
-//   );
+// const browserTabbarIcon = ({ color }: tabbarIconColor) => {
+//   return <Globe size={24} color={color} weight={'fill'} />;
 // };
 const getSettingsContent = (props: DrawerContentComponentProps) => {
   return <Settings {...props} />;
@@ -109,6 +82,7 @@ const MainScreen = () => {
   const Tab = createBottomTabNavigator<HomeStackParamList>();
   const insets = useSafeAreaInsets();
   const theme = useSoulWalletTheme().swThemes;
+  // const { isShowBuyToken } = useShowBuyToken();
   const tabbarButtonStyle = (props: BottomTabBarButtonProps) => {
     let customStyle = {
       flexDirection: 'column',
@@ -175,7 +149,7 @@ const MainScreen = () => {
           tabBarIcon: tokenTabbarIcon,
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name={'NFTs'}
         component={NFTStackScreen}
         options={{
@@ -183,7 +157,7 @@ const MainScreen = () => {
           tabBarHideOnKeyboard: Platform.OS === 'android',
           tabBarIcon: nftTabbarIcon,
         }}
-      /> */}
+      />
       {/* <Tab.Screen
         name={'Crowdloans'}
         component={withPageWrapper(CrowdloansScreen, ['crowdloan', 'price', 'chainStore', 'logoMaps'])}
@@ -202,7 +176,7 @@ const MainScreen = () => {
           tabBarIcon: stakingTabbarIcon,
         }}
       /> */}
-            <Tab.Screen
+      <Tab.Screen
         name={'Portfolios'}
         component={PortfolioScreen}
         options={{
@@ -234,14 +208,16 @@ const MainScreen = () => {
           tabBarIcon: browserMarketsIcon,
         }}
       />
-      <Tab.Screen
-        name={'Browser'}
-        component={BrowserScreen}
-        options={{
-          tabBarLabel: i18n.tabName.browser,
-          tabBarIcon: browserTabbarIcon,
-        }}
-      />
+      {/* {isShowBuyToken & ( */}
+        <Tab.Screen
+          name={'Browser'}
+          component={BrowserScreen}
+          options={{
+            tabBarLabel: i18n.tabName.browser,
+            tabBarIcon: browserTabbarIcon,
+          }}
+        />
+      {/* )} */}
     </Tab.Navigator>
   );
 };
