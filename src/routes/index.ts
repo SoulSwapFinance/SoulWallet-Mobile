@@ -52,7 +52,7 @@ export type RootStackParamList = {
   AccountExport: { address: string };
   ExportJson: { address: string };
   BrowserHome?: NavigatorScreenParams<undefined> | undefined;
-  BrowserSoulSwap?: NavigatorScreenParams<undefined> | undefined;
+  // BrowserSoulSwap?: NavigatorScreenParams<undefined> | undefined;
   BrowserSearch: { isOpenNewTab: boolean } | undefined;
   BrowserTabsManager: { url?: string; name?: string; isOpenTabs?: boolean };
   BrowserListByTabview: { type: string };
@@ -111,7 +111,7 @@ export type BrowserTabsManagerProps = NativeStackScreenProps<RootStackParamList,
 export type BrowserListByTabviewProps = NativeStackScreenProps<RootStackParamList, 'BrowserListByTabview'>;
 export type MissionPoolsByTabviewProps = NativeStackScreenProps<RootStackParamList, 'MissionPoolsByTabview'>;
 export type BrowserHomeProps = NativeStackScreenProps<RootStackParamList, 'BrowserHome'>;
-export type BrowserSoulSwapProps = NativeStackScreenProps<RootStackParamList, 'BrowserSoulSwap'>;
+// export type BrowserSoulSwapProps = NativeStackScreenProps<RootStackParamList, 'BrowserSoulSwap'>;
 export type BrowserSearchProps = NativeStackScreenProps<RootStackParamList, 'BrowserSearch'>;
 export type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export type ConfigureTokenProps = NativeStackScreenProps<RootStackParamList, 'ConfigureToken'>;

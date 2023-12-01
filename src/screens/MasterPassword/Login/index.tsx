@@ -12,6 +12,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import Text from 'components/Text';
 import i18n from 'utils/i18n/i18n';
 import { keyringLock, keyringUnlock, resetWallet } from 'messaging/index';
 import { Images, SVGImages } from 'assets/index';
@@ -39,6 +40,8 @@ import { mmkvStore } from 'utils/storage';
 import { setBuildNumber } from 'stores/AppVersion';
 import { LockTimeout } from 'stores/types';
 import useConfirmationsInfo from 'hooks/screen/Confirmation/useConfirmationsInfo';
+import { FontSemiBold } from 'styles/sharedStyles';
+import { ColorMap } from 'styles/color';
 
 interface LoginProps {
   navigation: NativeStackNavigationProp<RootStackParamList>;
@@ -62,6 +65,24 @@ function forceCloseModalV2(isForceClose: boolean) {
 // Deprecated: This key only exist in keychain version
 const isKeychainEnabled = mmkvStore.getBoolean('isKeychainEnabled');
 const BEFORE_KEYCHAIN_BUILD_NUMBER = 211;
+
+const logoTextStyle: StyleProp<any> = {
+  fontSize: 38,
+  lineHeight: 46,
+  ...FontSemiBold,
+  color: ColorMap.light,
+  paddingTop: 9,
+  // marginBottom: 4,
+};
+
+const logoSubTextStyle: StyleProp<any> = {
+  fontSize: 16,
+  fontStyle: 'italic',
+  lineHeight: 24,
+  color: 'rgba(255, 255, 255, 0.65)',
+  paddingTop: 8,
+  marginBottom: 12,
+};
 
 const Login: React.FC<LoginProps> = ({ navigation }) => {
   const { faceIdEnabled, isUseBiometric, timeAutoLock } = useSelector((state: RootState) => state.mobileSettings);
@@ -87,6 +108,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
       require: false,
     },
   };
+  
   useHandlerHardwareBackPress(true);
 
   const onUnlock = useCallback((password: string) => {
@@ -268,9 +290,17 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
               {/* <View style={styles.subLogo}>
                 <SVGImages.SubwalletStyled width={139} height={23} />
               </View> */}
-              {/* <Typography.Text size="sm" style={styles.subTitle}>
-                Polkadot, Substrate & Ethereum wallet
-              </Typography.Text> */}
+            <Text 
+              style={
+                logoTextStyle
+              }>
+                SoulWallet
+            </Text>
+            <Text 
+              style={logoSubTextStyle}
+            >
+                {i18n.title.slogan}
+            </Text>
               {authMethod === 'master-password' && (
                 <>
                   <InlinePassword

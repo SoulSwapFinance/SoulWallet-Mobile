@@ -70,6 +70,7 @@
     "isaac": "^0.0.5",
     "loglevel": "^1.8.1",
     "moment": "^2.29.4",
+    "native-base": "^3.4.28",
     "patch-package": "^6.5.0",
     "phosphor-react-native": "^1.1.2",
     "postinstall-postinstall": "^2.1.0",

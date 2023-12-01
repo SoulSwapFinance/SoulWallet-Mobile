@@ -37,8 +37,8 @@ import SvgMagicBall from 'assets/svg/MagicBall';
 import SvgCauldron from 'assets/svg/Cauldron';
 import SvgMagicMarkets from 'assets/svg/Markets';
 // import SvgNewspaper from 'assets/svg/Newspaper';
-// import MarketsScreen from './Browser/BrowserMarkets';
 import PortfolioScreen from './Browser/BrowserPortfolio';
+import SvgNft from 'assets/svg/Nft';
 // import CampaignBannerModal from 'screens/Home/Crowdloans/CampaignBannerModal';
 // import useGetBannerByScreen from 'hooks/campaign/useGetBannerByScreen';
 // import { CampaignBanner } from '@subwallet/extension-base/background/KoniTypes';
@@ -54,7 +54,7 @@ const tokenTabbarIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicHat width={32} height={32} color={color} />;
 };
 const nftTabbarIcon = ({ color }: tabbarIconColor) => {
-  return <Aperture size={24} color={color} weight={'fill'} />;
+  return <SvgNft width={32} height={32} color={color} />;
 };
 const browserTabbarIcon = ({ color }: tabbarIconColor) => {
   return <SvgMagicBall width={32} height={32} color={color} />;
@@ -184,22 +184,6 @@ const MainScreen = () => {
           tabBarIcon: browserPortfolioIcon,
         }}
       />
-      {/* <Tab.Screen
-        name={'SoulSwap'}
-        component={BrowserSoulSwap}
-        options={{
-          tabBarLabel: 'SoulSwap',
-          tabBarIcon: browserSoulSwapIcon,
-        }}
-      /> */}
-      {/* <Tab.Screen
-        name={'Markets'}
-        component={BrowserMarkets}
-        options={{
-          tabBarLabel: 'Markets',
-          tabBarIcon: browserMarketsIcon,
-        }}
-      /> */}
       <Tab.Screen
         name={'Markets'}
         component={NewsScreen}

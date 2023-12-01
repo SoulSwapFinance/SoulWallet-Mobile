@@ -237,7 +237,7 @@
     "authorizeMessage": "Authorize message",
     "serviceSelect": "Select service",
     "login": "Login",
-    "slogan": "Polkadot, Substrate & Ethereum wallet"
+    "slogan": "Communicate with the other side..."
   },
   "tabName": {
     "tokens": "Tokens",
@@ -250,12 +250,12 @@
     "welcomeBackTitle": "Welcome back!",
     "welcomeMessage": "",
     "welcomeBackMessage": "Enter your password to unlock wallet",
-    "createAccLabel": "Create a new account",
-    "createAccMessage": "Create a new account with SoulWallet",
-    "importAccLabel": "Import an account",
+    "createAccLabel": "Create Account",
+    "createAccMessage": "Create Account with SoulWallet",
+    "importAccLabel": "Import Account",
     "importAccMessage": "Import an existing account",
-    "attachAccLabel": "Attach an account",
-    "attachAccMessage": "Attach an account without private key",
+    "attachAccLabel": "Attach Account",
+    "attachAccMessage": "Attach Account without private key",
     "forgetAccount": "Forget account?"
   },
   "exportAccount": {
@@ -337,7 +337,7 @@
     "unlock": "Unlock",
     "unblock": "Unblock",
     "doNotRememberYourPassword": "Don’t remember your password?",
-    "createANewAcc": "Create a new account",
+    "createANewAcc": "Create Account",
     "deriveAnAcc": "Derive an account",
     "exportThisAcc": "Export this account",
     "removeThisAcc": "Remove this account",
@@ -675,7 +675,7 @@
     "successful": "Successful",
     "yourQrCode": "Your QR code",
     "confirmation": "Confirmation",
-    "createNewAcc": "Create a new account",
+    "createNewAcc": "Create Account",
     "selectAccType": "Select account type",
     "importAcc": "Import account",
     "importFromSeedPhrase": "Import from seed phrase",
@@ -684,7 +684,7 @@
     "importByPrivateKey": "Import by private key",
     "importByQRCode": "Import by QR code",
     "scanQR": "Scan QR code",
-    "attachAnAcc": "Attach an account",
+    "attachAnAcc": "Attach Account",
     "connectLedgerDevice": "Connect Ledger device",
     "connectPolkadotVault": "Connect Polkadot Vault",
     "connectKeystoneDevice": "Connect Keystone device",
