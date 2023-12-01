@@ -226,6 +226,7 @@ const BrowserHome = () => {
             />
           </>
         )}
+        {/* Bookmarks Section */}
         {bookmarkItems && bookmarkItems.length > 0 && (
           <>
             <SectionHeader
@@ -246,6 +247,7 @@ const BrowserHome = () => {
             />
           </>
         )}
+        {/* Recommended Section */}
         <SectionHeader
           title={i18n.browser.recommended}
           actionTitle={i18n.browser.seeAll}

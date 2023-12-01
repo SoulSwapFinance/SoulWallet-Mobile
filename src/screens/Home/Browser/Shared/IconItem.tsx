@@ -23,7 +23,7 @@ const IconItem: React.FC<IconItemProps> = ({ data, itemData, isWithText, onPress
   const navigation = useNavigation<RootNavigationProps>();
   const assetLogoMap = useSelector((state: RootState) => state.logoMaps.assetLogoMap);
   const dApp = data?.find(dAppItem => itemData.url.includes(dAppItem.url));
-  const [image, setImage] = useState<string>(assetLogoMap.default);
+  const [image, setImage] = useState<string>('https://soulswap.finance/favicon.png');
   const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
 
@@ -45,7 +45,7 @@ const IconItem: React.FC<IconItemProps> = ({ data, itemData, isWithText, onPress
       return;
     }
     setImage("https://soulswap.finance/favicon.png");
-  }, [assetLogoMap.default, image, itemData.url]);
+  }, [image, itemData.url]);
 
   const onPress = () => {
     navigation.navigate('BrowserTabsManager', { url: itemData.url, name: dApp?.title || itemData.name });
