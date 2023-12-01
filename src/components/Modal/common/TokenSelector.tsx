@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ListRenderItemInfo } from 'react-native';
 import i18n from 'utils/i18n/i18n';
 import { FullSizeSelectModal } from 'components/Common/SelectModal';
 import { ModalRef } from 'types/modalRef';
+import { setAdjustPan } from 'rn-android-keyboard-adjust';
+import { EmptyList } from 'components/EmptyList';
+import { MagnifyingGlass } from 'phosphor-react-native';
+import { useNavigation } from '@react-navigation/native';
+import { RootNavigationProps } from 'routes/index';
 
 export type TokenItemType = {
   name: string;
@@ -25,6 +30,8 @@ interface Props {
   renderCustomItem?: ({ item }: ListRenderItemInfo<TokenItemType>) => JSX.Element;
   defaultValue?: string;
   acceptDefaultValue?: boolean;
+  onCloseAccountSelector?: () => void;
+  showAddBtn?: boolean;
 }
 
 export const TokenSelector = ({
@@ -41,7 +48,14 @@ export const TokenSelector = ({
   renderCustomItem,
   defaultValue,
   acceptDefaultValue,
+  onCloseAccountSelector,
+  showAddBtn = true,
 }: Props) => {
+  const navigation = useNavigation<RootNavigationProps>();
+  useEffect(() => {
+    setAdjustPan();
+  }, []);
+
   return (
     <FullSizeSelectModal
       items={items}
@@ -60,6 +74,25 @@ export const TokenSelector = ({
       renderCustomItem={renderCustomItem}
       defaultValue={defaultValue}
       acceptDefaultValue={acceptDefaultValue}
+      renderListEmptyComponent={() => {
+        return (
+          <EmptyList
+            icon={MagnifyingGlass}
+            title={i18n.emptyScreen.selectorEmptyTitle}
+            message={i18n.emptyScreen.selectorEmptyMessage}
+            addBtnLabel={showAddBtn ? i18n.header.importToken : undefined}
+            onPressAddBtn={
+              showAddBtn
+                ? () => {
+                    onCloseAccountSelector && onCloseAccountSelector();
+                    tokenSelectorRef?.current?.onCloseModal();
+                    navigation.navigate('ImportToken');
+                  }
+                : undefined
+            }
+          />
+        );
+      }}
       disabled={disabled}>
       {children}
     </FullSizeSelectModal>

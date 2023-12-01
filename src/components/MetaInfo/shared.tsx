@@ -26,6 +26,7 @@ export function getSchemaColor(schema: SchemeColor, theme: ThemeTypes) {
   }
 
   return theme.colorTextLight2;
+  // return theme.colorTextLight1;
 }
 
 export function renderColContent(
