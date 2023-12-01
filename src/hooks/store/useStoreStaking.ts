@@ -1,4 +1,4 @@
-import { StakingJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { StakingJson } from '@subwallet/extension-base/background/KoniTypes';
 import { WebRunnerContext } from 'providers/contexts';
 import { useSelector } from 'react-redux';
 import { StoreStatus } from 'stores/types';
@@ -6,7 +6,7 @@ import { updateStaking } from 'stores/updater';
 import { clearWebRunnerHandler, subscribeStaking } from 'messaging/index';
 import { useContext, useEffect, useState } from 'react';
 import { RootState } from 'stores/index';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
+import { getId } from '@subwallet/extension-base/utils/getId';
 
 export default function useStoreStaking(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

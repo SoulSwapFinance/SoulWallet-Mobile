@@ -11,18 +11,17 @@ import { DirectoryPickerResponse, DocumentPickerResponse } from 'react-native-do
 import * as RNFS from 'react-native-fs';
 import { isKeyringPairs$Json } from 'types/typeGuards';
 import { batchRestoreV2, jsonGetAccountInfo, jsonRestoreV2 } from 'messaging/index';
-import { ResponseJsonGetAccountInfo } from '@soul-wallet/extension-base/src/background/types';
+import { ResponseJsonGetAccountInfo } from '@subwallet/extension-base/background/types';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { Warning } from 'components/Warning';
 import { PasswordField } from 'components/Field/Password';
 import i18n from 'utils/i18n/i18n';
-import { backToHome } from 'utils/navigation';
 import { validatePassword } from 'screens/Shared/AccountNamePasswordCreation';
-import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/hooks/useFormControl';
+import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/useFormControl';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
-import useGoHome from 'hooks/screen/hooks/useGoHome';
-import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
+import useGoHome from 'hooks/screen/useGoHome';
+import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import { Button, Icon, SelectItem, SwModal, Typography } from 'components/Design';
 import createStyles from './styles';
 import { getButtonIcon } from 'utils/button';
@@ -126,7 +125,10 @@ export const RestoreJson = () => {
         onUpdateErrors('password')([]);
         setAccountsInfo(() => []);
         if (!isMultiple) {
-          backToHome(goHome);
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'Home' }],
+          });
         }
       })
       .catch(e => {
@@ -270,7 +272,10 @@ export const RestoreJson = () => {
               {accountsInfo.length > 1 ? (
                 <SelectItem
                   leftItemIcon={<AvatarGroup addresses={addresses} />}
-                  label={i18n.importAccount.importAccounts(String(accountsInfo.length).padStart(2, '0'))}
+                  label={`${i18n.formatString(
+                    i18n.importAccount.importAccounts,
+                    String(accountsInfo.length).padStart(2, '0'),
+                  )}`}
                   onPress={openModal}
                   rightIcon={<Icon phosphorIcon={DotsThree} size="sm" />}
                 />

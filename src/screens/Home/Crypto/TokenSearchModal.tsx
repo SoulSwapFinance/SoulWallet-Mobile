@@ -7,6 +7,10 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { FullSizeSelectModal } from 'components/Common/SelectModal';
 import i18n from 'utils/i18n/i18n';
 import { ModalRef } from 'types/modalRef';
+import { EmptyList } from 'components/EmptyList';
+import { Coins } from 'phosphor-react-native';
+import { useNavigation } from '@react-navigation/native';
+import { RootNavigationProps } from 'routes/index';
 
 interface Props {
   onSelectItem: (item: TokenBalanceItemType) => void;
@@ -22,6 +26,7 @@ const searchFunction = (items: TokenBalanceItemType[], searchString: string) => 
 
 export const TokenSearchModal = ({ onSelectItem, items, isShowBalance, tokenSearchRef }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
+  const navigation = useNavigation<RootNavigationProps>();
 
   const _onPressItem = useCallback(
     (item: TokenBalanceItemType) => {
@@ -61,6 +66,18 @@ export const TokenSearchModal = ({ onSelectItem, items, isShowBalance, tokenSear
       placeholder={i18n.placeholder.searchToken}
       closeModalAfterSelect={true}
       onBackButtonPress={() => tokenSearchRef?.current?.onCloseModal()}
+      renderListEmptyComponent={() => (
+        <EmptyList
+          icon={Coins}
+          title={i18n.emptyScreen.tokenEmptyTitle}
+          message={i18n.emptyScreen.tokenEmptyMessage}
+          addBtnLabel={i18n.header.importToken}
+          onPressAddBtn={() => {
+            tokenSearchRef?.current?.onCloseModal();
+            navigation.navigate('ImportToken');
+          }}
+        />
+      )}
     />
   );
 };

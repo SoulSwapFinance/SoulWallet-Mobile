@@ -1,9 +1,10 @@
-import { NftCollection } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { NftCollection } from '@subwallet/extension-base/background/KoniTypes';
 import ImagePreview from 'components/ImagePreview';
 import React from 'react';
 import { StyleProp, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { ColorMap } from 'styles/color';
 import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
+import { deviceWidth } from 'constants/index';
 
 interface Props {
   nftCollection: NftCollection;
@@ -12,7 +13,8 @@ interface Props {
 
 const WrapperStyle: StyleProp<ViewStyle> = {
   width: '50%',
-  height: 220,
+  // height: 220,
+  height: (deviceWidth - 32) / 2 + 32,
   paddingHorizontal: 8,
 };
 

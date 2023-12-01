@@ -1,12 +1,12 @@
 import { useCallback, useContext, useMemo } from 'react';
-import { ExtrinsicType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { ExtrinsicType } from '@subwallet/extension-base/background/KoniTypes';
 import { TRANSACTION_TITLE_MAP } from 'constants/transaction';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
-import useFormControl, { FormControlConfig, FormControlOption } from 'hooks/screen/hooks/useFormControl';
+import useFormControl, { FormControlConfig, FormControlOption } from 'hooks/screen/useFormControl';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { _getOriginChainOfAsset } from '@soul-wallet/extension-base/src/services/chain-service/utils';
+import { _getOriginChainOfAsset } from '@subwallet/extension-base/services/chain-service/utils';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import { isAccountAll } from 'utils/accountAll';
 import { ExtraExtrinsicType, ExtrinsicTypeMobile } from 'types/transaction';
@@ -22,7 +22,7 @@ export const useTransaction = (
   const { currentAccount } = useSelector((state: RootState) => state.accountState);
   const navigation = useNavigation<RootNavigationProps>();
   const chainInfoMap = useSelector((state: RootState) => state.chainStore.chainInfoMap);
-  const { turnOnChain, checkChainConnected } = useChainChecker();
+  const { turnOnChain, checkChainConnected, connectingChainStatus } = useChainChecker();
   const appModalContext = useContext(AppModalContext);
   const transactionType = useMemo((): ExtrinsicTypeMobile => {
     switch (action) {
@@ -115,7 +115,8 @@ export const useTransaction = (
         setTimeout(() => {
           appModalContext.setConfirmModal({
             visible: true,
-            message: i18n.common.enableChainMessage(chainInfoMap[chain].name),
+            completeBtnTitle: i18n.buttonTitles.enable,
+            message: i18n.common.enableChainMessage,
             title: i18n.common.enableChain,
             onCancelModal: () => {
               appModalContext.hideConfirmModal();
@@ -180,5 +181,6 @@ export const useTransaction = (
     onUpdateErrors,
     showPopupEnableChain,
     checkChainConnected,
+    connectingChainStatus,
   };
 };

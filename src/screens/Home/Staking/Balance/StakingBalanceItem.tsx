@@ -1,6 +1,6 @@
-import { StakingType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { StakingType } from '@subwallet/extension-base/background/KoniTypes';
 import BigN from 'bignumber.js';
-import { Icon, Number, Tag } from 'components/Design';
+import { Icon, Number, Tag, Typography } from 'components/Design';
 import { StakingDataType } from 'hooks/types';
 import { CaretRight, User, Users } from 'phosphor-react-native';
 import React, { useMemo } from 'react';
@@ -16,9 +16,10 @@ interface Props {
   stakingData: StakingDataType;
   priceMap: Record<string, number>;
   onPress: (value: StakingDataType) => () => void;
+  isShowBalance?: boolean;
 }
 
-const StakingBalanceItem = ({ stakingData, priceMap, onPress }: Props) => {
+const StakingBalanceItem = ({ stakingData, priceMap, onPress, isShowBalance }: Props) => {
   const { staking, decimals } = stakingData;
   const theme = useSoulWalletTheme().swThemes;
   const styleSheet = createStyleSheet(theme);
@@ -34,35 +35,31 @@ const StakingBalanceItem = ({ stakingData, priceMap, onPress }: Props) => {
   }, [priceMap, staking.balance, staking.chain]);
 
   return (
-    <TouchableOpacity style={styleSheet.wrapper} activeOpacity={0.5} onPress={onPress(stakingData)}>
-      <View style={styleSheet.infoContainer}>
-        <View style={styleSheet.networkInfoWrapper}>
-          {getNetworkLogo(staking.chain, 40)}
-          <View style={styleSheet.networkInfoContent}>
-            <Text style={styleSheet.networkName} numberOfLines={1} ellipsizeMode={'tail'}>
-              {networkDisplayName}
-            </Text>
-            <View style={{ alignItems: 'flex-start' }}>
-              <Tag
-                color={staking.type === StakingType.NOMINATED ? 'warning' : 'success'}
-                closable={false}
-                bgType={'default'}
-                icon={
-                  staking.type === StakingType.NOMINATED ? (
-                    <Icon phosphorIcon={User} size={'xxs'} weight={'bold'} iconColor={theme.colorWarning} />
-                  ) : (
-                    <Icon phosphorIcon={Users} size={'xxs'} weight={'bold'} iconColor={theme.colorSuccess} />
-                  )
-                }>
-                {staking.type === StakingType.NOMINATED ? i18n.filterOptions.nominated : i18n.filterOptions.pooled}
-              </Tag>
-            </View>
-          </View>
-        </View>
-
-        <View style={styleSheet.balanceInfoContainer}>
+    <TouchableOpacity style={styleSheet.infoContainer} activeOpacity={0.5} onPress={onPress(stakingData)}>
+      {getNetworkLogo(staking.chain, 40)}
+      <View style={{ flex: 1, paddingLeft: theme.paddingXS }}>
+        <View style={styleSheet.balanceInfoRow}>
+          <Text style={styleSheet.networkName} numberOfLines={1} ellipsizeMode={'tail'}>
+            {networkDisplayName}
+          </Text>
           <Number value={staking.balance || 0} decimal={decimals} suffix={symbol} textStyle={{ ...FontSemiBold }} />
-
+        </View>
+        <View style={styleSheet.balanceInfoRow}>
+          <View style={{ alignItems: 'flex-start' }}>
+            <Tag
+              color={staking.type === StakingType.NOMINATED ? 'warning' : 'success'}
+              closable={false}
+              bgType={'default'}
+              icon={
+                staking.type === StakingType.NOMINATED ? (
+                  <Icon phosphorIcon={User} size={'xxs'} weight={'bold'} iconColor={theme.colorWarning} />
+                ) : (
+                  <Icon phosphorIcon={Users} size={'xxs'} weight={'bold'} iconColor={theme.colorSuccess} />
+                )
+              }>
+              {staking.type === StakingType.NOMINATED ? i18n.filterOptions.nominated : i18n.filterOptions.pooled}
+            </Tag>
+          </View>
           <Number
             value={convertedBalanceValue}
             decimal={decimals}
@@ -74,9 +71,10 @@ const StakingBalanceItem = ({ stakingData, priceMap, onPress }: Props) => {
             textStyle={{ ...FontMedium, lineHeight: theme.fontSizeSM * theme.lineHeightSM }}
           />
         </View>
-        <View style={styleSheet.iconWrapper}>
-          <Icon phosphorIcon={CaretRight} iconColor={theme.colorTextLight3} size={'sm'} />
-        </View>
+      </View>
+
+      <View style={styleSheet.iconWrapper}>
+        <Icon phosphorIcon={CaretRight} iconColor={theme.colorTextLight3} size={'sm'} />
       </View>
     </TouchableOpacity>
   );
@@ -84,8 +82,6 @@ const StakingBalanceItem = ({ stakingData, priceMap, onPress }: Props) => {
 
 function createStyleSheet(theme: ThemeTypes) {
   return StyleSheet.create({
-    wrapper: {},
-
     infoContainer: {
       flex: 1,
       flexDirection: 'row',
@@ -98,18 +94,12 @@ function createStyleSheet(theme: ThemeTypes) {
       borderRadius: theme.borderRadiusLG,
       alignItems: 'center',
     },
-    networkInfoWrapper: {
+    balanceInfoRow: {
       flexDirection: 'row',
       alignItems: 'center',
-      overflow: 'hidden',
-      flex: 5,
-    },
-
-    networkInfoContent: {
-      paddingHorizontal: theme.paddingSM,
+      justifyContent: 'space-between',
       flex: 1,
-      display: 'flex',
-      flexDirection: 'column',
+      gap: theme.padding,
     },
 
     networkName: {
@@ -117,11 +107,7 @@ function createStyleSheet(theme: ThemeTypes) {
       lineHeight: theme.fontSizeLG * theme.lineHeightLG,
       ...FontSemiBold,
       color: theme.colorTextLight1,
-    },
-
-    balanceInfoContainer: {
-      alignItems: 'flex-end',
-      paddingLeft: 2,
+      flex: 1,
     },
 
     iconWrapper: {

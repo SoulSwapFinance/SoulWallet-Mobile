@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { clearWebRunnerHandler, subscribeBalance } from 'messaging/index';
 import { updateBalance } from 'stores/updater';
-import { BalanceJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { BalanceJson } from '@subwallet/extension-base/background/KoniTypes';
 import { WebRunnerContext } from 'providers/contexts';
 import { StoreStatus } from 'stores/types';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
+import { getId } from '@subwallet/extension-base/utils/getId';
 
 export default function useStoreBalance(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

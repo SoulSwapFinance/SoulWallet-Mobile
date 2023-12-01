@@ -10,19 +10,22 @@ import {
   StakingType,
   UnstakingInfo,
   UnstakingStatus,
-} from '@soul-wallet/extension-base/src/background/KoniTypes'
-import { isShowNominationByValidator } from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils'
-import { _STAKING_CHAIN_GROUP } from '@soul-wallet/extension-base/src/services/chain-service/constants'
+} from '@subwallet/extension-base/background/KoniTypes'
+import {
+  getValidatorLabel,
+  isShowNominationByValidator,
+} from '@subwallet/extension-base/koni/api/staking/bonding/utils'
+import { _STAKING_CHAIN_GROUP } from '@subwallet/extension-base/services/chain-service/constants'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import { useSelector } from 'react-redux'
 import { RootState } from 'stores/index'
 import usePreCheckReadOnly from 'hooks/account/usePreCheckReadOnly'
-import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo'
+import useFetchChainInfo from 'hooks/screen/useFetchChainInfo'
 import {
   _getChainNativeTokenBasicInfo,
   _getChainSubstrateAddressPrefix,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils'
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress'
+} from '@subwallet/extension-base/services/chain-service/utils'
+import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress'
 import { ALL_KEY, deviceHeight, TOAST_DURATION } from 'constants/index'
 import { useNavigation } from '@react-navigation/native'
 import { StakingStatusUi } from 'constants/stakingStatusUi'
@@ -32,7 +35,7 @@ import { getUnstakingPeriod, getWaitingTime } from 'screens/Transaction/helper/s
 import { ScrollView, TouchableHighlight, View } from 'react-native'
 import { Avatar, Button, Icon, Number, SwModal, Typography } from 'components/Design'
 import { ArrowCircleUpRight, DotsThree } from 'phosphor-react-native'
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants'
+import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants'
 import { FontMedium, STATUS_BAR_HEIGHT } from 'styles/sharedStyles'
 import { ThemeTypes } from 'styles/themes'
 import { isAccountAll } from 'utils/accountAll'
@@ -44,6 +47,7 @@ import i18n from 'utils/i18n/i18n'
 import { CustomToast } from 'components/Design/Toast'
 import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2'
 import StakingActionModal from 'screens/Home/Staking/StakingDetail/StakingActionModal'
+import useGetAccountsByStaking from 'hooks/screen/Staking/useGetAccountsByStaking'
 
 interface Props {
   nominatorMetadata?: NominatorMetadata;
@@ -104,7 +108,7 @@ export const StakingDetailModal = ({
       : i18n.header.poolDetails;
   const theme = useSoulWalletTheme().swThemes;
   const [seeMore, setSeeMore] = useState<boolean>(false);
-  const { accounts, currentAccount } = useSelector((state: RootState) => state.accountState);
+  const { currentAccount } = useSelector((state: RootState) => state.accountState);
   const toastRef = useRef<ToastContainer>(null);
   const onClickFooterButton = usePreCheckReadOnly(toastRef, currentAccount?.address);
   const chainInfo = useFetchChainInfo(staking.chain);
@@ -117,6 +121,10 @@ export const StakingDetailModal = ({
     pooled: i18n.filterOptions.pooled,
   };
   const modalRef = useRef<SWModalRefProps>(null);
+  const stakingAccounts = useGetAccountsByStaking(
+    nominatorMetadata?.chain || '',
+    nominatorMetadata?.type || StakingType.NOMINATED,
+  );
 
   const onCloseDetailModal = useCallback(() => modalRef?.current?.close(), []);
 
@@ -192,7 +200,7 @@ export const StakingDetailModal = ({
         <MetaInfo style={{ marginTop: 8 }} hasBackgroundWrapper spaceSize={'sm'}>
           <MetaInfo.Account
             address={item.validatorAddress}
-            label={i18n.inputLabel.validator}
+            label={getValidatorLabel(item.chain)}
             name={item.validatorIdentity || toShort(item.validatorAddress)}
             networkPrefix={networkPrefix}
           />
@@ -288,7 +296,11 @@ export const StakingDetailModal = ({
           onPress={onClickFooterButton(onClickUnstakeBtn)}>
           {i18n.buttonTitles.unstake}
         </Button>
-        <Button style={{ flex: 1, marginLeft: 6 }} type={'primary'} onPress={onClickFooterButton(onClickStakeMoreBtn)}>
+        <Button
+          disabled={!chainStakingMetadata}
+          style={{ flex: 1, marginLeft: 6 }}
+          type={'primary'}
+          onPress={onClickFooterButton(onClickStakeMoreBtn)}>
           {i18n.buttonTitles.stakeMore}
         </Button>
       </View>
@@ -303,6 +315,7 @@ export const StakingDetailModal = ({
         modalBaseV2Ref={modalRef}
         modalVisible={modalVisible}
         modalTitle={modalTitle}
+        isAllowSwipeDown={false}
         onChangeModalVisible={() => setSeeMore(false)}
         onBackButtonPress={_onCloseDetailModal}
         footer={footer()}
@@ -319,7 +332,7 @@ export const StakingDetailModal = ({
                     <MetaInfo.AccountGroup
                       label={i18n.inputLabel.account}
                       content={nominatorMetadata?.address === 'ALL' ? i18n.common.allAccounts : ''}
-                      addresses={accounts.map(acc => acc.address)}
+                      addresses={stakingAccounts.map(acc => acc.address)}
                     />
                   ) : (
                     <MetaInfo.Account
@@ -519,8 +532,8 @@ export const StakingDetailModal = ({
                                     item.claimable
                                   }-${index}`}
                                   label={
-                                    getWaitingTime(item.waitingTime, item.status)
-                                      ? getWaitingTime(item.waitingTime, item.status)
+                                    `${getWaitingTime(item.waitingTime, item.status)}`
+                                      ? `${getWaitingTime(item.waitingTime, item.status)}`
                                       : 'Withdraw'
                                   }
                                   suffix={staking.nativeToken}
@@ -557,16 +570,18 @@ export const StakingDetailModal = ({
         </View>
       </SwModal>
 
-      <StakingActionModal
-        stakingDetailModalRef={modalRef}
-        setModalVisible={setMoreActionModalVisible}
-        openModal={() => setMoreActionModalVisible(true)}
-        visible={moreActionModalVisible}
-        chainStakingMetadata={chainStakingMetadata}
-        nominatorMetadata={nominatorMetadata}
-        staking={staking}
-        reward={rewardItem}
-      />
+      {chainStakingMetadata && (
+        <StakingActionModal
+          stakingDetailModalRef={modalRef}
+          setModalVisible={setMoreActionModalVisible}
+          openModal={() => setMoreActionModalVisible(true)}
+          visible={moreActionModalVisible}
+          chainStakingMetadata={chainStakingMetadata}
+          nominatorMetadata={nominatorMetadata}
+          staking={staking}
+          reward={rewardItem}
+        />
+      )}
     </>
   );
 };

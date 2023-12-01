@@ -7,7 +7,7 @@ import { ListRenderItemInfo, StyleProp, View } from 'react-native';
 import { itemWrapperStyle } from 'screens/Home/Crypto/layers/shared';
 import { TokenGroupBalanceItem } from 'components/Common/TokenGroupBalanceItem';
 import { LeftIconButton } from 'components/LeftIconButton';
-import { ClockCounterClockwise, FadersHorizontal, MagnifyingGlass, SlidersHorizontal, PaintBrush } from 'phosphor-react-native';
+import { ClockCounterClockwise, FadersHorizontal, MagnifyingGlass, SlidersHorizontal } from 'phosphor-react-native';
 import i18n from 'utils/i18n/i18n';
 import { TokenGroupsUpperBlock } from 'screens/Home/Crypto/TokenGroupsUpperBlock';
 import { Header } from 'components/Header';
@@ -20,10 +20,9 @@ import useReceiveQR from 'hooks/screen/Home/Crypto/useReceiveQR';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { useGetChainSlugs } from 'hooks/screen/Home/useGetChainSlugs';
-import useTokenGroup from 'hooks/screen/hooks/useTokenGroup';
-import useAccountBalance from 'hooks/screen/hooks/useAccountBalance';
+import useTokenGroup from 'hooks/screen/useTokenGroup';
+import useAccountBalance from 'hooks/screen/useAccountBalance';
 import { CustomizationModal } from 'screens/Home/Crypto/CustomizationModal';
-import { CollectiblesModal } from 'screens/Home/Crypto/Collectibles/CollectiblesModal';
 import { useToast } from 'react-native-toast-notifications';
 import { TokenSearchModal } from 'screens/Home/Crypto/TokenSearchModal';
 import { SelectAccAndTokenModal } from 'screens/Home/Crypto/shared/SelectAccAndTokenModal';
@@ -54,7 +53,7 @@ export const TokenGroups = () => {
   const isShowBalance = useSelector((state: RootState) => state.settings.isShowBalance);
   const isTotalBalanceDecrease = totalBalanceInfo.change.status === 'decrease';
   const [isCustomizationModalVisible, setCustomizationModalVisible] = useState<boolean>(false);
-  const [isCollectiblesModalVisible, setCollectiblesModalVisible] = useState<boolean>(false);
+  // const [isCollectiblesModalVisible, setCollectiblesModalVisible] = useState<boolean>(false);
   const currentAccount = useSelector((state: RootState) => state.accountState.currentAccount);
   const {
     accountSelectorItems,
@@ -122,11 +121,11 @@ export const TokenGroups = () => {
     setCustomizationModalVisible(true);
   }, []);
 
-  const onOpenCollectiblesModal = useCallback(() => {
-    // navigation.navigate('ImportNft')
-    // navigation.navigate('Home', { screen: 'NFTs', params: {screen: 'CollectionList'} })
-    setCollectiblesModalVisible(true);
-  }, []);
+  // const onOpenCollectiblesModal = useCallback(() => {
+  //   // navigation.navigate('ImportNft')
+  //   // navigation.navigate('Home', { screen: 'NFTs', params: {screen: 'CollectionList'} })
+  //   setCollectiblesModalVisible(true);
+  // }, []);
 
   const onOpenTokenSearchModal = useCallback(() => tokenSearchRef && tokenSearchRef.current?.onOpenModal(), []);
 
@@ -154,12 +153,12 @@ export const TokenGroups = () => {
             icon={<Icon size="md" phosphorIcon={FadersHorizontal} iconColor={theme.colorTextLight3} />}
             onPress={onOpenCustomizationModal}
           />
-          <Button
+         {/* <Button
             type="ghost"
             size="xs"
             icon={<Icon size="md" phosphorIcon={PaintBrush} iconColor={theme.colorTextLight3} />}
             onPress={onOpenCollectiblesModal}
-          />
+          /> */}
           <Button
             type="ghost"
             size="xs"
@@ -169,7 +168,7 @@ export const TokenGroups = () => {
         </View>
       </View>
     );
-  }, [onOpenHistoryScreen, onOpenCustomizationModal, onOpenCollectiblesModal, onOpenTokenSearchModal, theme]);
+  }, [onOpenHistoryScreen, onOpenCustomizationModal, onOpenTokenSearchModal, theme]); // onOpenCollectiblesModal
 
   const showNoti = useCallback(
     (text: string) => {
@@ -285,7 +284,7 @@ export const TokenGroups = () => {
         />
 
         <CustomizationModal modalVisible={isCustomizationModalVisible} setVisible={setCustomizationModalVisible} />
-        <CollectiblesModal modalVisible={isCollectiblesModalVisible} setVisible={setCollectiblesModalVisible} />
+        {/* <CollectiblesModal modalVisible={isCollectiblesModalVisible} setVisible={setCollectiblesModalVisible} /> */}
       </>
     </ScreenContainer>
   );

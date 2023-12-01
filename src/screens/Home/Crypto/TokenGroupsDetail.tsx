@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { ListRenderItemInfo, View } from 'react-native'
 import { CryptoNavigationProps, TokenGroupsDetailProps } from 'routes/home'
-import { SwNumberProps } from 'components/Design/Number'
+// import { SwNumberProps } from 'components/Design/Number'
 import { TokenBalanceItemType } from 'types/balance'
 import { GradientBackgroundColorSet, ScreenContainer } from 'components/ScreenContainer'
 import { Header } from 'components/Header'
@@ -17,14 +17,17 @@ import { ReceiveModal } from 'screens/Home/Crypto/ReceiveModal'
 import { useSelector } from 'react-redux'
 import { RootState } from 'stores/index'
 import { useGetChainSlugs } from 'hooks/screen/Home/useGetChainSlugs'
-import useTokenGroup from 'hooks/screen/hooks/useTokenGroup'
-import useAccountBalance from 'hooks/screen/hooks/useAccountBalance'
+// import useTokenGroup from 'hooks/screen/hooks/useTokenGroup'
+// import useAccountBalance from 'hooks/screen/hooks/useAccountBalance'
 import { useToast } from 'react-native-toast-notifications'
 import i18n from 'utils/i18n/i18n'
 import { SelectAccAndTokenModal } from 'screens/Home/Crypto/shared/SelectAccAndTokenModal'
 // import WebView from 'react-native-webview'
 import { _getAssetPriceId } from '@soul-wallet/extension-base/src/services/chain-service/utils'
 import PriceChart from 'components/Chart/PriceChart'
+import { SwNumberProps } from 'components/Design/Number'
+import useTokenGroup from 'hooks/screen/useTokenGroup'
+import useAccountBalance from 'hooks/screen/useAccountBalance'
 
 type CurrentSelectToken = {
   symbol: string;
@@ -236,7 +239,11 @@ export const TokenGroupsDetail = ({
 
   useEffect(() => {
     if (!isTokenGroupComputing && !isAccountBalanceComputing && !tokenBalanceItems.length) {
-      navigation.navigate('Home', { screen: 'Tokens', params: { screen: 'TokenGroups' } });
+      navigation.navigate('Home', {screen: 'Main', params: {screen: 'Tokens', params: {screen: 'TokenGroups'}}});
+        // 'Home', { 
+        //   screen: 'Main', 
+        // }
+        // 'Home', { screen: 'Tokens', params: { screen: 'TokenGroups' } });
     }
   }, [isAccountBalanceComputing, isTokenGroupComputing, navigation, tokenBalanceItems]);
 
@@ -278,7 +285,7 @@ export const TokenGroupsDetail = ({
 
         <PriceChart 
           groupSymbol={groupSymbol}
-          networkId={groupNetwork ?? 'ethereum'}
+          // networkId={groupNetwork ?? 'ethereum'}
         />
       </>
     </ScreenContainer>

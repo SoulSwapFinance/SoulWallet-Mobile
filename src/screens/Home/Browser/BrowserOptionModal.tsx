@@ -51,7 +51,7 @@ const Component = ({ visibleModal, setVisibleModal }: Props, ref: ForwardedRef<B
     {
       key: 'toggleFavoriteSite',
       icon: isBookmarked ? StarHalf : Star,
-      label: isBookmarked ? i18n.common.removeFromFavorites : i18n.common.addBookmark,
+      label: isBookmarked ? i18n.common.removeBookmark : i18n.common.addBookmark,
       iconBackgroundColor: isBookmarked ? theme.colorTextDarkPurple : theme.colorTextDarkPurple,
       onPress: () => {
         if (isBookmarked) {

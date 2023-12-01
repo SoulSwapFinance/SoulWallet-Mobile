@@ -8,7 +8,7 @@ import { ColorMap } from 'styles/color';
 import { Activity, Barricade, CirclesThreePlus, ListChecks, Trophy } from 'phosphor-react-native';
 import { getLeftSelectItemIcon, getNetworkLogo } from 'utils/index';
 import { SubmitButton } from 'components/SubmitButton';
-import useFormControl from 'hooks/screen/hooks/useFormControl';
+import useFormControl from 'hooks/screen/useFormControl';
 import { FilterOptsType } from 'types/ui-types';
 import i18n from 'utils/i18n/i18n';
 

@@ -12,7 +12,7 @@ import { formatHistoryDate } from 'utils/customFormatDate';
 import { IconProps } from 'phosphor-react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { LanguageType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { LanguageType } from '@subwallet/extension-base/background/KoniTypes';
 
 interface Props {
   data: TransactionHistoryDisplayItem;
@@ -22,7 +22,7 @@ const HistoryDetailLayout: React.FC<Props> = (props: Props) => {
   const { data } = props;
   const txtTypeNameMap = TxTypeNameMap();
   const historyStatusMap = HistoryStatusMap();
-  const language = useSelector((state: RootState) => state.mobileSettings.language) as LanguageType;
+  const language = useSelector((state: RootState) => state.settings.language) as LanguageType;
 
   return (
     <MetaInfo>

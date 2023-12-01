@@ -1,33 +1,24 @@
 import WordPhrase from 'components/Common/WordPhrase'
 import AlertBox from 'components/Design/AlertBox'
 import useCopyClipboard from 'hooks/common/useCopyClipboard'
-import useGoHome from 'hooks/screen/hooks/useGoHome'
+import useGoHome from 'hooks/screen/useGoHome'
 import React, { useCallback, useMemo, useState } from 'react'
 import { ScrollView, Share, View } from 'react-native'
 import { SoulScreenContainer } from 'components/SoulScreenContainer'
 import { useNavigation } from '@react-navigation/native'
 import { AccountExportProps, RootNavigationProps } from 'routes/index'
 import i18n from 'utils/i18n/i18n'
-import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress'
+import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress'
 import { ExportType, SelectExportType } from 'components/Common/SelectExportType'
 import { Button, Icon, QRCode, SelectItem, Typography } from 'components/Design'
 import PasswordModal from 'components/Modal/PasswordModal'
 import { exportAccount, exportAccountPrivateKey, keyringExportMnemonic } from 'messaging/index'
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress'
-import type { HexString } from '@polkadot/util/types'
-import type { EncryptedJson } from '@polkadot/util-crypto/types'
+import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress'
+import { KeyringPair$Json } from 'types/ui-keyring'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import { AddressBook, CheckCircle, CopySimple, DownloadSimple, X } from 'phosphor-react-native'
-import createStyle from './styles';
-import { toShort } from 'utils/index';
-
-export type KeyringPair$Meta = Record<string, unknown>;
-export interface KeyringPair$Json extends EncryptedJson {
-    /** The ss58 encoded address or the hex-encoded version (the latter is for ETH-compat chains) */
-    address: string | HexString;
-    /** The underlying metadata associated with the keypair */
-    meta: KeyringPair$Meta;
-}
+import createStyle from './styles'
+import { toShort } from 'utils/index'
 
 const ViewStep = {
   SELECT_TYPES: 1,

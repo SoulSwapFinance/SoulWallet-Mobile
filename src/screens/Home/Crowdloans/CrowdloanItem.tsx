@@ -1,4 +1,4 @@
-import { CrowdloanParaState } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { CrowdloanParaState } from '@subwallet/extension-base/background/KoniTypes';
 import { Logo, Number, Tag } from 'components/Design';
 import { TagNativeProps } from 'components/Design/Tag';
 import { BUTTON_ACTIVE_OPACITY } from 'constants/index';
@@ -9,9 +9,11 @@ import { FontMedium, FontSemiBold } from 'styles/sharedStyles';
 import { CrowdloanItemType } from 'types/index';
 import i18n from 'utils/i18n/i18n';
 import { ThemeTypes } from 'styles/themes';
+// import { HideBalanceItem } from 'components/HideBalanceItem';
 
 interface Props {
   item: CrowdloanItemType;
+  isShowBalance?: boolean;
 }
 
 function getParaStateLabel(paraState: CrowdloanParaState) {
@@ -38,7 +40,7 @@ export function getGroupKey(groupDisplayName: string) {
   }
 }
 
-export const CrowdloanItem = ({ item }: Props) => {
+export const CrowdloanItem = ({ item, isShowBalance }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
   const styleSheet = createStyleSheet(theme);
 
@@ -66,7 +68,7 @@ export const CrowdloanItem = ({ item }: Props) => {
           <View style={{ position: 'relative' }}>
             <Logo
               size={40}
-              network={item.slug.toLowerCase()}
+              network={item.slug} // .toLowerCase()
               isShowSoulLogo
               defaultLogoKey="soul"
               subNetwork={getGroupKey(item.relayParentDisplayName)}

@@ -4,7 +4,7 @@ import {
   NominatorMetadata,
   StakingItem,
   StakingRewardItem,
-} from '@soul-wallet/extension-base/src/background/KoniTypes'
+} from '@subwallet/extension-base/background/KoniTypes'
 import { ALL_KEY, deviceHeight, TOAST_DURATION } from 'constants/index'
 import { ArrowArcLeft, ArrowCircleDown, IconProps, MinusCircle, PlusCircle, Wallet } from 'phosphor-react-native'
 import React, { useCallback, useMemo, useRef, useState } from 'react'
@@ -17,7 +17,7 @@ import {
   getStakingAvailableActionsByChain,
   getStakingAvailableActionsByNominator,
   StakingAction,
-} from '@soul-wallet/extension-base/src/koni/api/staking/bonding/utils'
+} from '@subwallet/extension-base/koni/api/staking/bonding/utils'
 import { RootNavigationProps } from 'routes/index'
 import { ActivityIndicator, BackgroundIcon, SwModal, Typography } from 'components/Design'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'

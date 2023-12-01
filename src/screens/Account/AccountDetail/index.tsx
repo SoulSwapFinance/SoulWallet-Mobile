@@ -6,11 +6,11 @@ import { SoulScreenContainer } from 'components/SoulScreenContainer';
 import useCopyClipboard from 'hooks/common/useCopyClipboard';
 import useConfirmModal from 'hooks/modal/useConfirmModal';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
-import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/hooks/useFormControl';
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
-import useGetAccountSignModeByAddress from 'hooks/screen/hooks/useGetAccountSignModeByAddress';
-import useGetAvatarSubIcon from 'hooks/screen/hooks/useGetAvatarSubIcon';
-import useGoHome from 'hooks/screen/hooks/useGoHome';
+import useFormControl, { FormControlConfig, FormState } from 'hooks/screen/useFormControl';
+import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
+import useGetAccountSignModeByAddress from 'hooks/screen/useGetAccountSignModeByAddress';
+import useGetAvatarSubIcon from 'hooks/screen/useGetAvatarSubIcon';
+import useGoHome from 'hooks/screen/useGoHome';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { CopySimple, Export, FloppyDiskBack, ShareNetwork, TrashSimple, User, X } from 'phosphor-react-native';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
@@ -20,7 +20,7 @@ import { EditAccountProps, RootNavigationProps } from 'routes/index';
 import { AccountSignMode } from 'types/signer';
 import i18n from 'utils/i18n/i18n';
 import { toShort } from 'utils/index';
-import { deriveAccountV3, editAccount, forgotAccount } from 'messaging/index';
+import { deriveAccountV3, editAccount, forgetAccount } from 'messaging/index';
 import createStyle from './styles';
 import { DisabledStyle } from 'styles/sharedStyles';
 
@@ -73,7 +73,7 @@ export const AccountDetail = ({
 
   const onSave = useCallback(
     (editName: string) => {
-      clearTimeout(saveTimeOutRef.current);
+      clearTimeout(Number(saveTimeOutRef.current));
       editAccount(currentAddress, editName)
         .catch(e => console.log(e))
         .finally(() => setSaving(false));
@@ -103,7 +103,7 @@ export const AccountDetail = ({
     (value: string) => {
       onChangeValue('accountName')(value);
       setSaving(true);
-      clearTimeout(saveTimeOutRef.current);
+      clearTimeout(Number(saveTimeOutRef.current));
       saveTimeOutRef.current = setTimeout(() => {
         onSave(value);
       }, 300);
@@ -137,7 +137,7 @@ export const AccountDetail = ({
   const onDelete = useCallback(() => {
     if (account?.address) {
       setDeleting(true);
-      forgotAccount(account.address)
+      forgetAccount(account.address)
         .then(() => {
           goHome();
         })
@@ -233,6 +233,7 @@ export const AccountDetail = ({
               />
             }
             disabled={!canDerive}
+            style={styles.noPaddingHorizontal}
             contentAlign="left"
             type="secondary"
             loading={deriving}
@@ -241,6 +242,7 @@ export const AccountDetail = ({
           </Button>
           <Button
             disabled={!canExport}
+            style={styles.noPaddingHorizontal}
             icon={
               <BackgroundIcon
                 phosphorIcon={Export}
@@ -267,6 +269,7 @@ export const AccountDetail = ({
               />
             }
             contentAlign="left"
+            style={styles.noPaddingHorizontal}
             type="secondary"
             loading={deleting}
             externalTextStyle={{ color: theme.colorError }}

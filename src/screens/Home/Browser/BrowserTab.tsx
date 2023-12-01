@@ -28,7 +28,7 @@ import { DEVICE } from 'constants/index';
 import { BrowserService } from 'screens/Home/Browser/BrowserService';
 import { BrowserOptionModal, BrowserOptionModalRef } from 'screens/Home/Browser/BrowserOptionModal';
 import { addToHistory, updateLatestItemInHistory, updateTab, updateTabScreenshot } from 'stores/updater';
-import { getHostName, searchDomain } from 'utils/browser';
+import { deeplinks, getHostName, searchDomain } from 'utils/browser';
 import i18n from 'utils/i18n/i18n';
 import { Warning } from 'components/Warning';
 import { SiteInfo } from 'stores/types';
@@ -42,10 +42,12 @@ import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import createStylesheet from './styles/BrowserTab';
 import TabIcon from 'screens/Home/Browser/Shared/TabIcon';
 import { RootState } from 'stores/index';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import urlParse from 'url-parse';
 import { connectWalletConnect } from 'utils/walletConnect';
 import { useToast } from 'react-native-toast-notifications';
+import { updateIsDeepLinkConnect } from 'stores/base/Settings';
+import { transformUniversalToNative } from 'utils/deeplink';
 
 export interface BrowserTabRef {
   goToSite: (siteInfo: SiteInfo) => void;
@@ -152,6 +154,7 @@ const Component = ({ tabId, onOpenBrowserTabs, connectionTrigger }: Props, ref: 
   const isNetConnected = useContext(WebRunnerContext).isNetConnected;
   const isWebviewReady = !!(initWebViewSource && injectedScripts);
   const toast = useToast();
+  const dispatch = useDispatch();
 
   const clearCurrentBrowserSv = () => {
     browserSv.current?.onDisconnect();
@@ -267,9 +270,13 @@ const Component = ({ tabId, onOpenBrowserTabs, connectionTrigger }: Props, ref: 
 
   const goBack = () => {
     if (navigation.canGoBack()) {
+      // @ts-ignore
       navigation.navigate('Home', { screen: 'Browser' });
     } else {
-      navigation.replace('Home', { screen: 'Browser' });
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home', params: { screen: 'Browser' } }],
+      });
     }
   };
 
@@ -341,7 +348,7 @@ const Component = ({ tabId, onOpenBrowserTabs, connectionTrigger }: Props, ref: 
 
       if (isSync) {
         const injectScripts =
-          getJsInjectContent(true) + BridgeScript + injectPageJsContent + ConnectToNovaScript + DAppScript;
+          getJsInjectContent() + BridgeScript + injectPageJsContent + ConnectToNovaScript + DAppScript;
 
         setInjectedScripts(injectScripts);
       }
@@ -361,7 +368,7 @@ const Component = ({ tabId, onOpenBrowserTabs, connectionTrigger }: Props, ref: 
   const renderBrowserTabBar = (button: BrowserActionButtonType) => {
     if (!button.icon) {
       if (button.key === 'tabs') {
-        return <TabIcon onPress={button.onPress} />;
+        return <TabIcon key={button.key} onPress={button.onPress} />;
       }
 
       return null;
@@ -427,18 +434,27 @@ const Component = ({ tabId, onOpenBrowserTabs, connectionTrigger }: Props, ref: 
       return false;
     }
 
-    if (urlParsed.href.includes('wc?uri=wc')) {
-      Linking.canOpenURL(url)
+    if (urlParsed.href.startsWith(deeplinks[0]) || urlParsed.href.startsWith(deeplinks[1])) {
+      let nativeDeeplink = transformUniversalToNative(url);
+      nativeDeeplink = nativeDeeplink.replace(`${deeplinks[0]}/`, `${deeplinks[0]}`);
+
+      Linking.canOpenURL(nativeDeeplink)
         .then(supported => {
           if (supported) {
-            return Linking.openURL(url);
+            return Linking.openURL(nativeDeeplink).finally(() =>
+              setTimeout(() => dispatch(updateIsDeepLinkConnect(false)), 100),
+            );
           }
-          console.warn(`Can't open url: ${url}`);
+          console.warn(`Can't open url: ${nativeDeeplink}`);
           return null;
         })
         .catch(e => {
           console.warn(`Error opening URL: ${e}`);
         });
+      return false;
+    }
+
+    if (urlParsed.href.includes('wc?requestId')) {
       return false;
     }
 

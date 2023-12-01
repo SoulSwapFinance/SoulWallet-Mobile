@@ -17,7 +17,7 @@ import {
   LanguageType,
   TransactionDirection,
   TransactionHistoryItem,
-} from '@soul-wallet/extension-base/src/background/KoniTypes';
+} from '@subwallet/extension-base/background/KoniTypes';
 import { isTypeStaking, isTypeTransfer } from 'utils/transaction/detectType';
 import { TransactionHistoryDisplayData, TransactionHistoryDisplayItem } from 'types/history';
 import { customFormatDate, formatHistoryDate } from 'utils/customFormatDate';
@@ -31,7 +31,7 @@ import { TxTypeNameMap } from 'screens/Home/History/shared';
 import i18n from 'utils/i18n/i18n';
 import { FlatListScreen } from 'components/FlatListScreen';
 import { FontMedium } from 'styles/sharedStyles';
-import { ListRenderItemInfo, View } from 'react-native';
+import { Keyboard, ListRenderItemInfo, View } from 'react-native';
 import { SectionListData } from 'react-native/Libraries/Lists/SectionList';
 import Typography from '../../../components/Design/Typography';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
@@ -228,9 +228,9 @@ function History({
   const [detailModalVisible, setDetailModalVisible] = useState<boolean>(false);
   const [isOpenByLink, setIsOpenByLink] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
-  const language = useSelector((state: RootState) => state.mobileSettings.language) as LanguageType;
+  const language = useSelector((state: RootState) => state.settings.language) as LanguageType;
   const navigation = useNavigation<RootNavigationProps>();
-
+  const isShowBalance = useSelector((state: RootState) => state.settings.isShowBalance);
   const accountMap = useMemo(() => {
     return accounts.reduce((accMap, cur) => {
       accMap[cur.address.toLowerCase()] = cur.name || '';
@@ -320,8 +320,9 @@ function History({
 
   const onOpenDetail = useCallback((item: TransactionHistoryDisplayItem) => {
     return () => {
+      Keyboard.dismiss();
       setSelectedItem(item);
-      setDetailModalVisible(true);
+      setTimeout(() => setDetailModalVisible(true), 200);
     };
   }, []);
 
@@ -362,10 +363,11 @@ function History({
           item={item}
           key={`${item.transactionId || item.extrinsicHash}-${item.address}-${item.direction}`}
           onPress={onOpenDetail(item)}
+          isShowBalance={isShowBalance}
         />
       );
     },
-    [onOpenDetail, theme.marginXS],
+    [isShowBalance, onOpenDetail, theme.marginXS],
   );
 
   const searchFunc = useCallback((items: TransactionHistoryDisplayItem[], searchText: string) => {

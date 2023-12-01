@@ -2,8 +2,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { useMemo } from 'react';
 import { TokenItemType } from 'types/ui-types';
-import { ChainRegistry, NetworkJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
-import useShowedNetworks from 'hooks/screen/hooks/useShowedNetworks';
+import { ChainRegistry, NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
+import useShowedNetworks from 'hooks/screen/useShowedNetworks';
 
 function getTokenItemOptions(
   networkKeys: string[],

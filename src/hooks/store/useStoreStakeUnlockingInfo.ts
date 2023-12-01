@@ -1,4 +1,4 @@
-import { StakeUnlockingJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { StakeUnlockingJson } from '@subwallet/extension-base/background/KoniTypes';
 import { WebRunnerContext } from 'providers/contexts';
 import { useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -6,7 +6,7 @@ import { RootState } from 'stores/index';
 import { StoreStatus } from 'stores/types';
 import { updateStakeUnlockingInfo } from 'stores/updater';
 import { clearWebRunnerHandler, subscribeStakeUnlockingInfo } from 'messaging/index';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
+import { getId } from '@subwallet/extension-base/utils/getId';
 
 export default function useStoreStakeUnlockingInfo() {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

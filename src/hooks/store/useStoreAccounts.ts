@@ -7,10 +7,10 @@ import {
 import { updateAccountsAndCurrentAccount, updateAccountsSlice, updateAccountsWaitingStatus } from 'stores/updater';
 import { WebRunnerContext } from 'providers/contexts';
 import { StoreStatus } from 'stores/types';
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants';
+import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
+import { getId } from '@subwallet/extension-base/utils/getId';
 
 function getStatus(isReady: boolean | undefined, isWaiting: boolean | undefined): StoreStatus {
   if (isReady) {

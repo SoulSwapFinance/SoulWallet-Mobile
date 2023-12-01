@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react'
-import { Linking, Share, StyleProp, View } from 'react-native'
+import { Linking, Platform, Share, StyleProp, View } from 'react-native'
 import { ColorMap } from 'styles/color'
 import { FontMedium, FontSemiBold, STATUS_BAR_HEIGHT } from 'styles/sharedStyles'
 import reformatAddress, { getNetworkLogo, getScanExplorerAddressInfoUrl, toShort } from 'utils/index'
@@ -12,17 +12,17 @@ import i18n from 'utils/i18n/i18n'
 import {
   _getBlockExplorerFromChain,
   _getChainSubstrateAddressPrefix,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils'
-import useFetchChainInfo from 'hooks/screen/hooks/useFetchChainInfo'
+} from '@subwallet/extension-base/services/chain-service/utils'
+import useFetchChainInfo from 'hooks/screen/useFetchChainInfo'
 import { Button, Icon, QRCode, SwModal, Typography } from 'components/Design'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import { SWModalRefProps } from 'components/Design/Modal/ModalBaseV2'
 
 interface Props {
-  modalVisible: boolean
-  address?: string
-  selectedNetwork?: string
-  setModalVisible: (arg: boolean) => void
+  modalVisible: boolean;
+  address?: string;
+  selectedNetwork?: string;
+  setModalVisible: (arg: boolean) => void;
 }
 
 const receiveModalContentWrapper: StyleProp<any> = {
@@ -45,7 +45,7 @@ export const ReceiveModal = ({ address, selectedNetwork, modalVisible, setModalV
         // @ts-ignore
         toastRef.current.hideAll();
         // @ts-ignore
-        toastRef.current.show(i18n.common.copiedToClipboard);
+        Platform.OS === 'ios' && toastRef.current.show(i18n.common.copiedToClipboard);
       }
     };
   };

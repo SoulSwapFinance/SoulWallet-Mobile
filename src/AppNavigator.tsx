@@ -1,5 +1,5 @@
 import { NavigationState } from '@react-navigation/routers'
-import { ALL_ACCOUNT_KEY } from '@soul-wallet/extension-base/src/constants'
+import { ALL_ACCOUNT_KEY } from '@subwallet/extension-base/constants'
 import React, { ComponentType, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { LinkingOptions, NavigationContainer, StackActions, useNavigationContainerRef } from '@react-navigation/native'
 import AttachReadOnly from 'screens/Account/AttachReadOnly'
@@ -11,7 +11,7 @@ import { GeneralSettings } from 'screens/Settings/General'
 import { SendFund } from 'screens/Transaction/SendFundV2'
 import { BrowserSearch } from 'screens/Home/Browser/BrowserSearch'
 import { BrowserTabsManager } from 'screens/Home/Browser/BrowserTabsManager'
-import { BrowserListByTabview } from 'screens/Home/Browser/BrowserListByTabview'
+// import { BrowserListByTabview } from 'screens/Home/Browser/BrowserListByTabview'
 import { AccountsScreen } from 'screens/Account/AccountsScreen'
 import CreateMasterPassword from 'screens/MasterPassword/CreateMasterPassword'
 import { CreateAccount } from 'screens/Account/CreateAccount'
@@ -25,14 +25,14 @@ import { Languages } from 'screens/Settings/Languages'
 import { Security } from 'screens/Settings/Security'
 import { AccountExport } from 'screens/Account/AccountExport'
 import { CustomTokenSetting } from 'screens/Tokens'
-import { NetworkConfig } from 'screens/Settings/NetworkConfig'
-import { NetworkConfigDetail } from 'screens/Settings/NetworkConfigDetail'
+// import { NetworkConfig } from 'screens/Settings/NetworkConfig'
+// import { NetworkConfigDetail } from 'screens/Settings/NetworkConfigDetail'
 import { ConfigureToken } from 'screens/Tokens/ConfigureToken'
 import { ImportToken } from 'screens/ImportToken/ImportToken'
 import ImportNft from 'screens/ImportToken/ImportNft'
-import NftCollectionList from 'screens/Home/Crypto/Collectibles/Collection/NftCollectionList'
-import NftCollectionItem from 'screens/Home/Crypto/Collectibles/Collection/NftCollectionItem'
-import NftDetail from 'screens/Home/Crypto/Collectibles/Detail/NftDetail'
+// import NftCollectionList from 'screens/Home/Crypto/Collectibles/Collection/NftCollectionList'
+// import NftCollectionItem from 'screens/Home/Crypto/Collectibles/Collection/NftCollectionItem'
+// import NftDetail from 'screens/Home/Crypto/Collectibles/Detail/NftDetail'
 import { WebViewDebugger } from 'screens/WebViewDebugger'
 import SigningScreen from 'screens/Signing/SigningScreen'
 import { LoadingScreen } from 'screens/LoadingScreen'
@@ -44,12 +44,11 @@ import ErrorBoundary from 'react-native-error-boundary'
 import ApplyMasterPassword from 'screens/MasterPassword/ApplyMasterPassword'
 import { NetworkSettingDetail } from 'screens/NetworkSettingDetail'
 import { Confirmations } from 'screens/Confirmations'
-import { TransactionDone } from 'screens/Transaction'
 import ErrorFallback from 'components/Common/ErrorFallbackScreen'
 import ChangeMasterPassword from 'screens/MasterPassword/ChangeMasterPassword'
 import { ImportNetwork } from 'screens/ImportNetwork'
 import History from 'screens/Home/History'
-import withPageWrapper from 'components/PageWrapper'
+import withPageWrapper from 'components/pageWrapper'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'stores/index'
 import { AddProvider } from 'screens/AddProvider'
@@ -70,7 +69,7 @@ import { ConnectionList } from 'screens/Settings/WalletConnect/ConnectionList'
 import { ConnectWalletConnect } from 'screens/Settings/WalletConnect/ConnectWalletConnect'
 import { ConnectionDetail } from 'screens/Settings/WalletConnect/ConnectionDetail'
 import useAppLock from 'hooks/useAppLock'
-// import LoginScreen from 'screens/MasterPassword/Login'
+import LoginScreen from 'screens/MasterPassword/Login'
 import { STATUS_BAR_LIGHT_CONTENT } from 'styles/sharedStyles'
 import { UnlockModal } from 'components/Common/Modal/UnlockModal'
 import { AppModalContext } from 'providers/AppModalContext'
@@ -86,6 +85,8 @@ import { updateIsDeepLinkConnect } from 'stores/base/Settings'
 import queryString from 'querystring'
 import { connectWalletConnect } from 'utils/walletConnect'
 import { useToast } from 'react-native-toast-notifications'
+import { BrowserListByTabview } from 'screens/Home/Browser/BrowserListByTabview'
+import { MissionPoolsByTabview } from 'screens/Home/Browser/MissionPool'
 
 interface Props {
   isAppReady: boolean;
@@ -114,7 +115,6 @@ const config: LinkingOptions<RootStackParamList>['config'] = {
     Home: {
       path: 'home',
       screens: {
-        // @ts-ignore
         Main: {
           path: 'main',
           screens: {
@@ -149,23 +149,20 @@ const config: LinkingOptions<RootStackParamList>['config'] = {
                 },
               },
             },
-            Crowdloans: {
-              path: 'crowdloans',
-            },
-            Staking: {
-              path: 'staking',
-              screens: {
-                StakingBalances: {
-                  path: 'staking-balances',
-                  stringify: {
-                    chain: (chain: string) => chain,
-                    type: (type: string) => type,
-                  },
-                },
-              },
-            },
-            // SoulSwap: {
-            //   path: 'soulswap',
+            // Crowdloans: {
+            //   path: 'crowdloans',
+            // },
+            // Staking: {
+            //   path: 'staking',
+            //   screens: {
+            //     StakingBalances: {
+            //       path: 'staking-balances',
+            //       stringify: {
+            //         chain: (chain: string) => chain,
+            //         type: (type: string) => type,
+            //       },
+            //     },
+            //   },
             // },
             // Portfolios: {
             //   path: 'portfolios',
@@ -466,6 +463,7 @@ const AppNavigator = ({ isAppReady }: Props) => {
                 <Stack.Screen name="BrowserSearch" component={BrowserSearch} />
                 <Stack.Screen name="BrowserTabsManager" component={BrowserTabsManager} />
                 <Stack.Screen name="BrowserListByTabview" component={BrowserListByTabview} />
+                <Stack.Screen name="MissionPoolsByTabview" component={MissionPoolsByTabview} />
                 <Stack.Screen name="AccountsScreen" component={AccountsScreen} />
                 <Stack.Screen name="Drawer" component={DrawerScreen} options={{ gestureEnabled: false }} />
               </Stack.Group>
@@ -489,11 +487,6 @@ const AppNavigator = ({ isAppReady }: Props) => {
                   component={ApplyMasterPassword}
                   options={{ gestureEnabled: false }}
                 />
-                {/* <Stack.Screen
-                  name="BackupWarning"
-                  component={ApplyBackupWarning}
-                  options={{ gestureEnabled: false }}
-                /> */}
                 <Stack.Screen name="AddProvider" component={AddProvider} />
                 <Stack.Screen name="EditAccount" component={AccountDetail} />
                 <Stack.Screen name="RestoreJson" component={RestoreJson} options={{ gestureEnabled: false }} />
@@ -518,17 +511,16 @@ const AppNavigator = ({ isAppReady }: Props) => {
                 />
                 <Stack.Screen name="AccountExport" component={AccountExport} />
                 <Stack.Screen name="CustomTokenSetting" component={CustomTokenSetting} />
-                <Stack.Screen name="NetworkConfig" component={NetworkConfig} />
-                <Stack.Screen name="NetworkConfigDetail" component={NetworkConfigDetail} />
+                {/* <Stack.Screen name="NetworkConfig" component={NetworkConfig} />
+                <Stack.Screen name="NetworkConfigDetail" component={NetworkConfigDetail} /> */}
                 <Stack.Screen name="ConfigureToken" component={ConfigureToken} />
                 <Stack.Screen name="ImportToken" component={ImportToken} options={{ gestureEnabled: false }} />
                 <Stack.Screen name="ImportNft" component={ImportNft} options={{ gestureEnabled: false }} />
-                <Stack.Screen name="CollectionList" component={NftCollectionList} options={{ gestureEnabled: false }} />
+                {/* <Stack.Screen name="CollectionList" component={NftCollectionList} options={{ gestureEnabled: false }} />
                 <Stack.Screen name="CollectionItem" component={NftCollectionItem} options={{ gestureEnabled: false }} />
-                <Stack.Screen name="NftDetail" component={NftDetail} options={{ gestureEnabled: false }} />
+                <Stack.Screen name="NftDetail" component={NftDetail} options={{ gestureEnabled: false }} /> */}
                 <Stack.Screen name="WebViewDebugger" component={WebViewDebugger} />
                 <Stack.Screen name="SigningAction" component={SigningScreen} options={{ gestureEnabled: false }} />
-                <Stack.Screen name="TransactionDone" component={TransactionDone} options={{ gestureEnabled: false }} />
                 <Stack.Screen name="ConnectParitySigner" component={ConnectParitySigner} />
                 <Stack.Screen name="ConnectKeystone" component={ConnectKeystone} />
                 <Stack.Screen name="AttachReadOnly" component={AttachReadOnly} options={{ gestureEnabled: false }} />
@@ -545,7 +537,7 @@ const AppNavigator = ({ isAppReady }: Props) => {
                   component={Confirmations}
                   options={{ gestureEnabled: false, animationDuration: 100 }}
                 />
-                {/* {!!accounts.length && <Stack.Screen name="Login" component={LoginScreen} />} */}
+                {!!accounts.length && <Stack.Screen name="Login" component={LoginScreen} />}
                 <Stack.Screen name={'UnlockModal'} component={UnlockModal} />
               </Stack.Group>
             </>
