@@ -19,12 +19,11 @@ module.exports = {
           messaging: './src/messaging',
           providers: './src/providers',
           screens: './src/screens',
-          services: './src/services',
           stores: './src/stores',
           styles: './src/styles',
           types: './src/types',
           utils: './src/utils',
-          sdk: './src/sdk',
+          services: './src/services',
           reducers: './src/reducers',
           routes: './src/routes',
         },
@@ -37,4 +36,9 @@ module.exports = {
     ['@babel/plugin-transform-private-methods', { loose: true }],
   ],
   presets: ['module:metro-react-native-babel-preset'],
+  env: {
+    production: {
+      plugins: ['transform-remove-console'],
+    },
+  },
 };

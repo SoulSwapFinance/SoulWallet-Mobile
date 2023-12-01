@@ -1,4 +1,4 @@
-import { StakingType, ValidatorInfo } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { StakingType, ValidatorInfo } from '@subwallet/extension-base/background/KoniTypes';
 
 export interface NetworkValidatorsInfo {
   maxNominatorPerValidator: number;
