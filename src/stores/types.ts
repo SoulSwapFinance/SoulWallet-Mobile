@@ -155,8 +155,8 @@ export interface AppSettings
   isDeepLinkConnect: boolean;
   isShowBuyToken: boolean;
   browserDApps: {
-    dApps: DAppInfo[] | undefined;
-    dAppCategories: DAPPCategory[] | undefined;
+    dApps: DAppInfo[] // | undefined;
+    dAppCategories: DAPPCategory[]; //| undefined;
   };
 }
 

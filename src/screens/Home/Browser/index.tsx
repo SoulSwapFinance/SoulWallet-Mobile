@@ -1,11 +1,13 @@
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import { ScreenContainer } from 'components/ScreenContainer'
+import { predefinedDApps } from 'constants/predefined/dAppSites'
+import { PredefinedDApps } from 'types/browser'
 import BrowserHome from './BrowserHome'
 import BrowserHeader from './Shared/BrowserHeader'
 import BrowserListByCategory from './BrowserListByCategory'
-import { MaterialTopTabNavigationOptions, createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { Animated, Dimensions, View } from 'react-native'
-import { ParamListBase, RouteProp, useNavigationState } from '@react-navigation/native'
+import { useNavigationState } from '@react-navigation/native'
 import { FakeSearchInput } from 'screens/Home/Browser/Shared/FakeSearchInput'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
 import createStylesheet from './styles'
@@ -14,7 +16,6 @@ import { Typography } from 'components/Design'
 import { ThemeTypes } from 'styles/themes'
 import i18n from 'utils/i18n/i18n'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { useGetDAppList } from 'hooks/static-content/useGetDAppList'
 
 type RoutesType = {
   key: string;
@@ -28,25 +29,8 @@ const initialLayout = {
   width: Dimensions.get('window').width,
 };
 const transparent = { backgroundColor: 'transparent' };
-const screenOptions = (
-  currentTabIndex: number,
-):
-  | MaterialTopTabNavigationOptions
-  | ((props: { route: RouteProp<ParamListBase, string>; navigation: any }) => MaterialTopTabNavigationOptions)
-  | undefined => ({
-  tabBarIndicatorContainerStyle: {
-    shadowColor: '#000',
-    elevation: 5,
-  },
-  tabBarStyle: {
-    height: 28,
-    backgroundColor: '#0C0C0C',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.4,
-    shadowRadius: 3,
-    marginBottom: 2,
-  },
+const screenOptions = (currentTabIndex: number) => ({
+  tabBarStyle: { height: 28, ...transparent },
   tabBarItemStyle: {
     width: 'auto',
     paddingLeft: 0,
@@ -81,16 +65,12 @@ const tabbarIcon = (focused: boolean, item: RoutesType, theme: ThemeTypes) => {
 export const BrowserScreen = ({ navigation }: NativeStackScreenProps<{}>) => {
   const theme = useSoulWalletTheme().swThemes;
   const stylesheet = createStylesheet(theme);
-  const {
-    browserDApps: { dAppCategories },
-  } = useGetDAppList();
+  const [dApps] = useState<PredefinedDApps>(predefinedDApps);
   const [searchString] = useState<string>('');
+  const categoryTabRoutes = dApps.categories().map(item => ({ key: item.id, title: item.name }));
+  const allTabRoutes = [{ key: 'all', title: i18n.common.all }, ...categoryTabRoutes];
   const navigationState = useNavigationState(state => state);
   const currentTabIndex = navigationState.routes[navigationState.routes.length - 1].state?.index || 0;
-  const allTabRoutes = useMemo(() => {
-    const categoryTabRoutes = dAppCategories ? dAppCategories?.map(item => ({ key: item.slug, title: item.name })) : [];
-    return [{ key: 'all', title: i18n.common.all }, ...categoryTabRoutes];
-  }, [dAppCategories]);
   const av = new Animated.Value(0);
   av.addListener(() => {
     return;

@@ -30,9 +30,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { LockTimeout } from 'stores/types'
 import { keyringLock } from './messaging'
 import { updateAutoLockTime } from 'stores/MobileSettings'
-import { useGetTokenConfigQuery } from 'stores/API'
 import { useShowBuyToken } from 'hooks/static-content/useShowBuyToken'
-import { useGetDAppList } from 'hooks/static-content/useGetDAppList'
+// import { useGetDAppList } from 'hooks/static-content/useGetDAppList'
 
 const layerScreenStyle: StyleProp<any> = {
   top: 0,
@@ -131,7 +130,7 @@ export const AppNew = () => {
   const isI18nReady = useSetupI18n().isI18nReady;
   useStoreBackgroundService();
   const { checkIsShowBuyToken } = useShowBuyToken();
-  const { getDAppsData } = useGetDAppList();
+  // const { useGetDAPPCategoriesQuery } = browserDAPPs; // useGetDAppList();
 
   // Enable lock screen on the start app
   useEffect(() => {
@@ -173,7 +172,7 @@ export const AppNew = () => {
     }, 100);
 
     checkIsShowBuyToken();
-    getDAppsData();
+    // useGetDAPPCategoriesQuery(null);
 
     // if (buildNumber === 1) {
     // Set default value on the first time install

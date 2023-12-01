@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ConfirmationRequestBase } from '@subwallet/extension-base/background/types';
 import { getDomainFromUrl } from '@subwallet/extension-base/utils';
 import { StyleProp, View, ViewStyle } from 'react-native';
@@ -7,8 +7,6 @@ import { Image, Typography } from 'components/Design';
 import { SWImageProps } from 'components/Design/Image';
 // import { ImageLogosMap } from 'assets/logo';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-import { getHostName } from 'utils/browser';
-import { useGetDAppList } from 'hooks/static-content/useGetDAppList';
 
 interface Props {
   request: ConfirmationRequestBase;
@@ -26,17 +24,8 @@ const imageProps: Omit<SWImageProps, 'src'> = {
 export const ConfirmationGeneralInfo = ({ linkIcon, linkIconBg, request, style }: Props) => {
   const theme = useSoulWalletTheme().swThemes;
   const domain = getDomainFromUrl(request.url || "https://soulswap.finance");
-  const [rightLogo, setRightLogo] = useState(`https://icons.duckduckgo.com/ip2/${domain}.ico`);
-  const {
-    browserDApps: { dApps },
-  } = useGetDAppList();
-
-  useEffect(() => {
-    const dApp = dApps?.find(app => request.url.includes(getHostName(app.url)));
-    if (dApp && dApp.icon) {
-      setRightLogo(dApp.icon);
-    }
-  }, [dApps, request.url]);
+  // todo: find better way to get icon
+  const leftLogoUrl = `https://icons.duckduckgo.com/ip2/${domain}.ico`;
 
   return (
     <View style={[{ alignItems: 'center' }, style]}>
@@ -44,7 +33,9 @@ export const ConfirmationGeneralInfo = ({ linkIcon, linkIconBg, request, style }
         leftLogo={<Image {...imageProps} src={"https://soulswap.finance/favicon.png"} />}
         linkIcon={linkIcon}
         linkIconBg={linkIconBg}
-        rightLogo={<Image {...imageProps} src={{ uri: rightLogo }} />}
+        rightLogo={<Image {...imageProps} src={{ 
+          uri: leftLogoUrl
+        }} />}
       />
 
       <Typography.Text style={{ paddingTop: theme.paddingSM, color: theme.colorTextLight4 }}>{domain}</Typography.Text>
