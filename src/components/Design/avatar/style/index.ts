@@ -1,12 +1,12 @@
 import { StyleSheet, ViewStyle } from 'react-native';
 import { ThemeTypes } from 'styles/themes';
 
-export interface AvatarStyles {
+export interface AvatarStyle {
   container: ViewStyle;
 }
 
 export default (theme: ThemeTypes) =>
-  StyleSheet.create<AvatarStyles>({
+  StyleSheet.create<AvatarStyle>({
     container: {
       justifyContent: 'center',
       alignItems: 'center',

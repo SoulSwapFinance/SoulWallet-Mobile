@@ -1,5 +1,5 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
-import { Button, Icon, Typography } from 'components/Design'
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { Button, Icon, Typography } from 'components/Design';
 import {
   BackHandler,
   DeviceEventEmitter,
@@ -22,10 +22,10 @@ import { RootNavigationProps, RootStackParamList, UnlockModalProps } from 'route
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useKeyboardVisible } from 'hooks/useKeyboardVisible'
 import { setAdjustResize } from 'rn-android-keyboard-adjust'
-// import { useSelector } from 'react-redux'
-// import { RootState } from 'stores/index'
+import { useSelector } from 'react-redux'
+import { RootState } from 'stores/index'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-// import { SVGImages } from 'assets/index'
+import { SVGImages } from 'assets/index'
 import { getKeychainPassword } from 'utils/account'
 import { Portal } from '@gorhom/portal'
 
@@ -56,9 +56,8 @@ async function handleUnlockPassword(
   }
 }
 export const UnlockModal = memo(({ route: { params } }: UnlockModalProps) => {
-  // @ts-ignore
   const { isUpdateBiometric } = params;
-  const isUseBiometric = false // useSelector((state: RootState) => state.mobileSettings);
+  const { isUseBiometric } = useSelector((state: RootState) => state.mobileSettings);
   const navigation = useNavigation<RootNavigationProps>();
   const theme = useSoulWalletTheme().swThemes;
   const { isKeyboardVisible } = useKeyboardVisible();
@@ -159,16 +158,16 @@ export const UnlockModal = memo(({ route: { params } }: UnlockModalProps) => {
     return true;
   };
 
-  // const onTurnOnBiometric = () => {
-  //   setAuthMethod('biometric');
-  //   handleUnlockPassword(navigation)
-  //     .then(result => {
-  //       if (!result) {
-  //         setAuthMethod('master-password');
-  //       }
-  //     })
-  //     .catch(() => setAuthMethod('master-password'));
-  // };
+  const onTurnOnBiometric = () => {
+    setAuthMethod('biometric');
+    handleUnlockPassword(navigation)
+      .then(result => {
+        if (!result) {
+          setAuthMethod('master-password');
+        }
+      })
+      .catch(() => setAuthMethod('master-password'));
+  };
 
   const renderMainContent = () => (
     <View style={[styles.root, Platform.OS === 'ios' ? null : styles.androidMaskModal]}>
@@ -203,12 +202,11 @@ export const UnlockModal = memo(({ route: { params } }: UnlockModalProps) => {
               onPress={onSubmit}>
               {i18n.buttonTitles.apply}
             </Button>
-            {/* {isUseBiometric && (
+            {isUseBiometric && (
               <Button icon={<SVGImages.Fingerprint />} size="xs" type="ghost" onPress={onTurnOnBiometric}>
-                {/* {i18n.buttonTitles.unlockWithBiometric}
-                {`Biometric Unlock`}
+                {i18n.buttonTitles.unlockWithBiometric}
               </Button>
-            )} */}
+            )}
           </View>
           {!isKeyboardVisible && <SafeAreaView edges={['bottom']} />}
         </View>

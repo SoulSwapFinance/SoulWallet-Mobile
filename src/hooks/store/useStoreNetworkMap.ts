@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { updateNetworkMap } from 'stores/updater';
 import { clearWebRunnerHandler, subscribeNetworkMap } from 'messaging/index';
-import { NetworkJson } from 'hooks/screen/hooks/useGetActiveChains';
+import { NetworkJson } from '@subwallet/extension-base/background/KoniTypes';
 import { WebRunnerContext } from 'providers/contexts';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { StoreStatus } from 'stores/types';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
-import { addLazy, removeLazy } from '@soul-wallet/extension-base/src/utils/lazy';
+import { getId } from '@subwallet/extension-base/utils/getId';
+import { addLazy, removeLazy } from '@subwallet/extension-base/utils/lazy';
 
 export default function useStoreNetworkMap(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

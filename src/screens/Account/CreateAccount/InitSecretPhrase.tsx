@@ -53,7 +53,7 @@ export const InitSecretPhrase = ({ seed, onPressSubmit }: Props) => {
           </View>
         </ScrollView>
         <AlertBox
-          // title={i18n.warningTitle.whatIfLoseRecoveryPhrase}
+          title={i18n.warningTitle.whatIfLoseRecoveryPhrase}
           description={i18n.warningMessage.secretPhraseWarning}
           type="warning"
         />

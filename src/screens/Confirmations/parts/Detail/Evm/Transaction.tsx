@@ -1,13 +1,13 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { EvmSendTransactionRequest, EvmTransactionArg } from '@soul-wallet/extension-base/src/background/KoniTypes';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { EvmSendTransactionRequest, EvmTransactionArg } from '@subwallet/extension-base/background/KoniTypes';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import BigN from 'bignumber.js';
 import { Icon, Typography } from 'components/Design';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainInfoByChainId from 'hooks/chain/useGetChainInfoByChainId';
-import useGetAccountByAddress from 'hooks/screen/hooks/useGetAccountByAddress';
+import useGetAccountByAddress from 'hooks/screen/useGetAccountByAddress';
 import React, { useCallback, useMemo, useState } from 'react';
 import { TouchableWithoutFeedback, View } from 'react-native';
 import i18n from 'utils/i18n/i18n';

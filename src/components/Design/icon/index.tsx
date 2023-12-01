@@ -1,11 +1,10 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { SizeType } from '@subwallet/react-ui/es/config-provider/SizeContext';
 import { IconProps } from 'phosphor-react-native';
 import { IconWeight } from 'phosphor-react-native/lib/typescript';
 import React from 'react';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
-
-export type SizeType = 'xs' | 'sm' | 'md' | 'lg' | 'small' | 'middle' | 'large' | undefined;
 
 export interface SWIconProps {
   customSize?: number;

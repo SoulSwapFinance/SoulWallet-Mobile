@@ -8,10 +8,9 @@ import { Keyboard, ScrollView, View } from 'react-native';
 import { createAccountSuriV2, validateMetamaskPrivateKeyV2 } from 'messaging/index';
 import { Textarea } from 'components/Textarea';
 import { EVM_ACCOUNT_TYPE } from 'constants/index';
-import { backToHome } from 'utils/navigation';
-import useFormControl, { FormControlConfig } from 'hooks/screen/hooks/useFormControl';
-import useGoHome from 'hooks/screen/hooks/useGoHome';
-import useHandlerHardwareBackPress from 'hooks/screen/hooks/useHandlerHardwareBackPress';
+import useFormControl, { FormControlConfig } from 'hooks/screen/useFormControl';
+import useGoHome from 'hooks/screen/useGoHome';
+import useHandlerHardwareBackPress from 'hooks/screen/useHandlerHardwareBackPress';
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
 import { Button, Icon, Typography } from 'components/Design';
 import { FileArrowDown, X } from 'phosphor-react-native';
@@ -68,7 +67,10 @@ export const ImportPrivateKey = () => {
       types: [EVM_ACCOUNT_TYPE],
     })
       .then(() => {
-        backToHome(goHome);
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Home' }],
+        });
       })
       .catch((e: Error) => {
         setIsBusy(false);

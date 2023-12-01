@@ -1,4 +1,4 @@
-import { RequestSign } from '@soul-wallet/extension-base/src/background/types';
+import { RequestSign } from '@subwallet/extension-base/background/types';
 import { useMemo } from 'react';
 import { TypeRegistry } from '@polkadot/types';
 import { ExtrinsicPayload } from '@polkadot/types/interfaces';

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import useFormControl from 'hooks/screen/hooks/useFormControl';
+import useFormControl from 'hooks/screen/useFormControl';
 import { ContainerWithSubHeader } from 'components/ContainerWithSubHeader';
 import { Keyboard, View } from 'react-native';
 import InputText from 'components/Input/InputText';
@@ -14,20 +14,20 @@ import {
   WifiSlash,
 } from 'phosphor-react-native';
 import { ActivityIndicator, Button, Icon } from 'components/Design';
+import { ValidateStatus } from '@subwallet/react-ui/es/form/FormItem';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProps } from 'routes/index';
 import { isUrl } from 'utils/index';
 import { upsertChain, validateCustomChain } from '../messaging';
-import { _CHAIN_VALIDATION_ERROR } from '@soul-wallet/extension-base/src/services/chain-service/handler/types';
-import { _generateCustomProviderKey } from '@soul-wallet/extension-base/src/services/chain-service/utils';
-import { _NetworkUpsertParams } from '@soul-wallet/extension-base/src/services/chain-service/types';
+import { _CHAIN_VALIDATION_ERROR } from '@subwallet/extension-base/services/chain-service/handler/types';
+import { _generateCustomProviderKey } from '@subwallet/extension-base/services/chain-service/utils';
+import { _NetworkUpsertParams } from '@subwallet/extension-base/services/chain-service/types';
 import { useToast } from 'react-native-toast-notifications';
 import { HIDE_MODAL_DURATION } from 'constants/index';
 import i18n from 'utils/i18n/i18n';
-import { ValidateStatus } from './AddProvider';
 
-interface ValidationInfo {
+export interface ValidationInfo {
   status: ValidateStatus;
   message?: string[];
 }

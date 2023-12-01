@@ -9,7 +9,7 @@ import createStyles from './styles';
 
 interface Props {
   type?: 'info' | 'warning' | 'error';
-  title?: string;
+  title: string;
   description: string;
 }
 
@@ -63,7 +63,7 @@ const AlertBox: React.FC<Props> = (props: Props) => {
         />
       </View>
       <View style={styles.content}>
-        { title && <Typography.Text style={[styles.title, { color: colors.titleColor }]}>{title}</Typography.Text> }
+        <Typography.Text style={[styles.title, { color: colors.titleColor }]}>{title}</Typography.Text>
         <Typography.Text style={styles.description}>{description}</Typography.Text>
       </View>
     </View>

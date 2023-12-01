@@ -1,7 +1,7 @@
 import { ExtrinsicEra, ExtrinsicPayload } from '@polkadot/types/interfaces';
 import { SignerPayloadJSON } from '@polkadot/types/types';
 import { bnToBn, formatNumber } from '@polkadot/util';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 import MetaInfo from 'components/MetaInfo';
 import useGetChainInfoByGenesisHash from 'hooks/chain/useGetChainInfoByGenesisHash';
 import useMetadata from 'hooks/transaction/confirmation/useMetadata';
@@ -55,9 +55,11 @@ const mortalityAsString = (era: ExtrinsicEra, hexBlockNumber: string): string =>
   const blockNumber = bnToBn(hexBlockNumber);
   const mortal = era.asMortalEra;
 
-  return i18n.confirmation.lifeTimeContent
-    .replace('{{birth}}', formatNumber(mortal.birth(blockNumber)))
-    .replace('{{death}}', formatNumber(mortal.death(blockNumber)));
+  return `${i18n.formatString(
+    i18n.confirmation.lifeTimeContent,
+    formatNumber(mortal.birth(blockNumber)),
+    formatNumber(mortal.death(blockNumber)),
+  )}`;
 };
 
 const SubstrateTransactionDetail: React.FC<Props> = (props: Props) => {

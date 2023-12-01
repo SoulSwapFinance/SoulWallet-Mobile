@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { clearWebRunnerHandler, subscribeHistory } from 'messaging/index';
 import { updateTransactionHistory } from 'stores/updater';
-import { TransactionHistoryItemType } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { TransactionHistoryItemType } from '@subwallet/extension-base/background/KoniTypes';
 import { WebRunnerContext } from 'providers/contexts';
 import { StoreStatus } from 'stores/types';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
+import { getId } from '@subwallet/extension-base/utils/getId';
 
 export default function useStoreTransactionHistory(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

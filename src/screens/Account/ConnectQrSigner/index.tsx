@@ -1,4 +1,4 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import { useNavigation } from '@react-navigation/native';
@@ -12,7 +12,7 @@ import QrAddressScanner from 'components/Scanner/QrAddressScanner';
 import { SCAN_TYPE } from 'constants/qr';
 import useUnlockModal from 'hooks/modal/useUnlockModal';
 import useModalScanner from 'hooks/qr/useModalScanner';
-import useGoHome from 'hooks/screen/hooks/useGoHome';
+import useGoHome from 'hooks/screen/useGoHome';
 import useGetDefaultAccountName from 'hooks/useGetDefaultAccountName';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { createAccountExternalV2 } from 'messaging/index';
@@ -23,7 +23,6 @@ import { Source } from 'react-native-fast-image';
 import { useToast } from 'react-native-toast-notifications';
 import { RootStackParamList } from 'routes/index';
 import { QrAccount } from 'types/qr/attach';
-import { backToHome } from 'utils/navigation';
 import createStyle from './styles';
 import i18n from 'utils/i18n/i18n';
 
@@ -54,8 +53,11 @@ const ConnectQrSigner: React.FC<Props> = (props: Props) => {
   const goHome = useGoHome();
 
   const onComplete = useCallback(() => {
-    backToHome(goHome);
-  }, [goHome]);
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+    });
+  }, [navigation]);
   const onBack = navigation.goBack;
 
   const accountName = useGetDefaultAccountName();
@@ -93,7 +95,7 @@ const ConnectQrSigner: React.FC<Props> = (props: Props) => {
     [accountName, onComplete, toast],
   );
 
-  const { onOpenModal, onScan, isScanning, onHideModal } = useModalScanner(onSubmit);
+  const { onOpenModal, onScan, isScanning, onHideModal, setIsScanning } = useModalScanner(onSubmit);
   const { onPress: onPressSubmit } = useUnlockModal(navigation);
 
   return (
@@ -124,7 +126,13 @@ const ConnectQrSigner: React.FC<Props> = (props: Props) => {
           {loading ? i18n.buttonTitles.creating : i18n.buttonTitles.scanQrCode}
         </Button>
       </View>
-      <QrAddressScanner visible={isScanning} onHideModal={onHideModal} onSuccess={onScan} type={SCAN_TYPE.QR_SIGNER} />
+      <QrAddressScanner
+        visible={isScanning}
+        onHideModal={onHideModal}
+        onSuccess={onScan}
+        type={SCAN_TYPE.QR_SIGNER}
+        setQrModalVisible={setIsScanning}
+      />
     </ContainerWithSubHeader>
     // </Layout.WithSubHeaderOnly>
   );

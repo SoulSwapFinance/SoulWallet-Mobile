@@ -6,9 +6,7 @@ import { StyleProp, View, ViewStyle } from 'react-native'
 import { Icon, Squircle } from '..'
 import BackgroundIconStyles from './style'
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme'
-
-declare const ImageShapes: readonly ["default", "square", "circle", "squircle", "none"]
-export type ImageShape = typeof ImageShapes[number]
+import { ImageShape } from '@subwallet/react-ui/es/image'
 
 interface BackgroundIconProps {
   shape?: ImageShape;

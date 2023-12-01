@@ -2,18 +2,18 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { isAccountAll } from 'utils/accountAll';
 import { RootState } from 'stores/index';
-import { AccountAuthType, AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { AccountAuthType, AccountJson } from '@subwallet/extension-base/background/types';
 import { WalletConnectChainInfo } from 'types/walletConnect';
 import {
   isProposalExpired,
   isSupportWalletConnectChain,
   isSupportWalletConnectNamespace,
-} from '@soul-wallet/extension-base/src/services/wallet-connect-service/helpers';
-import { isSameAddress, uniqueStringArray } from '@soul-wallet/extension-base/src/utils';
+} from '@subwallet/extension-base/services/wallet-connect-service/helpers';
+import { isSameAddress, uniqueStringArray } from '@subwallet/extension-base/utils';
 import {
   WALLET_CONNECT_EIP155_NAMESPACE,
   WALLET_CONNECT_SUPPORT_NAMESPACES,
-} from '@soul-wallet/extension-base/src/services/wallet-connect-service/constants';
+} from '@subwallet/extension-base/services/wallet-connect-service/constants';
 import { isEthereumAddress } from '@polkadot/util-crypto';
 import reformatAddress from 'utils/index';
 import { ProposalTypes } from '@walletconnect/types';

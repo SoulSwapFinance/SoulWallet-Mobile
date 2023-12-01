@@ -3,10 +3,10 @@ import { useContext, useEffect, useState } from 'react';
 import { WebRunnerContext } from 'providers/contexts';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
-import { CustomTokenJson } from '@soul-wallet/extension-base/src/background/KoniTypes';
+import { CustomTokenJson } from '@subwallet/extension-base/background/KoniTypes';
 import { updateCustomToken } from 'stores/updater';
 import { clearWebRunnerHandler, subscribeCustomToken } from 'messaging/index';
-import { getId } from '@soul-wallet/extension-base/src/utils/getId';
+import { getId } from '@subwallet/extension-base/utils/getId';
 
 export default function useStoreCustomToken(): StoreStatus {
   const isWebRunnerReady = useContext(WebRunnerContext).isReady;

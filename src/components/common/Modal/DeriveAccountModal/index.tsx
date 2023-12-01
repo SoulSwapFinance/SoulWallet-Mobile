@@ -1,8 +1,8 @@
 // Copyright 2019-2022 @polkadot/extension-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
-import { canDerive } from '@soul-wallet/extension-base/src/utils';
+import { AccountJson } from '@subwallet/extension-base/background/types';
+import { canDerive } from '@subwallet/extension-base/utils';
 import AccountItemWithName from 'components/Common/Account/Item/AccountItemWithName';
 import { ActivityIndicator } from 'components/Design';
 import { deviceHeight, EVM_ACCOUNT_TYPE, TOAST_DURATION } from 'constants/index';
@@ -10,7 +10,7 @@ import useUnlockModal from 'hooks/modal/useUnlockModal';
 import { useSoulWalletTheme } from 'hooks/useSoulWalletTheme';
 import { deriveAccountV3 } from 'messaging/index';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { ListRenderItemInfo, Platform, View } from 'react-native';
+import { DeviceEventEmitter, ListRenderItemInfo, Platform, View } from 'react-native';
 import ToastContainer from 'react-native-toast-notifications';
 import Toast from 'react-native-toast-notifications';
 import { useSelector } from 'react-redux';
@@ -22,10 +22,10 @@ import { ModalRef } from 'types/modalRef';
 import { AccountSelector } from 'components/Modal/common/AccountSelector';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from 'routes/index';
+import { OPEN_UNLOCK_FROM_MODAL } from '../UnlockModal';
 
 type Props = {
   deriveAccModalRef: React.MutableRefObject<ModalRef | undefined>;
-  goHome: () => void;
   navigation: NativeStackNavigationProp<RootStackParamList>;
 };
 
@@ -39,7 +39,7 @@ const renderLoaderIcon = (x: React.ReactNode): React.ReactNode => {
 };
 
 const DeriveAccountModal: React.FC<Props> = (props: Props) => {
-  const { deriveAccModalRef, goHome, navigation } = props;
+  const { deriveAccModalRef, navigation } = props;
   const theme = useSoulWalletTheme().swThemes;
 
   const { accounts } = useSelector((state: RootState) => state.accountState);
@@ -76,7 +76,10 @@ const DeriveAccountModal: React.FC<Props> = (props: Props) => {
             address: account.address,
           })
             .then(() => {
-              goHome();
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'Home' }],
+              });
             })
             .catch((e: Error) => {
               toastError(e.message);
@@ -87,10 +90,15 @@ const DeriveAccountModal: React.FC<Props> = (props: Props) => {
         }, 500);
       };
     },
-    [goHome, toastError],
+    [navigation, toastError],
   );
 
   const { onPress: onPressSubmit } = useUnlockModal(navigation);
+
+  function onSelectItem(account: AccountJson) {
+    onPressSubmit(onSelectAccount(account))();
+    Platform.OS === 'android' && setTimeout(() => DeviceEventEmitter.emit(OPEN_UNLOCK_FROM_MODAL), 250);
+  }
 
   const renderItem = useCallback(
     ({ item: account }: ListRenderItemInfo<AccountJson>): JSX.Element => {
@@ -104,7 +112,11 @@ const DeriveAccountModal: React.FC<Props> = (props: Props) => {
             accountName={account.name}
             address={account.address}
             avatarSize={theme.sizeLG}
-            onPress={disabled || isSelected ? undefined : onPressSubmit(onSelectAccount(account))}
+            onPress={() => {
+              if (!disabled && !isSelected) {
+                onSelectItem(account);
+              }
+            }}
             renderRightItem={isSelected ? renderLoaderIcon : undefined}
             customStyle={{
               container: [styles.accountItem, disabled && !isSelected && styles.accountDisable],
@@ -113,7 +125,8 @@ const DeriveAccountModal: React.FC<Props> = (props: Props) => {
         </View>
       );
     },
-    [onPressSubmit, onSelectAccount, selected, styles.accountDisable, styles.accountItem, theme.sizeLG],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [selected, styles.accountDisable, styles.accountItem, theme.sizeLG],
   );
 
   return (

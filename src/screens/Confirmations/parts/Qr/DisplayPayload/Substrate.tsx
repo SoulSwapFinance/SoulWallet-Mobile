@@ -1,11 +1,10 @@
-// Copyright 2023 @soul-wallet/extension-koni-ui authors & contributors
+// Copyright 2019-2022 @subwallet/extension-koni-ui authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { u8aWrapBytes } from '@polkadot/util';
+import { wrapBytes } from '@subwallet/extension-dapp';
 import DisplayPayload from 'components/Payload/DisplayPayload';
 import React, { useMemo } from 'react';
 
-export declare const wrapBytes: typeof u8aWrapBytes;
 import { ExtrinsicPayload } from '@polkadot/types/interfaces';
 
 interface Props {
