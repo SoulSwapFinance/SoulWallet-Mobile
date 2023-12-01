@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useEffect, useState } from 'react'
-import { _ChainAsset, _MultiChainAsset } from '@soul-wallet/chain-list/types'
-import { APIItemState } from '@soul-wallet/extension-base/src/background/KoniTypes'
+import { _ChainAsset, _MultiChainAsset } from '@subwallet/chain-list/types'
+import { APIItemState } from '@subwallet/extension-base/background/KoniTypes'
 import {
   _getAssetDecimals,
   _getAssetOriginChain,
@@ -14,7 +14,7 @@ import {
   _getMultiChainAssetSymbol,
   _getTokenOnChainAssetId,
   _isAssetValuable,
-} from '@soul-wallet/extension-base/src/services/chain-service/utils'
+} from '@subwallet/extension-base/services/chain-service/utils'
 import BigN from 'bignumber.js'
 import { useSelector } from 'react-redux'
 import { RootState } from 'stores/index'

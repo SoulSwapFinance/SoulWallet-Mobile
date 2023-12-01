@@ -1,4 +1,4 @@
-// import { BasicTxResponse } from '@soul-wallet/extension-base/src/background/KoniTypes';
+// import { BasicTxResponse } from '@subwallet/extension-base/background/KoniTypes';
 import { TransactionResponse } from '@subwallet/extension-base/background/KoniTypes';
 import i18n from 'utils/i18n/i18n';
 

@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'stores/index';
 import { AccountType } from 'types/ui-types';
-import { AccountJson } from '@soul-wallet/extension-base/src/background/types';
+import { AccountJson } from '@subwallet/extension-base/background/types';
 
 export default function useShowedNetworks(address: string, accounts: AccountJson[]): string[] {
   const networkMap = useSelector((state: RootState) => state.chainStore.chainInfoMap);
