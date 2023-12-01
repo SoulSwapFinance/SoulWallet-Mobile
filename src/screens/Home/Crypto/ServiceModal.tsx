@@ -42,16 +42,16 @@ export const baseServiceItems: ServiceItem[] = [
     name: 'Coinbase Pay',
     disabled: false,
   },
-  {
-    key: 'moonpay',
-    name: 'MoonPay (Coming soon)',
-    disabled: true,
-  },
-  {
-    key: 'onramper',
-    name: 'Onramper (Coming soon)',
-    disabled: true,
-  },
+  // {
+  //   key: 'moonpay',
+  //   name: 'MoonPay (Coming soon)',
+  //   disabled: true,
+  // },
+  // {
+  //   key: 'onramper',
+  //   name: 'Onramper (Coming soon)',
+  //   disabled: true,
+  // },
 ];
 
 const filterFunction = (items: ServiceItem[], searchString: string) => {

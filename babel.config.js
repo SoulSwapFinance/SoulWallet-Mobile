@@ -33,6 +33,7 @@ module.exports = {
     'react-native-reanimated/plugin',
     ['module:react-native-dotenv'],
     ['@babel/plugin-transform-flow-strip-types'],
+    ['@babel/plugin-transform-class-static-block'],
     ['@babel/plugin-transform-private-methods', { loose: true }],
   ],
   presets: ['module:metro-react-native-babel-preset'],

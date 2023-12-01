@@ -79,9 +79,10 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
       [
         {
           icon: GlobeHemisphereWest,
-          title: i18n.settings.generalSettings,
+          title: i18n.settings.language,
           rightIcon: <Icon phosphorIcon={CaretRight} size={'sm'} iconColor={theme.colorTextLight3} />,
-          onPress: () => navigation.navigate('GeneralSettings'),
+          // onPress: () => navigation.navigate('GeneralSettings'),
+          onPress: () => navigation.navigate('Languages'),
           backgroundColor: '#6A00FF',
         },
         {
