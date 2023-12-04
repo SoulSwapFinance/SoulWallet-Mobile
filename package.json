@@ -1,6 +1,6 @@
 {
   "name": "soulwallet-mobile",
-  "version": "1.0.14",
+  "version": "1.0.5",
   "build": "213",
   "private": true,
   "license": "Apache-2.0",
@@ -22,6 +22,7 @@
     "ios:production": "scripts/build-ios.sh",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start": "react-native start",
+    "restart": "watchman shutdown-server && watchman watch-del-all && react-native start",
     "test": "jest",
     "watch:restart": "watchman shutdown-server && watchman watch-del-all"
   },
