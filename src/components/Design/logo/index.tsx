@@ -50,14 +50,36 @@ const Logo: React.FC<SWLogoProps> = ({
   const btcLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/btc.png"
   const ethLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/eth.png"
   const usdcLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/usdc.png"
-
+  const daiLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/dai.png"
+  // const wftmLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/wftm.png"
 
 const CUSTOM_LOGOS = [
-  'fantom-erc20-wftm-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', // fantom
-  "avalanche-erc20-wavax-0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7", "avax", "wavax", // avalache
-  "btc", "wbtc", "axlwbtc", "wbtc.e", // bitcoin
-  "axleth", "weth", "lzeth", "weth.e", // ethereum
-  "axlusdc", "lzusdc", "usdc", "usdc.e", // usdc
+  // fantom //
+  'ftm', 'wftm',
+  'fantom-erc20-wftm-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
+  'custom-fantom-erc20-wftm-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
+  // avalanche //
+  "avalanche-erc20-wavax-0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+  "custom-avalanche_c-erc20-wavax-0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+  "avax", "wavax",
+  
+  // bitcoin //
+  'custom-fantom-erc20-wbtc-0xf1648c50d2863f780c57849d812b4b7686031a3d', // lzBTC
+  'custom-fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e', // axlBTC
+  'custom-avalanche_c-erc20-wbtc.e-0x50b7545627a5162f82a992c33b87adc75187b218', // WBTC.e
+  "btc", "wbtc", "axlwbtc", "wbtc.e",
+  
+  // ethereum
+  'custom-fantom-erc20-axleth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b',
+  "axleth", "weth", "lzeth", "weth.e", 
+
+   // usdc //
+  'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e',
+  "axlusdc", "lzusdc", "usdc", "usdc.e",
+
+  // dai //
+  'custom-avalanche_c-erc20-dai.e-0xd586e7f844cea2f87f50152665bcbc2c279d8d70',
+  
   // misc overrides //
   "shidenevm-erc20-fegs-0xa9b79aab9d60e8e6d08d2cbad56ff0de58ff8d41",
   "neatcoin-native-neat",
@@ -75,28 +97,39 @@ const CUSTOM_LOGOS = [
 ]
 const CUSTOM_LOGO_MAP = {
   // fantom //
+  'ftm': ftmLogo,
+  'wftm': ftmLogo,
   'fantom-erc20-wftm-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83': ftmLogo,
+  "custom-fantom-erc20-wftm-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83": ftmLogo,
   // avalanche //
+  'avax': avaxLogo,
+  'wavax': avaxLogo,
+  'avax': avaxLogo,
+  'wavax': avaxLogo,
   'avalanche-erc20-wavax-0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7': avaxLogo,
-  'avax': avaxLogo,
-  'wavax': avaxLogo,
-  'avax': avaxLogo,
-  'wavax': avaxLogo,
+  'custom-avalanche_c-erc20-wavax-0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7': avaxLogo,
   // bitcoin // 
   "btc": btcLogo,
   "wbtc": btcLogo,
   "axlwbtc": btcLogo,
   "wbtc.e": btcLogo,
+  "custom-fantom-erc20-wbtc-0xf1648c50d2863f780c57849d812b4b7686031a3d": btcLogo, // lzBTC
+  "custom-fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e": btcLogo, // axlWBTC
+  "custom-avalanche_c-erc20-wbtc.e-0x50b7545627a5162f82a992c33b87adc75187b218": btcLogo, // WBTC.e
   // ethereum //
   "axleth": ethLogo,
   "weth": ethLogo,
   "lzeth": ethLogo,
   "weth.e": ethLogo,
+  "custom-fantom-erc20-axleth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b": ethLogo, // axlETH
   // usdc //
   "axlusdc": usdcLogo,
   "lzusdc": usdcLogo,
   "usdc": usdcLogo,
   "usdc.e": usdcLogo,
+  'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e': usdcLogo,
+  // dai //
+  'custom-avalanche_c-erc20-dai.e-0xd586e7f844cea2f87f50152665bcbc2c279d8d70': daiLogo,
   // misc overrides //
   'shidenevm-erc20-fegs-0xa9b79aab9d60e8e6d08d2cbad56ff0de58ff8d41': soulLogo,
   'neatcoin-native-neat': soulLogo,
@@ -111,7 +144,6 @@ const CUSTOM_LOGO_MAP = {
   'shidenevm-erc20-stnd-0x722377a047e89ca735f09eb7cccab780943c4cb4': soulLogo,
   'shidenevm-erc20-srise-0x16bf7ecaf868348703ff5b5c0c3b84be7bf483f9': soulLogo,
 }
-
 
   // UI NOTE: GETS TOKEN LOGO
   if (token) {
