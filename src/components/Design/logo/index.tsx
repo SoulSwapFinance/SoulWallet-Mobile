@@ -58,27 +58,31 @@ const CUSTOM_LOGOS = [
   'ftm', 'wftm',
   'fantom-erc20-wftm-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
   'custom-fantom-erc20-wftm-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
+
   // avalanche //
+  "avax", "wavax",
   "avalanche-erc20-wavax-0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
   "custom-avalanche_c-erc20-wavax-0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
-  "avax", "wavax",
   
   // bitcoin //
+  "btc", "wbtc", "axlwbtc", "wbtc.e",
   'custom-fantom-erc20-wbtc-0xf1648c50d2863f780c57849d812b4b7686031a3d', // lzBTC
   'custom-fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e', // axlBTC
   'custom-avalanche_c-erc20-wbtc.e-0x50b7545627a5162f82a992c33b87adc75187b218', // WBTC.e
-  "btc", "wbtc", "axlwbtc", "wbtc.e",
   
   // ethereum
-  'custom-fantom-erc20-axleth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b',
   "axleth", "weth", "lzeth", "weth.e", 
+  'custom-fantom-erc20-axleth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b', // axlETH
+  'custom-avalanche_c-erc20-weth.e-0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab', // WETH.e
 
    // usdc //
-  'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e',
-  "axlusdc", "lzusdc", "usdc", "usdc.e",
+   "axlusdc", "lzusdc", "usdc", "usdc.e",
+  'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4', // axlUSDC
+  'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e', // USDC
+  'custom-avalanche_c-erc20-usdc.e-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664', // USDC.e
 
   // dai //
-  'custom-avalanche_c-erc20-dai.e-0xd586e7f844cea2f87f50152665bcbc2c279d8d70',
+  'custom-avalanche_c-erc20-dai.e-0xd586e7f844cea2f87f50152665bcbc2c279d8d70', // DAI.e
   
   // misc overrides //
   "shidenevm-erc20-fegs-0xa9b79aab9d60e8e6d08d2cbad56ff0de58ff8d41",
@@ -122,12 +126,15 @@ const CUSTOM_LOGO_MAP = {
   "lzeth": ethLogo,
   "weth.e": ethLogo,
   "custom-fantom-erc20-axleth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b": ethLogo, // axlETH
+  "custom-avalanche_c-erc20-weth.e-0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab": ethLogo, // WETH.e
   // usdc //
   "axlusdc": usdcLogo,
   "lzusdc": usdcLogo,
   "usdc": usdcLogo,
   "usdc.e": usdcLogo,
-  'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e': usdcLogo,
+  'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4': usdcLogo, // axlUSDC
+  'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e': usdcLogo, // USDC
+  'custom-avalanche_c-erc20-usdc.e-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664': usdcLogo, // USDC.e
   // dai //
   'custom-avalanche_c-erc20-dai.e-0xd586e7f844cea2f87f50152665bcbc2c279d8d70': daiLogo,
   // misc overrides //
