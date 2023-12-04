@@ -88,7 +88,7 @@ export const CustomTokenSetting = () => {
   const onToggleItem = (item: _ChainAsset) => {
     setPendingAssetMap({ ...pendingAssetMap, [item.slug]: !assetSettingMap[item.slug]?.visible });
     const reject = () => {
-      console.warn('Toggle token request failed!');
+      console.warn('Toggle token request failed');
       // @ts-ignore
       delete pendingassetMap[item.key];
       setPendingAssetMap({ ...pendingAssetMap });
