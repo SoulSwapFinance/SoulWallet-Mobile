@@ -291,7 +291,8 @@ export const Settings = ({ navigation: drawerNavigation }: DrawerContentComponen
         </ScrollView>
         <Text
           onPress={onPressVersionNumber}
-          style={versionAppStyle}>{`SoulWallet v${VersionNumber.appVersion} (${VersionNumber.buildVersion})`}</Text>
+          style={versionAppStyle}>{`SoulWallet v${VersionNumber.appVersion} ${Number(VersionNumber.buildVersion) > 1 ? `(${VersionNumber.buildVersion})` : ``}`}
+          </Text>
       </>
     </SoulScreenContainer>
   );
