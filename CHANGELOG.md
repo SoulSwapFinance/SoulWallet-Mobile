@@ -224,7 +224,7 @@
 - Add support more languages (#56)
 
 ## 1.0.10 (199)
-- Autofocus password when create master password & Allow search by address on Manage website access detail screen (#884, #882)
+- Autofocus password when create master password & Allow search by address on Website Access detail screen (#884, #882)
 - Fix browser issue (#873)
 - Update banner, favorites logic filter (#885)
 
