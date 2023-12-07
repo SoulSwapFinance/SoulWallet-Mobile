@@ -101,7 +101,7 @@
   "Understood, let me continue": "Anlaşıldı ise devam ",
   "An error occured": "Bir hata oluştu",
   "Something went wrong with the query and rendering of this component. {{message}}": "Bu bileşenin sorgusunda ve oluşturulmasında bir sorun oluştu. {{Message}}",
-  "Back to home": "Eve geri dön",
+  "Back Home": "Eve geri dön",
   "external account": "harici hesap",
   "Phishing detected": "Kimlik avı algılandı",
   "Remember my password for the next {{expiration}} minutes": "Sonraki {{expiration}} dakika için şifremi hatırla",

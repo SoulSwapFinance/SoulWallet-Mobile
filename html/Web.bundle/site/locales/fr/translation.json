@@ -101,7 +101,7 @@
   "Understood, let me continue": "Compris, laissez-moi continuer",
   "An error occured": "Une erreur s'est produite",
   "Something went wrong with the query and rendering of this component. {{message}}": "Une erreur s'est produite lors de la requête et du rendu de ce composant. {{message}}",
-  "Back to home": "Retour",
+  "Back Home": "Retour",
   "external account": "compte externe",
   "Phishing detected": "Phishing détecté",
   "Remember my password for the next {{expiration}} minutes": "Retenir le mot de passe pour {{expiration}} minutes",

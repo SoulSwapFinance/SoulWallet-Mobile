@@ -101,7 +101,7 @@
   "Understood, let me continue": "เข้าใจแล้ว ให้ฉันไปต่อ",
   "An error occured": "มีข้อผิดพลาดเกิดขึ้น",
   "Something went wrong with the query and rendering of this component. {{message}}": "มีบางอย่างผิดพลาดเกี่ยวกับquery และการเรนเดอร์ส่วนของหน้านี้ {{message}}",
-  "Back to home": "กลับไปยังหน้าหลัก",
+  "Back Home": "กลับไปยังหน้าหลัก",
   "external account": "บัญชีภายนอก",
   "Phishing detected": "ตรวจพบฟิชชิ่ง",
   "Remember my password for the next {{expiration}} minutes": "จดจำรหัสผ่านเป็นเวลา {{expiration}} นาที",
