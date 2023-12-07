@@ -181,8 +181,8 @@
     "days": "days",
     "hours": "hours",
     "forgotPassword": "Forgot password?",
-    "resetAccount": "Reset account",
-    "eraseAll": " Erase all",
+    "resetAccount": "Reset",
+    "eraseAll": " Delete",
     "connecting": "Connecting...",
     "chainConnected": "{0} is connected!",
     "enableChain": "Enable network?",
@@ -694,7 +694,7 @@
     "createAPassword": "Create a password",
     "customizeAssetDisplay": "Customize asset display",
     "selectToken": "Select token",
-    "yourAddress": "Address",
+    "yourAddress": "Your address",
     "buyToken": "Buy token",
     "transfer": "Transfer",
     "transferConfirmation": "Transfer confirmation",
@@ -784,7 +784,7 @@
     "missionPools": "Mission Pools"
   },
   "cryptoScreen": {
-    "receive": "Address",
+    "receive": "Receive",
     "send": "Send",
     "swap": "Swap",
     "buy": "Buy"

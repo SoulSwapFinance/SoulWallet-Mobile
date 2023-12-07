@@ -99,6 +99,7 @@ export const TokenGroupsDetailUpperBlock = ({
       </Text>
 
       <View style={[_style.actionButtonWrapper]} pointerEvents="box-none">
+      {groupSymbol !== 'SOUL' &&
         <ActionButton
           // label={i18n.cryptoScreen.send}
           // image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/sent.png'}
@@ -107,6 +108,7 @@ export const TokenGroupsDetailUpperBlock = ({
           onPress={onOpenSendFund}
           buttonWrapperStyle={{ borderRadius: 32, paddingHorizontal: 1, paddingVertical: 1, backgroundColor: ColorMap.backgroundSecondary, marginLeft: 12, marginRight: 12 }}
         />
+      }
         <ActionButton
           // label={i18n.cryptoScreen.receive}
           // image={'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/mobile/icons/received.png'}
