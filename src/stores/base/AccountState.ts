@@ -14,6 +14,7 @@ const initialState: AccountState = {
 
   // KeyringState
   isReady: false,
+  // isWaiting: false,
   hasMasterPassword: false,
   isLocked: true,
 

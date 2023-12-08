@@ -54,6 +54,16 @@ export function updateAccountsWaitingStatus(payload: boolean): void {
   store.dispatch({ type: 'accounts/updateWaitingStatus', payload });
 }
 
+// made up
+// export function updateAccountsSlice(payload: boolean): void {
+//   store.dispatch({ type: 'accounts/updateAccountsSlice', payload });
+// }
+  
+// made up
+// export function updateAccountsAndCurrentAccount(payload: boolean): void {
+//   store.dispatch({ type: 'accounts/updateAccountsAndCurrentAccount', payload });
+// }
+
 export function updateTabScreenshot(id: string, screenshot: string): void {
   store.dispatch({ type: 'browser/updateTabScreenshot', payload: { id, screenshot } });
 }

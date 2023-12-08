@@ -41,6 +41,13 @@ import { AssetRegistryStore, BalanceStore, BrowserSlice, ChainStore } from './ty
 import { browserDAPPs, tokenConfig } from './API';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
+// export interface KeyringState {
+//   isReady: boolean;
+//   isWaiting?: boolean;
+//   hasMasterPassword: boolean;
+//   isLocked: boolean;
+// }
+
 const persistRootConfig = {
   key: 'root',
   version: 3,

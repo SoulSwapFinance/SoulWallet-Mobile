@@ -160,6 +160,7 @@ import {
 import { _ChainAsset, _ChainInfo } from '@subwallet/chain-list/types';
 import { AuthUrls } from '@subwallet/extension-base/services/request-service/types';
 import { _getKnownHashes } from 'utils/defaultChains';
+// import { KeyringState } from 'stores/types';
 
 interface Handler {
   resolve: (data: any) => void;
@@ -883,6 +884,13 @@ export async function rejectMetaRequest(id: string): Promise<boolean> {
 export async function subscribeAccounts(cb: (accounts: AccountJson[]) => void): Promise<AccountJson[]> {
   return sendMessage('pri(accounts.subscribe)', {}, cb);
 }
+
+// made-up
+// export async function updateCurrentAccountAddress(
+//   cb: (data: AccountsWithCurrentAddress) => void,
+// ): Promise<AccountsWithCurrentAddress> {
+//   return sendMessage('pri(accounts.subscribeWithCurrentAddress)', {}, cb);
+// }
 
 export async function subscribeAccountsWithCurrentAddress(
   cb: (data: AccountsWithCurrentAddress) => void,
