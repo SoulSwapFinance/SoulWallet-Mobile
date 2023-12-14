@@ -48,7 +48,8 @@ const Logo: React.FC<SWLogoProps> = ({
   const avaxLogo = "https://raw.githubusercontent.com/SoulSwapFinance/SoulWallet-Chainlist/master/packages/chain-list-assets/public/assets/chains/avalanche.png"
   const soulLogo = "https://soulswap.finance/favicon.png"
   const btcLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/btc.png"
-  const ethLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/eth.png"
+  // const ethLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/eth.png"
+  const ethLogo = "https://chain-list-assets.subwallet.app/assets/multi-chain-assets/weth-wrappedether.png"
   const usdcLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/usdc.png"
   const daiLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/dai.png"
   // const wftmLogo = "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/logos/wftm.png"
@@ -73,7 +74,7 @@ const CUSTOM_LOGOS = [
   // ethereum
   "axleth", "weth", "lzeth", "weth.e", 
   'custom-fantom-erc20-axleth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b', // axlETH
-  'custom-avalanche_c-erc20-weth.e-0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab', // WETH.e
+  'avalanche_c-erc20-weth-0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab', // WETH.e
 
    // usdc //
    "axlusdc", "lzusdc", "usdc", "usdc.e",
@@ -126,7 +127,7 @@ const CUSTOM_LOGO_MAP = {
   "lzeth": ethLogo,
   "weth.e": ethLogo,
   "custom-fantom-erc20-axleth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b": ethLogo, // axlETH
-  "custom-avalanche_c-erc20-weth.e-0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab": ethLogo, // WETH.e
+  "avalanche_c-erc20-weth-0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab": ethLogo, // WETH.e
   // usdc //
   "axlusdc": usdcLogo,
   "lzusdc": usdcLogo,
