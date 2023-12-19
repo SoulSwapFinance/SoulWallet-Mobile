@@ -154,7 +154,7 @@ const CUSTOM_LOGO_MAP = {
 
   // UI NOTE: GETS TOKEN LOGO
   if (token) {
-    console.log(token, isCustomLogo)
+    // console.log(token, isCustomLogo)
     // console.log(token)
     const isCustomLogo = CUSTOM_LOGOS.includes(token)
     srcLogo = isCustomLogo ? CUSTOM_LOGO_MAP[token] : assetLogoMap[token] || soulLogo
