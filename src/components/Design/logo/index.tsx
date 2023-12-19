@@ -40,7 +40,7 @@ const Logo: React.FC<SWLogoProps> = ({
   const theme = useSoulWalletTheme().swThemes;
   const { chainLogoMap, assetLogoMap } = useSelector((state: RootState) => state.logoMaps);
   const _style = LogoStyles(theme);
-  const subLogoSize = size / 2.5;
+  const logoSize = size / 2.5;
   
   let srcLogo= "https://soulswap.finance/favicon.png"
 
@@ -67,7 +67,7 @@ const CUSTOM_LOGOS = [
   // bitcoin //
   "btc", "wbtc", "axlwbtc", "wbtc.e",
   'custom-fantom-erc20-wbtc-0xf1648c50d2863f780c57849d812b4b7686031a3d', // lzBTC
-  'custom-fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e', // axlBTC
+  'custom-fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e', // axlWBTC [...]
   'custom-avalanche_c-erc20-wbtc.e-0x50b7545627a5162f82a992c33b87adc75187b218', // WBTC.e
   
   // ethereum
@@ -77,7 +77,7 @@ const CUSTOM_LOGOS = [
 
    // usdc //
    "axlusdc", "lzusdc", "usdc", "usdc.e",
-  'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4', // axlUSDC
+  'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4', // axlUSDC [...]
   'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e', // USDC
   'avalanche_c-erc20-usdc-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664', // USDC.e
 
@@ -118,7 +118,7 @@ const CUSTOM_LOGO_MAP = {
   "axlwbtc": btcLogo,
   "wbtc.e": btcLogo,
   "custom-fantom-erc20-wbtc-0xf1648c50d2863f780c57849d812b4b7686031a3d": btcLogo, // lzBTC
-  "custom-fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e": btcLogo, // axlWBTC
+  "custom-fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e": btcLogo, // axlWBTC [...]
   "custom-avalanche_c-erc20-wbtc.e-0x50b7545627a5162f82a992c33b87adc75187b218": btcLogo, // WBTC.e
   // ethereum //
   "axleth": ethLogo,
@@ -132,7 +132,7 @@ const CUSTOM_LOGO_MAP = {
   "lzusdc": usdcLogo,
   "usdc": usdcLogo,
   "usdc.e": usdcLogo,
-  'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4': usdcLogo, // axlUSDC
+  'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4': usdcLogo, // axlUSDC [...]
   'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e': usdcLogo, // USDC
   'avalanche_c-erc20-usdc-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664': usdcLogo, // USDC.e
   // dai //
@@ -192,8 +192,8 @@ const CUSTOM_LOGO_MAP = {
       {isShowSoulLogo && (
         <Image
           src={srcSubLogo ? { uri: srcSubLogo } : "https://soulswap.finance/favicon.png"}
-          style={{ width: subLogoSize, height: subLogoSize }}
-          squircleSize={subLogoSize}
+          style={{ width: logoSize, height: logoSize }}
+          squircleSize={logoSize}
           shape={subLogoShape}
           containerStyle={_style.subLogoContainer}
         />
