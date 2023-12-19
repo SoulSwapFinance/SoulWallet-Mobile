@@ -67,17 +67,17 @@ const CUSTOM_LOGOS = [
   // bitcoin //
   "btc", "wbtc", "axlwbtc", "wbtc.e",
   'custom-fantom-erc20-wbtc-0xf1648c50d2863f780c57849d812b4b7686031a3d', // lzBTC
-  'custom-fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e', // axlWBTC [...]
+  'fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e', // axlWBTC
   'custom-avalanche_c-erc20-wbtc.e-0x50b7545627a5162f82a992c33b87adc75187b218', // WBTC.e
   
   // ethereum
   "axleth", "weth", "lzeth", "weth.e", 
-  'custom-fantom-erc20-axleth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b', // axlETH
+  'fantom-erc20-axlweth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b', // axlWETH
   'avalanche_c-erc20-weth-0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab', // WETH.e
 
    // usdc //
    "axlusdc", "lzusdc", "usdc", "usdc.e",
-  'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4', // axlUSDC [...]
+  'fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4', // axlUSDC
   'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e', // USDC
   'avalanche_c-erc20-usdc-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664', // USDC.e
 
@@ -118,21 +118,21 @@ const CUSTOM_LOGO_MAP = {
   "axlwbtc": btcLogo,
   "wbtc.e": btcLogo,
   "custom-fantom-erc20-wbtc-0xf1648c50d2863f780c57849d812b4b7686031a3d": btcLogo, // lzBTC
-  "custom-fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e": btcLogo, // axlWBTC [...]
+  "fantom-erc20-axlwbtc-0x448d59b4302ab5d2dadf9611bed9457491926c8e": btcLogo, // axlWBTC
   "custom-avalanche_c-erc20-wbtc.e-0x50b7545627a5162f82a992c33b87adc75187b218": btcLogo, // WBTC.e
   // ethereum //
   "axleth": ethLogo,
   "weth": ethLogo,
   "lzeth": ethLogo,
   "weth.e": ethLogo,
-  "custom-fantom-erc20-axleth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b": ethLogo, // axlETH
+  "fantom-erc20-axlweth-0xfe7eda5f2c56160d406869a8aa4b2f365d544c7b": ethLogo, // axlWETH
   "avalanche_c-erc20-weth-0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab": ethLogo, // WETH.e
   // usdc //
   "axlusdc": usdcLogo,
   "lzusdc": usdcLogo,
   "usdc": usdcLogo,
   "usdc.e": usdcLogo,
-  'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4': usdcLogo, // axlUSDC [...]
+  'fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4': usdcLogo, // axlUSDC
   'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e': usdcLogo, // USDC
   'avalanche_c-erc20-usdc-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664': usdcLogo, // USDC.e
   // dai //
@@ -165,7 +165,7 @@ const CUSTOM_LOGO_MAP = {
     // note: use this to identify chain name
     // console.log(network)
     // console.log(chainLogoMap[network])
-    // manually get the network logo
+    // gets: the network logo
     (network == 'avalanche_c' | network == 'custom-EVM-avalanchec-chain-43114')? srcLogo = avaxLogo 
       : srcLogo = chainLogoMap[network] 
         || chainLogoMap[defaultLogoKey];
