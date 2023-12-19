@@ -156,7 +156,6 @@ export const CustomTokenSetting = () => {
         )}
         isShowListWrapper
       />
-
       <SafeAreaView />
     </>
   );

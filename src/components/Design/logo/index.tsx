@@ -79,7 +79,7 @@ const CUSTOM_LOGOS = [
    "axlusdc", "lzusdc", "usdc", "usdc.e",
   'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4', // axlUSDC
   'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e', // USDC
-  'custom-avalanche_c-erc20-usdc.e-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664', // USDC.e
+  'avalanche_c-erc20-usdc-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664', // USDC.e
 
   // dai //
   'custom-avalanche_c-erc20-dai.e-0xd586e7f844cea2f87f50152665bcbc2c279d8d70', // DAI.e
@@ -134,7 +134,7 @@ const CUSTOM_LOGO_MAP = {
   "usdc.e": usdcLogo,
   'custom-fantom-erc20-axlusdc-0x1b6382dbdea11d97f24495c9a90b7c88469134a4': usdcLogo, // axlUSDC
   'custom-avalanche_c-erc20-usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e': usdcLogo, // USDC
-  'custom-avalanche_c-erc20-usdc.e-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664': usdcLogo, // USDC.e
+  'avalanche_c-erc20-usdc-0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664': usdcLogo, // USDC.e
   // dai //
   'custom-avalanche_c-erc20-dai.e-0xd586e7f844cea2f87f50152665bcbc2c279d8d70': daiLogo,
   // misc overrides //
